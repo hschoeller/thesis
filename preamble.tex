@@ -1,0 +1,50 @@
+% Encoding & fonts
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[utf8]{inputenc}
+
+% Language
+\usepackage[english]{babel}
+
+% Math & symbols
+\usepackage{amsmath,amssymb,amsthm}
+
+% Figures, tables, cross-referencing
+\usepackage{graphicx}
+\graphicspath{{fig/NPG/}{fig/CAMCOS/}{fig/QJR/}}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+% Bibliography
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{bib/references.bib}
+
+% Hyperlinks & references
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% Microtypography
+\usepackage{microtype}
+
+% Units and diagrams
+\usepackage{siunitx}
+\usepackage{tikz}
+
+% Custom macros
+\usepackage{style/thesis}
+
+% Acronyms
+\usepackage[acronym]{glossaries}
+
+% Initialize glossary
+\makeglossaries
+
+\input{style/acronyms}
+
+% Metadata
+\title{Your Thesis Title}
+\author{Henry Schoeller}
+\date{\today}

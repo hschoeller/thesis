@@ -1,0 +1,53 @@
+%================================================
+% thesis.sty
+% Minimal custom style for doctoral thesis
+%================================================
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{thesis}[2026/01/21 Minimal thesis style]
+
+%------------------------------------------------
+% Required packages (keep this short)
+%------------------------------------------------
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{xspace}
+
+%------------------------------------------------
+% Referencing helpers (semantic, not stylistic)
+%------------------------------------------------
+\newcommand{\Fig}{Fig.\@\xspace}
+\newcommand{\Figs}{Figs.\@\xspace}
+\newcommand{\Tab}{Tab.\@\xspace}
+\newcommand{\Tabs}{Tabs.\@\xspace}
+\newcommand{\Eq}{Eq.\@\xspace}
+\newcommand{\Eqs}{Eqs.\@\xspace}
+\newcommand{\Sec}{Sec.\@\xspace}
+\newcommand{\Secs}{Secs.\@\xspace}
+\newcommand{\Chap}{Chap.\@\xspace}
+
+%------------------------------------------------
+% Paper metadata commands (for cumulative theses)
+%------------------------------------------------
+\newcommand{\papertitle}[1]{%
+  \section*{Paper title}
+  \textit{#1}
+  \vspace{1em}
+}
+
+\newcommand{\paperinfo}[2]{%
+  \noindent
+  \textbf{Publication:} #1\\
+  \textbf{Status:} #2
+  \vspace{1em}
+}
+
+\newcommand{\authorcontribution}[1]{%
+  \section*{Author contributions}
+  #1
+  \vspace{1em}
+}
+
+%------------------------------------------------
+% End of thesis.sty
+%------------------------------------------------

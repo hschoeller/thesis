@@ -1,0 +1,17 @@
+{
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Build with Makefile",
+            "tools": [
+                "makefile"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "makefile",
+            "command": "make",
+            "args": []
+        }
+    ]
+}
