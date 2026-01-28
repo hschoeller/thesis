@@ -1,4 +1,12 @@
 {
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.outDir": "build",
+    "latex-workshop.view.pdf.refresher": "auto",
+    "latex-workshop.intellisense.enabled": true,
+    "latex-workshop.intellisense.ref.enabled": true,
+    "latex-workshop.intellisense.citation.enabled": true,
+    "latex-workshop.intellisense.label.enabled": true,
     "latex-workshop.latex.recipes": [
         {
             "name": "Build with Makefile",
@@ -11,7 +19,10 @@
         {
             "name": "makefile",
             "command": "make",
-            "args": []
+            "args": [
+                "all"
+            ]
         }
-    ]
+    ],
+    "latex-workshop.latex.defaultRecipe": "Build with Makefile"
 }

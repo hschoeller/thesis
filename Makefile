@@ -12,29 +12,26 @@ $(BUILD):
 	mkdir -p $(BUILD)
 
 # -------------------------------------------------
-# Default target: build PDF
+# Default target: build PDF in build/ (for editing)
 # -------------------------------------------------
-all: $(BUILD)/$(MAIN).pdf copy-pdf
+all: $(BUILD)/$(MAIN).pdf
 
 # -------------------------------------------------
 # Build PDF in build/
 # -------------------------------------------------
-$(BUILD)/$(MAIN).pdf: $(MAIN).tex $(shell find . -name '*.tex') $(shell find . -name '*.sty') | $(BUILD)
-	# 1st LaTeX run
-	$(TEX) -output-directory=$(BUILD) $(MAIN).tex
-	# Generate glossary (if any)
-	makeglossaries $(BUILD)/$(MAIN)
-	# Bibliography
+SOURCES := $(shell find . -name '*.tex' -o -name '*.sty')
+
+$(BUILD)/$(MAIN).pdf: $(SOURCES) | $(BUILD)
+	$(TEX) -synctex=1 -interaction=nonstopmode -output-directory=$(BUILD) $(MAIN).tex
+	makeglossaries -d $(BUILD) $(MAIN)
 	$(BIB) $(BUILD)/$(MAIN)
-	# 2nd LaTeX run
-	$(TEX) -output-directory=$(BUILD) $(MAIN).tex
-	# 3rd LaTeX run for cross-references
-	$(TEX) -output-directory=$(BUILD) $(MAIN).tex
+	$(TEX) -synctex=1 -interaction=nonstopmode -output-directory=$(BUILD) $(MAIN).tex
+	$(TEX) -synctex=1 -interaction=nonstopmode -output-directory=$(BUILD) $(MAIN).tex
 
 # -------------------------------------------------
-# Copy PDF back to root folder automatically
+# Optional: export PDF for submission
 # -------------------------------------------------
-copy-pdf: $(BUILD)/$(MAIN).pdf
+export: $(BUILD)/$(MAIN).pdf
 	cp $(BUILD)/$(MAIN).pdf ./$(MAIN).pdf
 
 # -------------------------------------------------
@@ -44,7 +41,7 @@ clean:
 	rm -rf $(BUILD)/*
 
 # -------------------------------------------------
-# Clean build artifacts + root PDF
+# Clean build artifacts + exported root PDF
 # -------------------------------------------------
 cleanall: clean
 	rm -f $(MAIN).pdf
@@ -52,4 +49,4 @@ cleanall: clean
 # -------------------------------------------------
 # Phony targets
 # -------------------------------------------------
-.PHONY: all clean cleanall copy-pdf
+.PHONY: all clean cleanall export

@@ -5,7 +5,7 @@
             "label": "Build thesis (Makefile)",
             "type": "shell",
             "command": "make",
-            "args": [],
+            "args": ["all"],
             "group": {
                 "kind": "build",
                 "isDefault": true

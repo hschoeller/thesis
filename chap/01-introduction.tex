@@ -1,0 +1,173 @@
+% !TeX root = ../main.tex
+% =================================================
+% Chapter 1: Introduction
+% =================================================
+
+\chapter{Introduction} % LaTeX chapter title
+\label{chap:intro}
+
+\section{Atmospheric Blocking}
+\label{sec:blocking}
+Atmospheric blocking represents a critical phenomenon in the dynamics of Earth's atmosphere,
+characterized by the temporary obstruction of prevailing westerlies in the mid-latitudes,
+potentially influencing weather on a planetary scale \parencite{lupoAtmosphericBlockingEvents2021}.
+These events are notable for their role in causing extreme weather conditions,
+such as heatwaves, cold spells, and sustained periods of precipitation,
+impacting both human activities and natural ecosystems
+\parencite{kautzAtmosphericBlockingWeather2022, pfahlQuantifyingRelevanceAtmospheric2012}.
+The mechanisms leading to atmospheric blocking are complex,
+involving interactions between the atmosphere,
+cryosphere \parencite{tyrlisUralBlockingDriving2019, woollingsArcticWarmingAtmospheric2014},
+ocean \parencite{drijfhoutSpontaneousAbruptClimate2013, hakkinenAtmosphericBlockingAtlantic2011},
+and land \parencite{heImpactLandSea2014, kurganskyAtmosphericCirculationResponse2020, tillyCalculatedHeightTendencies2008},
+and are a subject of ongoing research.
+Despite their significance,
+predicting atmospheric blocking events and their impacts remains a challenge,
+due to the inherent variability and the multifaceted processes that govern their formation,
+maintenance, and dissipation.
+Weather and climate models' inability to correctly represent blocking
+\parencite{matsuedaBlockingPredictabilityOperational2009}
+also causes considerable uncertainties in its predicted response to climate change
+\parencite{woollingsBlockingItsResponse2018}.
+
+\subsection{Blockings and Warm Conveyor Belts}
+\label{sec:blockWCB}
+
+Though traditionally conceived as an adiabatic phenomenon,
+recent studies have pointed to the role of diabatic processes in blockings
+\parencite{croci-maspoliKeyDynamicalFeatures2009, hauserHolisticUnderstandingBlocked2023, pfahlImportanceLatentHeat2015, tillyCalculatedHeightTendencies2008}.
+More specifically,
+a line of study has been concerned with moist processes,
+arguing that a considerable fraction of the air masses constituting the blocking
+originate from warm sectors of neighboring surface cyclones
+and travel into the blocking via \glspl{wcb}
+\parencite{pfahlImportanceLatentHeat2015, steinfeldRoleLatentHeating2019, yamamotoOceanicMoistureSources2021, zschenderleinLagrangianAnalysisUppertropospheric2020}.
+\glspl{wcb} are moist, rapidly ascending air streams
+and are subject to research in their own right
+\parencite[e.g.,~][]{joosWarmConveyorBelts2023, madonnaWarmConveyorBelts2014a}
+i.a.~due to their contribution to forecast uncertainty
+\parencite{madonnaVerificationNorthAtlantic2015, picklWarmConveyorBelts2023, wandelSystematicEvaluationWarm2021}.
+According to \textcite{steinfeldRoleLatentHeating2019},
+the air parcels conveyed by such \glspl{wcb} considerably influence the blocking
+by stabilizing and potentially intensifying the negative \gls{pv} anomaly
+characteristic for the blocking,
+especially in the onset and maintenance stages of its lifecycle
+(negative \gls{pv} anomalies are associated with anticyclonal circulation and thus high pressure).
+This happens, firstly,
+through a material change in \gls{pv} of the respective air masses
+via latent heating induced, cross-isentropic vertical motion
+and, secondly,
+through the divergent outflow of the guiding air streams in the upper troposphere.
+Evidence that moist processes might become more important
+in a warmer and moister climate underlines the need for further investigation
+\parencite{steinfeldResponseMoistDry2022}.
+
+The notion of a \gls{wcb} suggests a geometrically coherent flow of the air masses involved,
+but such a coherent behavior has not been explicitly addressed in the studies above.
+The backward trajectories attributed to such air streams
+are typically identified using thresholds for ascent (change in pressure)
+or diabatic heating (change in potential temperature),
+such that a common pathway is not guaranteed.
+In addition,
+the methodology employed does not allow for statements about the size,
+location,
+time of existence
+or even the number of \glspl{wcb} implicated in the process.
+Another drawback of the identification method is its subjective nature,
+implied by selecting an arbitrary threshold for the decrease in pressure
+(\cite{madonnaWarmConveyorBelts2014a} use 600 hPa in 48 h)
+or increase in potential temperature the air parcels have experienced
+(usually a threshold of $\Delta \theta > 2$ K is used).
+To the best of our knowledge,
+an objective identification method for coherent medium-to-large scale air streams
+that allows addressing these drawbacks
+has not been presented in the context of atmospheric sciences.
+
+In the study presented in \cref{chap:coherence},
+we want to tackle these issues focusing on the exact spatio-temporal nature
+of trajectories passing through a blocking
+and how individual trajectories align with each other.
+By grouping the set of trajectories into subsets (clusters)
+based on only their geometric coherence,
+we identify synoptic scale air streams
+and analyze their individual dynamical properties
+and interrelation with the large scale flow configuration.
+The perspective introduced also allows for statements
+about the overall spatial configuration and coherence of the air parcels traced,
+especially with respect to the blockings' lifecycles.
+A blocking's stabilizing and dispersion-suppressing nature
+affects individual air parcels,
+which can be identified through our Lagrangian lens
+\parencite{ehstandCharacteristicSignaturesNorthern2021}.
+
+To accomplish the above,
+we make use of the mathematical concept of coherent sets.
+A coherent set is a time-evolving region in the state space of a dynamical system
+that keeps its geometric integrity to a large degree.
+This is particularly interesting when the underlying system is such
+that individual trajectories diverge
+and any set eventually becomes highly filamented under evolution through the dynamics.
+We characterize coherent sets based on their stability under small perturbations.
+Coherent sets hence resist dispersion,
+persist longer in complicated flows
+and have thus an outstanding effect on the transport of physically relevant quantities.
+The fundamental idea is that in a coherent set
+the individual trajectories stay relatively close together as a whole,
+such that particles remain within the coherent set
+when they are subjected to small random perturbations.
+In contrast,
+if a time-evolving set is filamented,
+particles are likely to leave the set under the influence of random noise
+-- and hence mix with its exterior.
+To formalize this heuristics and numerically compute coherent sets,
+we follow the work of \textcite{banischUnderstandingGeometryTransport2017}
+(based on theory developed in~\textcite{froylandAnalyticFrameworkIdentifying2013,froylandDynamicIsoperimetryGeometry2015}),
+which characterizes the robustness of coherent sets under small perturbations
+using a data-analysis framework called diffusion maps.
+Their method yields a single time-averaged operator
+whose spectral properties contain the necessary information
+to extract coherent sets.
+
+The visual idea of coherence (i.e., ``trajectories staying together'')
+can be cast into diverse objectives,
+which then can be used to partition available trajectory data into such sets.
+For a sample of the ideas that have been implemented
+please consult~\textcite{froylandRoughandreadyClusterbasedApproach2015, allshouseLagrangianBasedMethods2015, hadjighasemSpectralclusteringApproachLagrangian2016, schlueter-kuckCoherentStructureColouring2017, padberg-gehleNetworkbasedStudyLagrangian2017, koltaiLargeDeviationsSemidistances2018}.
+A related notion is that of Lagrangian coherent structures
+\parencite{hallerCoherentLagrangianVortices2013,hallerLagrangianCoherentStructures2015},
+aiming to describe barriers of transport.
+For their computation from finite trajectory data,
+see for instance~\textcite{mowlaviDetectingLagrangianCoherent2022}.
+
+The main foci of this study are the adaptation of the methodological framework
+of \textcite{banischUnderstandingGeometryTransport2017}
+to real world trajectory data of air parcels in the atmosphere
+and its deployment for case studies of atmospheric blockings.
+This is motivated by the question of spatial coherence in \glspl{wcb}
+in the context of blocking.
+As such,
+the presented work does not endeavour to give a one-size-fits-all solution
+to the problem of finding coherent air streams
+regardless of scale, geographic location and synoptic condition,
+but should rather be understood as a proof of concept.
+We think atmospheric blocking is a phenomenon well suited
+for the application of the developed methodology,
+since it is large enough to feature a handful of distinct, coherent air streams
+(given the resolution of our data),
+but small enough to be well resolved by the number of trajectories computationally feasible.
+We have thoroughly analyzed two cases of atmospheric blocking
+differing with respect to both geographical location and time of year
+and show that differences between the two examples
+at similar points in their lifecycles
+are notably smaller than differences within the same example
+between different points in the lifecycles.
+This goes for the occurrence of \glspl{wcb},
+the overall trajectory density
+and the traced air masses' filamentation.
+
+\subsection{Blockings in Models}
+
+
+\section{Uncertainty}
+\subsection{Mathematics of Uncertainty}
+\subsection{Uncertainty and Error Growth}
