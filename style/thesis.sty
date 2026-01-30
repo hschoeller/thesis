@@ -15,23 +15,39 @@
 %------------------------------------------------
 % Paper metadata commands (for cumulative theses)
 %------------------------------------------------
+\newcommand{\chapteroverview}[1]{%
+  \begin{quote}\small\noindent\textbf{Chapter overview.} #1\end{quote}
+  \vspace{0.75em}
+}
+
+% --- Paper metadata sub-blocks (reusable) ---
 \newcommand{\papertitle}[1]{%
-  \section*{Paper title}
-  \textit{#1}
-  \vspace{1em}
+  \noindent\textbf{Paper title.} \textit{#1}\par
+  \vspace{0.5em}
 }
 
 \newcommand{\paperinfo}[2]{%
-  \noindent
-  \textbf{Publication:} #1\\
-  \textbf{Status:} #2
-  \vspace{1em}
+  \noindent\textbf{Publication.} #1\par
+  \noindent\textbf{Status.} #2\par
+  \vspace{0.5em}
 }
 
 \newcommand{\authorcontribution}[1]{%
-  \section*{Author contributions}
-  #1
-  \vspace{1em}
+  \noindent\textbf{Author contributions.} #1\par
+  \vspace{0.5em}
+}
+% --- Wrapper for paper chapters: always starts with the overview,
+%     then you can add any paper metadata blocks you want.
+\newcommand{\paperchaptermeta}[5]{%
+  % #1 = chapter overview text
+  % #2 = paper title
+  % #3 = publication string
+  % #4 = status string
+  % #5 = author contributions text
+  \chapteroverview{#1}%
+  \papertitle{#2}%
+  \paperinfo{#3}{#4}%
+  \authorcontribution{#5}%
 }
 
 %------------------------------------------------

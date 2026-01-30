@@ -19,7 +19,7 @@ all: $(BUILD)/$(MAIN).pdf
 # -------------------------------------------------
 # Build PDF in build/
 # -------------------------------------------------
-SOURCES := $(shell find . -name '*.tex' -o -name '*.sty')
+SOURCES := $(shell find . \( -name '*.tex' -o -name '*.sty' -o -name '*.bib' \) -not -path './$(BUILD)/*')
 
 $(BUILD)/$(MAIN).pdf: $(SOURCES) | $(BUILD)
 	$(TEX) -synctex=1 -interaction=nonstopmode -output-directory=$(BUILD) $(MAIN).tex

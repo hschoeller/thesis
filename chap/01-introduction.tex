@@ -3,171 +3,183 @@
 % Chapter 1: Introduction
 % =================================================
 
-\chapter{Introduction} % LaTeX chapter title
-\label{chap:intro}
+\chapter{Introduction}\label{ch:intro}
+\chapteroverview{This chapter introduces the key concepts and terms relevant
+to this thesis. It provides a broad review of the relevant literature and
+establishes the research questions addressed in the subsequent chapters.
+Finally, it outlines the structure of the thesis.}
 
-\section{Atmospheric Blocking}
-\label{sec:blocking}
-Atmospheric blocking represents a critical phenomenon in the dynamics of Earth's atmosphere,
-characterized by the temporary obstruction of prevailing westerlies in the mid-latitudes,
-potentially influencing weather on a planetary scale \parencite{lupoAtmosphericBlockingEvents2021}.
-These events are notable for their role in causing extreme weather conditions,
-such as heatwaves, cold spells, and sustained periods of precipitation,
-impacting both human activities and natural ecosystems
-\parencite{kautzAtmosphericBlockingWeather2022, pfahlQuantifyingRelevanceAtmospheric2012}.
-The mechanisms leading to atmospheric blocking are complex,
-involving interactions between the atmosphere,
-cryosphere \parencite{tyrlisUralBlockingDriving2019, woollingsArcticWarmingAtmospheric2014},
-ocean \parencite{drijfhoutSpontaneousAbruptClimate2013, hakkinenAtmosphericBlockingAtlantic2011},
-and land \parencite{heImpactLandSea2014, kurganskyAtmosphericCirculationResponse2020, tillyCalculatedHeightTendencies2008},
-and are a subject of ongoing research.
-Despite their significance,
-predicting atmospheric blocking events and their impacts remains a challenge,
-due to the inherent variability and the multifaceted processes that govern their formation,
-maintenance, and dissipation.
-Weather and climate models' inability to correctly represent blocking
-\parencite{matsuedaBlockingPredictabilityOperational2009}
-also causes considerable uncertainties in its predicted response to climate change
-\parencite{woollingsBlockingItsResponse2018}.
+\section{Atmospheric blocking}\label{sec:intro_blocking}
+\paragraph{Concept} The term \enquote{atmospheric blocking} emerged in weather forecast and atmospheric research
+in the early 20th century initially to describe persistent surface high-pressure
+regions \enquote{blocking} the usual eastward progression of low-pressure cyclones
+(\textcite{rexBlockingActionMiddle1950}; also \textcite{lupoAtmosphericBlockingEvents2021} and references therein).
+It has since come to be understood as a large-scale anticyclonic flow pattern
+extending through the whole troposphere and interacting with the stratosphere \parencite{yessimbetPathwaysInfluenceNorthern2022,woollingsAssociationsStratosphericVariability2010,colucciDiagnosticComparisonTropospheric2015}.
+The term \enquote{blocking} or simply \enquote{block} notably does not refer
+to its geometric shape as a somewhat coherent singular entity, especially since
+they can come in different shapes and sizes and are usually embedded in the
+wavelike structure of the flow.
 
-\subsection{Blockings and Warm Conveyor Belts}
-\label{sec:blockWCB}
+Though there is still a lack of consensus on the exact definition of a blocking
+and a coherent unifying theory of them is still
+at large \parencite{woollingsBlockingItsResponse2018}, the concept broadly encompasses
+the notions of a persistent, quasi-stationary, large-scale anticyclonic flow pattern
+that occurs in the mid- to high latitudes. Its persistence implies lifetimes on the
+order of days to weeks, which is long compared to typical synoptic weather systems.
+It is quasi-stationary in that its characteristic flow pattern and position almost do not change
+over its lifetime measured by the usual magnitudes of change on those timescales.
+This is why some theories liken the phenomenon to quasi-stationary (standing) planetary
+waves analogous to waves in other physical systems \parencite[e.g.,~][]{tungTheoryStationaryLong1979, mcwilliamsApplicationEquivalentModons1980, nakamuraAtmosphericBlockingTraffic2018}.
 
-Though traditionally conceived as an adiabatic phenomenon,
-recent studies have pointed to the role of diabatic processes in blockings
-\parencite{croci-maspoliKeyDynamicalFeatures2009, hauserHolisticUnderstandingBlocked2023, pfahlImportanceLatentHeat2015, tillyCalculatedHeightTendencies2008}.
-More specifically,
-a line of study has been concerned with moist processes,
-arguing that a considerable fraction of the air masses constituting the blocking
-originate from warm sectors of neighboring surface cyclones
-and travel into the blocking via \glspl{wcb}
-\parencite{pfahlImportanceLatentHeat2015, steinfeldRoleLatentHeating2019, yamamotoOceanicMoistureSources2021, zschenderleinLagrangianAnalysisUppertropospheric2020}.
-\glspl{wcb} are moist, rapidly ascending air streams
-and are subject to research in their own right
-\parencite[e.g.,~][]{joosWarmConveyorBelts2023, madonnaWarmConveyorBelts2014a}
-i.a.~due to their contribution to forecast uncertainty
-\parencite{madonnaVerificationNorthAtlantic2015, picklWarmConveyorBelts2023, wandelSystematicEvaluationWarm2021}.
-According to \textcite{steinfeldRoleLatentHeating2019},
-the air parcels conveyed by such \glspl{wcb} considerably influence the blocking
-by stabilizing and potentially intensifying the negative \gls{pv} anomaly
-characteristic for the blocking,
-especially in the onset and maintenance stages of its lifecycle
-(negative \gls{pv} anomalies are associated with anticyclonal circulation and thus high pressure).
-This happens, firstly,
-through a material change in \gls{pv} of the respective air masses
-via latent heating induced, cross-isentropic vertical motion
-and, secondly,
-through the divergent outflow of the guiding air streams in the upper troposphere.
-Evidence that moist processes might become more important
-in a warmer and moister climate underlines the need for further investigation
-\parencite{steinfeldResponseMoistDry2022}.
+\paragraph{Phenomenology} Climatologically, blocking events are more prominent in the Northern Hemisphere
+compared to the Southern Hemisphere due a stronger land-sea contrast and orography \parencite{woollingsBlockingItsResponse2018}.
+They are also more frequent in winter than in summer, with a peak frequency
+in the North Atlantic sector of roughly every 5--6 days on average.
+Aside from the North Atlantic, the North Pacific and, to a lesser extent, the
+Eurasian sector are also preferred regions for blocking occurrence in the Northern Hemisphere. 
 
-The notion of a \gls{wcb} suggests a geometrically coherent flow of the air masses involved,
-but such a coherent behavior has not been explicitly addressed in the studies above.
-The backward trajectories attributed to such air streams
-are typically identified using thresholds for ascent (change in pressure)
-or diabatic heating (change in potential temperature),
-such that a common pathway is not guaranteed.
-In addition,
-the methodology employed does not allow for statements about the size,
-location,
-time of existence
-or even the number of \glspl{wcb} implicated in the process.
-Another drawback of the identification method is its subjective nature,
-implied by selecting an arbitrary threshold for the decrease in pressure
-(\cite{madonnaWarmConveyorBelts2014a} use 600 hPa in 48 h)
-or increase in potential temperature the air parcels have experienced
-(usually a threshold of $\Delta \theta > 2$ K is used).
-To the best of our knowledge,
-an objective identification method for coherent medium-to-large scale air streams
-that allows addressing these drawbacks
-has not been presented in the context of atmospheric sciences.
+Where they occur, blockings can exert a considerable impact on societies and
+ecosystems alike, a feature that numerous publications have drawn attention to
+\parencite[e.g.,~][]{kautzAtmosphericBlockingWeather2021,whanInfluenceAtmosphericBlocking2016,pfahlQuantifyingRelevanceAtmospheric2012}.
+The implied persistence can lead to sustained weather conditions of
+different nature depending on season and location relative to the blocking high.
+Their eponymous blocking and deflecting of air masses can favour anomalously and
+extremely hot or cold conditions and stationary cyclones on their flanks leading
+to anomalously high moisture transport and associated precipitation 
+\parencite[e.g.,~][]{mohrMultidisciplinaryAnalysisExceptional2023}.
+Apart from their effect on the advection of air masses, the high pressure associated 
+with blockings favours subsidence and, by extension, cloud-free conditions and
+reduced vertical mixing in their centers. Together with reduced wind speeds also in the horizontal,
+this frequently leads to heat waves and droughts in summer as well as cold spells in winter.
+Reduced mixing may also entail episodes of poor air quality, all of which put severe
+pressure on societal systems and human health \parencite{webberDynamicalImpactRossby2017,popeImpactSynopticWeather2016}.
+Prolonged episodes of decreases in wind energy supply and increased energy demand
+caused by blockings in winter are considered a major risk for the energy sector,
+especially with the transition to renewable sources \parencite{oteroCharacterizingRenewableEnergy2022, vanderwielInfluenceWeatherRegimes2019},
+potentially aggravating poor air quality through increased fossil fuel use.  
 
-In the study presented in \cref{chap:coherence},
-we want to tackle these issues focusing on the exact spatio-temporal nature
-of trajectories passing through a blocking
-and how individual trajectories align with each other.
-By grouping the set of trajectories into subsets (clusters)
-based on only their geometric coherence,
-we identify synoptic scale air streams
-and analyze their individual dynamical properties
-and interrelation with the large scale flow configuration.
-The perspective introduced also allows for statements
-about the overall spatial configuration and coherence of the air parcels traced,
-especially with respect to the blockings' lifecycles.
-A blocking's stabilizing and dispersion-suppressing nature
-affects individual air parcels,
-which can be identified through our Lagrangian lens
-\parencite{ehstandCharacteristicSignaturesNorthern2021}.
+\paragraph{Processes and Interactions} The lack of a unified theory of blockings is probably caused by their interaction
+with processes and earth system components on a wide range of spatial
+and temporal scales. More traditional theories on blockings focus on large scale
+dynamics. Being an elementary feature of the large-scale atmospheric circulation,
+it comes as no surprise that blocking phenomena have been shown to appear in
+simplified systems based on barotropic assumptions \parencite[e.g.,~][]{austinBlockingMiddleLatitude1980, legrasPersistentAnomaliesBlocking1985,charneyMultipleFlowEquilibria1979}.
+There, blocking arise from interactions between Rossby waves with themselves or
+with the mean flow. Some theories highlight interactions between individual
+vortices \parencite{yamazakiVortexVortexInteractions2013, mullerApplicationsPointVortex2015},
+digressing from the usual wave-centered view of mid-latitude dynamics.
 
-To accomplish the above,
-we make use of the mathematical concept of coherent sets.
-A coherent set is a time-evolving region in the state space of a dynamical system
-that keeps its geometric integrity to a large degree.
-This is particularly interesting when the underlying system is such
-that individual trajectories diverge
-and any set eventually becomes highly filamented under evolution through the dynamics.
-We characterize coherent sets based on their stability under small perturbations.
-Coherent sets hence resist dispersion,
-persist longer in complicated flows
-and have thus an outstanding effect on the transport of physically relevant quantities.
-The fundamental idea is that in a coherent set
-the individual trajectories stay relatively close together as a whole,
-such that particles remain within the coherent set
-when they are subjected to small random perturbations.
-In contrast,
-if a time-evolving set is filamented,
-particles are likely to leave the set under the influence of random noise
--- and hence mix with its exterior.
-To formalize this heuristics and numerically compute coherent sets,
-we follow the work of \textcite{banischUnderstandingGeometryTransport2017}
-(based on theory developed in~\textcite{froylandAnalyticFrameworkIdentifying2013,froylandDynamicIsoperimetryGeometry2015}),
-which characterizes the robustness of coherent sets under small perturbations
-using a data-analysis framework called diffusion maps.
-Their method yields a single time-averaged operator
-whose spectral properties contain the necessary information
-to extract coherent sets.
+The large-scale nature of blockings is also evident from their interrelation with planetary-scale
+teleconnections. Given their spatial proximity, a modulating relation between 
+blockings and the \gls{nao} \parencite{grayElevenyearSolarCycle2016} and \gls{pna}
+\parencite{croci-maspoliAtmosphericBlockingSpacetime2007} for Northern Hemisphere blockings
+and the \gls{sam} \parencite{oliveiraNewClimatologySouthern2014} for the Southern
+Hemisphere seem obvious. More surprisingly perhaps, tropical teleconnections such as
+the \gls{enso} \parencite{zhangENSOrelatedSouthernHemisphere2023, mckennaImpactsNinoDiversity2023, barriopedroRelationshipENSOStratospheric2014},
+or the \gls{mjo} \parencite{hendersonInfluenceMaddenJulian2016} have also been linked to
+blocking frequency and persistence, highlighting the role of planetary-scale disturbances.
 
-The visual idea of coherence (i.e., ``trajectories staying together'')
-can be cast into diverse objectives,
-which then can be used to partition available trajectory data into such sets.
-For a sample of the ideas that have been implemented
-please consult~\textcite{froylandRoughandreadyClusterbasedApproach2015, allshouseLagrangianBasedMethods2015, hadjighasemSpectralclusteringApproachLagrangian2016, schlueter-kuckCoherentStructureColouring2017, padberg-gehleNetworkbasedStudyLagrangian2017, koltaiLargeDeviationsSemidistances2018}.
-A related notion is that of Lagrangian coherent structures
-\parencite{hallerCoherentLagrangianVortices2013,hallerLagrangianCoherentStructures2015},
-aiming to describe barriers of transport.
-For their computation from finite trajectory data,
-see for instance~\textcite{mowlaviDetectingLagrangianCoherent2022}.
+The importance each of the above mechanisms and teleconnections differ regionally and seasonally,
+implying a complex two-way interaction between blockings and other components of the earth system
+\parencite{burkhardtPlanetarySynopticscaleInteractions2005, nakamuraRoleHighLowFrequency1997}.
+More specifically, blocking dynamics are influenced by the polar cryosphere
+through heat and moisture fluxes and accompanying sea-ice anomalies on seasonal scales
+\parencite{tyrlisUralBlockingDriving2019,woollingsArcticWarmingAtmospheric2014, drijfhoutSpontaneousAbruptClimate2013}.
+There, a strong two-way interaction with polar vortex dynamics and the stratosphere
+more generally has been established, mediated in particular by upward wave
+activity flux and associated tropopause displacements
+\parencite{colucciDiagnosticComparisonTropospheric2015, yessimbetPathwaysInfluenceNorthern2022}.
+From 27 objectively identified \glspl{ssw} between 1957 and 2001, \textcite{martiusBlockingPrecursorsStratospheric2009}
+found that 25 were preceded by blocking events in the North Atlantic sector.
+Blockings have also been shown to exert a first order influence on the subpolar 
+ocean \parencite{hakkinenAtmosphericBlockingAtlantic2011}. On the other hand, \gls{sst}
+patterns and according gradients, at times, provide the necessary baroclinic
+forcings and heat and moisture content for blockings to form, controlling their
+occurrence frequency and intensity \cite{christSeaSkyUnderstanding2025, mathewsGulfStreamMoisture2024}.
+In a similar manner, blocking dynamics are also shaped by surface level diabatic
+sensible and latent heat fluxes over land \parencite{tillyCalculatedHeightTendencies2008}
+and their climatological occurrence modulated by land-sea contrasts and orography
+through initiated planetary waves \parencite{heImpactLandSea2014}.
+The above already alludes to the fact that moist processes are just as important
+as dry dynamics in understanding blocking dynamics.
 
-The main foci of this study are the adaptation of the methodological framework
-of \textcite{banischUnderstandingGeometryTransport2017}
-to real world trajectory data of air parcels in the atmosphere
-and its deployment for case studies of atmospheric blockings.
-This is motivated by the question of spatial coherence in \glspl{wcb}
-in the context of blocking.
-As such,
-the presented work does not endeavour to give a one-size-fits-all solution
-to the problem of finding coherent air streams
-regardless of scale, geographic location and synoptic condition,
-but should rather be understood as a proof of concept.
-We think atmospheric blocking is a phenomenon well suited
-for the application of the developed methodology,
-since it is large enough to feature a handful of distinct, coherent air streams
-(given the resolution of our data),
-but small enough to be well resolved by the number of trajectories computationally feasible.
-We have thoroughly analyzed two cases of atmospheric blocking
-differing with respect to both geographical location and time of year
-and show that differences between the two examples
-at similar points in their lifecycles
-are notably smaller than differences within the same example
-between different points in the lifecycles.
-This goes for the occurrence of \glspl{wcb},
-the overall trajectory density
-and the traced air masses' filamentation.
+\paragraph{Predictability}
 
-\subsection{Blockings in Models}
+\subsection{Impacts and relevance}\label{sec:intro_blocking_impacts}
+% Extremes, persistence, S2S relevance, societal impacts.
 
+\subsection{Diagnostics and perspectives}\label{sec:intro_blocking_diag}
+% Blocking indices (brief), Eulerian vs regime-based framing, why persistence matters.
+% (Optional: short table comparing diagnostics; optional schematic figure.)
 
-\section{Uncertainty}
-\subsection{Mathematics of Uncertainty}
-\subsection{Uncertainty and Error Growth}
+\section{Predictability and uncertainty}\label{sec:intro_predictability}
+
+\subsection{Predictability in dynamical systems}\label{sec:intro_predict_dyn}
+% Error growth, flow dependence, trajectory vs statistical predictability (short).
+
+\subsection{Sources of uncertainty}\label{sec:intro_unc_sources}
+% Initial conditions vs model error; forecast vs analysis uncertainty (short).
+% (Optional: table taxonomy of uncertainty sources.)
+
+\subsection{Stochastic parameterizations}\label{sec:intro_stoch}
+% Why stochastic physics exists; documented circulation/regime impacts (high-level).
+
+\section{Regimes, persistence, transitions}\label{sec:intro_regimes}
+
+\subsection{Weather regimes as recurrent states}\label{sec:intro_regimes_concept}
+% Regimes as persistent flow patterns; positioning blocking as regime(-like).
+
+\subsection{Metastability and transitions}\label{sec:intro_metastability}
+% Residence times, transition pathways; why low-order models help.
+
+\subsection{Identifying regimes in practice}\label{sec:intro_regime_id}
+% Clustering, HMMs, operator/Markov views; what is used later in the thesis.
+
+\section{Perturbations and persistence}\label{sec:intro_perturb}
+
+\subsection{How perturbations affect lifetimes}\label{sec:intro_perturb_lifetimes}
+% Noise/perturbations and escape rates; possible non-monotone effects.
+% (Optional: conceptual figure: lifetime vs perturbation amplitude.)
+
+\subsection{Implications for blocking}\label{sec:intro_perturb_blocking}
+% Translate metastability to blocking persistence; link to stochastic physics as perturbations.
+% Mention Paper I in one sentence if desired.
+
+\section{Uncertainty in the analysis}\label{sec:intro_assim}
+
+\subsection{Data assimilation and analysis uncertainty}\label{sec:intro_assim_basics}
+% What an analysis is; why uncertainty is flow-dependent; ensemble viewpoint.
+
+\subsection{Regime-conditioned uncertainty}\label{sec:intro_assim_regime}
+% Why regimes provide a coordinate system for uncertainty; hypothesis for blocking.
+% Mention Paper II in one sentence if desired.
+
+\subsection{Links to model physics}\label{sec:intro_assim_physics}
+% Connecting uncertainty hotspots to model error, stochastic schemes, moist processes.
+
+\section{Moist pathways and a Lagrangian view}\label{sec:intro_moist}
+
+\subsection{Diabatic effects in blocking}\label{sec:intro_diabatic}
+% PV modification, ridge maintenance; brief physical mechanism layer.
+
+\subsection{Warm conveyor belts}\label{sec:intro_wcb}
+% WCB definition, relevance for blocking and predictability.
+
+\subsection{Lagrangian coherence}\label{sec:intro_coherence}
+% Why Lagrangian; coherence/coherent sets for airstreams (conceptual).
+% Mention Paper III in one sentence if desired.
+
+\section{Aims and thesis roadmap}\label{sec:intro_roadmap}
+
+\subsection{Research questions}\label{sec:intro_questions}
+% 2--4 bullet points.
+
+\subsection{Contributions}\label{sec:intro_contrib}
+% 3--6 sentences mapping to Paper I/II/III (short).
+
+\subsection{Thesis structure}\label{sec:intro_structure}
+% Chapter-by-chapter overview; use \cref for references to chapters.
+
+% Example (fill in your actual chapter labels):
+% \Cref{ch:paper1} ... \Cref{ch:paper2} ... \Cref{ch:paper3} ... \Cref{ch:conclusion} ...
