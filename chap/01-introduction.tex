@@ -10,7 +10,7 @@
     Finally, it outlines the structure of the thesis.}
 
 \section{Atmospheric blocking}\label{sec:intro_blocking}
-\paragraph{Concept} The term \enquote{atmospheric blocking} emerged in weather forecast and atmospheric research
+The term \enquote{atmospheric blocking} emerged in weather forecast and atmospheric research
 in the early 20th century initially to describe persistent surface high-pressure
 regions \enquote{blocking} the usual eastward progression of low-pressure cyclones
 (\textcite{rexBlockingActionMiddle1950}; cf.~also \textcite{lupoAtmosphericBlockingEvents2021} and references therein).
@@ -39,7 +39,7 @@ even detach from the subtropical reservoir judging from closed contours of low
 \gls{pv} values on isentropic surfaces or, equivalently, high potential temperature
 values on surfaces of constant \gls{pv} \parencite{pellyNewPerspectiveBlocking2003}.
 
-\paragraph{Definitions}
+\subsection{Definitions} \label{sec:intro_block_def}
 Consistent with the rather diffuse understanding introduced above, there is no
 universally accepted formal definition of atmospheric blocking, and different
 diagnostics are adopted depending on purpose, scale of analysis and, arguably,
@@ -106,13 +106,14 @@ circulation state, or a planetary-wave configuration, depending on the theoretic
 and diagnostic perspective adopted.
 
 
-\paragraph{Phenomenology} Climatologically, blocking events are more prominent in the Northern Hemisphere
-compared to the Southern Hemisphere due a stronger land-sea contrast and orography \parencite{woollingsBlockingItsResponse2018}.
+\subsection{Phenomenology} \label{sec:intro_block_Phenomenology}
+Climatologically, blocking events are more prominent in the \gls{nh}
+compared to the \gls{sh} due a stronger land-sea contrast and orography \parencite{woollingsBlockingItsResponse2018}.
 They are also larger, more intense \parencite{nabizadeh3DStructureNorthern2021}
 and more frequent in winter than in summer, with a peak frequency
 in the North Atlantic sector of roughly every 5--6 days on average.
 Aside from the North Atlantic, the North Pacific and, to a lesser extent, the
-Eurasian sector are also preferred regions for blocking occurrence in the Northern Hemisphere.
+Eurasian sector are also preferred regions for blocking occurrence in the \gls{nh}.
 Their implied temporal and spatial scales lets them exert a major influence on
 the mid-latitude circulation and weather on a continental to planetary scale for
 whole seasons even \parencite{jensenDynamicAnalysisRecord2015}.
@@ -140,7 +141,8 @@ caused by blockings in winter are considered a major risk for the energy sector,
 especially with the transition to renewable sources \parencite{oteroCharacterizingRenewableEnergy2022, vanderwielInfluenceWeatherRegimes2019},
 potentially aggravating poor air quality through increased fossil fuel use.
 
-\paragraph{Interactions} The lack of a unified theory of blockings
+\subsection{Interactions} \label{sec:intro_block_interactions}
+The lack of a unified theory of blockings
 is probably caused by their interaction
 with processes and earth system components on a wide range of spatial
 and temporal scales.
@@ -148,9 +150,9 @@ and temporal scales.
 The large-scale nature of blockings is evident from their interrelation with planetary-scale
 teleconnections. Given their spatial proximity, a modulating relation between
 blockings and the \gls{nao} \parencite{grayElevenyearSolarCycle2016} and \gls{pna}
-\parencite{croci-maspoliAtmosphericBlockingSpacetime2007} for Northern Hemisphere blockings
-and the \gls{sam} \parencite{oliveiraNewClimatologySouthern2014} for the Southern
-Hemisphere seem obvious. More surprisingly perhaps, tropical teleconnections such as
+\parencite{croci-maspoliAtmosphericBlockingSpacetime2007} for \gls{nh} blockings
+and the \gls{sam} \parencite{oliveiraNewClimatologySouthern2014} for the \gls{sh}
+seem obvious. More surprisingly perhaps, tropical teleconnections such as
 the \gls{enso} \parencite{zhangENSOrelatedSouthernHemisphere2023, mckennaImpactsNinoDiversity2023, barriopedroRelationshipENSOStratospheric2014},
 or the \gls{mjo} \parencite{hendersonInfluenceMaddenJulian2016} have also been linked to
 blocking frequency and persistence, highlighting the role of planetary-scale disturbances.
@@ -168,7 +170,7 @@ There, a strong two-way interaction with polar vortex dynamics and the stratosph
 more generally has been established, mediated in particular by upward wave
 activity flux and associated tropopause displacements
 \parencite{woollingsAssociationsStratosphericVariability2010, colucciDiagnosticComparisonTropospheric2015, yessimbetPathwaysInfluenceNorthern2022}.
-From 27 objectively identified \glspl{ssw} in the Northern Hemisphere
+From 27 objectively identified \glspl{ssw} in the \gls{nh}
 between 1957 and 2001, \textcite{martiusBlockingPrecursorsStratospheric2009}
 found that 25 were preceded by blocking events in the North Atlantic sector.
 
@@ -186,65 +188,15 @@ sensible and latent heat fluxes over land \parencite{tillyCalculatedHeightTenden
 and their climatological occurrence is modulated by land-sea contrasts and orography
 through initiated planetary waves \parencite{heImpactLandSea2014}.
 
-\paragraph{Predictability}
-Atmospheric blocking events are frequently discussed in the context of operational
-predictability on subseasonal to seasonal timescales in particular.
-On the one hand, this is due to their extraordinary impact on
-natural and societal systems outlined above. On the other hand, \gls{nwp} models
-have historically struggled to accurately forecast blocking events, especially
-their onset and decay \parencite{dandreaNorthernHemisphereAtmospheric1998, matsuedaBlockingPredictabilityOperational2009,tibaldiOperationalPredictabilityBlocking1990}
-whereas medium-range foreast skill is sometimes enhanced during blocking episodes
-(\cite{spaethFlowDependenceEnsembleSpread2024}; cf.~also \cite{prestel-kupfererPredictabilityMidlatitudeRossbywave2024}
-for a similar behaviour for \glspl{rwp}). Based on the weather regime classification
-introduced by \textcite{gramsBalancingEuropesWindpower2017} (cf.~\cite{gramsLifeCycleDefinition2026}
-for an updated version),
-\textcite{buelerYearroundSubseasonalForecast2021} and \textcite{osmanMultimodelAssessmentSubseasonal2023}
-provided evidence that blockings are both the best and worst predicted regimes in the Euro-Atlantic sector,
-depending on their location with a blocking over Greenland achieving the longest and
-blockings over Central Europe or Scandinavia the shortest forecast skill horizon.
-In a similar manner, but using a different set of regimes and only data in winter,
-\textcite{ferrantiFlowdependentVerificationECMWF2015} found that operational
-forecasts struggled most with transitions to a blocking regime over Northern Europe
-while also underestimating their persistence.
-
-The issues faced by \gls{nwp} models in forecasting blockings are reflected in
-atmospheric models' difficulties in representing them realistically in the first place,
-which is apparent from considerable biases in blocking frequency, intensity and persistence
-\parencite{daviniNorthernHemisphereAtmospheric2016}. \textcite{leeIncreasingFrequencyPersistence2026}
-recently reported that a seasonal large-ensemble prediction model was able to
-reproduce Greenland blocking frequency and persistence but failed to reproduce its trend
-due to climate change, making the picture even more complex.
-It seems like there are multiple causes for the misrepresentation of blockings,
-ranging from insufficient model resolution, coupling to other earth systems
-and representation of sub-grid scale processes---all of which exacerbated in the case
-of climate models \parencite{woollingsBlockingItsResponse2018}. In an evaluation of the
-operational seasonal prediction model of the \gls{ecmwf}, \textcite{daviniRepresentationWinterNorthern2021}
-found that while improvements have taken place, significant biases remain in the
-European sector in particular. They note that resolution increases improved blocking
-representation considerably and highlight that errors in the atmospheric system are
-most relevant as opposed to errors in ocean representation, though that behaviour seems
-to be different in the climate setting. Climatological evaluations of blocking representation
-sometimes also have difficulties in identifying robust signals due to the large 
-interannual variability of blocking occurrence \parencite{hartungResolutionPhysicsAtmosphere2017}.
-
-In an evaluation of \gls{cmip} 6, the latest generation
-of climate models, \textcite{maddisonMissingIncreaseSummer2024} found that the
-increase in summer blocking over Greenland observed in since the beginning of
-the century is not reprocuced and suggest this might be linked to \glspl{sst},
-sea ice biases or anthopogenic aerosols. Indeed, given what has been mentioned about
-the interaction of atmospheric blockings
-with other earth system components varying on longer timescales, it seems natural to expect
-that the the predictive skill of models predicting blockings depends on whether they
-can accurately represent those components and their interaction with blockings.
-
-\section{Processes and Theories of Atmospheric Blocking}\label{sec:intro_blocking_theories}
+\subsection{Processes and theories of atmospheric blocking}\label{sec:intro_blocking_theories}
 Given all that has been stated above about the complex phenomenon of atmospheric blockings
 from practical perspectives, it is not surprising that there is not a single mathematical
 theory explaining all of its facets. That said, a number of mathematical theories have
 been proposed that explain complementing aspects of the phenomenon, based on differing
 assumptions and perspectives.
 
-\paragraph{Barotropic theories} More traditional theories on blockings focus on barotropic large scale
+\subsubsection{Barotropic theories} \label{sec:intro_block_barotropic} 
+More traditional theories on blockings focus on barotropic large scale
 dynamics---a stance that is justified by the fact that the vertical structure
 of atmospheric blockings is dominantly equivalent-barotropic, with little vertical
 variation in temperature and wind \parencite{nabizadeh3DStructureNorthern2021}.
@@ -335,7 +287,7 @@ even if upstream barotropic eddies support this process, cyclones in the real at
 are scarcely barotropic \parencite{colucciExplosiveCyclogenesisLargescale1985,
 frederiksenOnsetBlockingCyclogenesis1984, vautardMultipleWeatherRegimes1990}.
 
-\paragraph{Baroclinic theories}
+\subsubsection{Baroclinic theories} \label{sec:intro_block_baroclinic}
 Atmospheric blockings appear not in a single layer flow, but in a stratified, vertically sheared
 atmosphere in which baroclinic instability continuously generates synoptic-scale
 eddies shaping the general circulation. Classical linear instability theory
@@ -424,7 +376,7 @@ Whats important is that there is solid evidence that this baroclinicity is essen
 linked to processes governing blocking formation not only from an observational \parencite{colucciExplosiveCyclogenesisLargescale1985}
 but also from modelling perspective \parencite{mullenLocalBalancesVorticity1986, mullenTransientEddyForcing1987}. 
 
-\paragraph{Diabatic processes}
+\subsubsection{Diabatic processes} \label{sec:intro_block_diabatic}
 Despite their success in explaining eddy amplification, upscale transfer and the maintenance
 of large-scale anomalies, dry barotropic and baroclinic theories neglect the role of diabatic 
 \gls{pv} modification associated with latent heat release, radiative and surface fluxes. 
@@ -501,7 +453,7 @@ emphasize that such surface forcing is not spatially uniform: \textcite{yamamoto
 identify key oceanic moisture source regions that feed latent-heating pathways associated
 with Euro-Atlantic blocks, while \textcite{mathewsGulfStreamMoisture2024} show that
 suppressing latent heat fluxes over the Gulf Stream alone significantly reduces  
-blocking frequency, lifetime, intensity and spatial extent across the Northern Hemisphere. The explanation for
+blocking frequency, lifetime, intensity and spatial extent across the \gls{nh}. The explanation for
 this is that turbulent heat fluxes over the Gulf Stream
 and its extension generate boundary-layer low-\gls{pv} air masses that are subsequently
 ventilated upward through \glspl{wcb} and contribute to the upper-level
@@ -530,9 +482,9 @@ and the eventual diffusive and advective dissipation of the anomalous air masses
 into the background flow consistent with eddy straining mechanisms considered as mediators
 of scale interactions in turbulence theories \parencite{ditlevsenTurbulenceShellModels2010}.
 
-\section{Warm conveyor belts}\label{sec:intro_wcb}
-
-\paragraph{Concept} \Glspl{wcb} are coherent, ascending airstreams that transport warm, moist air
+\section{\Glspl{wcb}}\label{sec:intro_wcb}
+ 
+\Glspl{wcb} are coherent, ascending airstreams that transport warm, moist air
 from the warm sector of an extratropical cyclone in the lower troposphere
 to the upper troposphere and lower stratosphere \parencite{schwenkRoleAscentTimescales2024}.
 Its principle existence and effects
@@ -540,16 +492,20 @@ where present already in the classical theory of extratropical cyclones at the
 polar front by \textcite{BjerknesSolberg1922}, but conceptualisation and dedicated
 investigation took place later within the framework of the three-dimensional cyclone
 conveyor-belt model \parencite[e.g.,~][]{browningStructureRainbandsMidlatitude1973},
-which introduced them along with \glspl{ccb}, dry intrusions and sting jets.
+which introduced them along with \glspl{ccb}, dry intrusions and (later) sting jets.
+
 They were objects of interest originally due to their associated rain bands, but have
 since also been recognized as important dynamical drivers of synoptic scale baroclinic dynamics
 \parencite{madonnaWarmConveyorBelts2014a, binderRoleWarmConveyor2016} and, in effect,
 the large-scale mid-latitude flow \parencite{vishnupriyaInteractionWarmConveyor2025, blanchardMidlevelConvectionWarm2021}.
 Due to their considerable forcing and moisture content, \glspl{wcb} commonly account
 for precipitation extremes in the extratropics on
-daily timescales \parencite{pfahlWarmConveyorBelts2014}.
+daily timescales \parencite{pfahlWarmConveyorBelts2014}. They are a regular part
+of extratropical cyclones in any time of year with a maximum occurrence in the 
+cold season in either hemisphere. Their baroclinic nature makes them most prominent
+in the storm tracks, most notably in the North Atlantic and Pacific sectors \parencite{madonnaWarmConveyorBelts2014a}.
 
-\paragraph{Definition}
+\subsection{Definition} \label{sec:intro_wcb_def}
 As mentioned above, \glspl{wcb} were traditionally identified subjectively 
 by their associated stratiform cloud bands and vicinity to cyclones, but research
 has developed more objective methods applicable to model or reanalysis data.
@@ -580,7 +536,7 @@ over a finite time window.
 
 More generally, trajectory clustering has a long history in geoscience---in oceanography
 in particular \parencite{vansebilleLagrangianOceanAnalysis2018}, but also in atmospheric sciences,
-particularly in air-quality and long-range transport studies, where large sets of
+like in air-quality and (moisture) transport studies, where large sets of
 trajectories are grouped into a small number of representative transport pathways
 \parencite{stohlComputationAccuracyApplications1998,capeUseTrajectoryCluster2000}.
 In these applications, clustering is often performed on trajectory positions at selected
@@ -613,8 +569,8 @@ Such invariances are not directly applicable to \glspl{wcb}, but they highlight
 that trajectories may be clustered either by similarity in shape
 or by time-local coherence. 
 
-The latter notion invites a formalization of the visual notion of ``trajectories staying
-together'' by concepts of Lagrangian coherence such as coherent sets or
+The latter notion invites a formalization of the visual notion of \enquote{trajectories staying
+together} by concepts of Lagrangian coherence such as coherent sets or
 Lagrangian coherent structures, which aim to identify time-evolving regions that resist
 dispersion and mixing under small perturbations \parencite{hallerCoherentLagrangianVortices2013,hallerLagrangianCoherentStructures2015}.
 In the coherent-set framework, robustness can be quantified via diffusion-based operators
@@ -626,7 +582,9 @@ transport barriers has been developed
 hadjighasemSpectralclusteringApproachLagrangian2016,schlueter-kuckCoherentStructureColouring2017,
 padberg-gehleNetworkbasedStudyLagrangian2017,koltaiLargeDeviationsSemidistances2018,mowlaviDetectingLagrangianCoherent2022}.
 This perspective is also highly adaptable, since it does not assume specific 
-geometries and considers full trajectories rather than selected slices. Arguably,
+geometries and considers full trajectories rather than selected slices. 
+
+Arguably,
 spatio-temporal coherence is more appropriate for the identification of \glspl{wcb} 
 than shape-based similarity, since trajectories of similar shape may belong to different 
 \glspl{wcb}. The operator theoretic framework also provides a natural way to 
@@ -635,12 +593,16 @@ Together, these developments suggest that complementing threshold-based \gls{wcb
 identification with bundle- or coherence-based trajectory partitioning can help address
 questions of pathway commonality and of the spatio-temporal extent of distinct airstreams.
 
-\paragraph{Dynamics} During ascent, latent heat release strongly modifies the thermodynamic and
+\subsection{Dynamics} \label{sec:intro_wcb_dynamics}
+ During ascent, latent heat release strongly modifies the thermodynamic and
 dynamical structure of the flow, leading to changes in potential vorticity and
 the amplification or redistribution of upper-level wave features.
-In particular, transport of air masses with materially anomalous \gls{pv} along with divergent upper-level
+In particular, transport of air masses upward and poleward entails deposition of 
+(negatively in the \gls{nh}) anomalous \gls{pv} near the tropopause, which, along with divergent upper-level
 outflow can reinforce downstream ridges
-and thereby influence the evolution of large-scale flow patterns. The effect of 
+and thereby influence the evolution of large-scale flow patterns. The material change of
+latent heat release along a particular trajectory depends on the location of maximum
+heating, but integrates roughly to zero \parencite{methvenPotentialVorticityWarm2015}. The effect of 
 diabatic processes on the \gls{pv} structure of cyclones \parencite{chagnonDiabaticProcessesModifying2013}
 and the jet stream \parencite{harveyDiabaticGenerationNegative2020} is well established
 and supports the hypothesis of a first order importance for the large-scale flow. 
@@ -655,7 +617,10 @@ Because they link boundary-layer moisture reservoirs with the upper-tropospheric
 waveguide, WCBs play a central role in mediating interactions between synoptic-scale
 baroclinic development and the planetary-scale circulation. Accordingly, the intensification
 phase of a surface cyclones often coincides with the strongest ascent phase
-of a \gls{wcb} \parencite{heitmannWarmConveyorBelt2024}. In addition, the amount
+of a \gls{wcb} \parencite{heitmannWarmConveyorBelt2024} and the intensification of a cyclone
+determines the amount of air masses involved in such a conveyor belt \parencite{binderRoleWarmConveyor2016}. 
+This is due to an implied positive feedback loop between the cyclogenesis and 
+the latent heat release, enough moisture provided. In addition, the amount
 of latent heating in a \gls{wcb} determines the strength of the ascent and, in turn,
 the speed and outflow level rather than leaving an imprint on the material change
 in \gls{pv} across the ascent directly \parencite{methvenPotentialVorticityWarm2015}.
@@ -664,59 +629,513 @@ to the (small-scale) variables governing ascent. \textcite{schaflerImpactInflowM
 observed that the correct measurement or assimilation of moisture upstream of the WCB considerably
 influences the forecasted effect of a WCB event especially with respect to tropopause and jet stream dynamics.
 Though associated with stratiform ascent in the classical cyclone theory, there is
-also evidence for embedded mid-level convection within \glspl{wcb} 
-with intensifying effects on the jet stream \parencite{blanchardMidlevelConvectionWarm2021},
-though this effect seems to play a secondary role to the rarety of its occurrence
+also evidence for embedded mid-level convection within \glspl{wcb} which alters 
+the \gls{pv} structure locally modifying the large scale flow downstream
+\parencite{oertelConvectiveActivityExtratropical2019, oertelPotentialVorticityStructure2020}.
+Notably, \textcite{blanchardMidlevelConvectionWarm2021} point to intensifying effects on the jet stream,
+though the effects of embedded convection in \glspl{wcb} seem to play a secondary
+role climatologically due to the rarity of its occurrence
 \parencite{oertelInteractionMicrophysicsDynamics2023}.
 
-\paragraph{Uncertainty}
-
-joosInfluenceMicrophysicalProcesses2012: variety of microphysical processes have 
-different effects that are also location specific
-
-joosImpactDifferentIFS2016: slight differences in microphysics parametrization 
-can lead to significant altercations of the large scale flow downstream highlighting
-the need for accurate representation and precise measurements (in a WCB)
-
-rodwellWhyWarmConveyor2018: WCBs are sources and magnifiers of forecast uncertainty
-while influencing the large scale flow
-
-gramsAtmosphericDynamicsPerspective2018: Identifies WCB misrepresentation as a
-culprit for a severe forecast bust in which a blocking event had been misforcasted
-
-steinfeldSensitivityAtmosphericBlocking2020: for blocking especially
-
-mazoyerImpactMixedphaseCloud2023: (NAWDEX) mixed phase cloud processes are 
-also tremendously important for the accurate representation of WCBs
-
-harveyDiabaticGenerationNegative2020: (NAWDEX) diabatic processes can even turn 
-pv negative in the northern hemisphere (wow)
-
-hieronymusAlgorithmicDifferentiationSensitivity2022: algorithmically find the 
-parameters most important in producing uncertainty in WCBs
-
-maddisonImpactModelUpgrades2020: (NAWDEX) model upgrades wrt diabatics can contribute
-considerably to allevieating forecast busts associated with WCBs and blocking
-
-oertelSensitivitiesWarmConveyor2025: uses a perturbed parameter ensemble for a 
-case study to unveil that the inflow conditions dominate the sensitivity at least
-wrt ascent characteristics, precipitation sums and large scale flow modification
-whereas microphysics parametrization modifies the detailed patterns of precipitation
-with a minor imprint on the large scale.
-
-\section{Predictability, Error-growth and Uncertainty}\label{sec:intro_predictability}
+\section{Predictability, error-growth and uncertainty}\label{sec:intro_predictability}
 % Error growth, flow dependence, trajectory vs statistical predictability (short).
 % Initial conditions vs model error; forecast vs analysis uncertainty (short).
 % (Optional: table taxonomy of uncertainty sources.)
 % Why stochastic physics exists; documented circulation/regime impacts (high-level).
 
-\paragraph{Chaos}
+Predicting the weather and climate of the future is arguably the core goal of
+atmospheric sciences as a whole, so it comes as no surprise that the study of 
+predictability is wide and deep. From a forecasting perspective, errors and, thus,
+predictability limits may be decomposed into two main sources:
+uncertainties in the initial conditions due to imperfect observations and data
+assimilation and imperfect models due to under- or unresolved processes and 
+model biases. The differentiation is somewhat arbitrary since model errors also
+influence the initial condition through data assimilation (cf.~\cref{sec:intro_eda})
+and modify the error growth characteristics of the system, yet it provides a
+paradigm for diagnosing error sources. Crucially, both aspects of predictability
+are dependent on the flow state and lead time.
 
-\paragraph{Parametrizations}
+\subsection{Chaos and initial conditions} \label{sec:intro_predictability_chaos}
+The atmosphere is a chaotic system with rich
+dynamics on a vast range of scales generally rendering definitive forecasts
+impossible beyond a certain time horizon, often referred to as the predictability limit.
+One generally distinguishes between intrinsic and practical predictability 
+\parencite{sunIntrinsicPracticalLimits2016, selzTransitionPracticalIntrinsic2022}. The former is a 
+property of the system itself and describes the time it takes for infinitesimally
+small perturbations to grow to a size comparable to the natural variability of the system.
+The latter, on the other hand, assumes realistic initial condition uncertainty
+and is therefore always shorter than the intrinsic predictability.
+
+Both notions connect to the concept of the butterfly effect, which describes the 
+exponential growth of small perturbations in a chaotic system and, therefore,
+its sensitive dependence on initial conditions \parencite{lorenzDeterministicNonperiodicFlow1963,lorenzPredictabilityFlowWhich1969}.
+
+
+This property is intricatly linked to scale interactions 
+
+
+There is a wealth of literature studying the processes responsible for error-growth
+in atmospheric models at different lead times \parencite{krishnamurthyPredictabilityWeatherClimate2019}.
+Error-growth is flow dependent on short
+\parencite{puhFlowDependenceForecast2024, rodwellUncertaintyGrowthForecast2023},
+medium \parencite{baumgartProcessesGoverningAmplification2019,
+baumgartQuantitativeViewProcesses2019, sanchezLinkingRapidForecast2020} and long
+\parencite{spaethFlowDependenceEnsembleSpread2024, ardilouzeFlowDependenceWintertime2021,
+buelerYearroundSubseasonalForecast2021, osmanMultimodelAssessmentSubseasonal2023,
+spaethFlowDependenceEnsembleSpread2024} time scales as well as being dependent
+on the initial perturbation characteristics \parencite{raynaudComparisonInitialPerturbation2016,
+wangImpactsMultiscaleComponents2023}, hinting at a variety of processes responsible.
+The short time scale relevant here exhibits error growth characterized especially
+by deep and shallow convection \parencite{selzUpscaleErrorGrowth2015,
+selzEstimatingIntrinsicLimit2019, judtInsightsAtmosphericPredictability2018,
+bechtoldRoleShallowConvection2014}, that later projects onto the larger spatial
+and temporal scales, effectively limiting predictability
+\parencite{sanchezLinkingRapidForecast2020, zhangMesoscalePredictabilityMoist2007}.
+
+The dominant role of convective instability for initial error growth has been
+attested using convection-permitting models, which have in turn been set as
+benchmarks for coarser models relying on parametrization of sub-grid scale processes.
+A crucial insight into the long history of parametrization development
+\parencite{christensenParametrizationWeatherClimate2022} has been that
+ensemble forecast quality suffers from incorrect dispersion and biases when not
+accounting for model uncertainty by using deterministic physics parametrizations.
+This fueled the development and implementation of stochastically perturbed physics
+schemes \parencite{palmerStochasticWeatherClimate2019}.
+
+A line of study concerned with elucidating the exact way in which stochastic
+schemes influence biases in the representation of blockings
+\parencite{filippucciImpactStochasticPhysics2024, daviniRepresentationWinterNorthern2021,
+hartungResolutionPhysicsAtmosphere2017, maddisonImpactModelUpgrades2020} and weather
+regimes more generally \parencite{christensenSimulatingWeatherRegimes2015,
+dawsonSimulatingWeatherRegimes2015}. Results from idealized (atmospheric)
+models have shown how zero-mean additive noise can enhance the regime behaviour
+in dynamical systems \parencite{kwasniokEnhancedRegimePredictability2014,
+dorringtonInteractionStochasticForcing2023}. It is not far-fetched to
+hypothesize that this exact behaviour plays a role in full-complexity models
+and the real world, as well. Apart from underresolved topographic forcing and
+transient eddy feedback \parencite{dawsonSimulatingWeatherRegimes2015}, warm
+conveyor belts (WCBs) and their interactions with the large scale flow have
+been suggested as drivers of error growth 
+\parencite{gramsAtmosphericDynamicsPerspective2018, picklWarmConveyorBelts2023,
+wandelSystematicEvaluationWarm2021, madonnaVerificationNorthAtlantic2015},
+especially in interaction with SPPT \parencite{picklEffectStochasticallyPerturbed2022}.
+The relevance of WCBs for atmospheric blocking representation is
+well-established \parencite{pfahlImportanceLatentHeat2015, steinfeldRoleLatentHeating2019,
+yamamotoOceanicMoistureSources2021, zschenderleinLagrangianAnalysisUppertropospheric2020}
+and representation biases have been linked to moist dynamics \parencite{wandelWhyMoistDynamic2024}.
+We emphasize that influence of stochastic schemes on regime representation unfolds 
+on longer time scales that the ones relevant for the EDA, but the studies referenced
+above still give indication as to when and how ensemble spread in EDA is associated with weather regimes.
+
+
+\subsection{Parametrizations and model error} \label{sec:intro_predictability_parametrization} 
 graySystematicModelForecast2014: diabatic processes misrepresented in models, 
 imprinting on large scale flow
 
+sanchezLinkingRapidForecast2020: provide evidence that diabatics contribute to
+rapid forecast error growth in cases of low predictability especially, caused by 
+strong influence on tropopause dynamics.
 
+\subsection{Predictability of blockings} \label{sec:intro_predictability_blockings}
+Atmospheric blocking events are frequently discussed in the context of operational
+predictability on subseasonal to seasonal timescales in particular.
+On the one hand, this is due to their extraordinary impact on
+natural and societal systems outlined above. On the other hand, \gls{nwp} models
+have historically struggled to accurately forecast blocking events, especially
+their onset and decay \parencite{dandreaNorthernHemisphereAtmospheric1998, matsuedaBlockingPredictabilityOperational2009,tibaldiOperationalPredictabilityBlocking1990}
+whereas medium-range foreast skill is sometimes enhanced during blocking episodes
+(\cite{spaethFlowDependenceEnsembleSpread2024}; cf.~also \cite{prestel-kupfererPredictabilityMidlatitudeRossbywave2024}
+for a similar behaviour for \glspl{rwp}). As will be discussed below, the onset phase
+of blockings is notoriously rich in processes on a wide range of scales, especially
+with respect to upstream development like cyclogenesis, which projects onto its 
+predictability \parencite{maddisonUpstreamCycloneInfluence2019}.
+ Based on the weather regime classification
+introduced by \textcite{gramsBalancingEuropesWindpower2017} (cf.~\cite{gramsLifeCycleDefinition2026}
+for an updated version),
+\textcite{buelerYearroundSubseasonalForecast2021} and \textcite{osmanMultimodelAssessmentSubseasonal2023}
+provided evidence that blockings are both the best and worst predicted regimes in the Euro-Atlantic sector,
+depending on their location with a blocking over Greenland achieving the longest and
+blockings over Central Europe or Scandinavia the shortest forecast skill horizon.
+In a similar manner, but using a different set of regimes and only data in winter,
+\textcite{ferrantiFlowdependentVerificationECMWF2015} found that operational
+forecasts struggled most with transitions to a blocking regime over Northern Europe
+while also underestimating their persistence.
+
+The issues faced by \gls{nwp} models in forecasting blockings are reflected in
+atmospheric models' difficulties in representing them realistically in the first place,
+which is apparent from considerable biases in blocking frequency, intensity and persistence
+\parencite{daviniNorthernHemisphereAtmospheric2016}. \textcite{leeIncreasingFrequencyPersistence2026}
+recently reported that a seasonal large-ensemble prediction model was able to
+reproduce Greenland blocking frequency and persistence but failed to reproduce its trend
+due to climate change, making the picture even more complex.
+It seems like there are multiple causes for the misrepresentation of blockings,
+ranging from insufficient model resolution, coupling to other earth systems
+and representation of sub-grid scale processes---all of which exacerbated in the case
+of climate models \parencite{woollingsBlockingItsResponse2018}. In an evaluation of the
+operational seasonal prediction model of the \gls{ecmwf}, \textcite{daviniRepresentationWinterNorthern2021}
+found that while improvements have taken place, significant biases remain in the
+European sector in particular. They note that resolution increases improved blocking
+representation considerably and highlight that errors in the atmospheric system are
+most relevant as opposed to errors in ocean representation, though that behaviour seems
+to be different in the climate setting. Climatological evaluations of blocking representation
+sometimes also have difficulties in identifying robust signals due to the large 
+interannual variability of blocking occurrence \parencite{hartungResolutionPhysicsAtmosphere2017}.
+
+In an evaluation of \gls{cmip} 6, the latest generation
+of climate models, \textcite{maddisonMissingIncreaseSummer2024} found that the
+increase in summer blocking over Greenland observed in since the beginning of
+the century is not reprocuced and suggest this might be linked to \glspl{sst},
+sea ice biases or anthopogenic aerosols. Indeed, given what has been mentioned about
+the interaction of atmospheric blockings
+with other earth system components varying on longer timescales, it seems natural to expect
+that the the predictive skill of models predicting blockings depends on whether they
+can accurately represent those components and their interaction with blockings.
+
+\subsection{Uncertainty in \glspl{wcb}} \label{sec:intro_wcb_uncertainty}
+
+As outlined above, \glspl{wcb} are tightly coupled to extratropical cyclogenesis 
+and the downstream evolution of the large scale flow through intense diabatic heating 
+and transport of air masses. As a consequence, even small initial-condition or model 
+errors in \gls{wcb} inflow, ascent, and cloud–precipitation processes can undergo 
+rapid error growth and project efficiently onto baroclinic and diabatically driven
+instabilities of the developing cyclone, thereby amplifying ensemble spread and 
+forecast uncertainty downstream \parencite{rodwellWhyWarmConveyor2018,baumgartProcessesGoverningAmplification2019,
+wandelSystematicEvaluationWarm2021}.
+\textcite{picklWarmConveyorBelts2023} show that for medium range forecasts in the 
+Euro-Atlantic sector, high \gls{wcb} activity is associated with anticyclonic
+patterns downstream and elevated levels of overall forecast uncertainty. They argue that
+this is due to upstream initial condition errors as well as model errors intrinsic to
+processes dominant in the cyclone.
+This sensitivity makes the parametrized physics within \gls{wcb}s a first-order
+uncertainty source: deep-convection schemes can substantially alter \gls{wcb}
+structure and its interaction with the jet \parencite{riviereImpactDeepConvection2021},
+while microphysical parametrizations modulate latent heating profiles, and precipitation
+characteristics \parencite{joosInfluenceMicrophysicalProcesses2012,mazoyerMicrophysicsImpactsWarm2021,mazoyerImpactMixedphaseCloud2023}. 
+
+Importantly, seemingly minor microphysics changes can induce large downstream flow 
+differences—consistent with the idea that \gls{wcb} outflow perturbations can trigger 
+disproportionate Rossby-wave responses and regime transitions \parencite{joosImpactDifferentIFS2016}. 
+This linkage is particularly acute for high-impact forecasts involving blocking: 
+misrepresentation of \gls{wcb} outflow has been identified as a key factor in severe
+forecast busts with a missed blocking onset \parencite{gramsAtmosphericDynamicsPerspective2018},
+but also more systematically associated with elevated forecast uncertainty in blocking events \parencite{wandelWhyMoistDynamic2024}. 
+Targeted experiments demonstrate that upstream latent heating in \gls{wcb}s exerts 
+strong control on blocking development and maintenance \parencite{steinfeldSensitivityAtmosphericBlocking2020}. 
+Case studies further underline that diabatic processes can generate anomalous PV features 
+and materially alter the jet structure, reinforcing the dynamical pathway from 
+\gls{wcb} physics errors to large-scale uncertainty \parencite{harveyDiabaticGenerationNegative2020}.
+In addition, stochastic perturbations with zero mean have been shown to exert a
+non-zero mean effect on \gls{wcb} by triggering nonlinear instabilities, making them
+more frequent and more intense \parencite{picklEffectStochasticallyPerturbed2022}.
+
+Consistently, \textcite{madonnaVerificationNorthAtlantic2015} have found improvements
+in the representation of \glspl{wcb} across the 2000s in the \gls{ifs}, while 
+still noting cases of severe forecast errors and \textcite{maddisonImpactModelUpgrades2020} find that model upgrades 
+aimed at diabatic and cloud-process realism can mitigate \gls{wcb}-related forecast busts. 
+More recently, sensitivity analyses have also provided insights into whether uncertainty 
+is dominated by parametric choices or by the synoptic inflow state, 
+with recent evidence suggesting that inflow conditions can control bulk ascent and
+flow modification while microphysics primarily imprints fine-scale precipitation
+structure \parencite{hieronymusAlgorithmicDifferentiationSensitivity2022,oertelSensitivitiesWarmConveyor2025}.
+Whether this holds for all flow states, however, remains an open question. Nevertheless, it 
+it is fair to say that \glspl{wcb} can be seen as propagators and magnifiers
+of forecast uncertainty highlighting the need for further understanding. 
+
+\section{\Gls{eda}}\label{sec:intro_eda}
+
+Data assimilation constitutes an active field of research on its own and a 
+comprehensive introduction into the topic is provided elsewhere 
+(e.g.~\cite{parkPrinciplesDataAssimilation2022} and 
+\cite{parkDataAssimilationAtmospheric2022} for recent research directions). 
+Very basically, given a dynamical system (like the atmosphere/Earth), data 
+assimilation is concerned with optimally combining a dynamical model of the 
+system with observations to obtain an estimate of the system's most likely 
+state - either to obtain an accurate initial condition for numerical 
+prediction or to obtain a coherent \enquote{history} of the atmosphere (reanalysis).  
+A crucial part in this play uncertainties for both the model and the 
+observations as well as the best estimate. The approach applied in the 
+production of \gls{era5} as well as for finding the initial condition for the 
+ECMWF's operational forecasting model \gls{ifs}, an incremental hybrid ensemble 4D-Var system, is described by 
+\textcite{hersbachERA5GlobalReanalysis2020} and in more detail by 
+\textcite{bonavitaEvolutionECMWFHybrid2016}, which this section largely follows. 
+Such or similar data assimilation schemes have been introduced by a number of 
+institutions with considerable success 
+\parencite{kalnayDataAssimilation2024}.
+
+\subsection{The \gls{era5} data assimilation system} \label{sec:intro_eda_era5}
+
+Denote\footnote{The notation referring to the assimilation methodology 
+follows \textcite{ideUnifiedNotationData1997} for consistency and is notably 
+different to notation elsewhere.} 
+by $\mathbf{d} = \mathbf{y}^{\mathrm{O}} - \mathbf{y}$ the misfit between the 
+observations and the guess projected into observation space by 
+$\mathbf{y} = H(\mathbf{x}) + b(\mathbf{x}, \boldsymbol{\beta})$, 
+where $H$ is the observation operator, $\mathbf{x}$ is the guess and $b$ is 
+the (instrument-specific) bias operator with bias parameters 
+$\boldsymbol{\beta}$. In each of the 12-hourly time windows through which the 
+production of the data set iterates, the best estimate - the \enquote{analysis} 
+$\mathbf{x}^{\mathrm{a}}$ - is obtained as the minimizer of the following 
+cost function (a variational formulation, hence the \enquote{Var}):
+
+\begin{equation}\label{eqn:Jmin}
+    J(\boldsymbol{\delta} \mathbf{x}, \boldsymbol{\delta \beta})=
+    \underbrace{\frac{1}{2}{\boldsymbol{\delta} \mathbf{x}}^T 
+    \mathbf{B}^{-1}\boldsymbol{\delta} \mathbf{x}}_{\text{background term}} 
+    + 
+    \underbrace{\frac{1}{2}\boldsymbol{\delta \beta}^T 
+    \mathbf{B}_{\boldsymbol{\beta}}^{-1}\boldsymbol{\delta \beta}}
+    _{\text{bias term}} 
+    + 
+    \underbrace{\frac{1}{2}\mathbf{d}^T 
+    \mathbf{R}^{-1}\mathbf{d}}_{\text{misfit term}},
+\end{equation}
+
+where $\boldsymbol{\delta}\mathbf{x} = \mathbf{x} - \mathbf{x}^{\mathrm{b}}$ 
+and $\boldsymbol{\delta \beta}= \boldsymbol{\beta} - 
+\boldsymbol{\beta}^{\mathrm{b}}$ are the increments from the initial guess 
+(the background) obtained from the last window directly (for 
+$\boldsymbol{\beta}$) or via numerical integration of the model 
+(for $\mathbf{x}$). The solution of equation~\eqref{eqn:Jmin} - 
+i.e. the minimizing $\mathbf{x}^{\mathrm{a}}$ - is also referred to as 
+\gls{hres} in the context of \gls{era5}. To achieve a balance between observations and 
+model prediction that is scaled by their respective uncertainty, each of the 
+three terms contains weighting by the appropriate covariance matrices 
+$\mathbf{B}, \mathbf{B_{\boldsymbol{\beta}}}$ and $\mathbf{R}$ 
+\parencite{courtierStrategyOperationalImplementation1994}. 
+$\mathbf{R}$ is instrument-dependent (more specifically, observation-
+dependent, since, for instance, different spectral bands of some satellite 
+radiance instrument can have different error characteristics). 
+$\mathbf{B_{\boldsymbol{\beta}}}$ is adjusted to the desired rate of change 
+allowed for the bias parameters.
+
+Initially assumed constant in time, allowing the background error covariance 
+matrix $\mathbf{B}$ to vary (i.e.~going from 3D-Var to 4D-Var) amounted to a 
+tremendous improvement in data assimilation first implemented operationally 
+in 1997 by the ECMWF \parencite{anderssonECMWFs4DVarData2008} based on theory 
+laid out by \textcite{fisherBackgroundErrorCovariance2003}. The hybrid \gls{eda} system 
+detailed below was introduced in 2010 
+\parencite{isaksenEnsembleDataAssimilations2010} and further modified to the 
+applied set up \parencite{bonavitaEvolutionECMWFHybrid2016}. For a survey of 
+different approaches to ensemble based variational data assimilation see 
+\textcite{bannisterReviewOperationalMethods2017}.
+
+The background forecast uncertainty is calculated from a climatological and a 
+time-varying ensemble derived part according to 
+
+\begin{equation}
+    \mathbf{B} = (1-\alpha)\mathbf{B}_{\text{cli}} 
+    + \alpha \mathbf{B}_{\text{EDA}}
+\end{equation}
+
+with $\alpha$ increasing by wavenumber from $.15$ to $.74$. $\alpha$ was 
+inadvertently kept constant during production of \gls{era5}, which affects the 
+ensemble spread for data between January 2001 to June 2005, and from January 
+2010 to October 2014. The climatological part 
+$\mathbf{B}_{\text{cli}}$ is supposed to encompass the climatological 
+component of the background uncertainty dominated by the respective 
+instrument generation and has been kept constant from January 1940 to 
+November 1972 (H.~Hersbach, 2025, personal communication), from November 
+1972 to December 1978, from January 1979 to December 1999 and from January 
+2000 onwards \parencite{bellERA5GlobalReanalysis2021}. 
+
+$\mathbf{B}_{\text{EDA}}$ is calculated from the spread of a 10 member 
+(for \gls{era5}; 1 control and 9 perturbed) ensemble run of 
+eqn.~\eqref{eqn:Jmin} at a lower spatial resolution (TL319 as opposed to 
+TL639) which, in the context of \gls{era5} is referred to as \gls{eda} 
+ in contrast to \gls{hres}. The perturbations are 
+added to the observations $\mathbf{y}^{\mathrm{O}}$ 
+(including sea ice and sea surface temperature) and are, crucially, scaled 
+by the expected observation uncertainties. Each member also calculates its 
+own independent background forecast through numerical integration including 
+stochastically perturbed physics (except for the control; 
+\cite{ecmwfIFSDocumentationCY41R22016a, 
+leutbecherStochasticRepresentationsModel2017}). Perturbed physics are also 
+applied in the nonlinear part of the construction of $\mathbf{x}$ during the 
+minimization of eqn.~\eqref{eqn:Jmin} - the so-called \enquote{outer-loop}. The \gls{eda} 
+can be conceived as a Monte Carlo approach to the estimation of the 
+posterior distribution of the background forecast error that is supplemented 
+by a climatological component (hence, \enquote{hybrid}) due to the sampling errors 
+introduced by its computationally demanded low sample size 
+\parencite{bonavitaEstimatingBackgrounderrorVariances2011, 
+bonavitaEvolutionECMWFHybrid2016, 
+bannisterReviewOperationalMethods2017}. As such, it provides the 
+\enquote{error-of-the-day} as an impactful improvement to the analysis quality  
+compared to climatological background errors especially during extreme 
+events \parencite{bonavitaUseEDABackground2012}, though its small sample size 
+precludes trustworthy detailed structures 
+\parencite{isaksenEnsembleDataAssimilations2010, 
+bonavitaEstimatingBackgrounderrorVariances2011}. 
+
+Apart from providing the flow-dependent part of the background forecast 
+uncertainty, the \gls{eda} dataset serves also as a relative estimate of the 
+uncertainty of the \gls{hres}\footnote{Relative in the sense that the numerical 
+values of the ensemble spread should not be taken at face value, since the 
+\gls{eda} is underdispersive \parencite{sociERA5GlobalReanalysis2024} and its small 
+sample size entails substantial noise that would need to be filtered first 
+\parencite{raynaudObjectiveFilteringEnsemblebased2009, 
+bonavitaEstimatingBackgrounderrorVariances2011}.}. The dataset therefore offers
+unique insights into the nature and sources of uncertainty. Not only is the climatological 
+investigation of arguably the most-used reanalysis product to date a very 
+relevant subject in its own right; the type of uncertainty comprised in the 
+\gls{eda} is also less researched climatologically than others. More specifically, 
+since assimilation windows are only 12 hours wide and the initial guess 
+forecast is only 15 hours long, the uncertainty visible in the \gls{eda} spread 
+can only be caused by uncertainties in the observations or short time scale 
+error-growth. Since the spread of the \gls{eda} ensemble is indicative of this
+uncertainty, the question of what exactly drives and controls 
+ensemble spread deserves some attention.
+
+\subsection{\Gls{eda} spread} \label{sec:intro_eda_spread}
+
+Though variational bias correction is applied in the \gls{eda} production 
+\parencite{deeBiasDataAssimilation2005}, bias parameter updates are taken 
+from the control and, hence, not independent across the ensemble members 
+\parencite{hersbachERA5GlobalReanalysis2020}. Neglecting the bias term in 
+eqn.~\eqref{eqn:Jmin}, the linear approximation of the variance of the 
+analysis increment 
+$\delta\mathbf{x}^{\mathrm{a}}=\mathbf{x}^{\mathrm{a}}-\mathbf{x}^{\mathrm{b}}$ 
+is therefore \parencite{deeDataAssimilationPresence1998, 
+higham14MatrixInversion2002} 
+
+\begin{align} \label{eqn:AnVar}
+    \mathbb{E}\big[\delta\mathbf{x}^{\mathrm{a}}
+    \delta\mathbf{x}^{\mathrm{a}^T}\big] 
+    &= (\mathbf{I}-\mathbf{K}\mathbf{H})\mathbf{B}
+    =(\mathbf{B}^{-1}+\mathbf{H}^T\mathbf{R}^{-1}\mathbf{H})^{-1},\,
+    \text{where} \\
+    \mathbf{H} 
+    &= \left.  \frac{\partial H}{\partial \mathbf{x}}
+    \right|_{\mathbf{x} = \mathbf{x}^{\mathrm{b}}}, \,
+    \text{the linearized observation operator}\\
+    \mathbf{K} 
+    &=\mathbf{B}\mathbf{H}^\top
+    \big(\mathbf{H}\mathbf{B}\mathbf{H}^\top+\mathbf{R}\big)^{-1}, \,
+    \text{the Kalman gain.}
+\end{align}
+
+The causes for differences between ensemble members can be divided into 
+three parts: firstly, the differences in the perturbations to the 
+observations $\mathbf{y}^{\mathrm{O}}$ that are scaled by $\mathbf{R}$ and 
+propagated through $\mathbf{H}^{-1}$, secondly, the differences in the 
+background forecast $\mathbf{x}^{\mathrm{b}}$ that are scaled by 
+$\mathbf{B}$ and, thirdly, the ensemble spread introduced by the physics 
+perturbations by the full, non-linear outer-loop simulation across the 
+analysis window that is affected by all terms in eqn.~\eqref{eqn:AnVar}.
+
+\subsubsection{Observation Perturbations}\label{sec:intro_eda_obs}
+
+Given the two purposes of the \gls{eda}, the rationale behind the observation 
+perturbations becomes quite obvious. In the sense that the observations 
+constrain the dynamical model, a stronger constrain should also induce a 
+smaller spread of the ensemble around that constrain, so scaling the 
+perturbations by respective expected observation error covariances makes 
+sense and a larger observation uncertainty will entail a larger ensemble 
+spread and thus convey less \enquote{trust} in the \gls{hres} product. As uncertain 
+observations also project onto a more uncertain background forecast - a 
+forecast is more uncertain if its initial conditions are more uncertain - 
+applying observation perturbations to estimate background error covariances 
+arguably confirms with intuition 
+\parencite{isaksenEnsembleDataAssimilations2010}.
+
+The \gls{eda} observation perturbations are drawn from the observation-error model 
+used in the IFS: each perturbation variance equals the per-observation error 
+variance (the diagonal of $\mathbf{R}$) or the operator-computed, 
+scene-dependent variance for radiances and similar instruments 
+\parencite{ecmwfIFSDocumentationCY41R22016, 
+isaksenEnsembleDataAssimilations2010, 
+hersbachERA5GlobalReanalysis2020}. This implies, for instance, that larger 
+perturbations are applied for cloudy areas compared to clear-sky conditions 
+(see also~\cite{geerObservationErrorsAllsky2011}). The variances are computed 
+from instrument noise plus representativeness error, modified by the 
+observation operator and routinely tuned 
+\parencite{hollingsworthStatisticalStructureShort1984, 
+desroziersDiagnosisObservationBackground2005}. Sea surface temperature and 
+sea ice concentration perturbations are drawn according to 
+\textcite{hiraharaSeaSurfaceTemperature2016}.
+
+Apart from decreasing error variances through more accurate instruments, the 
+density of the observation network also heavily influences ensemble spread. 
+Adding observations increases the dimension of $\mathbf{R}$ effectively 
+adding positive definite terms to 
+$\mathbf{H}^T\mathbf{R}^{-1}\mathbf{H}$, whereby the expected analysis 
+increment variance decreases. This has a dominant effect on ensemble spread 
+since the number of observations ingested in the production of \gls{era5} has 
+grown by more than 3 orders of magnitude between 1940 and today 
+\parencite{sociERA5GlobalReanalysis2024}.
+
+\subsubsection{Background and physics perturbations}\label{sec:intro_eda_bg_phys}
+
+The short-range background forecast for each assimilation window is obtained by
+numerical integration using the previous window's analysis three hours before
+the start of the window as an initial condition. Note that the background
+term in eqn.~\eqref{eqn:Jmin} is only evaluated at the assimilation window's
+outset, while the short range forecast is used as an initial guess in the
+misfit term throughout the full 12-hour width. Conceiving the ensemble of
+previous analyses provided by the different members as a probability
+distribution, the integration will cause the distribution to shift and deform
+in model space in a fashion governed by the dynamical model's short time-scale
+error growth characteristics.
+
+The causes and mechanisms of error growth in the atmosphere and models 
+representing it have been discussed above in \cref{sec:intro_predictability_chaos}.
+Relevant for the \gls{eda} spread are the characteristics of short time-scale 
+error growth dominated by deep and shallow convection. 
+Exactly how the initial differences (effectively initial perturbations)
+between the ensemble members influence the error growth during the short forecast
+is hard to tell given their complex construction via EDA, but is very likely of
+secondary importance compared to presence or absence of diabatic processes.
+For medium to long time scale ensemble forecasts, perturbations from EDA have
+been shown to be too slow-growing, negatively affecting forecast skill and
+spread \parencite{buizzaPotentialUseEnsemble2008, sociERA5GlobalReanalysis2024},
+which is why they are augmented with singular vector perturbations in the
+operational ECMWF ensemble forecast \parencite{leutbecherEnsembleForecasting2008,
+palmerECMWFEnsemblePrediction2019, langMoreAccuracyLess2021}.
+
+The production of \gls{era5} features two stochastic physics schemes to alleviate
+shortcommings in the the representation of sub-grid scale processes and their associated uncertainty;
+the \gls{sppt} scheme and the
+\gls{skeb} scheme
+\parencite{ecmwfIFSDocumentationCY41R22016a, leutbecherStochasticRepresentationsModel2017}.
+The \gls{sppt} scheme introduced by \cite{buizzaStochasticRepresentationModel1999}
+and revised several times \parencite{lockTreatmentModelUncertainty2019,
+leutbecherStochasticRepresentationsModel2017} is supposed to represent model
+uncertainties in the representation of physical processes - diabatic processes
+especially. The \gls{skeb} scheme on the other hand is motivated by turbulence
+theory that predicts cascades that involve transfer of energy from small to
+large scales (cf.~\cref{sec:intro_predictability_chaos}).
+The scale interaction missing in the model due to truncation
+introduce uncertainties that are parametrized by the \gls{skeb}. The development
+goes back to \cite{shuttsKineticEnergyBackscatter2005} and
+\cite{bernerSpectralStochasticKinetic2009}, for the relevant implementation 
+see \cite{ecmwfIFSDocumentationCY41R22016a, leutbecherStochasticRepresentationsModel2017}.
+Note that \gls{sppt} applies multiplicative noise whereas \gls{skeb} applies additive noise.
+
+
+Both of the schemes used for \gls{era5} have been shown to partly alleviate the
+shortcomings mentioned above \parencite{bernerSystematicModelError2012,
+bernerStochasticParameterizationNew2017, dawsonSimulatingWeatherRegimes2015,
+leutbecherStochasticRepresentationsModel2017, langRevisionStochasticallyPerturbed2021}
+with the \gls{sppt} usually having a larger influence than the \gls{skeb}. Both schemes
+increase \gls{eda} spread throughout the atmosphere, albeit most effectual atop the
+planetary boundary layer \parencite{palmerStochasticParametrizationModel2009,
+isaksenEnsembleDataAssimilations2010}. They have proven particularly potent at
+correcting biases related to tropical convection \parencite{weisheimerAddressingModelError2014,
+subramanianImpactStochasticPhysics2017, christensenStochasticParameterizationNino2017,
+strommenImpactStochasticParametrisations2018}. Note than the \gls{ecmwf} has deactivated
+the \gls{skeb} scheme in 2018 \parencite{ecmwfIFSDocumentationCY45R12018} and replaced
+the \gls{sppt} with the \gls{spp} scheme
+\parencite{ollinahoProcesslevelRepresentationModel2017, langRevisionStochasticallyPerturbed2021}
+in 2024 \parencite{ecmwfIFSDocumentationCY49R12024}.
+
+Finally, if all ensemble members were supplied with the same background forecast
+and observations (without perturbations), they would still result in different
+analysis. This is because the perturbed physics parametrizations introduced
+above are applied in the iterative minimization of $\mathbf{x}$ by the full
+non-linear \gls{ifs} (the outer-loop). As a sidenote, even without perturbed
+physics, turbulent cascades might introduce some ensemble spread by amplifying
+numerical errors, albeit much smaller in magnitude
+\parencite{leithAtmosphericPredictabilityTwoDimensional1971,
+leutbecherEnsembleForecasting2008, langMoreAccuracyLess2021}.  
 
 
 \section{Aims and thesis roadmap}\label{sec:intro_roadmap}
