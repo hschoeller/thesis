@@ -219,10 +219,16 @@ understand onset and persistence in a way comparable with observations \parencit
 
 This was also pointed out by \textcite{charneyMultipleFlowEquilibria1979}, who
 proposed a model in which non-linearities were essential for blocking occurrence.
-Similar to the notion of stationary waves, their model admitted multiple equilibria
+Similar to the notion of stationary waves, their model admitted multiple unstable
+fixed points, each associated with a different flow regime
 and opened the understanding of blocking as a (quasi-)stationary regime governing
-the atmospheric system's dynamics in its vicinity in state space. The model will
-be introduced in more detail later. Suffice to say that it offers a mechanism for
+the atmospheric system's dynamics in its vicinity in state space. The idea, that
+the mid-latitude atmosphere switches between such regimes chaotically due to 
+stochastic forcing from synoptic variability was highly influential and has been extensively
+applied to the real world \parencite{legrasPersistentAnomaliesBlocking1985,
+moClusterAnalysisMultiple1988, vautardMultipleWeatherRegimes1990,
+farandaSwitchingZonalBlocked2016}.
+It offers a mechanism for
 regime persistence and sudden transitions, but its applicability is questioned by
 its sensitivity to parameter choices \parencite{crommelinMechanismAtmosphericRegime2004}
 and whether the real atmosphere possesses regimes in the dynamical sense is debated
@@ -400,7 +406,7 @@ structure is not always justified \parencite{martineauBaroclinicBlocking2022}.
 Baroclinic theories emphasizing the role of the vertical structure of the flow supporting
 blocking formation have proposed a variety of abstracted models over
 the years to investigate these processes mechanically  \parencite[e.g.~][]{vautardSourceMidlatitudeLowfrequency1988,
-tanakaNumericalSimulationAmplification1991,
+tanakaNumericalSimulationAmplification1991, cessiOrographicInstabilityNonsymmetric1985,
 marshallDynamicalUnderstandingPlanetaryScale1993}. Some models are simple enough
 to study the phenomenon from a dynamical systems perspective. For example, 
 \textcite{charneyFormdragInstabilityMultiple1980} extend the aforementioned barotropic
@@ -699,7 +705,8 @@ role climatologically due to the rarity of its occurrence
 
 Predicting the weather and climate of the future is certainly one of the core goals of
 atmospheric sciences as a whole, so it comes as no surprise that the study of 
-predictability is wide and deep. The atmosphere is a chaotic system with rich
+predictability is wide and deep \parencite{krishnamurthyPredictabilityWeatherClimate2019}.
+ The atmosphere is a chaotic system with rich
 dynamics on a vast range of scales generally rendering definitive forecasts
 impossible beyond a certain time horizon, often referred to as the predictability limit.
 From a forecasting perspective, errors and, thus,
@@ -717,13 +724,23 @@ are dependent on the flow state, region, variable and lead time.
 From a practical point of view, predictability is usually studied
 by means of ensemble forecasting, where the evolution of the spread between
 multiple realizations of a forecast serves as a proxy for the forecast uncertainty.
-Mathematically, one can think of this as a Monte Carlo approximation of the temporal
-evolution of the probability distribution in the system's phase space.
-Acknowledging deficient knowledge about the system by providing probabilistic
+Acknowledging deficient
+knowledge about the system by providing probabilistic
 in addition to deterministic forecasts has successfully extended the forecast
-skill horizon \parencite{buizzaForecastSkillHorizon2015}.
+skill horizon \parencite{buizzaForecastSkillHorizon2015} and has proven instrumental
+in guiding decision-making as well as model improvement.
 
-Both aspects of uncertainty mentioned above are distinctly present in an
+Mathematically, one can think of ensemble forecasting
+ as a Monte Carlo approximation of the temporal
+evolution of the probability distribution in the system's phase space. A subtle
+distinction has to be made between the growth of the ensemble spread (the width
+of the probability distribution) and the growth
+of the forecast error (the distance between the ensemble mean and the truth), since the
+two only coincide in reliable ensembles \parencite{leutbecherEnsembleForecasting2008}.
+This might not always be the case, but reliability is routinely assessed in operational
+models and ensembles are consequently calibrated \parencite{rodwellReliabilityEnsembleData2016}. 
+
+The two aspects of uncertainty mentioned above are distinctly present in an
 ensemble forecasting setting:
 the initial spread is either derived from assimilation uncertainty (like in an
 operational setting) or designed in some dedicated way with a specific 
@@ -774,11 +791,12 @@ to the direction and nature of energy and enstrophy cascades already mentioned
 in \cref{sec:intro_block_baroclinic}. In a $E_{\mathrm{kin}} \sim k^{-3}$ range,
 the characteristic error-doubling time is scale-independent, and the
 predictability horizon is in principle indefinitely extendable by reducing
-initial-condition uncertainty at the scale of interest. In a $E_{\mathrm{kin}} \sim k^{-5/3}$
+initial-condition uncertainty. In a $E_{\mathrm{kin}} \sim k^{-5/3}$
 range, by contrast, error-doubling times decrease with scale, and the total
 time required for errors to propagate from arbitrarily small scales up to a
 given large scale is finite and bounded
-\parencite{leithPredictabilityTurbulentFlows1972}. The atmosphere exhibits
+\parencite{leithPredictabilityTurbulentFlows1972, sunNewTheoreticalFramework2020}.
+The mid-latitude atmosphere exhibits
 both regimes: a $-3$ slope at synoptic scales and a $-5/3$ slope at meso- and submesoscales, with
 the transition occurring around a few hundred kilometres. In contrast to 
 idealized two-dimensional turbulence, where the transition between the ranges
@@ -786,8 +804,6 @@ is determined by the excitation scale \parencite{kraichnanInertialRangesTwodimen
 in \gls{qg} turbulence, the transition is determined by the validity of the 
 \gls{qg} approximation, which is at scales smaller than the baroclinic excitation
 scales \parencite{charneyGeostrophicTurbulence1971, lindborgCanAtmosphericKinetic1999}.
-Consistently, the dual sprectrum seems to be a feature of the mid-latitudes rather
-than the whole atmosphere \parencite{judtAtmosphericPredictabilityTropics2020}.
 
 This dual
 structure is well-established by both aircraft measurements
@@ -805,12 +821,12 @@ $k^{-5/3}$ range and eventually reach the synoptic scales relevant for
 blocking and other large-scale phenomena.
 
 In physical space, this error cascade is often conceptualized in a three--stage
-process (at least for the mid-latitudes): 
+process: 
 \begin{enumerate}
     \item Initial error growth at small scales, dominated by moist convective
 instability
     \item Escalation of the errors to larger scales either through geostrophic 
-adjustment \parencite{zhangMesoscalePredictabilityMoist2007} or through near--tropopause
+adjustment \parencite{zhangMesoscalePredictabilityMoist2007, bierdelTheoreticalAspectsUpscale2018} or through near--tropopause
 divergence \parencite{baumgartQuantitativeViewProcesses2019}
     \item Propagation of the error to global scales through baroclinic instability
 \parencite{zhangMesoscalePredictabilityMoist2007} or
@@ -818,9 +834,9 @@ non--linear \gls{pv} advection \parencite{baumgartQuantitativeViewProcesses2019}
 \end{enumerate}
 Several studies with grid--scale initial perturbations have provided evidence
 in favour of such a process chain \parencite{judtInsightsAtmosphericPredictability2018,
-selzEstimatingIntrinsicLimit2019}. In this conception, moist convection
+selzEstimatingIntrinsicLimit2019, lloverasExploringIntrinsicPredictability2025}. In this conception, moist convection
 appears as an energy source that escalates and injects perturbations at small 
-scales more effectively than the turbulent scale interactions would.
+scales more effectively than the dry turbulent scale interactions would.
 
 Moist convection may however also have an effect on the shape of the kinetic energy
 spectrum and the associated cascades as well. In dry-versus-moist
@@ -838,12 +854,17 @@ slope in dry simulations at sufficiently high resolution
 \parencite{waiteMesoscaleKineticEnergy2009, skamarockAtmosphericKineticEnergy2014},
 the moist convection's influence on the kinetic energy spectrum is evidenced further
 by a mostly $-5/3$ slope in the tropics and a mostly $-3$ slope in the polar regions observed
-by \textcite{judtAtmosphericPredictabilityTropics2020}. Predictability on short time
-scales in the tropics is also more limited than in the mid-latitudes even judging
-from machine-learning based forecast models \parencite{keaneMidlatitudeTropicalScales2025},
-that do not resolve the rapid upscale error growth from grid scales \parencite{selzCanArtificialIntelligencebased2023}.
+by \textcite{judtAtmosphericPredictabilityTropics2020}. Both the tropics and the
+polar regions have much different predictability characteristics compared to the
+mid-latitudes, indeed, with the tropics showing a much more limited short-term
+predictability, but higher long-term predictability due to large scale teleconnections
+and oceanic coupling \parencite{diasEquatorialWavesSkill2018}, whereas the polar regions
+might have a higher intrinsic predictability due to the secondary role of 
+moist convection and its limited influence on the large scale flow
+\parencite{lloverasExploringIntrinsicPredictability2025}.
 Be it through injection of perturbations or modification of the cascades themselves,
-moist convection is therefore thought to be a key driver of the intrinsic predictability limit.
+moist convection is therefore thought to be a key driver of the intrinsic
+predictability limit.
 
 For initial perturbations of realistic size and spectrum, however, convection
 turned out to be far less relevant for error growth both in operational
@@ -851,10 +872,20 @@ turned out to be far less relevant for error growth both in operational
 Indeed, when initial perturbations were successively increased from minuscule 
 to operational size in global model runs by \textcite{selzTransitionPracticalIntrinsic2022},
 ensemble spread growth was dominantly in the large scales with spread even decreasing
-in the small scales for short lead times. 
+in the small scales for short lead times. In the simplest 
+ barotropic \gls{qg} model adjacent to the \textcite{lorenzPredictabilityFlowWhich1969}
+ model, upscale error-growth and, accordingly, finite-time predictability
+ appears only at resolutions comparable to a few kilometers for global models, even
+ though the $-5/3$ range is well resolved at coarser resolutions already.
+Further evidence of the irrelevance of the rapid upscale error growth from
+grid scales is provided by stricter predictability limits on short time
+scales in the tropics compared to mid-latitudes even judging
+from machine-learning based forecast models \parencite{keaneMidlatitudeTropicalScales2025},
+that do not resolve the rapid upscale error growth from grid scales \parencite{selzCanArtificialIntelligencebased2023}.
 
 These observations are actually completely
-consistent with the kinetic energy spectrum of the atmosphere and the associated
+consistent with the kinetic energy spectrum of the mid--latitude
+atmosphere and the associated
 cascades, since relatively small errors at the large scales may
 dominate the spread before the small--scale errors have escalated
 \parencite{rotunnoGeneralizationLorenzsModel2008, durranAtmosphericPredictabilityWhy2014}. 
@@ -870,7 +901,15 @@ Yet, convectively active regions are frequently highlighted in studies
 concerned with error growth that utilize operational
 ensemble forecasts initialized with assimilation uncertainty
 \parencite{sanchezLinkingRapidForecast2020,
-puhFlowDependenceForecast2024, lilloInvestigatingDynamicsError2017,magnussonTropicalCycloneActivities2021}. A hypothesis
+puhFlowDependenceForecast2024, lilloInvestigatingDynamicsError2017,
+magnussonTropicalCycloneActivities2021}. For global models,
+\textcite{zagarThreedimensionalMultivariateModal2015, zagarGlobalPerspectiveLimits2017}
+showed that initial spread was largest in unbalanced modes in the tropics associated 
+with convection, before balanced modes and midlatitudes become dominant -- 
+the tropics show a much more limited short forecast skill compared to the mid-latitudes
+generally \parencite{diasEquatorialWavesSkill2018}.  
+
+A hypothesis
 that reconciles the two findings is that convective regions do also have an
 impact on the initial ensemble spread, potentially shortening the predictability
 limit regardless of the kinetic energy spectrum. Even though convection typically
@@ -879,20 +918,19 @@ scales dominating the forecast evolution, they are also localized in physical
 space and therefore broad in spectral space rather than localized at small
 wavenumbers \parencite{lloverasMesoscalePredictabilityMoist2022}.
 
-\textcite{zagarThreedimensionalMultivariateModal2015, zagarGlobalPerspectiveLimits2017}:
-initial spread in the tropics in the unbalanced modes (convection), dominates also short term,
-then balanced modes and midlatitudes becomes dominant
-
 The elevated spread in convectively active regions may
 reflect enhanced initial uncertainty due to weaker observational
 constraints \parencite{rodwellCharacteristicsOccasionalPoor2013}, or be 
-produced during the assimilation process itself.
+produced during the assimilation process itself. An argument in favour of 
+a substantial observational contribution is the lack of strong congruency between
+regions of large background forecast spread and regions high precipitation
+\parencite{rodwellUncertaintyGrowthForecast2023}. 
 Observation uncertainty is indeed larger in cloudy scenes for satellite
 instruments \parencite{geerObservationErrorsAllsky2011,
 liAssimilationSatelliteSounder2016, geerAllskySatelliteData2018},
-aircraft typically avoid regions of intense convection, and large
+aircraft typically avoid regions of intense convection, but large
 variability on small scales together with representation challenges in
-models further complicate the assimilation.
+models also further complicate the assimilation.
 
 More broadly, initial condition uncertainty has been shown to be of first--order
 importance for operational forecast error--growth, roughly on-par with model
@@ -927,7 +965,7 @@ covariances are themselves subject to sampling error from limited ensemble
 sizes and require empirical inflation and localization
 \parencite{houtekamerReviewEnsembleKalman2016}
 
-These sources do not act
+These uncertainty sources do not act
 uniformly across scales or flow regimes: analysis errors tend to be larger
 where the flow is dynamically active and observations are weak, producing
 flow-dependent initial spread that subsequently shapes error growth.
@@ -936,7 +974,19 @@ construct the initial ensemble spread itself. Since the analysis distribution
 is not directly available, initial perturbations must be approximated
 through dedicated schemes, and the chosen approach has a substantial
 influence on the resulting forecast spread evolution and skill
-\parencite{leutbecherEnsembleForecasting2008}. Historically, operational
+\parencite{leutbecherEnsembleForecasting2008}. The importance of this
+construction step is hard to overstate: because initial-condition
+uncertainty is itself flow-dependent and case-contingent on the large-scale
+state, perturbations that fail to reflect the structure of actual analysis
+uncertainty propagate as effectively random noise through the forecast
+model, inflating member error without contributing predictive information
+about the realised error pattern \parencite{fengEnsembleForecastingForay2024}.
+Conversely, perturbations whose covariance structure is physically tied to
+the assimilation cycle inherit flow-dependence from the underlying observation
+network and dynamics, and can therefore represent uncertainty in a way that
+is consistent with how analysis error actually arises.
+
+Historically, operational
 centres adopted contrasting strategies: ECMWF used singular vectors ---
 perturbations that grow most rapidly over a fixed optimisation interval,
 designed to capture the dynamically most uncertain directions in phase
@@ -950,10 +1000,17 @@ or geographically remote regions, while breeding-based perturbations can
 be too closely aligned with leading instabilities and miss other relevant
 directions \parencite{magnussonComparisonSingularVectors2008}. Modern
 operational systems increasingly draw perturbations from ensembles of data
-assimilations \parencite{isaksenEnsembleDataAssimilations2010}, which
-provides flow-dependent, broadband perturbations more consistent with the
-assimilation uncertainty itself, though the design choice continues to
-affect ensemble reliability and spread-skill relationships
+assimilations (EDA), in which the full assimilation cycle is run multiple
+times with perturbed observations and boundary conditions to directly
+sample the analysis error distribution
+\parencite{isaksenEnsembleDataAssimilations2010}. This provides
+flow-dependent, broadband perturbations more consistent with the
+assimilation uncertainty itself, addressing the limitations of singular
+vectors and breeding by grounding the perturbation structure in the same
+stochastic processes that generate analysis error in the first place,
+though the design choice continues to
+affect ensemble reliability and spread-skill relationships and remains an
+active area of research
 \parencite{langImpactPerturbationMethods2012,
 raynaudComparisonInitialPerturbation2016,
 wangImpactsMultiscaleComponents2023}.
@@ -966,169 +1023,200 @@ structures, and span a broad range of scales
 \parencite{magnussonFactorsInfluencingSkill2013, zhangWhatPredictabilityLimit2019}.
 Consequently, the error growth observed in operational ensembles reflects an
 interaction between intrinsic cascade dynamics and the structure of the
-initial spread itself, with the latter often dominating at short to medium
+initial spread itself, with the latter often dominating at short
 forecast lead times \parencite{selzTransitionPracticalIntrinsic2022,
 lloverasTwoFourdayPredictability2023}. Reducing initial-condition
 uncertainty --- especially at the large scales where most spread initially
 resides --- therefore remains a major lever for improving practical
 predictability, even where intrinsic limits constrain its eventual horizon.
 
-There is a wealth of literature studying the processes responsible for error-growth
-in atmospheric models at different lead times \parencite{krishnamurthyPredictabilityWeatherClimate2019}.
-Error-growth is flow dependent on short
-\parencite{puhFlowDependenceForecast2024, rodwellUncertaintyGrowthForecast2023},
-medium \parencite{baumgartProcessesGoverningAmplification2019,
-baumgartQuantitativeViewProcesses2019, sanchezLinkingRapidForecast2020} and long
-\parencite{spaethFlowDependenceEnsembleSpread2024, ardilouzeFlowDependenceWintertime2021,
-buelerYearroundSubseasonalForecast2021, osmanMultimodelAssessmentSubseasonal2023} time scales as well as being dependent
-on the initial perturbation characteristics \parencite{raynaudComparisonInitialPerturbation2016,
-wangImpactsMultiscaleComponents2023}, hinting at a variety of processes responsible.
-The short time scale relevant here exhibits error growth characterized especially
-by deep and shallow convection \parencite{selzUpscaleErrorGrowth2015,
-selzEstimatingIntrinsicLimit2019, judtInsightsAtmosphericPredictability2018,
-bechtoldRoleShallowConvection2014}, that later projects onto the larger spatial
-and temporal scales, effectively limiting predictability
-\parencite{sanchezLinkingRapidForecast2020, zhangMesoscalePredictabilityMoist2007}.
-
-The dominant role of convective instability for initial error growth has been
-attested using convection-permitting models, which have in turn been set as
-benchmarks for coarser models relying on parametrization of sub-grid scale processes.
-A crucial insight into the long history of parametrization development
-\parencite{christensenParametrizationWeatherClimate2022} has been that
-ensemble forecast quality suffers from incorrect dispersion and biases when not
-accounting for model uncertainty by using deterministic physics parametrizations.
-This fueled the development and implementation of stochastically perturbed physics
-schemes \parencite{palmerStochasticWeatherClimate2019}.
-
-A line of study concerned with elucidating the exact way in which stochastic
-schemes influence biases in the representation of blockings
-\parencite{filippucciImpactStochasticPhysics2024, daviniRepresentationWinterNorthern2021,
-hartungResolutionPhysicsAtmosphere2017, maddisonImpactModelUpgrades2020} and weather
-regimes more generally \parencite{christensenSimulatingWeatherRegimes2015,
-dawsonSimulatingWeatherRegimes2015}. Results from idealized (atmospheric)
-models have shown how zero-mean additive noise can enhance the regime behaviour
-in dynamical systems \parencite{kwasniokEnhancedRegimePredictability2014,
-dorringtonInteractionStochasticForcing2023}. It is not far-fetched to
-hypothesize that this exact behaviour plays a role in full-complexity models
-and the real world, as well. Apart from underresolved topographic forcing and
-transient eddy feedback \parencite{dawsonSimulatingWeatherRegimes2015}, warm
-conveyor belts (WCBs) and their interactions with the large scale flow have
-been suggested as drivers of error growth 
-\parencite{gramsAtmosphericDynamicsPerspective2018, picklWarmConveyorBelts2023,
-wandelSystematicEvaluationWarm2021, madonnaVerificationNorthAtlantic2015},
-especially in interaction with SPPT \parencite{picklEffectStochasticallyPerturbed2022}.
-The relevance of WCBs for atmospheric blocking representation is
-well-established \parencite{pfahlImportanceLatentHeat2015, steinfeldRoleLatentHeating2019,
-yamamotoOceanicMoistureSources2021, zschenderleinLagrangianAnalysisUppertropospheric2020}
-and representation biases have been linked to moist dynamics \parencite{wandelWhyMoistDynamic2024}.
-We emphasize that influence of stochastic schemes on regime representation unfolds 
-on longer time scales that the ones relevant for the EDA, but the studies referenced
-above still give indication as to when and how ensemble spread in EDA is associated with weather regimes.
-
-
 \subsection{Parametrizations and model error} \label{sec:intro_predictability_parametrization} 
-graySystematicModelForecast2014: diabatic processes misrepresented in models, 
-imprinting on large scale flow
+While the previous section focused on initial-condition uncertainty,
+forecast error in operational systems is comparably shaped by model
+uncertainty. Even given a perfect initial state, a numerical model would
+diverge from the true atmosphere due to its structural and numerical
+limitations: finite spatial and temporal discretization, imperfect dynamical
+cores, and --- most prominently --- the parametrization of processes that
+occur on scales smaller than the model grid. Diagnostic studies at
+operational centres find that model and initial-condition uncertainty
+contribute to medium-range forecast error in comparable proportions, with
+their relative balance shifting with lead time, scale, and variable
+\parencite{magnussonDependenceInitialConditions2019, magnussonSkillMediumrangeForecast2022}.
 
-sanchezLinkingRapidForecast2020: provide evidence that diabatics contribute to
-rapid forecast error growth in cases of low predictability especially, caused by 
-strong influence on tropopause dynamics.
+The scale separation between the resolved grid and the processes governing
+atmospheric thermodynamics is enormous. Even at convection-permitting
+resolutions ($\sim 1$~km), cloud microphysics, turbulence, radiative transfer,
+and boundary-layer mixing operate down to micrometre scales and cannot be
+explicitly resolved. Parametrizations bridge this gap by expressing
+sub-grid processes as functions of resolved-scale variables,
+encoding statistical assumptions about the distribution of sub-grid states
+consistent with each grid-scale configuration
+\parencite{stensrudParameterizationSchemesKeys2007, christensenParametrizationWeatherClimate2022}.
+ These schemes are indispensable but inherently approximate; they represent the dominant
+source of structural model error in modern \gls{nwp} \parencite{bechtoldRoleShallowConvection2014}.
 
-\textcite{diasEquatorialWavesSkill2018}
+A fundamental limitation of conventional parametrizations is that they are
+deterministic: the same grid-scale state produces the same sub-grid
+forcing. In reality, the sub-grid response to a given grid-scale
+configuration is better described by a distribution of plausible
+tendencies, since the same grid-scale state is consistent with many
+realisations of the unresolved flow and because (often empirically) derived or tuned
+parameters in the functional formulations are associated with uncertainties themselves.
+In the case of sub-grid turbulence, such parametrization
+violates essential self-similarity properties of the turbulent flow with important
+detrimental implications for the model dynamics
+\parencite{palmerStochasticParametrizationModel2009, palmerStochasticWeatherClimate2019}.
 
-\textcite{rotunnoGeneralizationLorenzsModel2008}: generalization of lorzen69
+Ensemble forecasts that perturb only the initial
+conditions are systematically underdispersed (unreliable), particularly at short lead
+times and in convectively active regions, because they fail to sample
+model-related uncertainty
+\parencite{buizzaStochasticRepresentationModel1999}.
+Convection is
+particularly problematic, as its statistical behaviour transitions across
+the so-called convective grey zone --- grid spacings where convection is
+neither fully sub-grid nor fully resolved --- so that parametrizations
+calibrated at one resolution behave inconsistently at another 
+\parencite{fieldExploringConvectiveGrey2017, tomassiniConfrontingConvectiveGray2023}.
+Depending on the model resolution this issue arises, for example, for tropical cyclones or mesoscale
+convective systems \parencite{clarkeDownstreamInfluenceMesoscale2019}, either
+having considerable impacts on the larger-scale flow and objects of societal importance.
+This issue 
+arises in a similar manner for boundary--layer parametrizations 
+\parencite{honnertAtmosphericBoundaryLayer2020}.
 
-There is a wealth of literature studying the processes responsible for error-growth
-in atmospheric models at different lead times \parencite{krishnamurthyPredictabilityWeatherClimate2019}.
-Error-growth is flow dependent on short
-\parencite{puhFlowDependenceForecast2024, rodwellUncertaintyGrowthForecast2023},
-medium \parencite{baumgartProcessesGoverningAmplification2019,
-baumgartQuantitativeViewProcesses2019, sanchezLinkingRapidForecast2020} and long
-\parencite{spaethFlowDependenceEnsembleSpread2024, ardilouzeFlowDependenceWintertime2021,
-buelerYearroundSubseasonalForecast2021, osmanMultimodelAssessmentSubseasonal2023} time scales as well as being dependent
-on the initial perturbation characteristics \parencite{raynaudComparisonInitialPerturbation2016,
-wangImpactsMultiscaleComponents2023}, hinting at a variety of processes responsible.
-The short time scale relevant here exhibits error growth characterized especially
-by deep and shallow convection \parencite{selzUpscaleErrorGrowth2015,
-selzEstimatingIntrinsicLimit2019, judtInsightsAtmosphericPredictability2018,
-bechtoldRoleShallowConvection2014}, that later projects onto the larger spatial
-and temporal scales, effectively limiting predictability
-\parencite{sanchezLinkingRapidForecast2020, zhangMesoscalePredictabilityMoist2007}.
+An operational response to these limitations is stochastic
+parametrization, which represents model uncertainty by adding random
+perturbations to the deterministic parametrization scheme. A particular approach
+to represent uncertainty in the physics parametrization is the \gls{sppt}
+developed at the \gls{ecmwf}
+\parencite{buizzaStochasticRepresentationModel1999,
+leutbecherStochasticRepresentationsModel2017}. It applies a multiplicative
+scaling to the total physics tendency, which is spatially and temporally correlated,
+thereby \enquote{giving life} back to the sub-grid processes rather than 
+treating them as \enquote{slaves} of the resolved flow \parencite{palmerStochasticWeatherClimate2019}.
+Its successor, the \gls{spp} scheme \parencite{ollinahoProcesslevelRepresentationModel2017,
+langRevisionStochasticallyPerturbed2021} instead perturbs the uncertain parameters
+themselves allowing for more granular control over the impact of individual
+processes. The recovery of the self-similarity broken by determinist parametrization of
+subgrid-scale turbulence is the motivation of the \gls{skeb} scheme, that 
+compensates excessive dissipation of kinetic energy through mountain drag,
+numerical diffusion and other processes \parencite{shuttsKineticEnergyBackscatter2005,bernerSpectralStochasticKinetic2009}.
+Its introduction accordingly lead to the representation of the observed
+$-5/3$ slope in the kinetic energy spectrum in the mesoscales.
 
-The dominant role of convective instability for initial error growth has been
-attested using convection-permitting models, which have in turn been set as
-benchmarks for coarser models relying on parametrization of sub-grid scale processes.
-A crucial insight into the long history of parametrization development
-\parencite{christensenParametrizationWeatherClimate2022} has been that
-ensemble forecast quality suffers from incorrect dispersion and biases when not
-accounting for model uncertainty by using deterministic physics parametrizations.
-This fueled the development and implementation of stochastically perturbed physics
-schemes \parencite{palmerStochasticWeatherClimate2019}.
+Generally, stochastic parametrization schemes have been shown to partly alleviate the
+shortcomings of deterministic parametrization, improving model biases,
+ensemble reliability, spread-skill relationships, and the
+representation of weather regimes
+ \parencite{bernerSystematicModelError2012, dawsonSimulatingWeatherRegimes2015,
+leutbecherStochasticRepresentationsModel2017, langRevisionStochasticallyPerturbed2021}.
+The \gls{sppt} usually has a larger influence than the \gls{skeb}, especially
+in the tropics and near the surface
+\parencite{subramanianImpactStochasticPhysics2017, christensenStochasticParameterizationNino2017,
+strommenImpactStochasticParametrisations2018}, whereas the \gls{skeb} has a more pronounced
+effect in the free troposphere and in the storm track region
+\parencite{weisheimerAddressingModelError2014, bernerStochasticParameterizationNew2017}.
+For identical initial conditions, \gls{sppt} generates  medium-range 
+ensemble spread comparable to multi-model ensembles 
+\parencite{magnussonSkillMediumrangeForecast2022}, which are considered the
+skillful sample of the model uncertainty space given their fundamental differences
+in model design \parencite{krishnamurtiReviewMultimodelSuperensemble2016}.
 
-A line of study concerned with elucidating the exact way in which stochastic
-schemes influence biases in the representation of blockings
-\parencite{filippucciImpactStochasticPhysics2024, daviniRepresentationWinterNorthern2021,
-hartungResolutionPhysicsAtmosphere2017, maddisonImpactModelUpgrades2020} and weather
-regimes more generally \parencite{christensenSimulatingWeatherRegimes2015,
-dawsonSimulatingWeatherRegimes2015}. Results from idealized (atmospheric)
-models have shown how zero-mean additive noise can enhance the regime behaviour
-in dynamical systems \parencite{kwasniokEnhancedRegimePredictability2014,
-dorringtonInteractionStochasticForcing2023}. It is not far-fetched to
-hypothesize that this exact behaviour plays a role in full-complexity models
-and the real world, as well. Apart from underresolved topographic forcing and
-transient eddy feedback \parencite{dawsonSimulatingWeatherRegimes2015}, warm
-conveyor belts (WCBs) and their interactions with the large scale flow have
-been suggested as drivers of error growth 
-\parencite{gramsAtmosphericDynamicsPerspective2018, picklWarmConveyorBelts2023,
-wandelSystematicEvaluationWarm2021, madonnaVerificationNorthAtlantic2015},
-especially in interaction with SPPT \parencite{picklEffectStochasticallyPerturbed2022}.
-The relevance of WCBs for atmospheric blocking representation is
-well-established \parencite{pfahlImportanceLatentHeat2015, steinfeldRoleLatentHeating2019,
-yamamotoOceanicMoistureSources2021, zschenderleinLagrangianAnalysisUppertropospheric2020}
-and representation biases have been linked to moist dynamics \parencite{wandelWhyMoistDynamic2024}.
-We emphasize that influence of stochastic schemes on regime representation unfolds 
-on longer time scales that the ones relevant for the EDA, but the studies referenced
-above still give indication as to when and how ensemble spread in EDA is associated with weather regimes.
-\subsection{Text fragment from Paper}
+As epitomized by the location-specific effect of the above presented 
+stochastic schemes, predictability is severely flow-dependent. Error growth rates,
+the dominant error
+source, and the resulting forecast uncertainty all vary substantially with
+the synoptic regime, geographical region, and weather system under
+consideration \parencite{magnussonFactorsInfluencingSkill2013,ardilouzeFlowDependenceWintertime2021,
+rodwellCharacteristicsOccasionalPoor2013, ferrantiFlowdependentVerificationECMWF2015}.
+This flow-dependence has multiple origins, several of which have already
+been mentioned in the preceding sections. Initial-condition errors scale with 
+the observational coverage and quality and, in turn, project
+preferentially onto dynamically unstable structures, so the same nominal
+analysis uncertainty produces different forecast spread depending on the
+underlying flow \parencite{buizzaTargetingObservationsUsing1999}.
+Parametrized processes are themselves activated unevenly: convection,
+gravity-wave drag, and boundary-layer mixing contribute to model
+uncertainty in ways that depend on whether the local atmosphere is
+convectively active, stably stratified, or in a quiescent regime, so that
+stochastic parametrizations also produce flow-dependent spread
+\parencite{christensenParametrizationWeatherClimate2022}. The weather
+systems themselves may differ in their intrinsic propensity to amplify disturbances:
+ rapidly
+intensifying cyclones, warm conveyor belts, and convective episodes are
+typically associated with larger relative forecast errors than slowly
+evolving large-scale features
+\parencite{ferrantiFlowdependentVerificationECMWF2015,
+gramsAtmosphericDynamicsPerspective2018, clarkeDownstreamInfluenceMesoscale2019}. The large scale flow constrains the 
+convective scales to differing degrees implying differing levels of predictability
+and parametrizations have been shown to aid in representing this flow-dependence
+in models \parencite{keilRelativeContributionSoil2019, matsunobuFlowScaledependentSpatial2024}
 
-Ensemble forecast are intended to provide a range of probable future developments given deficient knowledge about the system and have successfully extended the forecast-skill horizon \parencite{buizzaForecastSkillHorizon2015}. The growth of the initial ensemble spread with time varies across space, time, variable and current flow-state. This is because the error-growth characteristics of a model depends on its design, especially with respect to how small-scale processes are resolved or parametrized \parencite{matsunobuFlowScaledependentSpatial2024, palmerStochasticWeatherClimate2019}, but also because physical processes responsible for error-growth are more prevalent in some atmospheric states than others \parencite{puhFlowDependenceForecast2024}. It does, however, also depend on the construction of the initial perturbations themselves \parencite{langImpactPerturbationMethods2012, raynaudComparisonInitialPerturbation2016, wangImpactsMultiscaleComponents2023}, at least at short lead times.
-
-For forecasts up to a few days, dedicated experiments with grid-point-level initial perturbations have shown that convective processes efficiently propagate small-scale errors to larger scales \parencite{selzUpscaleErrorGrowth2015, zhangMesoscalePredictabilityMoist2007, judtInsightsAtmosphericPredictability2018}, pointing to up-scale error growth reminiscent of the notorious "butterfly effect" conceptualized by \textcite{lorenzPredictabilityFlowWhich1969}. The pivotal role of convectively active regions has also been assessed in operational ensemble forecasts that apply initial perturbations from assimilation uncertainty \parencite{sanchezLinkingRapidForecast2020, puhFlowDependenceForecast2024, lilloInvestigatingDynamicsError2017} in contrast to the perturbations concentrated at small scales in the dedicated studies referenced above. In that setting, however, larger ensemble spread in convectively active regions may be influenced by larger initial uncertainties due to weaker observational constraints. More specifically, elevated observation uncertainty arises in cloudy scenes for satellite instruments \parencite{geerObservationErrorsAllsky2011, liAssimilationSatelliteSounder2016, geerAllskySatelliteData2018} and air crafts usually avoid flying through regions of intense convection \parencite{rodwellCharacteristicsOccasionalPoor2013}, but the large variability on small scales and representation-challenges in models also complicate assimilation.
-
-Ensemble forecast are intended to provide a range of probable future developments given deficient knowledge about the system and have successfully extended the forecast-skill horizon \parencite{buizzaForecastSkillHorizon2015}. The growth of the initial ensemble spread with time varies across space, time, variable and current flow-state \parencite{puhFlowDependenceForecast2024}. This is because the error-growth characteristics of a model depend on its design, especially with respect to how small-scale processes are resolved or parametrized \parencite{matsunobuFlowScaledependentSpatial2024, palmerStochasticWeatherClimate2019}, but also because physical processes responsible for error-growth are more prevalent in some atmospheric situations than others \parencite{rodwellCharacteristicsOccasionalPoor2013}.
-
-For forecasts up to a few days, dedicated experiments with grid-point-level initial perturbations have shown that convective processes efficiently propagate small-scale errors to larger scales \parencite{selzUpscaleErrorGrowth2015, zhangMesoscalePredictabilityMoist2007, judtInsightsAtmosphericPredictability2018}, pointing to up-scale error growth reminiscent of the notorious "butterfly effect" conceptualized by \textcite{lorenzPredictabilityFlowWhich1969}. From a practical point of view, the relevance of the butterfly effect -- and therefore the role of convection as a up-scale error propagator -- has been called into question, since relatively small errors at the large scales may dominate the spread before the small-scale errors have escalated \parencite{durranAtmosphericPredictabilityWhy2014, lloverasTwoFourdayPredictability2023}.
-
-Using a global weather prediction model, \textcite{selzTransitionPracticalIntrinsic2022} compared the error-growth characteristics for initial perturbations provided by EDA, but rescaled several times from realistic to idealized levels. Confirming the above, their results indicated that for initial perturbations on operational levels, error-growth at short lead times is concentrated in larger scales and provided by adiabatic processes, with the ensemble spread even decreasing in the smallest scales. 
-
-Similarly, when looking at the background forecast uncertainty in cyclogenesis case studies, \textcite{rodwellUncertaintyGrowthForecast2023} concluded that baroclinic instability was the main driver of ensemble spread near the tropopause rather than convective instability, though regionally, these might be collocated. Similar conclusions have been drawn in process based studies with a quantitative framework by \textcite{baumgartPotentialVorticityDynamics2018, baumgartQuantitativeViewProcesses2019}.
-
-Conversely, convectively active regions have also been noted in operational ensemble forecasts that apply initial perturbations from assimilation uncertainty \parencite{sanchezLinkingRapidForecast2020, puhFlowDependenceForecast2024}. In that setting, however, larger ensemble spread in convectively active regions may be influenced by larger initial uncertainties due to weaker observational constraints. More specifically, elevated observation uncertainty arises in cloudy scenes for satellite instruments \parencite{geerObservationErrorsAllsky2011, liAssimilationSatelliteSounder2016, geerAllskySatelliteData2018}, but the large variability on small scales and representation-challenges in models also complicate assimilation. This is an important insight, since potentially elevated assimilation uncertainty in convectively active regions in EDA then has to be caused by observation uncertainties or produced during the assimilation process.
-
-From a practical point of view, the relevance of the butterfly effect -- and therefore the role of convection as a up-scale error propagator -- has been called into question, since relatively small errors at the large scales may dominate the spread before the small-scale errors have escalated \parencite{durranAtmosphericPredictabilityWhy2014, lloverasTwoFourdayPredictability2023}. Even though convection typically acts on small scales compared to the large barotropic scales dominating the forecast evolution, they are also localized in physical space and therefore broad in spectral space rather than localized at small wavenumbers \parencite{lloverasMesoscalePredictabilityMoist2022}.
-
-Using a global weather prediction model, \textcite{selzTransitionPracticalIntrinsic2022} compared the error-growth characteristics for initial perturbations provided by EDA, but rescaled several times from realistic to idealized levels. Confirming the above, their results indicated that for initial perturbations on operational levels, error-growth at short lead times is concentrated in larger scales and provided by adiabatic processes, with the ensemble spread even decreasing in the smallest scales. 
-When looking at the background forecast uncertainty in cyclogenesis case studies, \textcite{rodwellUncertaintyGrowthForecast2023} concluded that baroclinic instability was the main driver of ensemble spread near the tropopause rather than convective instability, though regionally, these might be collocated. This is an important insight, since potentially elevated assimilation uncertainty in convectively active regions in EDA then has to be caused by observation uncertainties or produced during the assimilation process.
-
-Similar conclusions have been drawn in process based studies with a quantitative framework by \textcite{baumgartPotentialVorticityDynamics2018, baumgartQuantitativeViewProcesses2019}. Though they find baroclinic instability not as a necessary driver of near-tropospheric error growth, diabatic processes have negligible influence, too. Consistent with the above, the same framework indicates a prominent role of convection in initial error-growth for a case study with vanishing initial perturbations \parencite{baumgartQuantitativeViewProcesses2019}.
-
-Taken together, these findings suggest that forecast error growth cannot be understood independently of the uncertainty structure of the assimilated initial state. Just like model-intrinsic error growth, assimilation uncertainty is inherently flow dependent, and its spatial structure may strongly shape subsequent forecast uncertainty. Studying which flow states and processes dominate assimilation uncertainty is thus necessary both for interpreting predictability studies and for identifying where improvements in observations, data assimilation, and model formulation are most relevant for practical forecast skill.
-
+The two features of synoptic variability central for the work presented in this
+thesis are both associated with very particular properties and behaviour in 
+terms of forecasting and predictability and have accordingly attracted a 
+great deal of attention by the scientific community. The results of which will be
+presented in the following.
 
 \subsection{Predictability of blockings} \label{sec:intro_predictability_blockings}
 Atmospheric blocking events are frequently discussed in the context of operational
-predictability on subseasonal to seasonal timescales in particular.
+predictability on subseasonal timescales in particular.
 On the one hand, this is due to their extraordinary impact on
-natural and societal systems outlined above. On the other hand, \gls{nwp} models
+natural and societal systems outlined in \cref{sec:intro_block_Phenomenology}.
+On the other hand, \gls{nwp} models
 have historically struggled to accurately forecast blocking events, especially
-their onset and decay \parencite{dandreaNorthernHemisphereAtmospheric1998, matsuedaBlockingPredictabilityOperational2009,tibaldiOperationalPredictabilityBlocking1990}
+their onset and decay \parencite{dandreaNorthernHemisphereAtmospheric1998,
+mauritsenBlockingPredictionEnsemble2004, quandtForecastVariabilityBlocking2017,
+matsuedaBlockingPredictabilityOperational2009,tibaldiOperationalPredictabilityBlocking1990}
 whereas medium-range foreast skill is sometimes enhanced during blocking episodes
 (\cite{spaethFlowDependenceEnsembleSpread2024}; cf.~also \cite{prestel-kupfererPredictabilityMidlatitudeRossbywave2024}
-for a similar behaviour for \glspl{rwp}). As will be discussed below, the onset phase
-of blockings is notoriously rich in processes on a wide range of scales, especially
+for a similar behaviour for \glspl{rwp}). As discussed in \cref{sec:intro_blocking_theories},
+ the onset  and decay phases
+of blockings are notoriously rich in processes on a wide range of scales, especially
 with respect to upstream development like cyclogenesis, which projects onto its 
-predictability \parencite{maddisonUpstreamCycloneInfluence2019}.
- Based on the weather regime classification
+predictability \parencite{maddisonUpstreamCycloneInfluence2019}. 
+
+Given the long history research into the dynamical nature of blockings, it comes
+as no surprise that its predictability has also been studied using some of the
+abstracted low-order models introduced in \cref{sec:intro_blocking_theories}.
+From a mathematical perspective, the propensity of a dynamical system to 
+escalate minuscule perturbation is measured by Lyapunov exponents, Lyapunov vectors
+and their finite-time counterparts \parencite{youngMathematicalTheoryLyapunov2013,
+ginelliCovariantLyapunovVectors2013}.
+The accompanying theory has been applied to a wide variety of low-order models
+\parencite{decruzExploringLyapunovInstability2018, vannitsemStatisticalDynamicalProperties2016,
+vannitsemPredictabilityLargescaleAtmospheric2017a, schubertCovariantLyapunovVectors2015,
+viennetGuidelinesDatadrivenApproaches2022, yodenFiniteTimeLyapunovStability1993}
+or real-world data \parencite{blachutTaleTwoVortices2020a,
+rypinaApplyingDynamicalSystems2022} and has entered operational forecasting in the form of
+singular vector perturbations that inflate initial perturbations in the most
+unstable directions of the flow \parencite{buizzaTargetingObservationsUsing1999, palmerSingularVectorsPredictability2013}.
+
+The theory has also seen application to blocking in increasingly complex models. 
+To the extent that such abstracted insights into the structural stability of 
+the attractor of a dynamical system can be related to the predictability of a real
+world phenomenon, several studies have found evidence of larger instability
+during blocking onset and decay, but not during the blocked phase itself 
+\parencite{schubertDynamicalAnalysisBlocking2016,lucariniNewMathematicalFramework2020}.
+Observation-based evaluation of this behaviour need to solve the problem of
+reducing the dimensionality of the system, since the computation of Lyapunov
+exponents and related quantities scales non-linearly with the number of degrees of freedom.
+Under this provision, several studies have found the stability properties assessed
+in models reproduced \parencite{quinnDynamicalAnalysisReduced2021}.
+More generally, transitions between meta-stable states have been associated with
+enhanced instability also in studies based on observations
+\parencite{farandaSwitchingZonalBlocked2016, quinnSystematicCalculationFinitetime2022}.
+The stability of a system's state as measured, for example, by the number of locally
+unstable dimenions, is tightly coupled to its predictability in 
+so far as it relates to multidimensional error growth. The higher the instability,
+the argument goes, the more unstable directions need to be sampled in the initial
+ensemble to properly capture forecast uncertainty -- a requirement that is 
+hard to meet especially at high resolutions 
+\parencite{craigDistributionsConvergenceForecast2022, tempestConvergenceForecastDistributions2023}. 
+
+The operational predictability of blockings depends on their definition and location.
+Based on the weather regime classification
 introduced by \textcite{gramsBalancingEuropesWindpower2017} (cf.~\cite{gramsLifeCycleDefinition2026}
 for an updated version),
 \textcite{buelerYearroundSubseasonalForecast2021} and \textcite{osmanMultimodelAssessmentSubseasonal2023}
@@ -1147,10 +1235,35 @@ which is apparent from considerable biases in blocking frequency, intensity and 
 recently reported that a seasonal large-ensemble prediction model was able to
 reproduce Greenland blocking frequency and persistence but failed to reproduce its trend
 due to climate change, making the picture even more complex.
+
 It seems like there are multiple causes for the misrepresentation of blockings,
 ranging from insufficient model resolution, coupling to other earth systems
 and representation of sub-grid scale processes---all of which exacerbated in the case
-of climate models \parencite{woollingsBlockingItsResponse2018}. In an evaluation of the
+of climate models \parencite{woollingsBlockingItsResponse2018}. Several studies 
+have investigated the impact of parametrizations on blocking representation with
+mixed results. \textcite{dawsonSimulatingWeatherRegimes2015} observed that the regime
+structure generally and the representation of blockings in particular was improved
+by introducing \gls{sppt} to a similar extent as doubling the horizontal resolution.
+Similarly, \textcite{christensenSimulatingWeatherRegimes2015} found improved blocking
+persistence and structure in an idealized model when introducing autocorrelated noise
+(interestingly, white noise did not have a comparable effect). 
+The persistence increasing effect of random perturbations has been identified in 
+both the \textcite{lorenzDeterministicNonperiodicFlow1963} model by 
+\textcite{kwasniokEnhancedRegimePredictability2014} and in the 
+\textcite{charneyMultipleFlowEquilibria1979} model by \textcite{dorringtonInteractionStochasticForcing2023}.
+
+ Using the same climate model,
+\textcite{hartungResolutionPhysicsAtmosphere2017}
+observed that parametrization upgrades improved blocking representation 
+especially in winter, while \textcite{filippucciImpactStochasticPhysics2024}
+found that blocking representation deteriorated upon inclusion of both
+\gls{sppt} and \gls{skeb}, arguing for a retuning of model parameters.
+\textcite{daviniRepresentationWinterNorthern2021} on the other hand found
+that the inclusion of \gls{sppt} and \gls{skeb} improved blocking representation
+in the \gls{ecmwf} seasonal prediction model, though they also note that the
+improvements are not sufficient to eliminate significant biases in the European sector.
+
+In an evaluation of the
 operational seasonal prediction model of the \gls{ecmwf}, \textcite{daviniRepresentationWinterNorthern2021}
 found that while improvements have taken place, significant biases remain in the
 European sector in particular. They note that resolution increases improved blocking
@@ -1160,19 +1273,17 @@ to be different in the climate setting. Climatological evaluations of blocking r
 sometimes also have difficulties in identifying robust signals due to the large 
 interannual variability of blocking occurrence \parencite{hartungResolutionPhysicsAtmosphere2017}.
 
-In an evaluation of \gls{cmip} 6, the latest generation
-of climate models, \textcite{maddisonMissingIncreaseSummer2024} found that the
+Similarly for climate models, \textcite{maddisonMissingIncreaseSummer2024} found that the
 increase in summer blocking over Greenland observed in since the beginning of
 the century is not reprocuced and suggest this might be linked to \glspl{sst},
 sea ice biases or anthopogenic aerosols. Indeed, given what has been mentioned about
-the interaction of atmospheric blockings
-with other earth system components varying on longer timescales, it seems natural to expect
+the interaction of atmospheric blockings with other earth system components varying
+on longer timescales, it seems natural to expect
 that the the predictive skill of models predicting blockings depends on whether they
 can accurately represent those components and their interaction with blockings.
 
 \subsection{Uncertainty in \glspl{wcb}} \label{sec:intro_wcb_uncertainty}
-
-As outlined above, \glspl{wcb} are tightly coupled to extratropical cyclogenesis 
+\glspl{wcb} are tightly coupled to extratropical cyclogenesis 
 and the downstream evolution of the large scale flow through intense diabatic heating 
 and transport of air masses. As a consequence, even small initial-condition or model 
 errors in \gls{wcb} inflow, ascent, and cloud–precipitation processes can undergo 
@@ -1190,27 +1301,26 @@ uncertainty source: deep-convection schemes can substantially alter \gls{wcb}
 structure and its interaction with the jet \parencite{riviereImpactDeepConvection2021},
 while microphysical parametrizations modulate latent heating profiles, and precipitation
 characteristics \parencite{joosInfluenceMicrophysicalProcesses2012,mazoyerMicrophysicsImpactsWarm2021,mazoyerImpactMixedphaseCloud2023}. 
+In addition, stochastic perturbations by \gls{sppt} with zero mean have been shown
+to exert a
+non-zero mean effect on \gls{wcb} by triggering nonlinear instabilities, making them
+more frequent and more intense \parencite{picklEffectStochasticallyPerturbed2022}.
 
-Importantly, seemingly minor microphysics changes can induce large downstream flow 
-differences—consistent with the idea that \gls{wcb} outflow perturbations can trigger 
+Importantly, misrepresentation of diabatic processes can lead to insufficient
+Rossby wave amplification and ridge-building \parencite{graySystematicModelForecast2014}
+and seemingly minor microphysics changes can induce large downstream flow 
+differences consistent with the idea that \gls{wcb} outflow perturbations can trigger 
 disproportionate Rossby-wave responses and regime transitions \parencite{joosImpactDifferentIFS2016}. 
-This linkage is particularly acute for high-impact forecasts involving blocking: 
+Since \glspl{wcb} frequently heavily affect blocking events (\cref{sec:intro_block_diabatic}),
+this linkage is particularly acute for high-impact forecasts involving such events: 
 misrepresentation of \gls{wcb} outflow has been identified as a key factor in severe
 forecast busts with a missed blocking onset \parencite{gramsAtmosphericDynamicsPerspective2018},
 but also more systematically associated with elevated forecast uncertainty in blocking events \parencite{wandelWhyMoistDynamic2024}. 
-Targeted experiments demonstrate that upstream latent heating in \gls{wcb}s exerts 
-strong control on blocking development and maintenance \parencite{steinfeldSensitivityAtmosphericBlocking2020}. 
-Case studies further underline that diabatic processes can generate anomalous PV features 
-and materially alter the jet structure, reinforcing the dynamical pathway from 
-\gls{wcb} physics errors to large-scale uncertainty \parencite{harveyDiabaticGenerationNegative2020}.
-In addition, stochastic perturbations with zero mean have been shown to exert a
-non-zero mean effect on \gls{wcb} by triggering nonlinear instabilities, making them
-more frequent and more intense \parencite{picklEffectStochasticallyPerturbed2022}.
 
 Consistently, \textcite{madonnaVerificationNorthAtlantic2015} have found improvements
 in the representation of \glspl{wcb} across the 2000s in the \gls{ifs}, while 
 still noting cases of severe forecast errors and \textcite{maddisonImpactModelUpgrades2020} find that model upgrades 
-aimed at diabatic and cloud-process realism can mitigate \gls{wcb}-related forecast busts. 
+aimed at diabatic and cloud-process realism can mitigate \gls{wcb}-related forecast busts of blockings. 
 More recently, sensitivity analyses have also provided insights into whether uncertainty 
 is dominated by parametric choices or by the synoptic inflow state, 
 with recent evidence suggesting that inflow conditions can control bulk ascent and
@@ -1220,314 +1330,385 @@ Whether this holds for all flow states, however, remains an open question. Never
 it is fair to say that \glspl{wcb} can be seen as propagators and magnifiers
 of forecast uncertainty highlighting the need for further understanding. 
 
-\section{\Gls{eda}}\label{sec:intro_eda}
+% \section{\Gls{eda}}\label{sec:intro_eda}
 
-Data assimilation constitutes an active field of research on its own and a 
-comprehensive introduction into the topic is provided elsewhere 
-(e.g.~\cite{parkPrinciplesDataAssimilation2022} and 
-\cite{parkDataAssimilationAtmospheric2022} for recent research directions). 
-Very basically, given a dynamical system (like the atmosphere/Earth), data 
-assimilation is concerned with optimally combining a dynamical model of the 
-system with observations to obtain an estimate of the system's most likely 
-state - either to obtain an accurate initial condition for numerical 
-prediction or to obtain a coherent \enquote{history} of the atmosphere (reanalysis).  
-A crucial part in this play uncertainties for both the model and the 
-observations as well as the best estimate. The approach applied in the 
-production of \gls{era5} as well as for finding the initial condition for the 
-ECMWF's operational forecasting model \gls{ifs}, an incremental hybrid ensemble 4D-Var system, is described by 
-\textcite{hersbachERA5GlobalReanalysis2020} and in more detail by 
-\textcite{bonavitaEvolutionECMWFHybrid2016}, which this section largely follows. 
-Such or similar data assimilation schemes have been introduced by a number of 
-institutions with considerable success 
-\parencite{kalnayDataAssimilation2024}.
+% Data assimilation constitutes an active field of research on its own and a 
+% comprehensive introduction into the topic is provided elsewhere 
+% (e.g.~\cite{parkPrinciplesDataAssimilation2022} and 
+% \cite{parkDataAssimilationAtmospheric2022} for recent research directions). 
+% Very basically, given a dynamical system (like the atmosphere/Earth), data 
+% assimilation is concerned with optimally combining a dynamical model of the 
+% system with observations to obtain an estimate of the system's most likely 
+% state - either to obtain an accurate initial condition for numerical 
+% prediction or to obtain a coherent \enquote{history} of the atmosphere (reanalysis).  
+% A crucial part in this play uncertainties for both the model and the 
+% observations as well as the best estimate. The approach applied in the 
+% production of \gls{era5} as well as for finding the initial condition for the 
+% ECMWF's operational forecasting model \gls{ifs}, an incremental hybrid ensemble 4D-Var system, is described by 
+% \textcite{hersbachERA5GlobalReanalysis2020} and in more detail by 
+% \textcite{bonavitaEvolutionECMWFHybrid2016}, which this section largely follows. 
+% Such or similar data assimilation schemes have been introduced by a number of 
+% institutions with considerable success 
+% \parencite{kalnayDataAssimilation2024}.
 
-\subsection{The \gls{era5} data assimilation system} \label{sec:intro_eda_era5}
+% \subsection{The \gls{era5} data assimilation system} \label{sec:intro_eda_era5}
 
-Denote\footnote{The notation referring to the assimilation methodology 
-follows \textcite{ideUnifiedNotationData1997} for consistency and is notably 
-different to notation elsewhere.} 
-by $\mathbf{d} = \mathbf{y}^{\mathrm{O}} - \mathbf{y}$ the misfit between the 
-observations and the guess projected into observation space by 
-$\mathbf{y} = H(\mathbf{x}) + b(\mathbf{x}, \boldsymbol{\beta})$, 
-where $H$ is the observation operator, $\mathbf{x}$ is the guess and $b$ is 
-the (instrument-specific) bias operator with bias parameters 
-$\boldsymbol{\beta}$. In each of the 12-hourly time windows through which the 
-production of the data set iterates, the best estimate - the \enquote{analysis} 
-$\mathbf{x}^{\mathrm{a}}$ - is obtained as the minimizer of the following 
-cost function (a variational formulation, hence the \enquote{Var}):
+% Denote\footnote{The notation referring to the assimilation methodology 
+% follows \textcite{ideUnifiedNotationData1997} for consistency and is notably 
+% different to notation elsewhere.} 
+% by $\mathbf{d} = \mathbf{y}^{\mathrm{O}} - \mathbf{y}$ the misfit between the 
+% observations and the guess projected into observation space by 
+% $\mathbf{y} = H(\mathbf{x}) + b(\mathbf{x}, \boldsymbol{\beta})$, 
+% where $H$ is the observation operator, $\mathbf{x}$ is the guess and $b$ is 
+% the (instrument-specific) bias operator with bias parameters 
+% $\boldsymbol{\beta}$. In each of the 12-hourly time windows through which the 
+% production of the data set iterates, the best estimate - the \enquote{analysis} 
+% $\mathbf{x}^{\mathrm{a}}$ - is obtained as the minimizer of the following 
+% cost function (a variational formulation, hence the \enquote{Var}):
 
-\begin{equation}\label{eqn:Jmin}
-    J(\boldsymbol{\delta} \mathbf{x}, \boldsymbol{\delta \beta})=
-    \underbrace{\frac{1}{2}{\boldsymbol{\delta} \mathbf{x}}^T 
-    \mathbf{B}^{-1}\boldsymbol{\delta} \mathbf{x}}_{\text{background term}} 
-    + 
-    \underbrace{\frac{1}{2}\boldsymbol{\delta \beta}^T 
-    \mathbf{B}_{\boldsymbol{\beta}}^{-1}\boldsymbol{\delta \beta}}
-    _{\text{bias term}} 
-    + 
-    \underbrace{\frac{1}{2}\mathbf{d}^T 
-    \mathbf{R}^{-1}\mathbf{d}}_{\text{misfit term}},
-\end{equation}
+% \begin{equation}\label{eqn:Jmin}
+%     J(\boldsymbol{\delta} \mathbf{x}, \boldsymbol{\delta \beta})=
+%     \underbrace{\frac{1}{2}{\boldsymbol{\delta} \mathbf{x}}^T 
+%     \mathbf{B}^{-1}\boldsymbol{\delta} \mathbf{x}}_{\text{background term}} 
+%     + 
+%     \underbrace{\frac{1}{2}\boldsymbol{\delta \beta}^T 
+%     \mathbf{B}_{\boldsymbol{\beta}}^{-1}\boldsymbol{\delta \beta}}
+%     _{\text{bias term}} 
+%     + 
+%     \underbrace{\frac{1}{2}\mathbf{d}^T 
+%     \mathbf{R}^{-1}\mathbf{d}}_{\text{misfit term}},
+% \end{equation}
 
-where $\boldsymbol{\delta}\mathbf{x} = \mathbf{x} - \mathbf{x}^{\mathrm{b}}$ 
-and $\boldsymbol{\delta \beta}= \boldsymbol{\beta} - 
-\boldsymbol{\beta}^{\mathrm{b}}$ are the increments from the initial guess 
-(the background) obtained from the last window directly (for 
-$\boldsymbol{\beta}$) or via numerical integration of the model 
-(for $\mathbf{x}$). The solution of equation~\eqref{eqn:Jmin} - 
-i.e. the minimizing $\mathbf{x}^{\mathrm{a}}$ - is also referred to as 
-\gls{hres} in the context of \gls{era5}. To achieve a balance between observations and 
-model prediction that is scaled by their respective uncertainty, each of the 
-three terms contains weighting by the appropriate covariance matrices 
-$\mathbf{B}, \mathbf{B_{\boldsymbol{\beta}}}$ and $\mathbf{R}$ 
-\parencite{courtierStrategyOperationalImplementation1994}. 
-$\mathbf{R}$ is instrument-dependent (more specifically, observation-
-dependent, since, for instance, different spectral bands of some satellite 
-radiance instrument can have different error characteristics). 
-$\mathbf{B_{\boldsymbol{\beta}}}$ is adjusted to the desired rate of change 
-allowed for the bias parameters.
+% where $\boldsymbol{\delta}\mathbf{x} = \mathbf{x} - \mathbf{x}^{\mathrm{b}}$ 
+% and $\boldsymbol{\delta \beta}= \boldsymbol{\beta} - 
+% \boldsymbol{\beta}^{\mathrm{b}}$ are the increments from the initial guess 
+% (the background) obtained from the last window directly (for 
+% $\boldsymbol{\beta}$) or via numerical integration of the model 
+% (for $\mathbf{x}$). The solution of equation~\eqref{eqn:Jmin} - 
+% i.e. the minimizing $\mathbf{x}^{\mathrm{a}}$ - is also referred to as 
+% \gls{hres} in the context of \gls{era5}. To achieve a balance between observations and 
+% model prediction that is scaled by their respective uncertainty, each of the 
+% three terms contains weighting by the appropriate covariance matrices 
+% $\mathbf{B}, \mathbf{B_{\boldsymbol{\beta}}}$ and $\mathbf{R}$ 
+% \parencite{courtierStrategyOperationalImplementation1994}. 
+% $\mathbf{R}$ is instrument-dependent (more specifically, observation-
+% dependent, since, for instance, different spectral bands of some satellite 
+% radiance instrument can have different error characteristics). 
+% $\mathbf{B_{\boldsymbol{\beta}}}$ is adjusted to the desired rate of change 
+% allowed for the bias parameters.
 
-Initially assumed constant in time, allowing the background error covariance 
-matrix $\mathbf{B}$ to vary (i.e.~going from 3D-Var to 4D-Var) amounted to a 
-tremendous improvement in data assimilation first implemented operationally 
-in 1997 by the ECMWF \parencite{anderssonECMWFs4DVarData2008} based on theory 
-laid out by \textcite{fisherBackgroundErrorCovariance2003}. The hybrid \gls{eda} system 
-detailed below was introduced in 2010 
-\parencite{isaksenEnsembleDataAssimilations2010} and further modified to the 
-applied set up \parencite{bonavitaEvolutionECMWFHybrid2016}. For a survey of 
-different approaches to ensemble based variational data assimilation see 
-\textcite{bannisterReviewOperationalMethods2017}.
+% Initially assumed constant in time, allowing the background error covariance 
+% matrix $\mathbf{B}$ to vary (i.e.~going from 3D-Var to 4D-Var) amounted to a 
+% tremendous improvement in data assimilation first implemented operationally 
+% in 1997 by the ECMWF \parencite{anderssonECMWFs4DVarData2008} based on theory 
+% laid out by \textcite{fisherBackgroundErrorCovariance2003}. The hybrid \gls{eda} system 
+% detailed below was introduced in 2010 
+% \parencite{isaksenEnsembleDataAssimilations2010} and further modified to the 
+% applied set up \parencite{bonavitaEvolutionECMWFHybrid2016}. For a survey of 
+% different approaches to ensemble based variational data assimilation see 
+% \textcite{bannisterReviewOperationalMethods2017}.
 
-The background forecast uncertainty is calculated from a climatological and a 
-time-varying ensemble derived part according to 
+% The background forecast uncertainty is calculated from a climatological and a 
+% time-varying ensemble derived part according to 
 
-\begin{equation}
-    \mathbf{B} = (1-\alpha)\mathbf{B}_{\text{cli}} 
-    + \alpha \mathbf{B}_{\text{EDA}}
-\end{equation}
+% \begin{equation}
+%     \mathbf{B} = (1-\alpha)\mathbf{B}_{\text{cli}} 
+%     + \alpha \mathbf{B}_{\text{EDA}}
+% \end{equation}
 
-with $\alpha$ increasing by wavenumber from $.15$ to $.74$. $\alpha$ was 
-inadvertently kept constant during production of \gls{era5}, which affects the 
-ensemble spread for data between January 2001 to June 2005, and from January 
-2010 to October 2014. The climatological part 
-$\mathbf{B}_{\text{cli}}$ is supposed to encompass the climatological 
-component of the background uncertainty dominated by the respective 
-instrument generation and has been kept constant from January 1940 to 
-November 1972 (H.~Hersbach, 2025, personal communication), from November 
-1972 to December 1978, from January 1979 to December 1999 and from January 
-2000 onwards \parencite{bellERA5GlobalReanalysis2021}. 
+% with $\alpha$ increasing by wavenumber from $.15$ to $.74$. $\alpha$ was 
+% inadvertently kept constant during production of \gls{era5}, which affects the 
+% ensemble spread for data between January 2001 to June 2005, and from January 
+% 2010 to October 2014. The climatological part 
+% $\mathbf{B}_{\text{cli}}$ is supposed to encompass the climatological 
+% component of the background uncertainty dominated by the respective 
+% instrument generation and has been kept constant from January 1940 to 
+% November 1972 (H.~Hersbach, 2025, personal communication), from November 
+% 1972 to December 1978, from January 1979 to December 1999 and from January 
+% 2000 onwards \parencite{bellERA5GlobalReanalysis2021}. 
 
-$\mathbf{B}_{\text{EDA}}$ is calculated from the spread of a 10 member 
-(for \gls{era5}; 1 control and 9 perturbed) ensemble run of 
-eqn.~\eqref{eqn:Jmin} at a lower spatial resolution (TL319 as opposed to 
-TL639) which, in the context of \gls{era5} is referred to as \gls{eda} 
- in contrast to \gls{hres}. The perturbations are 
-added to the observations $\mathbf{y}^{\mathrm{O}}$ 
-(including sea ice and sea surface temperature) and are, crucially, scaled 
-by the expected observation uncertainties. Each member also calculates its 
-own independent background forecast through numerical integration including 
-stochastically perturbed physics (except for the control; 
-\cite{ecmwfIFSDocumentationCY41R22016a, 
-leutbecherStochasticRepresentationsModel2017}). Perturbed physics are also 
-applied in the nonlinear part of the construction of $\mathbf{x}$ during the 
-minimization of eqn.~\eqref{eqn:Jmin} - the so-called \enquote{outer-loop}. The \gls{eda} 
-can be conceived as a Monte Carlo approach to the estimation of the 
-posterior distribution of the background forecast error that is supplemented 
-by a climatological component (hence, \enquote{hybrid}) due to the sampling errors 
-introduced by its computationally demanded low sample size 
-\parencite{bonavitaEstimatingBackgrounderrorVariances2011, 
-bonavitaEvolutionECMWFHybrid2016, 
-bannisterReviewOperationalMethods2017}. As such, it provides the 
-\enquote{error-of-the-day} as an impactful improvement to the analysis quality  
-compared to climatological background errors especially during extreme 
-events \parencite{bonavitaUseEDABackground2012}, though its small sample size 
-precludes trustworthy detailed structures 
-\parencite{isaksenEnsembleDataAssimilations2010, 
-bonavitaEstimatingBackgrounderrorVariances2011}. 
+% $\mathbf{B}_{\text{EDA}}$ is calculated from the spread of a 10 member 
+% (for \gls{era5}; 1 control and 9 perturbed) ensemble run of 
+% eqn.~\eqref{eqn:Jmin} at a lower spatial resolution (TL319 as opposed to 
+% TL639) which, in the context of \gls{era5} is referred to as \gls{eda} 
+%  in contrast to \gls{hres}. The perturbations are 
+% added to the observations $\mathbf{y}^{\mathrm{O}}$ 
+% (including sea ice and sea surface temperature) and are, crucially, scaled 
+% by the expected observation uncertainties. Each member also calculates its 
+% own independent background forecast through numerical integration including 
+% stochastically perturbed physics (except for the control; 
+% \cite{ecmwfIFSDocumentationCY41R22016a, 
+% leutbecherStochasticRepresentationsModel2017}). Perturbed physics are also 
+% applied in the nonlinear part of the construction of $\mathbf{x}$ during the 
+% minimization of eqn.~\eqref{eqn:Jmin} - the so-called \enquote{outer-loop}. The \gls{eda} 
+% can be conceived as a Monte Carlo approach to the estimation of the 
+% posterior distribution of the background forecast error that is supplemented 
+% by a climatological component (hence, \enquote{hybrid}) due to the sampling errors 
+% introduced by its computationally demanded low sample size 
+% \parencite{bonavitaEstimatingBackgrounderrorVariances2011, 
+% bonavitaEvolutionECMWFHybrid2016, 
+% bannisterReviewOperationalMethods2017}. As such, it provides the 
+% \enquote{error-of-the-day} as an impactful improvement to the analysis quality  
+% compared to climatological background errors especially during extreme 
+% events \parencite{bonavitaUseEDABackground2012}, though its small sample size 
+% precludes trustworthy detailed structures 
+% \parencite{isaksenEnsembleDataAssimilations2010, 
+% bonavitaEstimatingBackgrounderrorVariances2011}. 
 
-Apart from providing the flow-dependent part of the background forecast 
-uncertainty, the \gls{eda} dataset serves also as a relative estimate of the 
-uncertainty of the \gls{hres}\footnote{Relative in the sense that the numerical 
-values of the ensemble spread should not be taken at face value, since the 
-\gls{eda} is underdispersive \parencite{sociERA5GlobalReanalysis2024} and its small 
-sample size entails substantial noise that would need to be filtered first 
-\parencite{raynaudObjectiveFilteringEnsemblebased2009, 
-bonavitaEstimatingBackgrounderrorVariances2011}.}. The dataset therefore offers
-unique insights into the nature and sources of uncertainty. Not only is the climatological 
-investigation of arguably the most-used reanalysis product to date a very 
-relevant subject in its own right; the type of uncertainty comprised in the 
-\gls{eda} is also less researched climatologically than others. More specifically, 
-since assimilation windows are only 12 hours wide and the initial guess 
-forecast is only 15 hours long, the uncertainty visible in the \gls{eda} spread 
-can only be caused by uncertainties in the observations or short time scale 
-error-growth. Since the spread of the \gls{eda} ensemble is indicative of this
-uncertainty, the question of what exactly drives and controls 
-ensemble spread deserves some attention.
+% Apart from providing the flow-dependent part of the background forecast 
+% uncertainty, the \gls{eda} dataset serves also as a relative estimate of the 
+% uncertainty of the \gls{hres}\footnote{Relative in the sense that the numerical 
+% values of the ensemble spread should not be taken at face value, since the 
+% \gls{eda} is underdispersive \parencite{sociERA5GlobalReanalysis2024} and its small 
+% sample size entails substantial noise that would need to be filtered first 
+% \parencite{raynaudObjectiveFilteringEnsemblebased2009, 
+% bonavitaEstimatingBackgrounderrorVariances2011}.}. The dataset therefore offers
+% unique insights into the nature and sources of uncertainty. Not only is the climatological 
+% investigation of arguably the most-used reanalysis product to date a very 
+% relevant subject in its own right; the type of uncertainty comprised in the 
+% \gls{eda} is also less researched climatologically than others. More specifically, 
+% since assimilation windows are only 12 hours wide and the initial guess 
+% forecast is only 15 hours long, the uncertainty visible in the \gls{eda} spread 
+% can only be caused by uncertainties in the observations or short time scale 
+% error-growth. Since the spread of the \gls{eda} ensemble is indicative of this
+% uncertainty, the question of what exactly drives and controls 
+% ensemble spread deserves some attention.
 
-\subsection{\Gls{eda} spread} \label{sec:intro_eda_spread}
+% \subsection{\Gls{eda} spread} \label{sec:intro_eda_spread}
 
-Though variational bias correction is applied in the \gls{eda} production 
-\parencite{deeBiasDataAssimilation2005}, bias parameter updates are taken 
-from the control and, hence, not independent across the ensemble members 
-\parencite{hersbachERA5GlobalReanalysis2020}. Neglecting the bias term in 
-eqn.~\eqref{eqn:Jmin}, the linear approximation of the variance of the 
-analysis increment 
-$\delta\mathbf{x}^{\mathrm{a}}=\mathbf{x}^{\mathrm{a}}-\mathbf{x}^{\mathrm{b}}$ 
-is therefore \parencite{deeDataAssimilationPresence1998, 
-higham14MatrixInversion2002} 
+% Though variational bias correction is applied in the \gls{eda} production 
+% \parencite{deeBiasDataAssimilation2005}, bias parameter updates are taken 
+% from the control and, hence, not independent across the ensemble members 
+% \parencite{hersbachERA5GlobalReanalysis2020}. Neglecting the bias term in 
+% eqn.~\eqref{eqn:Jmin}, the linear approximation of the variance of the 
+% analysis increment 
+% $\delta\mathbf{x}^{\mathrm{a}}=\mathbf{x}^{\mathrm{a}}-\mathbf{x}^{\mathrm{b}}$ 
+% is therefore \parencite{deeDataAssimilationPresence1998, 
+% higham14MatrixInversion2002} 
 
-\begin{align} \label{eqn:AnVar}
-    \mathbb{E}\big[\delta\mathbf{x}^{\mathrm{a}}
-    \delta\mathbf{x}^{\mathrm{a}^T}\big] 
-    &= (\mathbf{I}-\mathbf{K}\mathbf{H})\mathbf{B}
-    =(\mathbf{B}^{-1}+\mathbf{H}^T\mathbf{R}^{-1}\mathbf{H})^{-1},\,
-    \text{where} \\
-    \mathbf{H} 
-    &= \left.  \frac{\partial H}{\partial \mathbf{x}}
-    \right|_{\mathbf{x} = \mathbf{x}^{\mathrm{b}}}, \,
-    \text{the linearized observation operator}\\
-    \mathbf{K} 
-    &=\mathbf{B}\mathbf{H}^\top
-    \big(\mathbf{H}\mathbf{B}\mathbf{H}^\top+\mathbf{R}\big)^{-1}, \,
-    \text{the Kalman gain.}
-\end{align}
+% \begin{align} \label{eqn:AnVar}
+%     \mathbb{E}\big[\delta\mathbf{x}^{\mathrm{a}}
+%     \delta\mathbf{x}^{\mathrm{a}^T}\big] 
+%     &= (\mathbf{I}-\mathbf{K}\mathbf{H})\mathbf{B}
+%     =(\mathbf{B}^{-1}+\mathbf{H}^T\mathbf{R}^{-1}\mathbf{H})^{-1},\,
+%     \text{where} \\
+%     \mathbf{H} 
+%     &= \left.  \frac{\partial H}{\partial \mathbf{x}}
+%     \right|_{\mathbf{x} = \mathbf{x}^{\mathrm{b}}}, \,
+%     \text{the linearized observation operator}\\
+%     \mathbf{K} 
+%     &=\mathbf{B}\mathbf{H}^\top
+%     \big(\mathbf{H}\mathbf{B}\mathbf{H}^\top+\mathbf{R}\big)^{-1}, \,
+%     \text{the Kalman gain.}
+% \end{align}
 
-The causes for differences between ensemble members can be divided into 
-three parts: firstly, the differences in the perturbations to the 
-observations $\mathbf{y}^{\mathrm{O}}$ that are scaled by $\mathbf{R}$ and 
-propagated through $\mathbf{H}^{-1}$, secondly, the differences in the 
-background forecast $\mathbf{x}^{\mathrm{b}}$ that are scaled by 
-$\mathbf{B}$ and, thirdly, the ensemble spread introduced by the physics 
-perturbations by the full, non-linear outer-loop simulation across the 
-analysis window that is affected by all terms in eqn.~\eqref{eqn:AnVar}.
+% The causes for differences between ensemble members can be divided into 
+% three parts: firstly, the differences in the perturbations to the 
+% observations $\mathbf{y}^{\mathrm{O}}$ that are scaled by $\mathbf{R}$ and 
+% propagated through $\mathbf{H}^{-1}$, secondly, the differences in the 
+% background forecast $\mathbf{x}^{\mathrm{b}}$ that are scaled by 
+% $\mathbf{B}$ and, thirdly, the ensemble spread introduced by the physics 
+% perturbations by the full, non-linear outer-loop simulation across the 
+% analysis window that is affected by all terms in eqn.~\eqref{eqn:AnVar}.
 
-\subsubsection{Observation Perturbations}\label{sec:intro_eda_obs}
+% \subsubsection{Observation Perturbations}\label{sec:intro_eda_obs}
 
-Given the two purposes of the \gls{eda}, the rationale behind the observation 
-perturbations becomes quite obvious. In the sense that the observations 
-constrain the dynamical model, a stronger constrain should also induce a 
-smaller spread of the ensemble around that constrain, so scaling the 
-perturbations by respective expected observation error covariances makes 
-sense and a larger observation uncertainty will entail a larger ensemble 
-spread and thus convey less \enquote{trust} in the \gls{hres} product. As uncertain 
-observations also project onto a more uncertain background forecast - a 
-forecast is more uncertain if its initial conditions are more uncertain - 
-applying observation perturbations to estimate background error covariances 
-arguably confirms with intuition 
-\parencite{isaksenEnsembleDataAssimilations2010}.
+% Given the two purposes of the \gls{eda}, the rationale behind the observation 
+% perturbations becomes quite obvious. In the sense that the observations 
+% constrain the dynamical model, a stronger constrain should also induce a 
+% smaller spread of the ensemble around that constrain, so scaling the 
+% perturbations by respective expected observation error covariances makes 
+% sense and a larger observation uncertainty will entail a larger ensemble 
+% spread and thus convey less \enquote{trust} in the \gls{hres} product. As uncertain 
+% observations also project onto a more uncertain background forecast - a 
+% forecast is more uncertain if its initial conditions are more uncertain - 
+% applying observation perturbations to estimate background error covariances 
+% arguably confirms with intuition 
+% \parencite{isaksenEnsembleDataAssimilations2010}.
 
-The \gls{eda} observation perturbations are drawn from the observation-error model 
-used in the IFS: each perturbation variance equals the per-observation error 
-variance (the diagonal of $\mathbf{R}$) or the operator-computed, 
-scene-dependent variance for radiances and similar instruments 
-\parencite{ecmwfIFSDocumentationCY41R22016, 
-isaksenEnsembleDataAssimilations2010, 
-hersbachERA5GlobalReanalysis2020}. This implies, for instance, that larger 
-perturbations are applied for cloudy areas compared to clear-sky conditions 
-(see also~\cite{geerObservationErrorsAllsky2011}). The variances are computed 
-from instrument noise plus representativeness error, modified by the 
-observation operator and routinely tuned 
-\parencite{hollingsworthStatisticalStructureShort1984, 
-desroziersDiagnosisObservationBackground2005}. Sea surface temperature and 
-sea ice concentration perturbations are drawn according to 
-\textcite{hiraharaSeaSurfaceTemperature2016}.
+% The \gls{eda} observation perturbations are drawn from the observation-error model 
+% used in the IFS: each perturbation variance equals the per-observation error 
+% variance (the diagonal of $\mathbf{R}$) or the operator-computed, 
+% scene-dependent variance for radiances and similar instruments 
+% \parencite{ecmwfIFSDocumentationCY41R22016, 
+% isaksenEnsembleDataAssimilations2010, 
+% hersbachERA5GlobalReanalysis2020}. This implies, for instance, that larger 
+% perturbations are applied for cloudy areas compared to clear-sky conditions 
+% (see also~\cite{geerObservationErrorsAllsky2011}). The variances are computed 
+% from instrument noise plus representativeness error, modified by the 
+% observation operator and routinely tuned 
+% \parencite{hollingsworthStatisticalStructureShort1984, 
+% desroziersDiagnosisObservationBackground2005}. Sea surface temperature and 
+% sea ice concentration perturbations are drawn according to 
+% \textcite{hiraharaSeaSurfaceTemperature2016}.
 
-Apart from decreasing error variances through more accurate instruments, the 
-density of the observation network also heavily influences ensemble spread. 
-Adding observations increases the dimension of $\mathbf{R}$ effectively 
-adding positive definite terms to 
-$\mathbf{H}^T\mathbf{R}^{-1}\mathbf{H}$, whereby the expected analysis 
-increment variance decreases. This has a dominant effect on ensemble spread 
-since the number of observations ingested in the production of \gls{era5} has 
-grown by more than 3 orders of magnitude between 1940 and today 
-\parencite{sociERA5GlobalReanalysis2024}.
+% Apart from decreasing error variances through more accurate instruments, the 
+% density of the observation network also heavily influences ensemble spread. 
+% Adding observations increases the dimension of $\mathbf{R}$ effectively 
+% adding positive definite terms to 
+% $\mathbf{H}^T\mathbf{R}^{-1}\mathbf{H}$, whereby the expected analysis 
+% increment variance decreases. This has a dominant effect on ensemble spread 
+% since the number of observations ingested in the production of \gls{era5} has 
+% grown by more than 3 orders of magnitude between 1940 and today 
+% \parencite{sociERA5GlobalReanalysis2024}.
 
-\subsubsection{Background and physics perturbations}\label{sec:intro_eda_bg_phys}
+% \subsubsection{Background and physics perturbations}\label{sec:intro_eda_bg_phys}
 
-The short-range background forecast for each assimilation window is obtained by
-numerical integration using the previous window's analysis three hours before
-the start of the window as an initial condition, with each EDA member resorting
-to their own previous analysis. Note that the background
-term in eqn.~\eqref{eqn:Jmin} is only evaluated at the assimilation window's
-outset, while the short range forecast is used as an initial guess in the
-misfit term throughout the full 12-hour width. Conceiving the ensemble of
-previous analyses provided by the different members as a probability
-distribution, the integration will cause the distribution to shift and deform
-in model space in a fashion governed by the dynamical model's short time-scale
-error growth characteristics.
+% The short-range background forecast for each assimilation window is obtained by
+% numerical integration using the previous window's analysis three hours before
+% the start of the window as an initial condition, with each EDA member resorting
+% to their own previous analysis. Note that the background
+% term in eqn.~\eqref{eqn:Jmin} is only evaluated at the assimilation window's
+% outset, while the short range forecast is used as an initial guess in the
+% misfit term throughout the full 12-hour width. Conceiving the ensemble of
+% previous analyses provided by the different members as a probability
+% distribution, the integration will cause the distribution to shift and deform
+% in model space in a fashion governed by the dynamical model's short time-scale
+% error growth characteristics.
 
-The causes and mechanisms of error growth in the atmosphere and models 
-representing it have been discussed above in \cref{sec:intro_predictability_chaos}.
-Relevant for the \gls{eda} spread are the characteristics of short time-scale 
-error growth dominated by deep and shallow convection. 
-Exactly how the initial differences (effectively initial perturbations)
-between the ensemble members influence the error growth during the short forecast
-is hard to tell given their complex construction via EDA, but is very likely of
-secondary importance compared to presence or absence of diabatic processes.
-For medium to long time scale ensemble forecasts, perturbations from EDA have
-been shown to be too slow-growing, negatively affecting forecast skill and
-spread \parencite{buizzaPotentialUseEnsemble2008, sociERA5GlobalReanalysis2024},
-which is why they are augmented with singular vector perturbations in the
-operational ECMWF ensemble forecast \parencite{leutbecherEnsembleForecasting2008,
-palmerECMWFEnsemblePrediction2019, langMoreAccuracyLess2021}.
+% The causes and mechanisms of error growth in the atmosphere and models 
+% representing it have been discussed above in \cref{sec:intro_predictability_chaos}.
+% Relevant for the \gls{eda} spread are the characteristics of short time-scale 
+% error growth dominated by deep and shallow convection. 
+% Exactly how the initial differences (effectively initial perturbations)
+% between the ensemble members influence the error growth during the short forecast
+% is hard to tell given their complex construction via EDA, but is very likely of
+% secondary importance compared to presence or absence of diabatic processes.
+% For medium to long time scale ensemble forecasts, perturbations from EDA have
+% been shown to be too slow-growing, negatively affecting forecast skill and
+% spread \parencite{buizzaPotentialUseEnsemble2008, sociERA5GlobalReanalysis2024},
+% which is why they are augmented with singular vector perturbations in the
+% operational ECMWF ensemble forecast \parencite{leutbecherEnsembleForecasting2008,
+% palmerECMWFEnsemblePrediction2019, langMoreAccuracyLess2021}.
 
-The production of \gls{era5} features two stochastic physics schemes to alleviate
-shortcommings in the the representation of sub-grid scale processes and their associated uncertainty;
-the \gls{sppt} scheme and the
-\gls{skeb} scheme
-\parencite{ecmwfIFSDocumentationCY41R22016a, leutbecherStochasticRepresentationsModel2017}.
-The \gls{sppt} scheme introduced by \cite{buizzaStochasticRepresentationModel1999}
-and revised several times \parencite{lockTreatmentModelUncertainty2019,
-leutbecherStochasticRepresentationsModel2017} is supposed to represent model
-uncertainties in the representation of physical processes - diabatic processes
-especially. The \gls{skeb} scheme on the other hand is motivated by turbulence
-theory that predicts cascades that involve transfer of energy from small to
-large scales (cf.~\cref{sec:intro_predictability_chaos}).
-The scale interaction missing in the model due to truncation
-introduce uncertainties that are parametrized by the \gls{skeb}. The development
-goes back to \cite{shuttsKineticEnergyBackscatter2005} and
-\cite{bernerSpectralStochasticKinetic2009}, for the relevant implementation 
-see \cite{ecmwfIFSDocumentationCY41R22016a, leutbecherStochasticRepresentationsModel2017}.
-Note that \gls{sppt} applies multiplicative noise whereas \gls{skeb} applies additive noise.
+% The production of \gls{era5} features two stochastic physics schemes to alleviate
+% shortcommings in the the representation of sub-grid scale processes and their associated uncertainty;
+% the \gls{sppt} scheme and the
+% \gls{skeb} scheme
+% \parencite{ecmwfIFSDocumentationCY41R22016a, leutbecherStochasticRepresentationsModel2017}.
+% The \gls{sppt} scheme introduced by \cite{buizzaStochasticRepresentationModel1999}
+% and revised several times \parencite{lockTreatmentModelUncertainty2019,
+% leutbecherStochasticRepresentationsModel2017} is supposed to represent model
+% uncertainties in the representation of physical processes - diabatic processes
+% especially. The \gls{skeb} scheme on the other hand is motivated by turbulence
+% theory that predicts cascades that involve transfer of energy from small to
+% large scales (cf.~\cref{sec:intro_predictability_chaos}).
+% The scale interaction missing in the model due to truncation
+% introduce uncertainties that are parametrized by the \gls{skeb}. The development
+% goes back to \cite{shuttsKineticEnergyBackscatter2005} and
+% \cite{bernerSpectralStochasticKinetic2009}, for the relevant implementation 
+% see \cite{ecmwfIFSDocumentationCY41R22016a, leutbecherStochasticRepresentationsModel2017}.
+% Note that \gls{sppt} applies multiplicative noise whereas \gls{skeb} applies additive noise.
 
 
-Both of the schemes used for \gls{era5} have been shown to partly alleviate the
-shortcomings mentioned above \parencite{bernerSystematicModelError2012,
-bernerStochasticParameterizationNew2017, dawsonSimulatingWeatherRegimes2015,
-leutbecherStochasticRepresentationsModel2017, langRevisionStochasticallyPerturbed2021}
-with the \gls{sppt} usually having a larger influence than the \gls{skeb}. Both schemes
-increase \gls{eda} spread throughout the atmosphere, albeit most effectual atop the
-planetary boundary layer \parencite{palmerStochasticParametrizationModel2009,
-isaksenEnsembleDataAssimilations2010}. They have proven particularly potent at
-correcting biases related to tropical convection \parencite{weisheimerAddressingModelError2014,
-subramanianImpactStochasticPhysics2017, christensenStochasticParameterizationNino2017,
-strommenImpactStochasticParametrisations2018}. Note than the \gls{ecmwf} has deactivated
-the \gls{skeb} scheme in 2018 \parencite{ecmwfIFSDocumentationCY45R12018} and replaced
-the \gls{sppt} with the \gls{spp} scheme
-\parencite{ollinahoProcesslevelRepresentationModel2017, langRevisionStochasticallyPerturbed2021}
-in 2024 \parencite{ecmwfIFSDocumentationCY49R12024}.
+% Both of the schemes used for \gls{era5} have been shown to partly alleviate the
+% shortcomings mentioned above \parencite{bernerSystematicModelError2012,
+% bernerStochasticParameterizationNew2017, dawsonSimulatingWeatherRegimes2015,
+% leutbecherStochasticRepresentationsModel2017, langRevisionStochasticallyPerturbed2021}
+% with the \gls{sppt} usually having a larger influence than the \gls{skeb}. Both schemes
+% increase \gls{eda} spread throughout the atmosphere, albeit most effectual atop the
+% planetary boundary layer \parencite{palmerStochasticParametrizationModel2009,
+% isaksenEnsembleDataAssimilations2010}. They have proven particularly potent at
+% correcting biases related to tropical convection \parencite{weisheimerAddressingModelError2014,
+% subramanianImpactStochasticPhysics2017, christensenStochasticParameterizationNino2017,
+% strommenImpactStochasticParametrisations2018}. Note than the \gls{ecmwf} has deactivated
+% the \gls{skeb} scheme in 2018 \parencite{ecmwfIFSDocumentationCY45R12018} and replaced
+% the \gls{sppt} with the \gls{spp} scheme
+% \parencite{ollinahoProcesslevelRepresentationModel2017, langRevisionStochasticallyPerturbed2021}
+% in 2024 \parencite{ecmwfIFSDocumentationCY49R12024}.
 
-Finally, if all ensemble members were supplied with the same background forecast
-and observations (without perturbations), they would still result in different
-analysis. This is because the perturbed physics parametrizations introduced
-above are applied in the iterative minimization of $\mathbf{x}$ by the full
-non-linear \gls{ifs} (the outer-loop). As a sidenote, even without perturbed
-physics, turbulent cascades might introduce some ensemble spread by amplifying
-numerical errors, albeit much smaller in magnitude
-\parencite{leithAtmosphericPredictabilityTwoDimensional1971,
-leutbecherEnsembleForecasting2008, langMoreAccuracyLess2021}.  
+% Finally, if all ensemble members were supplied with the same background forecast
+% and observations (without perturbations), they would still result in different
+% analysis. This is because the perturbed physics parametrizations introduced
+% above are applied in the iterative minimization of $\mathbf{x}$ by the full
+% non-linear \gls{ifs} (the outer-loop). As a sidenote, even without perturbed
+% physics, turbulent cascades might introduce some ensemble spread by amplifying
+% numerical errors, albeit much smaller in magnitude
+% \parencite{leithAtmosphericPredictabilityTwoDimensional1971,
+% leutbecherEnsembleForecasting2008, langMoreAccuracyLess2021}.  
 
 
 \section{Aims and thesis roadmap}\label{sec:intro_roadmap}
 
 \subsection{Research questions}\label{sec:intro_questions}
-% 2--4 bullet points.
 
-\subsection{Contributions}\label{sec:intro_contrib}
-% 3--6 sentences mapping to Paper I/II/III (short).
+Atmospheric blocking and \glspl{wcb} are important features of the mid-latitude
+circulation with large impacts on natural and societal systems. They are also 
+associated with predictability issues both on theoretical and practical grounds.
+Adequately, a growing body of research has been dedicated to understanding 
+the interactions between the two, their representation in models
+as well as intrinsic dynamical nature. The aim of this thesis is to contribute
+to this research. The complex multiscale nature of the phenomena suggests 
+important insights may be uncovered through advanced, non-linear methods from 
+dynamical systems theory and statistics. The translation and application of
+such methods to the phenomena of interest constitutes a key contribution of this
+thesis. More specifically, the following research questions are addressed:
+
+\begin{enumerate}
+    \item How does stochasticity interact with the regime dynamics of a dynamical
+system? What does this interaction tell us about the predictability and stability
+of the system? Can we study these effects from an observational perspective
+and without access to the underlying dynamics?
+    \item What governs assimilation uncertainty on synoptic scales? What are the
+relative roles of observation, model and intrinsic uncertainty? How do the answers
+to these questions depend on the flow state and the presence of diabatic processes?
+    \item Can we understand \glspl{wcb} as spatio-temporally coherent structures
+of the flow? How does their coherence differ depending on lifecycle phases and
+what does this tell us about their interaction with blockings?
+    \item What do the answers to the above questions imply for the representation
+and predictability of blockings and \glspl{wcb} in models? How do they connect
+to the established theories and what questions do they raise for future research?
+\end{enumerate}
 
 \subsection{Thesis structure}\label{sec:intro_structure}
-% Chapter-by-chapter overview; use \cref for references to chapters.
+Each of the questions above is addressed in a separate ensuing chapter. The first
+three of which are based on published or to be published manuscripts, while
+the last one is an original synthesis of the results and their implications.
 
-% Example (fill in your actual chapter labels):
-% \Cref{ch:paper1} ... \Cref{ch:paper2} ... \Cref{ch:paper3} ... \Cref{ch:conclusion} ...
+\begin{enumerate}
+    \item \textbf{Stochastic inertia (\cref{chap:stochasticInertia}):} In this chapter,
+ the interaction of stochasticity with the regime dynamics of a
+low-order model are investigated. A novel method to study this interaction from a
+data-driven perspective is introduced and applied to several Toy models and the 
+\textcite{charneyMultipleFlowEquilibria1979} model. What is found is that stochasticity
+can induce a non-zero mean effect on the system's dynamics, increasing the 
+lifetime of regimes of the system under certain conditions -- an effect called
+stochastic inertia. 
+Adopting a transfer-operator framework facilitates establishing a method to 
+better understand and identify the existence and quantify the
+strength of this effect, without access to the underlying dynamics. 
+    \item \textbf{Weather regimes and assimilation uncertainty (\cref{chap:weatherRegimes}):}
+The nature of assimilation uncertainty for a selected reanalysis,
+ \gls{era5}, is examined. Through a novel statistical framework and by a unique
+combination of well-established datasets, the several influencing factors 
+are isolated and their relative importance assessed. The development of the
+observation system leaves a dominant imprint on the uncertainty on long-time
+scales with important regional and seasonal variations. On shorter time scales,
+a significant flow-dependence is found, that can be explained to large part 
+by the presence moist processes. This dependence is caused mostly by observation
+uncertainties, while model uncertainties seem to project more onto essentially
+dry dynamics. \gls{wcb} occurrence predominantly increases assimilation uncertainty
+in a local and non-local manner that varies by weather regime.
+    \item \textbf{Coherence of warm conveyor belts (\cref{chap:coherence}):}
+A novel method is developed that clusters trajectories in the earth system based on their 
+spatio-temporal coherence. Though agnostic with respect to scale and application,
+its application is demonstrated for \glspl{wcb} interacting with blockings.
+This framework understands \glspl{wcb} as three-dimensional and temporally evolving
+objects interacting with the large-scale flow on a range of scales. In this
+Lagrangian perspective, \glspl{wcb} shape the atmospheric blocking and vice versa
+and the coherence of the trajectories is found to be closely linked to the
+lifecycle phase of the blocking.
+    \item \textbf{Conclusions and outlook (\cref{chap:conclusions}):} The insights
+obtained in the previous chapters are connected by a common thread. The interaction
+of \glspl{wcb} and blockings is inherently multiscale and non-linear, with a lot
+of important questions still unanswered. Progress in mathematical research provides
+an invaluable resource to tackle these questions and translating such methods
+to real-world phenomena is guaranteed to yield important insights into both the
+nature of the phenomena and the methods themselves. For the present case of 
+blockings and \glspl{wcb}, an thorough understanding of the interaction and predictability
+of the phenomena certainly cannot be achieved
+without consistently considering the range of factors involved, including the role
+of stochasticity and sub-grid scale processes, the sources of uncertainty on each
+of the relevant scales and dual role of the phenomena as both Eulerian features
+acting on the flow and Lagrangian objects shaped by the flow.    
+\end{enumerate}
