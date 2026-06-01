@@ -126,7 +126,9 @@ different nature depending on season and location relative to the high pressure 
 Their eponymous blocking and (meridional)deflecting of air masses can favour anomalously and
 extremely hot or cold conditions and stationary cyclones on their flanks leading
 to anomalously high moisture transport and associated precipitation
-\parencite[e.g.,~][]{lenggenhagerAtmosphericBlocksModulate2019, mohrRelationshipAtmosphericBlocking2019, mohrMultidisciplinaryAnalysisExceptional2023}.
+\parencite[e.g.,~][]{brunnerConnectingAtmosphericBlocking2017,
+lenggenhagerAtmosphericBlocksModulate2019, mohrRelationshipAtmosphericBlocking2019,
+ mohrMultidisciplinaryAnalysisExceptional2023}.
 
 Apart from their effect on the advection of air masses, the high pressure associated
 with blockings favours subsidence and, by extension, cloud-free conditions and
@@ -224,8 +226,11 @@ fixed points, each associated with a different flow regime
 and opened the understanding of blocking as a (quasi-)stationary regime governing
 the atmospheric system's dynamics in its vicinity in state space. The idea, that
 the mid-latitude atmosphere switches between such regimes chaotically due to 
-stochastic forcing from synoptic variability was highly influential and has been extensively
-applied to the real world \parencite{legrasPersistentAnomaliesBlocking1985,
+stochastic forcing from synoptic variability was highly influential and has been
+extensively applied to all types of models \parencite{legrasPersistentAnomaliesBlocking1985,
+kondrashovEmpiricalModeReduction2006}
+as well as
+ the real world \parencite{
 moClusterAnalysisMultiple1988, vautardMultipleWeatherRegimes1990,
 farandaSwitchingZonalBlocked2016}.
 It offers a mechanism for
@@ -903,7 +908,7 @@ ensemble forecasts initialized with assimilation uncertainty
 \parencite{sanchezLinkingRapidForecast2020,
 puhFlowDependenceForecast2024, lilloInvestigatingDynamicsError2017,
 magnussonTropicalCycloneActivities2021}. For global models,
-\textcite{zagarThreedimensionalMultivariateModal2015, zagarGlobalPerspectiveLimits2017}
+\textcite{zagarBalancePropertiesShortrange2013, zagarThreedimensionalMultivariateModal2015, zagarGlobalPerspectiveLimits2017}
 showed that initial spread was largest in unbalanced modes in the tropics associated 
 with convection, before balanced modes and midlatitudes become dominant -- 
 the tropics show a much more limited short forecast skill compared to the mid-latitudes
@@ -924,13 +929,26 @@ constraints \parencite{rodwellCharacteristicsOccasionalPoor2013}, or be
 produced during the assimilation process itself. An argument in favour of 
 a substantial observational contribution is the lack of strong congruency between
 regions of large background forecast spread and regions high precipitation
-\parencite{rodwellUncertaintyGrowthForecast2023}. 
-Observation uncertainty is indeed larger in cloudy scenes for satellite
+\parencite{rodwellUncertaintyGrowthForecast2023}. Similarly, 
+\textcite{cardinaliRepresentingModelError2014} found that the elevated initial
+condition uncertainty in unbalanced modes was largely present in data assimilation
+runs that did not account for model error. The inclusion of which, in turn,
+increased the spread by roughly 10-25 \% depending on the region and this spread
+was in both balanced and unbalanced modes.
+This is consistent with the fact that observation uncertainty is indeed larger
+ in cloudy scenes for satellite
 instruments \parencite{geerObservationErrorsAllsky2011,
-liAssimilationSatelliteSounder2016, geerAllskySatelliteData2018},
+liAssimilationSatelliteSounder2016, geerAllskySatelliteData2018, 
+bormannEstimatesObservationerrorCharacteristics2011},
 aircraft typically avoid regions of intense convection, but large
 variability on small scales together with representation challenges in
-models also further complicate the assimilation.
+models also further complicate the assimilation. In particular, microwave 
+measurements have been shown to have less information content, but still improve
+ forecast error more in cloudy scenes compared to clear-sky conditions, 
+ proving that observation and model uncertainty can go along to 
+ inflate initial uncertainty \parencite{cardinaliPerformanceMeasurementAdvanced2011}.
+
+like when aircraft and station measurements are impeded by a pandemic \parencite{inglebyImpactCOVID19Weather2021, ImpactsCOVID19Restrictions2020} or geopolitical issues lead to jamming of radio occultation measurements \parencite{wuGNSSSignalJamming2024} or reduced data sharing \parencite{GlobalRadiosondeNetwork2016}. , though incident tropical cyclones or intense thunderstorms also prompt dedicated dropsonde or aircraft measurements \parencite{petersenImpactFutureBenefits2016}.
 
 More broadly, initial condition uncertainty has been shown to be of first--order
 importance for operational forecast error--growth, roughly on-par with model
@@ -945,13 +963,18 @@ substantially mitigated this inhomogeneity over the past three decades,
 to the point that they now provide the dominant share of information
 content in modern global analyses, particularly through hyperspectral
 microwave and infrared sounders
-\parencite{bauerQuietRevolutionNumerical2015}. Apart from coverage, however,
+\parencite{bauerQuietRevolutionNumerical2015}. For example,
+\textcite{cardinaliObservationInfluenceDiagnostic2013} showed that satellite observations
+accounted for roughly 80\% of the observational influence on the analysis in 
+\gls{ecmwf}'s operational system at that time with the remaining 20\% coming from
+surface based observations (including aircraft).
+Apart from coverage, however,
 the quality of observations also varies in space and time -- not only
 the cloud-related issues mentioned above, but also through instrument-specific
 biases, representativeness errors, and the difficulty of assimilating
 spatially or temporally correlated errors, which often forces practitioners
 to thin observations or inflate prescribed error variances
-\parencite{janjicRepresentationErrorData2018}.
+\parencite{janjicRepresentationErrorData2018}. 
 
 The assimilation
 process itself introduces further uncertainty through approximate
@@ -963,12 +986,17 @@ schemes attempt to mitigate this by using flow-dependent background-error
 covariances estimated from short-range ensemble forecasts, but the resulting
 covariances are themselves subject to sampling error from limited ensemble
 sizes and require empirical inflation and localization
-\parencite{houtekamerReviewEnsembleKalman2016}
+\parencite{houtekamerReviewEnsembleKalman2016}.
 
 These uncertainty sources do not act
 uniformly across scales or flow regimes: analysis errors tend to be larger
 where the flow is dynamically active and observations are weak, producing
-flow-dependent initial spread that subsequently shapes error growth.
+flow-dependent initial spread that subsequently shapes error growth. This, again, 
+goes especially for small scale convective phenomena that are both hard to observe,
+highly variable and exhibit strong error-growth. In fact, even dedicated 
+high-effort assimilation experiments using observations much denser than operational
+show serious levels of error for storm cells that dominantly limit their 
+predictability \parencite{sodhiLimitsPracticalPredictability2025}.
 A particular challenge in operational ensemble forecasting is how to
 construct the initial ensemble spread itself. Since the analysis distribution
 is not directly available, initial perturbations must be approximated
@@ -1041,7 +1069,7 @@ occur on scales smaller than the model grid. Diagnostic studies at
 operational centres find that model and initial-condition uncertainty
 contribute to medium-range forecast error in comparable proportions, with
 their relative balance shifting with lead time, scale, and variable
-\parencite{magnussonDependenceInitialConditions2019, magnussonSkillMediumrangeForecast2022}.
+\parencite{magnussonFactorsInfluencingSkill2013, magnussonDependenceInitialConditions2019, magnussonSkillMediumrangeForecast2022}.
 
 The scale separation between the resolved grid and the processes governing
 atmospheric thermodynamics is enormous. Even at convection-permitting
@@ -1052,8 +1080,9 @@ sub-grid processes as functions of resolved-scale variables,
 encoding statistical assumptions about the distribution of sub-grid states
 consistent with each grid-scale configuration
 \parencite{stensrudParameterizationSchemesKeys2007, christensenParametrizationWeatherClimate2022}.
- These schemes are indispensable but inherently approximate; they represent the dominant
-source of structural model error in modern \gls{nwp} \parencite{bechtoldRoleShallowConvection2014}.
+ These schemes are indispensable but inherently approximate; they represent the
+ primary
+source of structural model error in modern \gls{nwp} \parencite{bernerStochasticParameterizationNew2017}.
 
 A fundamental limitation of conventional parametrizations is that they are
 deterministic: the same grid-scale state produces the same sub-grid
@@ -1065,23 +1094,34 @@ parameters in the functional formulations are associated with uncertainties them
 In the case of sub-grid turbulence, such parametrization
 violates essential self-similarity properties of the turbulent flow with important
 detrimental implications for the model dynamics
-\parencite{palmerStochasticParametrizationModel2009, palmerStochasticWeatherClimate2019}.
+\parencite{palmerNonlinearDynamicalPerspective2001, palmerStochasticParametrizationModel2009, palmerStochasticWeatherClimate2019}.
 
 Ensemble forecasts that perturb only the initial
 conditions are systematically underdispersed (unreliable), particularly at short lead
 times and in convectively active regions, because they fail to sample
 model-related uncertainty
-\parencite{buizzaStochasticRepresentationModel1999}.
+\parencite{buizzaStochasticRepresentationModel1999}. An ensemble
+forecast that is underdispersed at the outset can stay underdispersed for 
+the entire forecast horizon highlighting again the importance of correct
+initial sampling. Apart from ensemble forecasting
+misrepresenting model uncertainty is also a problem for ensemble-based
+data assimilation, where lack of 
+model uncertainty leads to overconfidence in the background forecast and,
+therefore, underestimation of the analysis error and suboptimal assimilation
+of observations \parencite{cardinaliRepresentingModelError2014}. 
+
 Convection is
 particularly problematic, as its statistical behaviour transitions across
 the so-called convective grey zone --- grid spacings where convection is
 neither fully sub-grid nor fully resolved --- so that parametrizations
 calibrated at one resolution behave inconsistently at another 
-\parencite{fieldExploringConvectiveGrey2017, tomassiniConfrontingConvectiveGray2023}.
-Depending on the model resolution this issue arises, for example, for tropical cyclones or mesoscale
+\parencite{bechtoldRoleShallowConvection2014, fieldExploringConvectiveGrey2017,
+tomassiniConfrontingConvectiveGray2023, krollParameterizationAdaptionNeeded2025}.
+Depending on the model resolution this issue arises, for example, for tropical cyclones 
+\parencite{langImpactPerturbationMethods2012} or mesoscale
 convective systems \parencite{clarkeDownstreamInfluenceMesoscale2019}, either
 having considerable impacts on the larger-scale flow and objects of societal importance.
-This issue 
+The issue 
 arises in a similar manner for boundary--layer parametrizations 
 \parencite{honnertAtmosphericBoundaryLayer2020}.
 
@@ -1103,14 +1143,8 @@ subgrid-scale turbulence is the motivation of the \gls{skeb} scheme, that
 compensates excessive dissipation of kinetic energy through mountain drag,
 numerical diffusion and other processes \parencite{shuttsKineticEnergyBackscatter2005,bernerSpectralStochasticKinetic2009}.
 Its introduction accordingly lead to the representation of the observed
-$-5/3$ slope in the kinetic energy spectrum in the mesoscales.
+$-5/3$ slope in the kinetic energy spectrum in the mesoscales \parencite{palmerRepresentingModelUncertainty2005}.
 
-Generally, stochastic parametrization schemes have been shown to partly alleviate the
-shortcomings of deterministic parametrization, improving model biases,
-ensemble reliability, spread-skill relationships, and the
-representation of weather regimes
- \parencite{bernerSystematicModelError2012, dawsonSimulatingWeatherRegimes2015,
-leutbecherStochasticRepresentationsModel2017, langRevisionStochasticallyPerturbed2021}.
 The \gls{sppt} usually has a larger influence than the \gls{skeb}, especially
 in the tropics and near the surface
 \parencite{subramanianImpactStochasticPhysics2017, christensenStochasticParameterizationNino2017,
@@ -1121,7 +1155,30 @@ For identical initial conditions, \gls{sppt} generates  medium-range
 ensemble spread comparable to multi-model ensembles 
 \parencite{magnussonSkillMediumrangeForecast2022}, which are considered the
 skillful sample of the model uncertainty space given their fundamental differences
-in model design \parencite{krishnamurtiReviewMultimodelSuperensemble2016}.
+in model design \parencite{palmerRepresentingModelUncertainty2005, parkTIGGEPreliminaryResults2008, krishnamurtiReviewMultimodelSuperensemble2016}.
+
+Generally, stochastic parametrization schemes have been shown to partly alleviate the
+shortcomings of deterministic parametrization, improving model biases,
+ensemble reliability and spread-skill relationships
+ \parencite{leutbecherStochasticRepresentationsModel2017, langRevisionStochasticallyPerturbed2021}.
+Stochasticity can also improve the representation of weather regime characteristics
+in a model \parencite{bernerSystematicModelError2012, dawsonSimulatingWeatherRegimes2015}.
+On a conceptual level, stochasticity can
+contribute significantly to the exploration of a system's state space and
+the misrepresentation or negligence of which can, in turn, severely alter the
+the occurrence and transition frequencies between metastable regions of the state
+space. For \gls{nwp} models,
+this notion translates to weather regime statistics, whose occurrence and transitions
+are governed by synoptic forcing and the \enquote{noisy} influence of 
+sub-grid scale processes\parencite{molteniRegimesWintertimeCirculation1990}.
+Frequently, this interaction occurs via tropical teleconnections preconditioning
+weather regime behaviour on seasonal timescales 
+\parencite{jungInfluenceStochasticParameterization2005}. Consistent with 
+a changing exploration of the system's attractor rather than a changing attractor
+structure itself, the regimes themselves might not change \parencite{weisheimerAddressingModelError2014}.
+The influence of stochastic parametrization
+on the representation of blockings as one kind of weather regimes will be discussed
+in more detail in the next section.   
 
 As epitomized by the location-specific effect of the above presented 
 stochastic schemes, predictability is severely flow-dependent. Error growth rates,
@@ -1186,7 +1243,7 @@ and their finite-time counterparts \parencite{youngMathematicalTheoryLyapunov201
 ginelliCovariantLyapunovVectors2013}.
 The accompanying theory has been applied to a wide variety of low-order models
 \parencite{decruzExploringLyapunovInstability2018, vannitsemStatisticalDynamicalProperties2016,
-vannitsemPredictabilityLargescaleAtmospheric2017a, schubertCovariantLyapunovVectors2015,
+vannitsemPredictabilityLargescaleAtmospheric2017, schubertCovariantLyapunovVectors2015,
 viennetGuidelinesDatadrivenApproaches2022, yodenFiniteTimeLyapunovStability1993}
 or real-world data \parencite{blachutTaleTwoVortices2020a,
 rypinaApplyingDynamicalSystems2022} and has entered operational forecasting in the form of
@@ -1251,6 +1308,19 @@ The persistence increasing effect of random perturbations has been identified in
 both the \textcite{lorenzDeterministicNonperiodicFlow1963} model by 
 \textcite{kwasniokEnhancedRegimePredictability2014} and in the 
 \textcite{charneyMultipleFlowEquilibria1979} model by \textcite{dorringtonInteractionStochasticForcing2023}.
+
+\textcite{molteniRegimesWintertimeCirculation1990} argue that improved
+representation of blockings in model, be it through resolution increase
+or more accurate parametrization, does not necessarily translate to more
+predictable blockings, however. In their conception, the representation 
+pertain to the long term statistics of the system, determined by correct 
+attractor structure and stochastic forcing, but when exactly a blocking event
+occurs stays random (stochastic). If it is indeed the case that \gls{nwp} models
+tend to relax to their climatological mean state, then it makes sense that 
+stochasticity enables the system to develop meridonal jet configurations and,
+by extension, blockings -- e.g. in the Pacific sector \parencite{weisheimerAddressingModelError2014,
+palmerRepresentingModelUncertainty2005, jungInfluenceStochasticParameterization2005}.
+
 
  Using the same climate model,
 \textcite{hartungResolutionPhysicsAtmosphere2017}
@@ -1666,7 +1736,7 @@ three of which are based on published or to be published manuscripts, while
 the last one is an original synthesis of the results and their implications.
 
 \begin{enumerate}
-    \item \textbf{Stochastic inertia (\cref{chap:stochasticInertia}):} In this chapter,
+    \item \textbf{Stochastic inertia (\cref{ch:stochasticInertia}):} In this chapter,
  the interaction of stochasticity with the regime dynamics of a
 low-order model are investigated. A novel method to study this interaction from a
 data-driven perspective is introduced and applied to several Toy models and the 
@@ -1677,7 +1747,7 @@ stochastic inertia.
 Adopting a transfer-operator framework facilitates establishing a method to 
 better understand and identify the existence and quantify the
 strength of this effect, without access to the underlying dynamics. 
-    \item \textbf{Weather regimes and assimilation uncertainty (\cref{chap:weatherRegimes}):}
+    \item \textbf{Weather regimes and assimilation uncertainty (\cref{ch:weatherRegimes}):}
 The nature of assimilation uncertainty for a selected reanalysis,
  \gls{era5}, is examined. Through a novel statistical framework and by a unique
 combination of well-established datasets, the several influencing factors 
@@ -1689,7 +1759,7 @@ by the presence moist processes. This dependence is caused mostly by observation
 uncertainties, while model uncertainties seem to project more onto essentially
 dry dynamics. \gls{wcb} occurrence predominantly increases assimilation uncertainty
 in a local and non-local manner that varies by weather regime.
-    \item \textbf{Coherence of warm conveyor belts (\cref{chap:coherence}):}
+    \item \textbf{Coherence of warm conveyor belts (\cref{ch:coherence}):}
 A novel method is developed that clusters trajectories in the earth system based on their 
 spatio-temporal coherence. Though agnostic with respect to scale and application,
 its application is demonstrated for \glspl{wcb} interacting with blockings.
@@ -1698,7 +1768,7 @@ objects interacting with the large-scale flow on a range of scales. In this
 Lagrangian perspective, \glspl{wcb} shape the atmospheric blocking and vice versa
 and the coherence of the trajectories is found to be closely linked to the
 lifecycle phase of the blocking.
-    \item \textbf{Conclusions and outlook (\cref{chap:conclusions}):} The insights
+    \item \textbf{Conclusions and outlook (\cref{ch:conclusions}):} The insights
 obtained in the previous chapters are connected by a common thread. The interaction
 of \glspl{wcb} and blockings is inherently multiscale and non-linear, with a lot
 of important questions still unanswered. Progress in mathematical research provides

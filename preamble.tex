@@ -8,11 +8,35 @@
 \usepackage[english]{babel}
 \usepackage{csquotes}
 % Math & symbols
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{dsfont}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\E}{\mathds{E}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\1}{\mathds{1}}
+\renewcommand{\P}{\mathds{P}}
+\newcommand{\ran}{\textup{ran}}
+\newcommand{\Id}{\textup{Id}}
+
+\newenvironment{nalign}{
+    \begin{equation}
+    \begin{aligned}
+}{
+    \end{aligned}
+    \end{equation}
+    \ignorespacesafterend
+}
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
 
 % Figures, tables, cross-referencing
 \usepackage{graphicx}
-\graphicspath{{fig/NPG/}{fig/CAMCOS/}{fig/QJR/}}
+\graphicspath{{fig/NPG/}{fig/CAMCOS/}{fig/WCD/}}
+\renewcommand{\floatpagefraction}{0.75} 
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -22,15 +46,19 @@
 \usepackage[backend=biber,style=authoryear]{biblatex}
 \addbibresource{bib/references.bib}
 
-% Hyperlinks & references
-\usepackage[hidelinks]{hyperref}
-\usepackage{cleveref}
-
 % Microtypography
 \usepackage{microtype}
 
 % Custom macros
 \usepackage{style/thesis}
+
+% Structure
+\usepackage{appendix}
+
+% Hyperlinks & references
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink]{cleveref}
+% use ch, sec, eq, fig, tab as prefixes for cross-references
 
 % Acronyms
 \usepackage[acronym, nomain]{glossaries}
