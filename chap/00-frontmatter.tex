@@ -1,31 +1,67 @@
 % !TeX root = ../main.tex
+
+% Toggle: set to true for final bound version,
+% false for submission version (reviewers on separate sheet)
+\newif\ifreviewersinbinding
+\reviewersinbindingtrue  % change to \reviewersinbindingfalse for submission
+
 %------------------------------------------------
-% Title page
+% Title page (no reviewers)
 %------------------------------------------------
 \begin{titlepage}
-    \centering
-
+\centering
     {\Large \textbf{Freie Universität Berlin}}\\[1.5cm]
-
-    {\Large Institute of Meteorology}\\[0.5cm]
-    {\Large Department of Earth Sciences}\\[2.0cm]
-
-    {\huge \textbf{Atmospheric Blocking and Warm Conveyor Belts: Mathematical Perspectives}}\\[1.5cm]
-
-    {\Large A cumulative dissertation submitted for the degree of}\\[0.5cm]
-    {\Large Doctor of Philosophy (PhD)}\\[1.5cm]
-
-    \begin{tabular}{rl}
-        Author: & M.sc.\ Henry Leon Schoeller \\
-        Supervisor: & Prof.\ Dr.\ Stephan Pfahl \\
-        Reviewer: & Prof.\ Dr.\ Gabriele Messori \\
-    \end{tabular}
-
-    \vfill
-
-    {\Large June 2026}\\
+    {\large Institute of Meteorology}\\[0.5cm]
+    {\large Department of Earth Sciences}\\[2.0cm]
+    {\huge \textbf{Atmospheric Blocking and Warm Conveyor Belts:
+    Mathematical Perspectives}}\\[1.5cm]
+    {\large A cumulative dissertation submitted in partial fulfillment of the
+    requirements for the degree of}\\[0.5cm]
+    {\Large Doctor rerum naturalium (Dr.~rer.~nat.)}\\[1.5cm]
+    {\large by}\\[0.5cm]
+    {\Large \textbf{Henry Leon Schoeller}}\\[2.0cm]
+\vfill
+    {\large Berlin, June 2026}\\
 \end{titlepage}
+\cleardoublepage
 
+%------------------------------------------------
+% Reviewer page (separate unbound sheet at submission;
+% bound into thesis in final version)
+%------------------------------------------------
+\ifreviewersinbinding
+    % Final version: included in pagination as normal
+    \chapter*{Examination Committee}
+    \addcontentsline{toc}{chapter}{Examination Committee}
+    \begin{center}
+    \vspace*{3cm}
+
+\else
+    % Submission version: excluded from pagination
+    \clearpage
+    \thispagestyle{empty}
+    \pagenumbering{gobble}
+    \begin{center}
+    \vspace*{3cm}
+
+    {\Large \textbf{Examination Committee}}\\[2cm]
+\fi
+
+
+\begin{tabular}{rl}
+    Chair:              & Prof.\ Dr.\ Fabian Hoffmann \\
+    Deputy Chair:       & Prof.\ Dr.\ Henning Rust \\
+    Committee Member:   & Dr.\ Mona Bukenberger \\[1em]
+    Supervisor:         & Prof.\ Dr.\ Stephan Pfahl \\
+    Reviewer:           & Prof.\ Dr.\ Gabriele Messori \\[1em]
+    Disputation date:   & 14\textsuperscript{th} September 2026 \\
+\end{tabular}
+\end{center}
+\ifreviewersinbinding\else
+    % Restore pagination after the separate sheet
+    \clearpage
+    \pagenumbering{roman}
+\fi
 \cleardoublepage
 
 %------------------------------------------------
@@ -33,19 +69,28 @@
 %------------------------------------------------
 \chapter*{Declaration}
 \addcontentsline{toc}{chapter}{Declaration}
-
 I hereby declare that this dissertation has been composed by myself and that
 the work contained herein is my own, except where explicitly stated otherwise.
 This dissertation has not been submitted, in whole or in part, for any other
 degree or professional qualification.
 
-\vspace{2cm}
+\medskip
+\noindent
+This cumulative dissertation is based on the following peer-reviewed
+publications, to each of which I have contributed as detailed at the
+end of the respective chapter \textbf{Needs Updates}:
 
+\begin{enumerate}
+    \item \fullcite{schoellerNoiseinducedEnhancementRegime2026}
+    \item \fullcite{schoellerIsolatingEffectsModel2025}
+    \item \fullcite{schoellerAssessingLagrangianCoherence2025}
+\end{enumerate}
+
+\vspace{1.5cm}
 \noindent
 Berlin, June 2026\\[1.5cm]
 \noindent
 \textbf{Henry Leon Schoeller}
-
 \cleardoublepage
 
 %------------------------------------------------
@@ -54,15 +99,51 @@ Berlin, June 2026\\[1.5cm]
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
-This dissertation presents a cumulative body of work consisting of three
-peer-reviewed research papers. The unifying theme of the dissertation is
-briefly described here. The abstract should summarise the research problem,
-methodological approach, main contributions of each paper, and the overall
-scientific contribution of the thesis.
+Atmospheric blocking exerts a major influence on mid-latitude circulation
+and is frequently associated with extreme weather, yet its
+formation, persistence, and representation remain incompletely understood.
+This is because atmospheric blocking is a complex phenomenon whose constitutive
+processes bridge vast ranges of spatial and temporal scales -- prominently
+through the interaction with warm conveyor belts. This work demonstrates that
+viewing blocking, and in particular this interaction, through the lens of
+dynamical systems theory is exceptionally well suited to capturing its
+multi-scale nature, with regime persistence, coherence
+under perturbations and state-dependent uncertainty as key concepts. 
 
-Keep this concise and factual. Do not include citations unless explicitly
-required by your faculty.
+The influence of small-scale processes on the large-scale flow is often
+conceptualized as small random perturbations. Such perturbations can have a
+first-order effect on the behaviour of a dynamical system and its stability
+properties. Employing a paradigm model of mid-latitude atmospheric dynamics,
+it is shown that noise can increase the lifetime of blockings and a method is
+developed that can quantify this effect without access to the underlying
+dynamics. Since the representation of small-scale processes is known to affect
+blockings as well as warm conveyor belts, it is argued that this
+mechanism's understanding may contribute to improving the representation of
+their interaction.
 
+Apart from errors in the representation of small-scale processes, uncertainty
+in the estimated state of the atmosphere is the second major source of deficient
+understanding and forecasting. By isolating short- from long-time scale
+uncertainty components, the state-dependence of this uncertainty is studied
+climatologically leveraging the ERA5 reanalysis. This provides coherent patterns
+of anomalous
+uncertainty for a set of Euro-Atlantic weather regimes -- including blockings --
+as well as warm conveyor belts that can be explained by physical and mathematical
+arguments. Moisture presence is a key contributor to elevated observation
+uncertainties in addition to its significant role in model deficiencies.
+
+While the preceding considerations concern how perturbations and uncertainty
+affect the representation of blocking, its persistence ultimately rests on the
+air streams that constitute it. Blocks are three-dimensional structures whose
+properties are determined to a large degree by the air they consist of. The
+origin of this air is systematically investigated by tracking Lagrangian
+trajectories backward in time and clustering them according to their robustness
+against small random perturbations. This conceptualization as coherent
+trajectory bundles provides
+ important insights into the kinematics of blockings and the surrounding flow 
+and warm conveyor belts are identified among them. Reflecting on warm conveyor belts'
+nature as spatio-temporally extended features is vital for understanding their
+interaction with blockings.
 \cleardoublepage
 
 %------------------------------------------------
