@@ -46,12 +46,13 @@
 \usepackage[
     backend=biber,
     style=authoryear,
-    maxcitenames=1,      % et al. after 1 author in citations
-    maxbibnames=6,       % show up to 6 authors in bibliography
+    maxcitenames=2,      % et al. after 2 authors in citations
+    maxbibnames=999,       % show up to 999 authors in bibliography
     uniquename=false,    % don't add initials to disambiguate
     uniquelist=false,    % don't expand et al. to disambiguate
     date=year,           % year only, no full date
 ]{biblatex}
+\addbibresource{bib/manual-fixes.bib}
 \addbibresource{bib/references.bib}
 
 % Remove URL and visited-on fields
