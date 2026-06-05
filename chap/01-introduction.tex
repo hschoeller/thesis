@@ -5,9 +5,11 @@
 
 \chapter{Introduction}\label{ch:intro}
 \chapteroverview{This chapter introduces the key concepts and terms relevant
-    to this thesis. It provides a review of the relevant literature and
-    establishes the research questions addressed in the subsequent chapters.
-    Finally, it outlines the structure of the thesis.}
+    to this thesis. It provides a review of the relevant literature on
+    atmospheric blocking in \cref{sec:intro_blocking}, \glspl{wcb} in
+    \cref{sec:intro_wcb} and predictability in \cref{sec:intro_predictability}
+    and establishes the research questions addressed in the subsequent chapters
+    that are summarized in \cref{sec:intro_roadmap}.}
 
 \section{Atmospheric blocking}\label{sec:intro_blocking}
 The term \enquote{atmospheric blocking} emerged in weather forecast and
@@ -561,7 +563,7 @@ Moist diabatic processes, by contrast, are increasingly recognized as
 first-order. That latent heat release in clouds is not merely a secondary
 modulation but can be decisive for block formation and maintenance was
 perhaps first emphasized by \textcite{croci-maspoliKeyDynamicalFeatures2009,
-archambaultRelationshipsLargescaleRegime2010},
+    archambaultRelationshipsLargescaleRegime2010},
 and it leaves an imprint on the climatology of oceanic blocks, where
 pronounced ascent appears on the western flank against subsidence in the
 centre and east \parencite{nabizadeh3DStructureNorthern2021}. Lagrangian
@@ -578,7 +580,7 @@ theoretically and observationally
 \parencite{saffinCirculationConservationOutflow2021,
     methvenPotentialVorticityWarm2015}. The reinforcement of the negative
 \gls{pv} anomaly on the western flank of the block also contributes to its
-stationarity against eastward propagation. All these effects appear more 
+stationarity against eastward propagation. All these effects appear more
 important
 during onset and for larger, more intense blocks, suggesting that their
 neglect in dry theories underlies the poorly represented rapid onset and
@@ -1133,7 +1135,7 @@ dedicated high-effort assimilation experiments using far denser
 observations than operational still show serious analysis error for
 convective cells, dominantly limiting their predictability probably also in
 the future \parencite{sodhiLimitsPracticalPredictability2025}. Better
-constraining the uncertainties in these regions is sometimes done 
+constraining the uncertainties in these regions is sometimes done
 for incident tropical cyclones or intense thunderstorms with
 dropsonde or aircraft measurements \parencite{petersenImpactFutureBenefits2016},
 but such efforts are resource-intensive and therefore not routinely performed.
@@ -1170,10 +1172,10 @@ satellite observations accounted for roughly 80\% of the observational
 influence on the analysis in \gls{ecmwf}'s operational system at that
 time, with the remaining 20\% coming from surface-based observations
 (including aircraft). Observation networks are human infrastructure, so apart
-from impacts by natural events, they are also subject to 
+from impacts by natural events, they are also subject to
 societal disruptions like when aircraft and station measurements are impeded by
 a pandemic \parencite{inglebyImpactCOVID19Weather2021,
-ImpactsCOVID19Restrictions2020} or geopolitical issues lead to jamming of
+    ImpactsCOVID19Restrictions2020} or geopolitical issues lead to jamming of
 radio occultation measurements \parencite{wuGNSSSignalJamming2024} or reduced
 data sharing \parencite{GlobalRadiosondeNetwork2016}. This underlines, again,
 the need to consider variability in observation coverage when interpreting
@@ -1627,6 +1629,9 @@ upgrades improved blocking representation especially in winter, while
 \textcite{filippucciImpactStochasticPhysics2024} found that blocking
 representation deteriorated upon inclusion of both \gls{sppt} and \gls{skeb},
 arguing for a retuning of model parameters.
+% Clearly, the role of stochasticity
+% in blocking representation is complex and not yet fully understood, motivating
+% further research into the underlying mechanisms.
 
 A conceptual rationale for why stochasticity should matter at all is offered by
 \textcite{molteniRegimesWintertimeCirculation1990}, who argue that improved
@@ -1661,14 +1666,16 @@ identified in the \textcite{lorenzDeterministicNonperiodicFlow1963} system by
 \textcite{dorringtonInteractionStochasticForcing2023}. The latter model
 has been introduced in \cref{sec:intro_blocking_theories} and is now driven by
 noise in addition to its deterministic flow---and the noise itself may be
-read as a stand-in for the stochastic diabatic forcing that moist processes
+read as a stand-in for the diabatic forcing that moist processes
 such as \glspl{wcb} supply in the real atmosphere or the stochastic
 perturbations noted above to impact blocking representation in models.
 
-For a subregion of the attractor in the vicinity of the unstable
+In the above setting, for a subregion of the attractor in the vicinity of the
+unstable
 fixed point identified with a blocking, adding an intermediate level of noise
-results in an increase in the time steps needed between entering and exiting
-an effect that may be termed \emph{stochastic intertia} (similar phenomena
+results in an increase in the time steps needed between entering and
+exiting---an effect that may be termed \emph{stochastic intertia}
+(similar phenomena
 are known to exist in related forms in other mathematical settings;
 \textcite{franaszekInfluenceNoiseMean1991,reimannNoisyOnedimensionalMaps1996,
     altmannNoiseEnhancedTrappingChaotic2010}).
@@ -1682,15 +1689,11 @@ applications, since systems may either be too complex to simulate or because
 the underlying dynamics are unknown. \Cref{ch:stochasticInertia} presents
 a method to achieve this, while offering valuable insights into the precise
 mechanics behind the interaction of stochasticity and (blocking) regime
-behaviour.
-% --- transition to WCBs ---
-A recurring theme across the operational, climate, and dynamical-systems
-perspectives on the predictability of blocking is the prominent role of
-small-scale and moist
-processes---and of \glspl{wcb} in particular. Their upstream influence
-motivates a closer look at \glspl{wcb}
-as a source of predictability limitations in their own right, to which we now
-turn.
+behaviour. As elaborated in \cref{sec:intro_predictability_parametrization},
+stochasticity is used in operational models to represent the uncertainty
+associated with sub-grid processes. The strong baroclinic and moist convective
+instabilities in \glspl{wcb} make them efficient propagators and amplifiers
+of this uncertainty, as will be discussed in the following section.
 
 \subsection{Uncertainty in \glspl{wcb}} \label{sec:intro_wcb_uncertainty}
 \glspl{wcb} are tightly coupled to extratropical cyclogenesis and the
@@ -1710,9 +1713,7 @@ uncertainty, which they attribute to both upstream initial-condition errors
 of upstream large-scale patterns
 and model errors intrinsic to the processes dominant in the cyclone. This
 attribution connects back to one of the central topics of this section:
-the relative importance of initial-condition and model uncertainty. The issue
-arguable finds prime application in \glspl{wcb} and will be
-confronted through different lenses in the following chapters.
+the relative importance of initial-condition and model uncertainty.
 
 The case for model uncertainty rests on the fact that the diabatic
 processes within \glspl{wcb} are themselves parametrized and uncertain, so
@@ -1733,7 +1734,12 @@ disproportionate Rossby-wave responses and regime transitions
 underscored by the observation that stochastic perturbations from \gls{sppt},
 though zero-mean by construction, exert a non-zero mean effect on \glspl{wcb}
 by triggering non-linear instabilities, making them more frequent and more
-intense \parencite{picklEffectStochasticallyPerturbed2022}.
+intense \parencite{picklEffectStochasticallyPerturbed2022}. The abstract
+additive noise studied in low-order models
+(\cref{ch:stochasticInertia}) can be read as a proxy for precisely this
+kind of stochastic diabatic forcing, linking the dynamical-systems
+perspective on regime persistence to the moist processes that supply it in
+the real atmosphere.
 
 These model deficiencies are particularly consequential for blocking, which
 \glspl{wcb} frequently and heavily affect (\cref{sec:intro_block_diabatic}):
@@ -1761,7 +1767,62 @@ conditions; the extent to which \gls{wcb}-related amplification instead
 reflects elevated \emph{observational} and \emph{assimilation} uncertainty
 in the inflow region is examined in \cref{ch:weatherRegimes}. In either case,
 it is fair to say that \glspl{wcb} act as propagators and amplifiers of
-forecast uncertainty, highlighting the need for further understanding.
+forecast uncertainty---in particular when interacting with blockings,
+highlighting again the need for further research.
+
+
+\section{Research questions}\label{sec:intro_roadmap}
+
+Atmospheric blocking and \glspl{wcb} are important features of the mid-latitude
+circulation with large impacts on natural and societal systems. They are also
+associated with predictability issues both on theoretical and practical
+grounds. Adequately, a growing body of research has been dedicated to
+understanding the interactions between the two, their representation in models
+as well as intrinsic dynamical nature. The aim of this thesis is to contribute
+to this research. The complex multiscale nature of the phenomena suggests
+important insights may be uncovered through advanced, non-linear methods from
+dynamical systems theory and statistics. The translation and application of
+such methods to the phenomena of interest constitutes a key contribution of
+this thesis. More specifically, the following research questions will be
+addressed in the following chapters, with the topics ordered from most
+abstracted to most applied:
+
+\begin{description}[
+        % style=multiline,
+        % leftmargin=3em,
+        % labelsep=0em
+    ]
+    \item[\textbf{\Cref{ch:stochasticInertia}}] How do stochastic perturbations interact with the regime dynamics of a
+        dynamical system? What does this interaction tell us about the
+        predictability and stability of the system? Does the impact of
+        stochasticity on regime behaviour observed in the studies in
+        \cref{sec:intro_predictability_blockings}
+        occur because the system's attractor changes or because the system's
+        movement on the attractor is altered? Can we study these effects
+        from an observational perspective and without access to the underlying
+        dynamics?
+    \item[\textbf{\Cref{ch:weatherRegimes}}] What governs assimilation uncertainty on synoptic scales? What are
+        the relative roles of observation, model and intrinsic uncertainty? How do
+        the answers to these questions depend on the active weather regime,
+        the presence of diabatic processes in general and  the occurrence of
+        \glspl{wcb} specifically? What are the implied repercussions in light of
+        the predictability characteristics of blockings and \glspl{wcb} described
+        in \cref{sec:intro_predictability_blockings,sec:intro_wcb_uncertainty} on
+        the one hand and the relative importance of initial-condition vs. model
+        uncertainty on the other hand (\cref{sec:intro_predictability_chaos,
+            sec:intro_predictability_parametrization})?
+    \item[\textbf{\Cref{ch:coherence}}] How spatially coherent are the air masses that pass through a
+        blocking? What additional insights can be gained from Lagrangian
+        tracing of air parcels, if instead of individual trajectories, coherent
+        bundles of trajectories are considered? Does this provide an avenue to
+        objectively identify \glspl{wcb} explicitly conceiving them as spatially
+        coherent (cf.~\cref{sec:intro_wcb_def})? How do the answers to these question change across the
+        lifecycle of a blocking and a \gls{wcb}?
+    \item[\textbf{\Cref{ch:conclusions}}] What do the answers to the above questions imply for the
+        representation and predictability of blockings and \glspl{wcb} in models
+        and the real world? How do they connect to the established theories and
+        what questions do they raise for future research?
+\end{description}
 
 % \section{\Gls{eda}}\label{sec:intro_eda}
 
@@ -2059,89 +2120,3 @@ forecast uncertainty, highlighting the need for further understanding.
 % numerical errors, albeit much smaller in magnitude
 % \parencite{leithAtmosphericPredictabilityTwoDimensional1971,
 % leutbecherEnsembleForecasting2008, langMoreAccuracyLess2021}.  
-
-
-\section{Aims and thesis roadmap}\label{sec:intro_roadmap}
-
-\subsection{Research questions}\label{sec:intro_questions}
-
-Atmospheric blocking and \glspl{wcb} are important features of the mid-latitude
-circulation with large impacts on natural and societal systems. They are also
-associated with predictability issues both on theoretical and practical grounds.
-Adequately, a growing body of research has been dedicated to understanding
-the interactions between the two, their representation in models
-as well as intrinsic dynamical nature. The aim of this thesis is to contribute
-to this research. The complex multiscale nature of the phenomena suggests
-important insights may be uncovered through advanced, non-linear methods from
-dynamical systems theory and statistics. The translation and application of
-such methods to the phenomena of interest constitutes a key contribution of this
-thesis. More specifically, the following research questions are addressed:
-
-\begin{enumerate}
-    \item How does stochasticity interact with the regime dynamics of a dynamical
-          system? What does this interaction tell us about the predictability and stability
-          of the system? Can we study these effects from an observational perspective
-          and without access to the underlying dynamics?
-    \item What governs assimilation uncertainty on synoptic scales? What are the
-          relative roles of observation, model and intrinsic uncertainty? How do the answers
-          to these questions depend on the flow state and the presence of diabatic processes?
-    \item Can we understand \glspl{wcb} as spatio-temporally coherent structures
-          of the flow? How does their coherence differ depending on lifecycle phases and
-          what does this tell us about their interaction with blockings?
-    \item What do the answers to the above questions imply for the representation
-          and predictability of blockings and \glspl{wcb} in models? How do they connect
-          to the established theories and what questions do they raise for future research?
-\end{enumerate}
-
-\subsection{Thesis structure}\label{sec:intro_structure}
-Each of the questions above is addressed in a separate ensuing chapter. The first
-three of which are based on published or to be published manuscripts, while
-the last one is an original synthesis of the results and their implications.
-
-\begin{enumerate}
-    \item \textbf{Stochastic inertia (\cref{ch:stochasticInertia}):} In this chapter,
-          the interaction of stochasticity with the regime dynamics of a
-          low-order model are investigated. A novel method to study this interaction from a
-          data-driven perspective is introduced and applied to several Toy models and the
-          \textcite{charneyMultipleFlowEquilibria1979} model. What is found is that stochasticity
-          can induce a non-zero mean effect on the system's dynamics, increasing the
-          lifetime of regimes of the system under certain conditions -- an effect called
-          stochastic inertia.
-          Adopting a transfer-operator framework facilitates establishing a method to
-          better understand and identify the existence and quantify the
-          strength of this effect, without access to the underlying dynamics.
-    \item \textbf{Weather regimes and assimilation uncertainty (\cref{ch:weatherRegimes}):}
-          The nature of assimilation uncertainty for a selected reanalysis,
-          \gls{era5}, is examined. Through a novel statistical framework and by a unique
-          combination of well-established datasets, the several influencing factors
-          are isolated and their relative importance assessed. The development of the
-          observation system leaves a dominant imprint on the uncertainty on long-time
-          scales with important regional and seasonal variations. On shorter time scales,
-          a significant flow-dependence is found, that can be explained to large part
-          by the presence moist processes. This dependence is caused mostly by observation
-          uncertainties, while model uncertainties seem to project more onto essentially
-          dry dynamics. \gls{wcb} occurrence predominantly increases assimilation uncertainty
-          in a local and non-local manner that varies by weather regime.
-    \item \textbf{Coherence of warm conveyor belts (\cref{ch:coherence}):}
-          A novel method is developed that clusters trajectories in the Earth system based on their
-          spatio-temporal coherence. Though agnostic with respect to scale and application,
-          its application is demonstrated for \glspl{wcb} interacting with blockings.
-          This framework understands \glspl{wcb} as three-dimensional and temporally evolving
-          objects interacting with the large-scale flow on a range of scales. In this
-          Lagrangian perspective, \glspl{wcb} shape the atmospheric blocking and vice versa
-          and the coherence of the trajectories is found to be closely linked to the
-          lifecycle phase of the blocking.
-    \item \textbf{Conclusions and outlook (\cref{ch:conclusions}):} The insights
-          obtained in the previous chapters are connected by a common thread. The interaction
-          of \glspl{wcb} and blockings is inherently multiscale and non-linear, with a lot
-          of important questions still unanswered. Progress in mathematical research provides
-          an invaluable resource to tackle these questions and translating such methods
-          to real-world phenomena is guaranteed to yield important insights into both the
-          nature of the phenomena and the methods themselves. For the present case of
-          blockings and \glspl{wcb}, an thorough understanding of the interaction and predictability
-          of the phenomena certainly cannot be achieved
-          without consistently considering the range of factors involved, including the role
-          of stochasticity and sub-grid scale processes, the sources of uncertainty on each
-          of the relevant scales and dual role of the phenomena as both Eulerian features
-          acting on the flow and Lagrangian objects shaped by the flow.
-\end{enumerate}

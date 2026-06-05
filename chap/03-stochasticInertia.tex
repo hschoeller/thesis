@@ -4,35 +4,38 @@
 % =================================================
 
 \chapter{Noise-induced enhancement of regime lifetimes---A data-driven approach
-using deterministic trajectories} % LaTeX chapter title
+  using deterministic trajectories} % LaTeX chapter title
 \label{ch:stochasticInertia}
 
-\chapteroverview{This chapter [...]. It has been published as 
-\textcite{schoellerNoiseinducedEnhancementRegime2026}, an author contribution
-statement is given at the end. 
-% The conceptual framework
-% was developed jointly by all authors. The computations, figures, and \cref{sec:}
-% were the responsibility of the thesis author. RC developed the theory and
-% wrote \cref{sec:}. RC and the thesis author jointly wrote the first draft and
-% all authors contributed to revising the manuscript.
+\chapteroverview{In this chapter, the interaction of stochasticity with
+    regime dynamics is investigated by introducing a novel data-driven method
+    based on transfer operators. The aim is to identify and quantify
+    \emph{stochastic inertia} in a dynamical system using only observations of a
+    (deterministic) trajectories of the system. The theory and derivation of the
+    method
+    are introduced in \cref{sec:sI_meth}. \Cref{sec:sI_app} demonstrated
+    applications of the method on two simple toy models as well as the
+    model introduced by \textcite{charneyMultipleFlowEquilibria1979}.
+    Finally, the results are summarized and discussed in \cref{sec:sI_fin}.
 }
+
 
 \section{Theory \& Methods}\label{sec:sI_meth}
 
 \subsection{Regime lifetimes}\label{sec:sI_regime_lifetimes}
-We consider dynamical systems in $\R^d$ whose trajectories transition between regimes in a seemingly unpredictable manner. The most prominent examples of such systems are those that admit a strange attractor, e.g.~the Lorenz63 system \parencite{lorenzDeterministicNonperiodicFlow1963}. 
+We consider dynamical systems in $\R^d$ whose trajectories transition between regimes in a seemingly unpredictable manner. The most prominent examples of such systems are those that admit a strange attractor, e.g.~the Lorenz63 system \parencite{lorenzDeterministicNonperiodicFlow1963}.
 
 Consider an ODE
 \begin{equation}\label{eq:ODE}
     \Dot{x} = v(x),
 \end{equation}
-for a (sufficiently) smooth vector field $v$. 
+for a (sufficiently) smooth vector field $v$.
 Let $\Phi^t: \R^d \to \R^d$ be the solution operator of the ODE \ref{eq:ODE} given by
 \begin{equation}
     \Phi^0 x = x \qquad \text{and} \qquad \partial_t \Phi^t x = v(\Phi^t x).
 \end{equation}
 An attractor of the system is a closed measurable set $A\subset\R^d$ that is invariant under $\Phi$, i.e.~$(\Phi^t)^{-1} A = A$, such that for almost every initial condition $x_0$, the distance of $\Phi^t x_0$ to the set $A$ converges to~$0$.
-The mathematical theory of dynamical attractors is extremely deep, and we do not aim to provide a full technical account. For a rigorous introduction to dynamical attractors and ergodic theory, we refer, e.g., to~\textcite{katokIntroductionModernTheory1995, youngWhatAreSRB2002}. 
+The mathematical theory of dynamical attractors is extremely deep, and we do not aim to provide a full technical account. For a rigorous introduction to dynamical attractors and ergodic theory, we refer, e.g., to~\textcite{katokIntroductionModernTheory1995, youngWhatAreSRB2002}.
 
 Associated with the set $A$ is a measure $\mu_\Phi$ whose support comprises the attractor, i.e., $\text{supp}(\mu_\Phi) = A$. This measure is invariant under the dynamics, that is
 \begin{equation}
@@ -41,7 +44,7 @@ Associated with the set $A$ is a measure $\mu_\Phi$ whose support comprises the 
 for all $t\geq 0$ and all Borel-measurable sets $E \subset \R^d$. The characteristic property of a measure $\mu_\Phi$ representing an attractor is that the long-term statistical behavior of almost all initial conditions with respect to Lebesgue measure is governed by the measure~$\mu_{\Phi}$. % We call such a measure $\mu$ a \emph{physical measure}. 
 More precisely, for any observable $f:\R^d \to \R$ and Lebesgue-almost all initial conditions $x_0\in \R^d$, we find
 \begin{equation}\label{eq:Birkhoff}
-    \lim_{t\to \infty} \frac{1}{t} \int_0^t f(\Phi^s x_0) ds = \int_{\R^d} f(x) \mu_{\Phi}(dx). 
+    \lim_{t\to \infty} \frac{1}{t} \int_0^t f(\Phi^s x_0) ds = \int_{\R^d} f(x) \mu_{\Phi}(dx).
 \end{equation}
 Invariant measures with this property are called \emph{physical measures}. A refined concept of physical measures supported on attractors are so-called \emph{SRB measures}. We refer to \textcite{youngWhatAreSRB2002} for further details. For attractors such as the Lorenz attractor, or the attractor of the Charney--deVore system (see \cref{sec:sI_CdV}), the set $A$ is a compact set with a fractal dimension that is smaller than the dimension of the state space. Thus, the attractor captures the asymptotic, low-dimensional dynamics of a potentially higher-dimensional system.
 
@@ -59,7 +62,7 @@ We intend to study how the distribution of the lifetimes of $M$ changes when add
 \begin{equation}\label{eq:SDE}
     dx_t^\sigma = v(x_t^\sigma)\, dt + \sigma dW_t.
 \end{equation}
-As \emph{stochastic inertia} we describe the observed phenomenon that the addition of small noise increases the average regime lifetimes. As we will see, for an SDE of this form, rigorously defining average regime lifetimes becomes problematic. Therefore, also a rigorous definition of stochastic inertia is non-trivial. 
+As \emph{stochastic inertia} we describe the observed phenomenon that the addition of small noise increases the average regime lifetimes. As we will see, for an SDE of this form, rigorously defining average regime lifetimes becomes problematic. Therefore, also a rigorous definition of stochastic inertia is non-trivial.
 
 For $x_0^\sigma \notin M$, we can define the time of the first entrance to $M$
 \begin{equation}
@@ -70,9 +73,9 @@ Likewise, for $x_0^\sigma \in M$, we can define the random time of the first exi
 \begin{equation}
     \tau^\text{out} = \inf\{t>0 \mid x_t^\sigma \notin M\}.
 \end{equation}
-However, a recursive definition of $\tau_k^\text{in}$ and $\tau_k^\text{out}$, like in \cref{eq:tau_in_out}, is problematic due to the nature of Brownian motion. For any time $t$ at which $x_{t}^\sigma$ is on the boundary of $M$, the trajectory enters and exits $M$ an infinite number of times in any time interval around $t$. Hence, the recursion would get stuck in the sense that $\tau_k^\text{in} = \tau_{k+1}^\text{out} = \tau_{k+1}^\text{in}$ and so on. Consequently, the average regime lifetime, as defined in \cref{eq:det_regime_lifetime}, would equal~$0$. 
+However, a recursive definition of $\tau_k^\text{in}$ and $\tau_k^\text{out}$, like in \cref{eq:tau_in_out}, is problematic due to the nature of Brownian motion. For any time $t$ at which $x_{t}^\sigma$ is on the boundary of $M$, the trajectory enters and exits $M$ an infinite number of times in any time interval around $t$. Hence, the recursion would get stuck in the sense that $\tau_k^\text{in} = \tau_{k+1}^\text{out} = \tau_{k+1}^\text{in}$ and so on. Consequently, the average regime lifetime, as defined in \cref{eq:det_regime_lifetime}, would equal~$0$.
 
-To capture the effect of prolonged regime lifetimes in an SDE, we do not work with the recursive definition \ref{eq:tau_in_out}, and instead study the dependence of $\tau^\text{out}$ on the noise strength. To highlight this dependence in the notation, for $x_0^\sigma = x \in M$, define 
+To capture the effect of prolonged regime lifetimes in an SDE, we do not work with the recursive definition \ref{eq:tau_in_out}, and instead study the dependence of $\tau^\text{out}$ on the noise strength. To highlight this dependence in the notation, for $x_0^\sigma = x \in M$, define
 \begin{equation}\label{eq:def_tau}
     \tau^\sigma(x) \coloneqq \inf\{t>0 \mid x_t^\sigma \notin M\}.
 \end{equation}
@@ -80,34 +83,34 @@ This is known as the \emph{escape time}, also called first-passage time. We emph
 
 We note that continuous-time white noise is an abstracted model of random motion and the ill-posed nature of the average regime lifetimes can be seen as a technical artifact that plays little to no role in real-world systems. Similarly, any discrete numerical approximation of a trajectory of the SDE~\eqref{eq:SDE} naturally  enters and exits $M$ only a finite number of times. Hence, an increase in the regime lifetimes due to additive noise can be numerically observed, although an analytic quantification has yet to be developed. In the following sections, through time-stepping schemes, we treat all occurring systems as time-discrete, thus avoiding this obstacle.
 
-By virtue of numerical experiments, we demonstrate that stochastic inertia in $M$ is linked to a noise-induced increase in the average escape times~$\E[\tau^\sigma(x)]$ for a large portion of states $x\in M$. We propose a purely data-driven method of identifying and analyzing the escape times~$\tau^\sigma$, and compare them to regime lifetimes. We emphasize that for our method no knowledge of the underlying dynamics, i.e.~of the velocity field $v$, is needed. The ``true'' dynamics is only used to verify our method. 
+By virtue of numerical experiments, we demonstrate that stochastic inertia in $M$ is linked to a noise-induced increase in the average escape times~$\E[\tau^\sigma(x)]$ for a large portion of states $x\in M$. We propose a purely data-driven method of identifying and analyzing the escape times~$\tau^\sigma$, and compare them to regime lifetimes. We emphasize that for our method no knowledge of the underlying dynamics, i.e.~of the velocity field $v$, is needed. The ``true'' dynamics is only used to verify our method.
 
 \subsection{Markov chain model}
 \label{sec:sI_Markov_model}
 
-Given a sufficiently long trajectory of a dynamical system, we construct a Markov chain that simulates how the dynamics would behave if we added small additive noise. 
+Given a sufficiently long trajectory of a dynamical system, we construct a Markov chain that simulates how the dynamics would behave if we added small additive noise.
 
-Let $\{X_i \mid i=1, \hdots, N+1\}$ be a long trajectory of a dynamical system with time steps of size~$\Delta t$. It is important that the time between the samples $X_i$ and $X_{i+1}$ is the same for every~$i$. In view of the ODE~\eqref{eq:ODE}, this means that~$X_{i+1} = \Phi^{\Delta t}X_i \approx X_i + v(X_i) \Delta t$. Define the set of the first $N$ points, $\mathcal{X} = \{X_i \mid i=1, \hdots, N\}$. 
-Let $\mathcal{M}:= M \cap \mathcal{X} \subset \mathcal{X}$ be the set of those trajectory points that lie in the regime $M$ of interest. The set $\mathcal{M}$ is described by an index set $I\subset \{1, \hdots, N\}$ such that~$\mathcal{M} = \{X_i \mid i\in I\}$. 
+Let $\{X_i \mid i=1, \hdots, N+1\}$ be a long trajectory of a dynamical system with time steps of size~$\Delta t$. It is important that the time between the samples $X_i$ and $X_{i+1}$ is the same for every~$i$. In view of the ODE~\eqref{eq:ODE}, this means that~$X_{i+1} = \Phi^{\Delta t}X_i \approx X_i + v(X_i) \Delta t$. Define the set of the first $N$ points, $\mathcal{X} = \{X_i \mid i=1, \hdots, N\}$.
+Let $\mathcal{M}:= M \cap \mathcal{X} \subset \mathcal{X}$ be the set of those trajectory points that lie in the regime $M$ of interest. The set $\mathcal{M}$ is described by an index set $I\subset \{1, \hdots, N\}$ such that~$\mathcal{M} = \{X_i \mid i\in I\}$.
 We will construct a Markov chain with state space~$\mathcal{X}$ that is an approximation of the SDE~\eqref{eq:SDE} with noise strength~$\sigma$ in the weak sense; cf.~\cref{eq:Koopman_equiv_first} below. Then, we compute the expected escape times with respect to this Markov chain for each state~$x\in \mathcal{M}$. We denote a trajectory of the Markov chain by~$\{y_n^\sigma\}_{n\in \N}$. The transition probabilities are collected in a matrix $P^\sigma\in \R^{N\times N}$ such that
 \begin{equation*}
     P_{ij}^\sigma = \P(y_{n+1}^\sigma = X_j \mid y_n^\sigma = X_i).
 \end{equation*}
 We emphasize that the $\sigma$ in $P^\sigma$ is a superscript and not an exponent. When taking $P^\sigma$ to a power $k$, we write~$(P^\sigma)^k$.
-The basis for defining the transition probabilities $P_{ij}^\sigma$ of our Markov chain is the Euler--Maruyama scheme \parencite[section~9.1]{kloedenNumericalSolutionSDE1994} for the SDE~\eqref{eq:SDE}; cf.~\textcite[Sec.~3.2]{koltaiLargeDeviationsSemidistances2018} for a similar construction. The scheme is given by 
+The basis for defining the transition probabilities $P_{ij}^\sigma$ of our Markov chain is the Euler--Maruyama scheme \parencite[section~9.1]{kloedenNumericalSolutionSDE1994} for the SDE~\eqref{eq:SDE}; cf.~\textcite[Sec.~3.2]{koltaiLargeDeviationsSemidistances2018} for a similar construction. The scheme is given by
 \begin{equation}\label{eq:Euler_Maruyama}
     z_{n+1}^\sigma = z_n^\sigma + v(z_n^\sigma) \Delta t  +  \sigma \sqrt{\Delta t} \, \xi_n,
 \end{equation}
-where $\{\xi_n\}_{n\in\N}$ is an iid sequence of standard-normally distributed $d$-dimensional random variables and $z_{n+1}^{\sigma}$ is the numerical approximation of a realization of the system at time $\Delta t$ when starting at time 0 in~$z_n^{\sigma}$. Our goal is to construct $P_{ij}^\sigma$ such that the Markov chain $\{y_n^\sigma\}_{n\in \N}$ in some sense approximates the Markov chain $\{z_n^\sigma\}_{n\in \N}$. The key difficulty for such an approximation is that $y_n^\sigma \in \mathcal{X}$ lives on a finite state space, while $z_n^\sigma\in \R^d$ can take any value in $\R^d$. Hence, a direct approximation in terms of the transition probabilities is impossible. Instead, we aim to approximate the dynamics $z^\sigma$ on the level of \emph{transfer operators}. 
+where $\{\xi_n\}_{n\in\N}$ is an iid sequence of standard-normally distributed $d$-dimensional random variables and $z_{n+1}^{\sigma}$ is the numerical approximation of a realization of the system at time $\Delta t$ when starting at time 0 in~$z_n^{\sigma}$. Our goal is to construct $P_{ij}^\sigma$ such that the Markov chain $\{y_n^\sigma\}_{n\in \N}$ in some sense approximates the Markov chain $\{z_n^\sigma\}_{n\in \N}$. The key difficulty for such an approximation is that $y_n^\sigma \in \mathcal{X}$ lives on a finite state space, while $z_n^\sigma\in \R^d$ can take any value in $\R^d$. Hence, a direct approximation in terms of the transition probabilities is impossible. Instead, we aim to approximate the dynamics $z^\sigma$ on the level of \emph{transfer operators}.
 
 The \emph{Koopman operator} $U$ of the Euler--Maruyama scheme \cref{eq:Euler_Maruyama} is the linear operator on the space of bounded observables $f:\R^d \to \R$ given by
 \begin{equation}
     [U f] (z) = \E[f(z_{n+1}^\sigma ) \mid z_n = z].
 \end{equation}
-The Koopman operator applied to an observable gives the expected value of the observable after one time step. The adjoint of the Koopman operator is called the \emph{Perron--Frobenius operator} and maps distributions of particles forward in time. For a discussion of transfer operators, we refer to~\textcite{lasotaChaosFractalsNoise1994}. 
+The Koopman operator applied to an observable gives the expected value of the observable after one time step. The adjoint of the Koopman operator is called the \emph{Perron--Frobenius operator} and maps distributions of particles forward in time. For a discussion of transfer operators, we refer to~\textcite{lasotaChaosFractalsNoise1994}.
 % Both the Koopman and the Perron--Frobenius operator contain all the dynamical and stochastic information of a stochastic system.
 
-The Koopman operator of the Markov chain $y^\sigma$ on the finite state space $\mathcal{X}$ is simply given by the transition probability matrix $P^\sigma$. Indeed, let $\mathbf{f}\in \R^N$ be a column vector on $\mathcal{X}$, interpreted as an observable~$\mathbf{f}:\mathcal{X} \to \R$. Then, 
+The Koopman operator of the Markov chain $y^\sigma$ on the finite state space $\mathcal{X}$ is simply given by the transition probability matrix $P^\sigma$. Indeed, let $\mathbf{f}\in \R^N$ be a column vector on $\mathcal{X}$, interpreted as an observable~$\mathbf{f}:\mathcal{X} \to \R$. Then,
 \begin{equation*}
     [P^\sigma \mathbf{f}]_i = \E[\mathbf{f}(y_{n+1}^\sigma) \mid y_n^\sigma = X_i],
 \end{equation*}
@@ -121,26 +124,26 @@ Let $f:\R^d \to \R$ be a bounded, measurable observable on $\R^d$. By restrictio
 
 The transition probabilities of the Euler--Maruyama scheme \cref{eq:Euler_Maruyama} are governed by the Gaussian kernel of a normally distributed~$\xi$. We compute
 \begin{align}
-    [U f](z) &= \int_{\R^d} f\big(z + v(z) \Delta t + \sigma \sqrt{\Delta t} \xi\big)  \, (2\pi)^{-\frac{d}{2}} \exp\left(-\frac{\norm{\xi}^2}{2}\right) \, \mathrm{d} \xi.
+    [U f](z) & = \int_{\R^d} f\big(z + v(z) \Delta t + \sigma \sqrt{\Delta t} \xi\big)  \, (2\pi)^{-\frac{d}{2}} \exp\left(-\frac{\norm{\xi}^2}{2}\right) \, \mathrm{d} \xi.
 \end{align}
 For $z=X_i$, we have the approximation $z + v(z) \Delta t \approx X_{i+1}$. Additionally, we can substitute $\sigma \sqrt{\Delta t}\xi = \zeta$, to arrive at
 \begin{equation*}
     [U f](X_i) \approx\int_{\R^d} f\big( X_{i+1} + \zeta\big)\, (2\pi)^{-\frac{d}{2}}\exp\left(-\frac{\norm{\zeta}}{2\sigma^2 \Delta t}\right) \, \mathrm{d} \zeta.
 \end{equation*}
-Our goal is to construct the transition probability matrix $P^\sigma$ in such a way that 
+Our goal is to construct the transition probability matrix $P^\sigma$ in such a way that
 \begin{equation}\label{eq:Koopman_equiv}
     \sum_{j=1}^N P_{ij}^\sigma \, f(X_j)  \approx \int_{\R^d} f\big( X_{i+1} + \zeta\big)\, (2\pi)^{-\frac{d}{2}}\exp\left(-\frac{\norm{\zeta}}{2\sigma^2 \Delta t}\right) \, \mathrm{d} \zeta.
 \end{equation}
 
 We construct $P^\sigma$ as the concatenation of two transition probability matrices $P^\sigma = T D^\sigma$, where
 \begin{equation}
-    P^\sigma \in \R^{N\times N}, \qquad T\in \R^{N \times (N+1)}, \qquad D^\sigma \in \R^{(N+1)\times N}. 
+    P^\sigma \in \R^{N\times N}, \qquad T\in \R^{N \times (N+1)}, \qquad D^\sigma \in \R^{(N+1)\times N}.
 \end{equation}
 Since $P_{ij}^\sigma$ is the probability of going from $X_i$ to $X_j$, the concatenation $TD^\sigma$ corresponds to first applying $T$ and then $D^\sigma$. The transition probability matrix $T$ models the deterministic step $X_i \to X_{i+1}$. Since the point $X_N$ is mapped to $X_{N+1}$, the matrix is of size $N\times (N+1)$. The matrix $T$ is given by
 \begin{equation}
     T_{ij} = \begin{cases}
-        1, \quad&j=i+1, \\
-        0, \quad&j \neq i+1.
+        1, \quad & j=i+1,      \\
+        0, \quad & j \neq i+1.
     \end{cases}
 \end{equation}
 The transition probability matrix $D^\sigma$ then models diffusion by strength $\sigma$. Since any point, including $X_{N+1}$, has to be mapped to $\mathcal{X}$, the size of this matrix is $(N+1)\times N$. In view of \cref{eq:Koopman_equiv}, the matrix $D^\sigma$ has to be constructed in such a way that
@@ -148,7 +151,7 @@ The transition probability matrix $D^\sigma$ then models diffusion by strength $
     \sum_{j=1}^N P_{ij}^\sigma \, f(X_j)  = \sum_{j=1}^N f(X_j) \, D^\sigma_{i+1, j} \approx \int_{\R^d} f\big( X_{i+1} + \zeta\big)\, (2\pi)^{-\frac{d}{2}}\exp\left(-\frac{\norm{\zeta}}{2\sigma^2 \Delta t}\right) \, \mathrm{d} \zeta.
 \end{equation}
 
-The construction of such a matrix $D^\sigma$ is exactly given by the diffusion map method~\parencite{coifmanDiffusionMaps2006}. This approach has been employed in several cases of approximating linear operators related to the dynamics~\parencite{berryNonparametricForecastingLowdimensional2015,froylandSpectralAnalysisClimate2021,froylandRevealingTrendsPersistent2024}. The construction of the diffusion matrix $D^\sigma$ closely follows~\parencite{coifmanDiffusionMaps2006}. We write out the definition of $D^\sigma$ but refer to the above mentioned paper(s) for a deeper derivation of the formulae. 
+The construction of such a matrix $D^\sigma$ is exactly given by the diffusion map method~\parencite{coifmanDiffusionMaps2006}. This approach has been employed in several cases of approximating linear operators related to the dynamics~\parencite{berryNonparametricForecastingLowdimensional2015,froylandSpectralAnalysisClimate2021,froylandRevealingTrendsPersistent2024}. The construction of the diffusion matrix $D^\sigma$ closely follows~\parencite{coifmanDiffusionMaps2006}. We write out the definition of $D^\sigma$ but refer to the above mentioned paper(s) for a deeper derivation of the formulae.
 
 Define the similarity matrix
 \begin{equation} \label{eq:simiMat}
@@ -161,29 +164,29 @@ We pre-normalize $K^\sigma_{ij}$ to account for differences in the density of th
 The diffusion matrix $D^\sigma$ is obtained by row-normalization such that it becomes a row-stochastic matrix:
 \begin{equation*}
     \hat{K}_i^\sigma \coloneqq \sum_{j
-    =1}^N \hat{K}^\sigma_{ij}, \qquad D_{ij}^\sigma \coloneqq \frac{\hat{K}^\sigma_{ij}}{\hat{K}_i^\sigma}.
+        =1}^N \hat{K}^\sigma_{ij}, \qquad D_{ij}^\sigma \coloneqq \frac{\hat{K}^\sigma_{ij}}{\hat{K}_i^\sigma}.
 \end{equation*}
 The matrix $D^\sigma$ is a transition probability matrix that models the addition of $\sigma \sqrt{\Delta t} \, \xi_n$ to a point in $\mathcal{X}$. It is constructed such that \cref{eq:Koopman_equiv_final} is a faithful approximation under the assumption that the point cloud $\mathcal{X}$ samples the space $\R^d$ sufficiently densely. Note that \cref{eq:Koopman_equiv_final}, and thereby \cref{eq:Koopman_equiv_first}, cannot possibly be good approximations for all observables $f:\R^d \to \R$. In particular, if $f$ is non-zero but $f(X_i) = 0$ for all $X_i\in \mathcal{X}$, then $P^\sigma \mathbf{f} = 0$ while $U f$ is not close to 0. For a more detailed discussion of the necessary assumptions and limitations of this method, we refer to \cref{sec:sI_lim}.
 
 Computing all pairwise distances in \cref{eq:simiMat} is computationally expensive for large $N$ and leads to a dense matrix of size $(N+1)\times N$. Note that for pairs $X_i, X_j \in \mathcal{X}$ for which $\norm{X_i - X_j}^2$ is of an order larger than $2\sigma^2 \Delta t$, the value $K_{ij}^\sigma$ is extremely small and can be neglected. Therefore, we calculate the distances needed for \cref{eq:simiMat} with a nearest neighbour search using a \texttt{kd-tree} as implemented in \texttt{scipy} \parencite{virtanenSciPyFundamentalAlgorithms2020} with a cut-off radius of $3\sqrt{2\sigma^2 \Delta t}$. This leads to sparse matrices $K^\sigma$ and $D^\sigma$ which significantly improves the computational efficiency and decreases storage requirements for large~$N$. %An exception is of course the one-dimensional case, where distances are trivially available. \rc{I asked Henry about the 1D case.}
-Note that if $X_N$ is the only point of $\mathcal{X}$ within the cut-off radius of the point $X_{N+1}$, the resulting Markov chain will feature a closed single-node loop. To avoid this, we extend the cut-off radius just enough to include a second point in those cases. 
+Note that if $X_N$ is the only point of $\mathcal{X}$ within the cut-off radius of the point $X_{N+1}$, the resulting Markov chain will feature a closed single-node loop. To avoid this, we extend the cut-off radius just enough to include a second point in those cases.
 
 \begin{remark}
-\label{rem:noisy_basetraj}
+    \label{rem:noisy_basetraj}
     We note that this method can analogously be used when the $X_i$ are samples from a trajectory with fixed \emph{nonzero} noise, say~$\sigma_0$. The matrix $P^{\sigma}$ in this case approximates the transfer operator of the system with noise~$\sqrt{\sigma_0^2 + \sigma^2}$. Since natural systems are believed to be intrinsically noisy, the method thus allows to analyze the effect of \emph{increasing} noise in the system.
 \end{remark}
 
 \begin{remark}
-    Another approach approximating the dynamics of a continuous-state system by a Markov chain is \emph{Ulam's method}~\parencite{ulamCollectionMathematicalProblems1960}, which defines transition probabilities between elements of the state space's partition. 
+    Another approach approximating the dynamics of a continuous-state system by a Markov chain is \emph{Ulam's method}~\parencite{ulamCollectionMathematicalProblems1960}, which defines transition probabilities between elements of the state space's partition.
     %The method we consider has the advantage over 
     Note that, in contrast to Ulam's method, our approach does not require the choice of a partition, making, in particular, the inclusion of variable noise strengths $\sigma$ computationally more straightforward.
 \end{remark}
 
 \subsection{Regime lifetimes of the Markov chain}
 
-Having constructed the Markov operator $P^\sigma$ for each $\sigma>0$, we compute the average escape times from $\mathcal{M}$ under $P^\sigma$. Here and in the following we assume that the Markov chain is irreducible, meaning that there is no true subset $J \subsetneq \{1,\ldots,N\}$ of indices which is invariant with probability one.  
+Having constructed the Markov operator $P^\sigma$ for each $\sigma>0$, we compute the average escape times from $\mathcal{M}$ under $P^\sigma$. Here and in the following we assume that the Markov chain is irreducible, meaning that there is no true subset $J \subsetneq \{1,\ldots,N\}$ of indices which is invariant with probability one.
 This assumption is justified in the setting we are interested in due to the mixing properties of chaotic attractors.
-Recall that $I \subset \{1,\hdots, N\}$ is the set of indices of points $X_i$ that belong to $\mathcal{M}$. Let $Q^\sigma$ be the submatrix of $P^\sigma$ with indices $I\times I$. Hence, $Q^\sigma$ is of size $|I|\times |I|$. To avoid unnecessary complications, we index $Q^\sigma$ with the indices of $I$ instead of by $1, \hdots, |I|$. We also write $Q^\sigma \in \R^{I\times I}$. Later on, we use the notation $\R^I$ to denote the space of $|I|$-dimensional vectors that are indexed by the set $I$. 
+Recall that $I \subset \{1,\hdots, N\}$ is the set of indices of points $X_i$ that belong to $\mathcal{M}$. Let $Q^\sigma$ be the submatrix of $P^\sigma$ with indices $I\times I$. Hence, $Q^\sigma$ is of size $|I|\times |I|$. To avoid unnecessary complications, we index $Q^\sigma$ with the indices of $I$ instead of by $1, \hdots, |I|$. We also write $Q^\sigma \in \R^{I\times I}$. Later on, we use the notation $\R^I$ to denote the space of $|I|$-dimensional vectors that are indexed by the set $I$.
 
 The matrix $Q^\sigma$ models the Markov chain inside $\mathcal{M}$ and is substochastic because there is a positive probability of leaving $\mathcal{M}$ by virtue of the Markov chain's irreducibility and $I \neq \{1,\ldots,N\}$. This also means that $Q^\sigma$ has spectral radius strictly less than~1. Assuming that $y_0^\sigma = X_i \in \mathcal{M}$, the probability of remaining inside of $\mathcal{M}$ for $k$ steps under the Markov chain $P^\sigma$ is given by
 \begin{equation}
@@ -191,11 +194,11 @@ The matrix $Q^\sigma$ models the Markov chain inside $\mathcal{M}$ and is substo
 \end{equation}
 where $\1$ is a vector with each entry equal to~$1$. Hence, the average number of steps until leaving $\mathcal{M}$, when started in $X_i$, is given by~\parencite[Theorem 1.3.5]{norrisMarkovChains1997},
 \begin{align*}
-    \E[\text{no.\ of steps to leave $\mathcal{M}$} &\mid \text{start at }X_i] \\ 
-    &= \sum_{k=1}^{\infty} k\, \P[\text{exactly $k$ steps to leave $\mathcal{M}$} \mid \text{start at }X_i] \\
-    \text{(by counting terms)} &= \sum_{k=0}^{\infty} \sum_{l=k+1}^{\infty} \P[\text{exactly $l$ steps to leave $\mathcal{M}$} \mid \text{start at }X_i] \\
-    &= \sum_{k=0}^{\infty} \P[\text{stay $k$ steps before leaving $\mathcal{M}$} \mid \text{start at }X_i] \\
-    &= \sum_{k=0}^\infty \left[(Q^\sigma)^k\1 \right]_i = \left[ (\Id- Q^\sigma)^{-1} \1 \right]_i.
+    \E[\text{no.\ of steps to leave $\mathcal{M}$} & \mid \text{start at }X_i]                                                                                                \\
+                                                   & = \sum_{k=1}^{\infty} k\, \P[\text{exactly $k$ steps to leave $\mathcal{M}$} \mid \text{start at }X_i]                   \\
+    \text{(by counting terms)}                     & = \sum_{k=0}^{\infty} \sum_{l=k+1}^{\infty} \P[\text{exactly $l$ steps to leave $\mathcal{M}$} \mid \text{start at }X_i] \\
+                                                   & = \sum_{k=0}^{\infty} \P[\text{stay $k$ steps before leaving $\mathcal{M}$} \mid \text{start at }X_i]                    \\
+                                                   & = \sum_{k=0}^\infty \left[(Q^\sigma)^k\1 \right]_i = \left[ (\Id- Q^\sigma)^{-1} \1 \right]_i.
 \end{align*}
 The formula for the power series
 % as the resolvent of $Q^\sigma$
@@ -218,11 +221,11 @@ Using the escape times $\theta^\sigma$, we can compute the average regime lifeti
 These probabilities are computed in the following way: Start with the stationary distribution outside of $\mathcal{M}$, apply $P^\sigma$ once, restrict the result to $\mathcal{M}$ and normalize. Let $\mu^\sigma \in \R^N$ be the stationary distribution of $P^\sigma$, i.e.~the (by irreducibility unique) vector such that $\mu^\sigma P^\sigma = \mu^\sigma$. The (not normalized) stationary distribution outside of $\mathcal{M}$ is denoted by $\mu^\sigma_{\mathcal{M}^c}$ and given by
 \begin{equation}
     \left(\mu^\sigma_{\mathcal{M}^c}\right)_i \coloneqq \begin{cases}
-        \mu^\sigma_i, \qquad & i \in I, \\
-        0, \qquad & i \notin I.
+        \mu^\sigma_i, \qquad & i \in I,    \\
+        0, \qquad            & i \notin I.
     \end{cases}
 \end{equation}
-The formula for the conditional probabilities \cref{eq:conditional_probabilities} reads 
+The formula for the conditional probabilities \cref{eq:conditional_probabilities} reads
 \begin{equation}\label{eq:def_nu}
     V_i^\sigma \coloneqq [ \mu^\sigma_{\mathcal{M}^c} P^\sigma]_i, \qquad \nu_i^\sigma = \frac{V_i^\sigma}{\sum_{j\in I} V_j^\sigma}.
 \end{equation}
@@ -245,26 +248,26 @@ Nevertheless, its accuracy is also limited by attributes of the available trajec
 \textbf{c)} Finally, the time span between consecutive samples $X_i$ and $X_{i+1}$ should not be too large (depending on the nonlinearity of the deterministic flow); otherwise the Euler--Maruyama approximation in \cref{eq:Euler_Maruyama} deteriorates. Since the Markov chain model is constructed to approximate the Euler--Maruyama scheme, large time steps in turn constraints the accuracy of our model.
 
 \textbf{d)} Increasing the number of steps has the benefit of potentially resolving the attractor better, but comes at the cost of an increased number of states.
-While the computational effort of computing the expected escape times $\theta^\sigma$ scales with the size of the regime $\mathcal{M}$ (a linear system has to be solved), the computational effort of computing the entry distribution $\nu^\sigma$ scales with the size of the entire trajectory $\mathcal{X}$ (an eigenvalue problem has to be solved), and computing $\nu^\sigma$ quickly becomes unfeasible without additional approximation methods. 
+While the computational effort of computing the expected escape times $\theta^\sigma$ scales with the size of the regime $\mathcal{M}$ (a linear system has to be solved), the computational effort of computing the entry distribution $\nu^\sigma$ scales with the size of the entire trajectory $\mathcal{X}$ (an eigenvalue problem has to be solved), and computing $\nu^\sigma$ quickly becomes unfeasible without additional approximation methods.
 
 \paragraph{Restriction to deterministic attractor.}
 
 \textbf{e)} Perturbing the deterministic dynamics by isotropic white noise will perpetually ``kick'' the trajectory off the attractor. One expects that, due to attraction, the noisy trajectory will, with overwhelming probability, stay within a distance to the attractor that is commensurate with the noise strength. The formalization of this intuition is beyond the scope of our work; we merely refer to a possible approach~\parencite{blankStochasticAttractorsTheir1986}. Nevertheless, this change in the ``effective attractor'' may necessitate redefining the regime (due to, for instance, some physical considerations). The Markov chain method cannot account for this change, leaving an intrinsic bias in its results.
 
-\textbf{f)} Even if the effective attractor changes only negligibly, the interactions between the flow towards the attractor and perturbations transversal to the attractor can have a relevant effect. This effect cannot be modelled entirely via dynamical information \emph{on} the attractor. However, the Markov chain method is restricted to noise that acts tangentially\footnote{Here, we assume that there is a well-defined tangential space of the attractor. If not, for instance because the attractor is not a smooth manifold, the space spanned by the neighborhood of any point of the attractor might still be strictly smaller than the entire~$\R^d$.} to the attractor and cannot incorporate noise that drives the trajectory away from the attractor. 
+\textbf{f)} Even if the effective attractor changes only negligibly, the interactions between the flow towards the attractor and perturbations transversal to the attractor can have a relevant effect. This effect cannot be modelled entirely via dynamical information \emph{on} the attractor. However, the Markov chain method is restricted to noise that acts tangentially\footnote{Here, we assume that there is a well-defined tangential space of the attractor. If not, for instance because the attractor is not a smooth manifold, the space spanned by the neighborhood of any point of the attractor might still be strictly smaller than the entire~$\R^d$.} to the attractor and cannot incorporate noise that drives the trajectory away from the attractor.
 This discrepancy arises only if the attractor has a lower dimension than the full state space, but in this case, the effect may be severe.
 
 \section{Application \& Results}\label{sec:sI_app}
 
 \subsection{Stochastic Inertia in a one-dimensional toy system}\label{sec:sI_1d}
 
-We first demonstrate the methodology developed in \cref{sec:sI_meth} by applying it to a one-dimensional toy model. Naturally, it is not possible to have an attractor in one dimension that is not simply a fixed point. Instead, imagine an attractor in higher dimensions that contains a fixed point with one unstable direction while all other directions are stable. Trajectories approach the fixed point through one of the stable directions, spend some time near the fixed point, and ultimately leave through the unstable direction. After spending some time in the chaotic region of the attractor, the trajectory returns in a seemingly random manner to the fixed point. Thus, in the vicinity of this fixed point, the dynamics is approximated by the one-dimensional dynamics in the unstable direction with random reinsertions. For example, such a setting arises in the blocking regime in the Charney--deVore model; see \cref{sec:sI_CdV}. Heuristically, this blocking regime has previously been treated as a one-dimensional system in \textcite{dorringtonInteractionStochasticForcing2023} to explain the occurrence of stochastic inertia.  
+We first demonstrate the methodology developed in \cref{sec:sI_meth} by applying it to a one-dimensional toy model. Naturally, it is not possible to have an attractor in one dimension that is not simply a fixed point. Instead, imagine an attractor in higher dimensions that contains a fixed point with one unstable direction while all other directions are stable. Trajectories approach the fixed point through one of the stable directions, spend some time near the fixed point, and ultimately leave through the unstable direction. After spending some time in the chaotic region of the attractor, the trajectory returns in a seemingly random manner to the fixed point. Thus, in the vicinity of this fixed point, the dynamics is approximated by the one-dimensional dynamics in the unstable direction with random reinsertions. For example, such a setting arises in the blocking regime in the Charney--deVore model; see \cref{sec:sI_CdV}. Heuristically, this blocking regime has previously been treated as a one-dimensional system in \textcite{dorringtonInteractionStochasticForcing2023} to explain the occurrence of stochastic inertia.
 
 We consider a toy model of an unstable fixed point in one dimension. Once trajectories are sufficiently far away from the fixed point, we randomly reinsert them close to the fixed point. The system is given by
 \begin{equation}\label{eq:1d_toy}
     \mathrm{d}x_t = x_t\,\mathrm{d}t + \sigma\,\mathrm{d}W_t,\qquad x_t\in(-2,2), \qquad M = (-1,1),
 \end{equation}
-where $M$ is the regime we investigate. Maintaining some space between the regime boundary and the domain boundary is required since our Markov chain method relies on some non-empty ``outside'', i.e. some non-trivial complement of the regime. Reinsertion of the system occurs upon hitting the boundary with reinsertion times 
+where $M$ is the regime we investigate. Maintaining some space between the regime boundary and the domain boundary is required since our Markov chain method relies on some non-empty ``outside'', i.e. some non-trivial complement of the regime. Reinsertion of the system occurs upon hitting the boundary with reinsertion times
 \begin{equation}
     \tau_0=0,\qquad \tau_{k+1}=\inf\{t>\tau_k \mid |x_t|\ge 2\},
 \end{equation}
@@ -272,7 +275,7 @@ and reinsertion rule
 \begin{equation}
     x_{\tau_{k}} = \mathrm{sign}\big(x_{\tau_k^-}\big)\,R_k, \quad k\ge 1,
 \end{equation}
-where $R_k$ is drawn according to 
+where $R_k$ is drawn according to
 \begin{equation}\label{eq:reinsertion}
     R_k = \sqrt{\sum_i^3 c_i^2}\, , \qquad c_i \sim \mathcal{N}(0, \epsilon),
 \end{equation}
@@ -284,7 +287,7 @@ where $\epsilon > 0$ is small. Here, $x_{\tau_k^-}$ denotes the boundary point f
     \label{fig:Toy}
 \end{figure}
 
-For this one-dimensional system, the lifetimes of the regime $M$ are given by the times between reinsertion and escape from~$M$. We apply three methods to compute the average regime lifetimes for fixed initial conditions: The Markov chain method introduced in \cref{sec:sI_meth}, a Monte Carlo simulation, and the analytic solution. 
+For this one-dimensional system, the lifetimes of the regime $M$ are given by the times between reinsertion and escape from~$M$. We apply three methods to compute the average regime lifetimes for fixed initial conditions: The Markov chain method introduced in \cref{sec:sI_meth}, a Monte Carlo simulation, and the analytic solution.
 % One of the key properties of the Markov chain method is that it is purely data-driven and, unlike the Monte Carlo simulation, does not require information on the underlying dynamics or, in an observational setting, does not require data from the noisy cases.
 
 To apply the Markov chain method introduced in \cref{sec:sI_meth}, we sample a long trajectory $X_1, \hdots, X_{N+1}$ of \cref{eq:1d_toy} without noise, i.e.~$\sigma=0$. Note that even though $\sigma=0$, the trajectory is random since the reinsertions $R_k$ are random. In order for the method to work optimally, the sampled trajectory should explore the entire state space. To guarantee that the trajectory explores the immediate proximity of zero, we initialize at~$X_1 = 10^{-4}$. We take $N=2\times 10^4$ samples with a step size of~$\Delta t = 5\times 10^{-2}$. This results in $250$ reinsertions.
@@ -300,9 +303,9 @@ We compare the quantity $E^\sigma$ to the average regime lifetimes obtained usin
 \end{equation}
 Let $z_n^\sigma$ denote the numerical solution at time $n\Delta t$ and let $\xi_n \sim \mathcal{N}(0,1)$ be i.i.d. Then
 \begin{equation}\label{eq:Toy1dNum}
-z_{n+1}^\sigma=
+    z_{n+1}^\sigma=
     \begin{cases}
-        \mathrm{sign}(z_n^\sigma)\,R_{k}, & \text{if }|z_n^\sigma|\ge 2,\\
+        \mathrm{sign}(z_n^\sigma)\,R_{k},                                                                                     & \text{if }|z_n^\sigma|\ge 2, \\
         e^{\Delta t} z_n^\sigma + \xi_n\,\underbrace{\sigma\,\sqrt{\frac{e^{2\Delta t}-1}{2}}}_{\eqqcolon \sigma_{\Delta t}}, & \text{if }|z_n^\sigma|<2.
     \end{cases}
 \end{equation}
@@ -312,7 +315,7 @@ Due to the simple nature of the SDE~\eqref{eq:1d_toy}, there is an analytic expr
 \begin{equation}\label{eq:analytic_1d}
     \E[\tau^\sigma (x)] = \frac{\int_{-1}^x \exp\left(-\frac{y^2}{\sigma^2}\right) \int_{-1}^y \exp\left(-\frac{y^2 - z^2}{\sigma^2}\right) \, \mathrm{d}z\, \mathrm{d}y  }{\frac{1}{2}\sigma^2 \int_{-1}^1 \exp\left(-\frac{y^2}{\sigma^2}\right) \, \mathrm{d} y}.
 \end{equation}
-For a derivation of the formula, see \textcite[Eqn.~(6.34)]{schussTheoryApplicationsStochastic2010}. Numerical evaluation of this formula is briefly described in \cref{app:NumRem}. 
+For a derivation of the formula, see \textcite[Eqn.~(6.34)]{schussTheoryApplicationsStochastic2010}. Numerical evaluation of this formula is briefly described in \cref{app:NumRem}.
 Computing the analytical regime lifetimes for each $\sigma$ equates to an average of $\E[\tau^\sigma (x)]$ from \cref{eq:analytic_1d} over $x$ weighted by the reinsertion probability distribution. By the law of large numbers, we expect the analytical average escape times to agree with the average escape times of the Monte Carlo simulation.
 
 The average regime lifetimes, computed using the Markov chain method, the Monte Carlo simulation, and the analytic solution are shown in \cref{fig:TOLifetInc}. For small noise strength up to $\sigma \approx 0.1$, the three methods produce similar results, and clearly show stochastic inertia. The highest average regime lifetime is reached for $\sigma \approx 0.04$. For larger values of $\sigma$, the Markov chain method significantly overestimates the average regime lifetimes. This indicates that our method is able to identify stochastic inertia, but is not suited to compute regime lifetimes for large noise strengths (see \cref{sec:sI_lim}, b)). Some of the minor disagreement between the three calculation methods are perhaps attributable to the differences in the distribution of reinsertions.
@@ -321,9 +324,9 @@ The average regime lifetimes, computed using the Markov chain method, the Monte 
     \centering
     \includegraphics[scale=.75]{fig/CAMCOS/Toy_MeanRegimeLifetimeComparison.pdf}
     \caption{Mean regime lifetimes for each noise strength $\sigma$
-obtained from the Monte Carlo method, the Markov chain approach or the analytic solution. The former two methods both use time steps of $\Delta t = 5\times 10^{-2}$ starting from $X_1 = z_0 = 10^{-4}$ for comparability, but the Monte Carlo method uses $5 \times 10^6$ steps containing $\approx 10^4$ reinsertions in contrast to $2 \times 10^4$ steps with $250$ reinsertions for the Markov Chain method. Reinsertion is done according to \cref{eq:reinsertion} with $\epsilon=5\times 10^{-2}$. The analytic curve is calculated by averaging solutions of \cref{eq:analytic_1d} over $250$ values of $R_k$. 
-% The distribution of reinsertions is provided as \cref{fig:Toy1dReinsert} in the appendix.
-}
+        obtained from the Monte Carlo method, the Markov chain approach or the analytic solution. The former two methods both use time steps of $\Delta t = 5\times 10^{-2}$ starting from $X_1 = z_0 = 10^{-4}$ for comparability, but the Monte Carlo method uses $5 \times 10^6$ steps containing $\approx 10^4$ reinsertions in contrast to $2 \times 10^4$ steps with $250$ reinsertions for the Markov Chain method. Reinsertion is done according to \cref{eq:reinsertion} with $\epsilon=5\times 10^{-2}$. The analytic curve is calculated by averaging solutions of \cref{eq:analytic_1d} over $250$ values of $R_k$.
+        % The distribution of reinsertions is provided as \cref{fig:Toy1dReinsert} in the appendix.
+    }
     \label{fig:TOLifetInc}
 \end{figure}
 
@@ -334,12 +337,12 @@ obtained from the Monte Carlo method, the Markov chain approach or the analytic 
     \label{fig:Toy_AnaVSTraj}
 \end{figure}
 
-To test the theoretical accuracy of our method, we compute the average escape times for four fixed initial conditions using the Markov chain method. Since no reinsertions are needed for this computation, we compute one long trajectory, started at $X_1 = 10^{-4}$ that ends upon leaving the domain $(-2, 2)$. To increase the density of points, we use a significantly smaller step size of $\Delta t = 5 \times 10^{-4}$ and end up with $19,807$ points. The resulting average escape times are depicted in \cref{fig:Toy_AnaVSTraj}, and compared to the corresponding average escape times of a Monte Carlo simulation with a long trajectory of $5 \times 10^6$ steps of $\Delta t = 10^{-2}$ and the analytical solutions. It is not expected that points used as initial conditions are part of the trajectory $\mathcal{X}$ which we use for the Markov chain method. Instead, we find the closest points in $\mathcal{X}$ and show their expected escape times. They agree with the chosen initial conditions up to a relative error of $10^{-4}$ at most. The results shown in \cref{fig:Toy_AnaVSTraj} demonstrate the behavior expected for systems featuring stochastic inertia: The average escape time is significantly higher for intermediate noise levels compared with the deterministic ($\sigma=0$) system or to high noise levels. For initial conditions closer to zero, the value of $\sigma$ that maximizes the average escape time is smaller, but the absolute increase of the escape times is of the same order for all initial conditions we tested. 
+To test the theoretical accuracy of our method, we compute the average escape times for four fixed initial conditions using the Markov chain method. Since no reinsertions are needed for this computation, we compute one long trajectory, started at $X_1 = 10^{-4}$ that ends upon leaving the domain $(-2, 2)$. To increase the density of points, we use a significantly smaller step size of $\Delta t = 5 \times 10^{-4}$ and end up with $19,807$ points. The resulting average escape times are depicted in \cref{fig:Toy_AnaVSTraj}, and compared to the corresponding average escape times of a Monte Carlo simulation with a long trajectory of $5 \times 10^6$ steps of $\Delta t = 10^{-2}$ and the analytical solutions. It is not expected that points used as initial conditions are part of the trajectory $\mathcal{X}$ which we use for the Markov chain method. Instead, we find the closest points in $\mathcal{X}$ and show their expected escape times. They agree with the chosen initial conditions up to a relative error of $10^{-4}$ at most. The results shown in \cref{fig:Toy_AnaVSTraj} demonstrate the behavior expected for systems featuring stochastic inertia: The average escape time is significantly higher for intermediate noise levels compared with the deterministic ($\sigma=0$) system or to high noise levels. For initial conditions closer to zero, the value of $\sigma$ that maximizes the average escape time is smaller, but the absolute increase of the escape times is of the same order for all initial conditions we tested.
 
 For the chosen parameters, the three methods are remarkably accurate. This indicates that the Markov chain method is able to compute expected escape times extremely well, assuming the initial trajectory is dense enough. In particular, increasing the time step $\Delta t$ makes the Markov chain method's performance for higher noise values deteriorate. This explains the incorrect tail visible in \cref{fig:TOLifetInc}. Also, we need to keep in mind that the simulation and, in particular, the measurement of a system in as much detail as in this example is typically not feasible.
 
 \subsection{A three-dimensional example without stochastic inertia}\label{sec:sI_3d}
-In \textcite{dorringtonInteractionStochasticForcing2023} a heuristic explanation of stochastic inertia around a one-dimensional unstable fixed point is given. In brief terms, their reasoning is as follows: Taking a random step towards the boundary of the regime saves less time than a random step towards the fixed point costs for reaching the regime boundary. Thereby, adding small zero-mean noise to the system increases the average escape time. Naturally, as the noise gets larger, the noise becomes dominant and trajectories leave the domain quickly, thus resulting in an increase in regime lifetimes only for intermediate noise levels. 
+In \textcite{dorringtonInteractionStochasticForcing2023} a heuristic explanation of stochastic inertia around a one-dimensional unstable fixed point is given. In brief terms, their reasoning is as follows: Taking a random step towards the boundary of the regime saves less time than a random step towards the fixed point costs for reaching the regime boundary. Thereby, adding small zero-mean noise to the system increases the average escape time. Naturally, as the noise gets larger, the noise becomes dominant and trajectories leave the domain quickly, thus resulting in an increase in regime lifetimes only for intermediate noise levels.
 
 The reasoning from \textcite{dorringtonInteractionStochasticForcing2023} is specific to one-dimensional systems that accelerate towards the boundary. We consider a three-dimensional analogue of the one-dimensional system \cref{eq:1d_toy} and show that there is no stochastic inertia in this example. We note that this is not an argument that stochastic inertia cannot occur in higher dimensional systems. Adding stable directions does not play a major role for the escape times from a regime. The CdV system considered in \cref{sec:sI_CdV} is six-dimensional and the blocking regime still exhibits stochastic inertia. However, the blocking regime has one dominant unstable direction and, thus, behaves locally like a one-dimensional system.
 
@@ -347,7 +350,7 @@ We consider a toy model of an unstable fixed point in three dimensions. Once tra
 \begin{equation}\label{eq:3d_toy}
     \mathrm{d}x_t = x_t\,\mathrm{d}t + \sigma\,\mathrm{d}W_t,\qquad \norm{x_t}\in(-2,2), \qquad M = \{ x\in \R^3 \mid \norm{x} < 1\},
 \end{equation}
-where $M$ is the regime we investigate and $\norm{\cdot}$ the Euclidean norm. Reinsertion is analogous to the one-dimensional case with reinsertion times 
+where $M$ is the regime we investigate and $\norm{\cdot}$ the Euclidean norm. Reinsertion is analogous to the one-dimensional case with reinsertion times
 \begin{equation}
     \tau_0=0,\qquad \tau_{k+1}=\inf\{t>\tau_k \mid \norm{x_t}\ge 2\},
 \end{equation}
@@ -355,11 +358,11 @@ and reinsertion rule
 \begin{equation}
     x_{\tau_{k}} = R_k, \quad k\ge 1,
 \end{equation}
-where $R_k$ is drawn according to 
+where $R_k$ is drawn according to
 \begin{equation}\label{eq:reinsertion3d}
     R_k = (c_1, c_2, c_3) , \qquad c_i \sim \mathcal{N}(0, \epsilon),
 \end{equation}
-with independent components and small~$\epsilon > 0$. Temporal discretisation is according to \cref{eq:Toy1dNum}. 
+with independent components and small~$\epsilon > 0$. Temporal discretisation is according to \cref{eq:Toy1dNum}.
 
 Like in the one-dimensional example, we use the Markov chain method to compute the average regime lifetimes. The only algorithmic change that occurs when transitioning from one to multiple dimensions is that the point-wise distances needed in \cref{eq:simiMat} are now calculated by a nearest neighbour search using a kd-tree, whereas in the one-dimensional case, distances were trivially available. In addition, we have to sample the three-dimensional state space sufficiently densely, or else the Markov chain method will behave just like in the one-dimensional case. To check whether the sampled trajectory $\mathcal{X}$ is sufficiently dense, we use the heuristics described in \cref{sec:sI_lim}, b). That is, the Markov chain method is expected to work for values of $\sigma$ in a range where the relation between $\sigma$ and $\sum_{i,j} K_{ij}^\sigma$ is linear in a log-log representation. Such a plot is shown in \cref{fig:sigmaloglogtoy3d} for the trajectory we will use afterwards. The curve appears linear in a range of roughly $3\times 10^{-3} \leq \sigma \leq 2 \times 10^{-2}$ with the maximum slope occurring well inside our region of focus. The heuristically derived dimensionality $d_\mathcal{X}$ is around $2.5$ which falls short of the true dimension. However, samples of the same size but homogeneously distributed with respect to direction and radius exhibit dimensionalities only marginally higher (not shown here), indicating that underestimation of the dimension is a non-circumventable boundary artifact. This behavior has been observed in \textcite{schoellerAssessingLagrangianCoherence2025} already. The exponentially decreasing point density by radius leads to the curve in \cref{fig:sigmaloglogtoy3d} saturating slowly, but this is of little importance to us since we are mainly interested in the low-noise behavior. The curve for the whole trajectory and the one for only $\mathcal{M}$ are virtually the same for the same reason.
 
@@ -385,19 +388,19 @@ Having checked that the sampled trajectory is dense and homogeneous enough for o
 
 \paragraph{The CdV system and its attractor.}
 
-As a final proof-of-concept, we turn to the Charney--deVore system, inspired by the work~\textcite{dorringtonInteractionStochasticForcing2023}. The system consists of six ordinary differential equations. They are derived by projecting a stream function field that behaves according to simplified atmospheric physics onto six Fourier modes in a Galerkin approximation. For a thorough derivation, parameter values, and analysis we refer to~\textcite{deswartLoworderSpectralModels1988, crommelinMechanismAtmosphericRegime2004, dorringtonInteractionStochasticForcing2023}. The system is given by 
+As a final proof-of-concept, we turn to the Charney--deVore system, inspired by the work~\textcite{dorringtonInteractionStochasticForcing2023}. The system consists of six ordinary differential equations. They are derived by projecting a stream function field that behaves according to simplified atmospheric physics onto six Fourier modes in a Galerkin approximation. For a thorough derivation, parameter values, and analysis we refer to~\textcite{deswartLoworderSpectralModels1988, crommelinMechanismAtmosphericRegime2004, dorringtonInteractionStochasticForcing2023}. The system is given by
 % \rc{what are $x_1^*$ and $x_4^*$?}
 \begin{align} \label{eq:CdV}
-    \dot{x}_{1} &= -C(x_{1} - x_{1}^{*}) + \tilde{\gamma}_{1}x_{3}\\
-\dot{x}_{2} &= -Cx_{2} + \beta_{1}x_{3} - \alpha_{1}x_{1}x_{3} - \delta_{1}x_{4}x_{6}\\
-\dot{x}_{3} &= -Cx_{3} - \beta_{1}x_{2} + \alpha_{1}x_{1}x_{2} + \delta_{1}x_{4}x_{5} - \gamma_{1}x_{1}\\
-\dot{x}_{4} &= -C(x_{4} - x_{4}^{*}) + \epsilon(x_{2}x_{6} - x_{3}x_{5}) + \tilde{\gamma}_{2}x_{6}\\
-\dot{x}_{5} &= -Cx_{5} + \beta_{2}x_{6} - \alpha_{2}x_{1}x_{6} - \delta_{2}x_{4}x_{3}\\
-\dot{x}_{6} &= -Cx_{6} - \beta_{2}x_{5} + \alpha_{2}x_{1}x_{5} + \delta_{2}x_{4}x_{2} - \gamma_{2}x_{4},
+    \dot{x}_{1} & = -C(x_{1} - x_{1}^{*}) + \tilde{\gamma}_{1}x_{3}                                           \\
+    \dot{x}_{2} & = -Cx_{2} + \beta_{1}x_{3} - \alpha_{1}x_{1}x_{3} - \delta_{1}x_{4}x_{6}                    \\
+    \dot{x}_{3} & = -Cx_{3} - \beta_{1}x_{2} + \alpha_{1}x_{1}x_{2} + \delta_{1}x_{4}x_{5} - \gamma_{1}x_{1}  \\
+    \dot{x}_{4} & = -C(x_{4} - x_{4}^{*}) + \epsilon(x_{2}x_{6} - x_{3}x_{5}) + \tilde{\gamma}_{2}x_{6}       \\
+    \dot{x}_{5} & = -Cx_{5} + \beta_{2}x_{6} - \alpha_{2}x_{1}x_{6} - \delta_{2}x_{4}x_{3}                    \\
+    \dot{x}_{6} & = -Cx_{6} - \beta_{2}x_{5} + \alpha_{2}x_{1}x_{5} + \delta_{2}x_{4}x_{2} - \gamma_{2}x_{4},
 \end{align}
 where $C, \tilde\gamma_i, \gamma_i, \beta_i, \alpha_i, \delta_i, \epsilon$ are model parameters and $x^*_i$ defines a background state towards which the system relaxes.
 
-Each $x_i$ is the coefficient of a respective Fourier mode and the dynamics arise from physical processes as well as interactions between modes. The used parameter values are the same as in \textcite{dorringtonInteractionStochasticForcing2023} and may also be found in the provided code \parencite{schoellerCodeNoiseinducedEnhancement2026}. Crucially, the system admits two fixed points, which were already identified in the original publication~\parencite{charneyMultipleFlowEquilibria1979}. The associated flow fields vaguely resemble what is referred to as a ``blocking'' or a ``zonal'' atmospheric configuration, or weather regime, respectively. This is important because the system behaves considerably differently in the vicinity of the blocking fixed point compared to the zonal fixed point. Two dimensional projections of the attractor and its fixed points are shown in \cref{fig:Hists}. 
+Each $x_i$ is the coefficient of a respective Fourier mode and the dynamics arise from physical processes as well as interactions between modes. The used parameter values are the same as in \textcite{dorringtonInteractionStochasticForcing2023} and may also be found in the provided code \parencite{schoellerCodeNoiseinducedEnhancement2026}. Crucially, the system admits two fixed points, which were already identified in the original publication~\parencite{charneyMultipleFlowEquilibria1979}. The associated flow fields vaguely resemble what is referred to as a ``blocking'' or a ``zonal'' atmospheric configuration, or weather regime, respectively. This is important because the system behaves considerably differently in the vicinity of the blocking fixed point compared to the zonal fixed point. Two dimensional projections of the attractor and its fixed points are shown in \cref{fig:Hists}.
 
 \begin{figure}[H]
     \centering
@@ -423,13 +426,13 @@ As can be judged from the animations provided in the supplement, the dynamics ar
 
 The system is integrated in time using the explicit midpoint rule (second-order Runge--Kutta; RK2) along with the addition of a stochastic increment in a Euler--Maruyama style to incorporate noise:
 \begin{equation}
-\begin{aligned}
-k_1 &= \Delta t^* \, f(z_n), \\
-k_2 &= \Delta t^* \, f\Big(z_n + \frac{1}{2} k_1 \Big), \\
-z_{n+1} &= z_n + k_2 + \sigma \sqrt{\Delta t^*}\, \xi_n,
-\end{aligned}
+    \begin{aligned}
+        k_1     & = \Delta t^* \, f(z_n),                            \\
+        k_2     & = \Delta t^* \, f\Big(z_n + \frac{1}{2} k_1 \Big), \\
+        z_{n+1} & = z_n + k_2 + \sigma \sqrt{\Delta t^*}\, \xi_n,
+    \end{aligned}
 \end{equation}
-where $f(x)$ signifies the right-hand side of \cref{eq:CdV}, and $\xi_n$ is a six-dimensional vector of iid normally distributed random variables that are white in time. All integrations were performed with a time step of $\Delta t^* = 10^{-5}$ to minimize numerical error. The trajectories analyzed were accordingly subsampled with the appropriate subsampling ratio to arrive at~$\Delta t$.  A fast \texttt{FORTRAN} implementation of this is provided in~\textcite{schoellerCodeNoiseinducedEnhancement2026}, which is a marginally modified version of the one provided by~\textcite{dorringtonInteractionStochasticForcing2023}. A slightly slower, yet more convenient, parallelized, and just-in-time compiled implementation in \texttt{python} is also provided. 
+where $f(x)$ signifies the right-hand side of \cref{eq:CdV}, and $\xi_n$ is a six-dimensional vector of iid normally distributed random variables that are white in time. All integrations were performed with a time step of $\Delta t^* = 10^{-5}$ to minimize numerical error. The trajectories analyzed were accordingly subsampled with the appropriate subsampling ratio to arrive at~$\Delta t$.  A fast \texttt{FORTRAN} implementation of this is provided in~\textcite{schoellerCodeNoiseinducedEnhancement2026}, which is a marginally modified version of the one provided by~\textcite{dorringtonInteractionStochasticForcing2023}. A slightly slower, yet more convenient, parallelized, and just-in-time compiled implementation in \texttt{python} is also provided.
 
 We show a visualization of the attractor of the stochastic system for a selected noise strength $\sigma = 10^{-3}$ in \cref{fig:HistsStoch}. The addition of noise blurs the detailed structure apparent in the deterministic case distributing the system's frequency of visits more evenly across the state space. This also decreases the histograms maximum bin count which is why we adjust the colour bar scaling compared to \cref{fig:Hists}. More importantly, the noise also enables the system to visit regions that it was not able to reach in the deterministic case. This effect is especially pronounced in the vicinity of the blocking fixed point, where the system now resides far more frequently.
 
@@ -445,7 +448,7 @@ The resulting clustering with $\sigma=10^{-2}$ is presented in \cref{fig:Sets}. 
     \label{fig:Sets}
 \end{figure}
 
-To make sure that the sampled trajectory $\mathcal{X}$ is dense enough for our method to work, we again plot $\sum_{i,j}K^{\sigma}_{ij}$ against $\sigma$ in a doubly logarithmic plot in \cref{fig:sigmaloglogcdv} and find a linear segment for the points relevant for the blocking regime in $2\times 10^{-3} \lesssim \sigma \lesssim 10^{-1}$. This is in satisfying agreement with the range of noise strengths we want to study and barely changes if instead all points in $\mathcal{X}$ are used. The maximum slope of roughly $d_\mathcal{M}=1.6$ suggests the blocking regime appears locally almost one-dimensionally, which confirms our intuition. 
+To make sure that the sampled trajectory $\mathcal{X}$ is dense enough for our method to work, we again plot $\sum_{i,j}K^{\sigma}_{ij}$ against $\sigma$ in a doubly logarithmic plot in \cref{fig:sigmaloglogcdv} and find a linear segment for the points relevant for the blocking regime in $2\times 10^{-3} \lesssim \sigma \lesssim 10^{-1}$. This is in satisfying agreement with the range of noise strengths we want to study and barely changes if instead all points in $\mathcal{X}$ are used. The maximum slope of roughly $d_\mathcal{M}=1.6$ suggests the blocking regime appears locally almost one-dimensionally, which confirms our intuition.
 
 \begin{figure}[]
     \centering
@@ -473,7 +476,7 @@ Larger values of $R(X_i)$ correspond to stronger stochastic inertia. \cref{fig:T
 
 Given that we are most confident in the results for points distant from entry and escape, we first compare escape times for such points with those obtained by the Monte Carlo method. We select the 10 points with the highest $R(X_i)$ and 12 deterministic steps away from escape and use their locations 12, 10, 8 and 6 steps before escape as initialization points in the following. They are indicated by red crosses in \cref{fig:TOLifetimes_increase}.
 
-For all of these points that lie well within the blocking regime, the average escape time computed using the Markov chain method matches well with the average escape time estimated by Monte Carlo simulations and clearly exhibits stochastic inertia; see \cref{fig:CdV_pointwise}. The difference between the Markov chain method and the Monte Carlo estimations is probably due to the Markov chain method's restriction to the deterministic attractor, as discussed in~\cref{sec:sI_lim} f). More specifically, we consider a Monte Carlo trajectory to have escaped the regime once there is no point from $\mathcal{M}$ within a distance of $10^{-1}$. This also explains the difference in escape time in the deterministic case $\sigma=0$; it is simply the time needed for the deterministic trajectory to travel a distance of $10^{-1}$. 
+For all of these points that lie well within the blocking regime, the average escape time computed using the Markov chain method matches well with the average escape time estimated by Monte Carlo simulations and clearly exhibits stochastic inertia; see \cref{fig:CdV_pointwise}. The difference between the Markov chain method and the Monte Carlo estimations is probably due to the Markov chain method's restriction to the deterministic attractor, as discussed in~\cref{sec:sI_lim} f). More specifically, we consider a Monte Carlo trajectory to have escaped the regime once there is no point from $\mathcal{M}$ within a distance of $10^{-1}$. This also explains the difference in escape time in the deterministic case $\sigma=0$; it is simply the time needed for the deterministic trajectory to travel a distance of $10^{-1}$.
 
 \begin{figure}[]
     \centering
@@ -482,9 +485,9 @@ For all of these points that lie well within the blocking regime, the average es
     \label{fig:CdV_pointwise}
 \end{figure}
 
-Given the complexity of the CdV system, the agreement between the two methods is satisfying, but the very dense, almost one-dimensional submanifold we focus on in \cref{fig:CdV_pointwise} is the region where the method is most likely to work. Moreover, the set of initialization points used differ substantially from the actual entry distribution. By contrast, the escape time for different noise levels for every tenth deterministic entry points (subsampled for visibility purposes) is shown in \cref{fig:CdV_LifetimesEntries}. Comparing the inset of that figure to the one of \cref{fig:CdV_pointwise} proves that the entry points' locations are spread out across the blocking regime. The colour of the points and the associated curves in \cref{fig:CdV_LifetimesEntries} indicate points travel through the regime away from the fixed point. Indeed, the convergence of the individual curves also proves that points in the regime ultimately reach the one-dimensional submanifold in its center making their location and, hence, escape time virtually indistinguishable. 
+Given the complexity of the CdV system, the agreement between the two methods is satisfying, but the very dense, almost one-dimensional submanifold we focus on in \cref{fig:CdV_pointwise} is the region where the method is most likely to work. Moreover, the set of initialization points used differ substantially from the actual entry distribution. By contrast, the escape time for different noise levels for every tenth deterministic entry points (subsampled for visibility purposes) is shown in \cref{fig:CdV_LifetimesEntries}. Comparing the inset of that figure to the one of \cref{fig:CdV_pointwise} proves that the entry points' locations are spread out across the blocking regime. The colour of the points and the associated curves in \cref{fig:CdV_LifetimesEntries} indicate points travel through the regime away from the fixed point. Indeed, the convergence of the individual curves also proves that points in the regime ultimately reach the one-dimensional submanifold in its center making their location and, hence, escape time virtually indistinguishable.
 
-\cref{fig:CdV_LifetimesEntries}, in accordance with \cref{fig:TOLifetimes_increase}, demonstrates that stochastic inertia is found by our method for all entry points that are sufficiently far away from (deterministic) escape. Following the method described in \cref{sec:sI_Markov_model}, we need to estimate the entry distribution $\nu^\sigma$ as defined in \cref{eq:def_nu} in order to compute the expected regime lifetimes. As described in \cref{sec:sI_lim} d), a crucial problem in the computation of $\nu^\sigma$ is that the computational complexity scales cubically in the size $|\mathcal{X}|$ of the entire point cloud. Meanwhile, computing the escape times $\theta^\sigma$ only scales cubically in the size $|\mathcal{M}|$ of the blocking regime. When the resolution of $\mathcal{M}$ is sufficiently large for our method to work, $|\mathcal{X}|$ already becomes too large to compute $\nu^\sigma$ by conventional methods. Since this is not the focus of our work, we do not discuss potential workarounds. As we discuss below, estimating the expected regime lifetimes using the Markov chain method faces other problems than just computational complexity. 
+\cref{fig:CdV_LifetimesEntries}, in accordance with \cref{fig:TOLifetimes_increase}, demonstrates that stochastic inertia is found by our method for all entry points that are sufficiently far away from (deterministic) escape. Following the method described in \cref{sec:sI_Markov_model}, we need to estimate the entry distribution $\nu^\sigma$ as defined in \cref{eq:def_nu} in order to compute the expected regime lifetimes. As described in \cref{sec:sI_lim} d), a crucial problem in the computation of $\nu^\sigma$ is that the computational complexity scales cubically in the size $|\mathcal{X}|$ of the entire point cloud. Meanwhile, computing the escape times $\theta^\sigma$ only scales cubically in the size $|\mathcal{M}|$ of the blocking regime. When the resolution of $\mathcal{M}$ is sufficiently large for our method to work, $|\mathcal{X}|$ already becomes too large to compute $\nu^\sigma$ by conventional methods. Since this is not the focus of our work, we do not discuss potential workarounds. As we discuss below, estimating the expected regime lifetimes using the Markov chain method faces other problems than just computational complexity.
 To have a value of $E^\sigma$ that can be used for comparison, we choose $\nu^\sigma$ to be the uniform distribution over all entry points of the deterministic trajectory. For small $\sigma$ this is a reasonable assumption since $\nu^0$ is exactly the uniform distribution over all entry points. The resulting expected regime lifetimes $E^\sigma$ are displayed in \cref{fig:CdV_LifetimesEntries} as a black dashed line.
 
 \begin{figure}[]
@@ -496,9 +499,9 @@ To have a value of $E^\sigma$ that can be used for comparison, we choose $\nu^\s
 
 So far, we have shown that our proposed Markov chain method is able to reproduce escape time estimates obtained with the Monte Carlo method for points in the center of the blocking regime and that it can predict stochastic inertia in the regime lifetime of the blocking regime. The final test left is to compare the regime lifetimes of the blocking regime between the Markov chain and the Monte Carlo methods. As we will show, this is a challenging task given the different parts of the state space the two methods ``see'' and their respective computational limitations.
 
-Given the definition of the blocking regime $\mathcal{M}$ shown in \cref{fig:Sets}, we want to compute the average regime lifetimes using Monte Carlo simulations for different values of the noise strength~$\sigma$. Since $\mathcal{M}$ is only a finite set of points in $\R^6$ and not an open set, it is non-trivial to decide whether a point $z_n^\sigma$ of the stochastic Monte Carlo simulation lies inside or outside of the blocking regime. We say that a point $z_n^\sigma$ lies inside of the blocking regime, if and only if at least half of its 10 nearest neighbors within $\mathcal{X}$ belong to~$\mathcal{M}$. We use \texttt{scipy}s \texttt{cKDTree} for this \parencite{virtanenSciPyFundamentalAlgorithms2020}. This regime assignment is slightly different from the one employed for the comparison shown in \cref{fig:CdV_pointwise}, but considerably more convenient computationally because only ten neighbors have to be found instead of all of them. The results of both methods always agreed in our tests (not shown). 
+Given the definition of the blocking regime $\mathcal{M}$ shown in \cref{fig:Sets}, we want to compute the average regime lifetimes using Monte Carlo simulations for different values of the noise strength~$\sigma$. Since $\mathcal{M}$ is only a finite set of points in $\R^6$ and not an open set, it is non-trivial to decide whether a point $z_n^\sigma$ of the stochastic Monte Carlo simulation lies inside or outside of the blocking regime. We say that a point $z_n^\sigma$ lies inside of the blocking regime, if and only if at least half of its 10 nearest neighbors within $\mathcal{X}$ belong to~$\mathcal{M}$. We use \texttt{scipy}s \texttt{cKDTree} for this \parencite{virtanenSciPyFundamentalAlgorithms2020}. This regime assignment is slightly different from the one employed for the comparison shown in \cref{fig:CdV_pointwise}, but considerably more convenient computationally because only ten neighbors have to be found instead of all of them. The results of both methods always agreed in our tests (not shown).
 
-The average lifetimes of these Monte Carlo simulations for a range of values of $\sigma$ are displayed in \cref{fig:CdVLifetInc}. Both methods indicate stochastic inertia at a similar noise level, though with considerably differing intensity. A peculiar intermittent increase is also observed for some of the very low noise cases for the Monte Carlo method. We expect this to be a numerical artifact rather than a meaningful effect. We discuss potential causes for the mismatch between the two curves. 
+The average lifetimes of these Monte Carlo simulations for a range of values of $\sigma$ are displayed in \cref{fig:CdVLifetInc}. Both methods indicate stochastic inertia at a similar noise level, though with considerably differing intensity. A peculiar intermittent increase is also observed for some of the very low noise cases for the Monte Carlo method. We expect this to be a numerical artifact rather than a meaningful effect. We discuss potential causes for the mismatch between the two curves.
 
 \begin{figure}[]
     \centering
@@ -511,7 +514,7 @@ The blocking regime, as shown in \cref{fig:Sets} is relatively small, such that 
 
 A trajectory with smaller time steps will lead to a set $\mathcal{M}$ with fewer passages through it, implying a more skeletal structure. With our method of assigning points in noisy trajectories from the Monte Carlo scheme to each of the two regimes defined by the deterministic trajectory using a nearest-neighbour classification, this more skeletal structure leads to an increase in the number of (and, in turn, shorter) visits to the regime, biasing the mean lifetime downwards. This effect becomes more important for stronger stochastic forcing. The hidden Markov model regime definition employed by Dorrington and Palmer, on the other hand, prevents such a behavior by redefining the regimes for every trajectory. This trade-off arises as a consequence of the more fundamental decision of what exactly to consider the regime and it  relates to another vital discrepancy between the two procedures.
 
-The Markov chain framework uses the state space $\mathcal{X}$ for all values of~$\sigma$. As mentioned before, and shown in \cref{fig:HistsStoch}, even for very small noise the stochastic dynamics explores regions of the state space that lie outside of the deterministic attractor, and the stationary distribution changes significantly. Hence, we are confronted with the issues raised in \cref{sec:sI_lim} e) and f), and the entry distribution for intermediate $\sigma$ cannot be captured accurately by a probability distribution $\nu^\sigma $ on $\mathcal{X}$. The Monte Carlo method does not face this limitation. 
+The Markov chain framework uses the state space $\mathcal{X}$ for all values of~$\sigma$. As mentioned before, and shown in \cref{fig:HistsStoch}, even for very small noise the stochastic dynamics explores regions of the state space that lie outside of the deterministic attractor, and the stationary distribution changes significantly. Hence, we are confronted with the issues raised in \cref{sec:sI_lim} e) and f), and the entry distribution for intermediate $\sigma$ cannot be captured accurately by a probability distribution $\nu^\sigma $ on $\mathcal{X}$. The Monte Carlo method does not face this limitation.
 
 Finally, the density of the blocking regime $\mathcal{M}$ is highest in its center and lowest at its boundary. Our analysis revealed that , as a consequence, our Markov chain approach seems to perform worse at the boundary of the blocking regime than in the center. Since the escape times of the boundary points are exactly what is used for the regime lifetimes $E^\sigma$, the results lose accuracy.
 
@@ -523,56 +526,56 @@ Additionally, we investigated a paradigmatic model for atmospheric dynamics; the
 
 For the one- and three-dimensional toy examples, our Markov chain method was able to accurately predict the average escape times and expected regime lifetimes. For the Charney--deVore system, our method was able to detect stochastic inertia and accurately compute the escape times of points in the center of the blocking regime, however, the method struggled to accurately compute the expected regime lifetimes.
 % Additionally, our analysis seems to be sensitive to changes in the step size $\Delta t$. 
-Comparing the results of \cref{sec:sI_CdV} to the corresponding figures in \cref{app:Figs} indicates that the Monte Carlo simulation is sensitive to changes in $\Delta t$ while our Markov chain model seems less sensitive to such changes. Future efforts could target current limitations, such as potential changes in the attractor and the stationary distribution of the system due to changing noise levels, which are not accounted for in our method. An additional direction is to better understand how parameter and design choices impact results and, in particular, differences between the two methods presented. 
+Comparing the results of \cref{sec:sI_CdV} to the corresponding figures in \cref{app:Figs} indicates that the Monte Carlo simulation is sensitive to changes in $\Delta t$ while our Markov chain model seems less sensitive to such changes. Future efforts could target current limitations, such as potential changes in the attractor and the stationary distribution of the system due to changing noise levels, which are not accounted for in our method. An additional direction is to better understand how parameter and design choices impact results and, in particular, differences between the two methods presented.
 
 \begin{subappendices}
-\section{Additional Figures}\label{app:Figs}
+    \section{Additional Figures}\label{app:Figs}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/Sets.pdf}
-    \caption{Same as \cref{fig:Sets} but using a trajectory with $\Delta t=1$.}
-    \label{fig:SetsDT1}
-\end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=.75]{fig/CAMCOS/Sets.pdf}
+        \caption{Same as \cref{fig:Sets} but using a trajectory with $\Delta t=1$.}
+        \label{fig:SetsDT1}
+    \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/CdV_MeanRegimeLifetimeComparison.pdf}
-    \caption{Same as \cref{fig:CdVLifetInc}, but for trajectories with $\Delta t = 1$.
-    }
-    \label{fig:CdVLifetIncDT1}
-\end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=.75]{fig/CAMCOS/CdV_MeanRegimeLifetimeComparison.pdf}
+        \caption{Same as \cref{fig:CdVLifetInc}, but for trajectories with $\Delta t = 1$.
+        }
+        \label{fig:CdVLifetIncDT1}
+    \end{figure}
 
-\section{Remarks on the evaluation of \cref{eq:analytic_1d}}
-\label{app:NumRem}
-Starting from \cref{eq:analytic_1d}, we rewrite the exponent
-\[
--\frac{y^2 - z^2}{\sigma^2} = -\frac{y^2}{\sigma^2} + \frac{z^2}{\sigma^2},
-\]
-which yields
-\[
-\E[\tau^\sigma (x)] 
-= \frac{\displaystyle \int_{-1}^x e^{-\frac{2y^2}{\sigma^2}}
-\int_{-1}^y e^{\frac{z^2}{\sigma^2}}\,dz\,dy}
-{\displaystyle \frac{1}{2}\sigma^2 \int_{-1}^1 e^{-\frac{y^2}{\sigma^2}}\,dy}.
-\]
+    \section{Remarks on the evaluation of \cref{eq:analytic_1d}}
+    \label{app:NumRem}
+    Starting from \cref{eq:analytic_1d}, we rewrite the exponent
+    \[
+        -\frac{y^2 - z^2}{\sigma^2} = -\frac{y^2}{\sigma^2} + \frac{z^2}{\sigma^2},
+    \]
+    which yields
+    \[
+        \E[\tau^\sigma (x)]
+        = \frac{\displaystyle \int_{-1}^x e^{-\frac{2y^2}{\sigma^2}}
+            \int_{-1}^y e^{\frac{z^2}{\sigma^2}}\,dz\,dy}
+        {\displaystyle \frac{1}{2}\sigma^2 \int_{-1}^1 e^{-\frac{y^2}{\sigma^2}}\,dy}.
+    \]
 
-Introducing the rescaling \(u = y/\sigma\), \(w = z/\sigma\), the inner integral becomes
-\[
-\int e^{w^2}\,dw = \frac{\sqrt{\pi}}{2}\,\mathrm{erfi}(w),
-\]
-so that, after inserting limits and simplifying constants with the denominator, the expression reduces to a single integral
-\[
-\E[\tau^\sigma(x)] = \int_{u_1}^{u_2} g(u)\,du,
-\qquad 
-g(u) = -\sqrt{\pi}\,e^{-u^2}\,\mathrm{erfi}(u),
-\]
-with
-\[
-u_1 = -\frac{1}{\sqrt{2}\,\sigma}, \qquad
-u_2 = \frac{x}{\sqrt{2}\,\sigma}.
-\]
+    Introducing the rescaling \(u = y/\sigma\), \(w = z/\sigma\), the inner integral becomes
+    \[
+        \int e^{w^2}\,dw = \frac{\sqrt{\pi}}{2}\,\mathrm{erfi}(w),
+    \]
+    so that, after inserting limits and simplifying constants with the denominator, the expression reduces to a single integral
+    \[
+        \E[\tau^\sigma(x)] = \int_{u_1}^{u_2} g(u)\,du,
+        \qquad
+        g(u) = -\sqrt{\pi}\,e^{-u^2}\,\mathrm{erfi}(u),
+    \]
+    with
+    \[
+        u_1 = -\frac{1}{\sqrt{2}\,\sigma}, \qquad
+        u_2 = \frac{x}{\sqrt{2}\,\sigma}.
+    \]
 
-For numerical evaluation, this integral is computed using adaptive quadrature. To ensure stability, the domain is split into a central region \(|u|\le U\), where \(g(u)\) is evaluated directly, and tail regions \(|u|>U\), where the asymptotic form \(g(u)\sim -1/u\) is used. The contributions are then summed.
+    For numerical evaluation, this integral is computed using adaptive quadrature. To ensure stability, the domain is split into a central region \(|u|\le U\), where \(g(u)\) is evaluated directly, and tail regions \(|u|>U\), where the asymptotic form \(g(u)\sim -1/u\) is used. The contributions are then summed.
 
 \end{subappendices}
