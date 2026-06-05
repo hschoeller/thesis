@@ -6,9 +6,28 @@
 \chapter{Conclusions} % LaTeX chapter title
 \label{ch:conclusions}
 
-Restate the overarching research question from your introduction — not the
-individual paper questions, but the thesis-level one. This closes the loop for
-the reader.
+The work presented in this thesis was motivated by the need to better
+understand the complex multiscale dynamics of atmospheric blocking and
+\glsentrylongpl{wcb} in particular with regard to their associated uncertainty
+and predictability. As outlined in the introduction, both phenomena are far
+from being fully understood and still pose major challenges for weather and
+climate models. While it the vast range of interactions and processes involved
+makes it seem unlikely that a grand unified theory that combines both of these
+phenomena will be developed in the near future, scientific progress in the
+recent years has clearly elucidated key aspects, with improved understanding
+going along with advances in the representation and prediction. 
+
+This thesis has contributed to this progress not by proposing improved methods
+or models aimed at practical forecasting, but by developing and applying novel
+conceptual and theoretical tools to better grasp the full range of scales
+relevant. 
+
+\section{Synthesis}\label{sec:synth}
+% This is the core and what distinguishes a thesis conclusion from a paper
+% conclusion. Don't summarise each paper in turn — that reads like an abstract
+% collection. Instead, organise around themes or findings that cut across the
+% papers. Where do they agree, reinforce, or tension each other? What emerges
+% from the combination that wasn't visible in any single paper?
 
 Stochastic Inertia so far only proven for unstable fixed points with a single
 unstable dimension. Therefore questionable whether theory is applicable
@@ -16,45 +35,56 @@ to sppt in wcbs. Local dimensionality of the weather system is an active
 area of research (cite Faranda stuff here). Connect to turbulence theory
 ventilated in the intro.
 
+Also, number of unstable dimensions (state-dependent) determines how well
+ensemble data assimilation works.
+
 CdV: barotropic, but blockings rarely are so maybe noise is baroclinic and
-diabatic forcing. but also coarse-graining effect?
+diabatic forcing. but also coarse-graining effect? coarse-graining present in
+any model, but effect of course depends on the grid scale and processes (not)
+resolved
 
 resolution dependence of blocking representation not clear. subgrid scale processes
 noise non-linear response and so on
 
-like when aircraft and station measurements are impeded by a pandemic \parencite{inglebyImpactCOVID19Weather2021, ImpactsCOVID19Restrictions2020} or geopolitical issues lead to jamming of radio occultation measurements \parencite{wuGNSSSignalJamming2024} or reduced data sharing \parencite{GlobalRadiosondeNetwork2016}. , though incident tropical cyclones or intense thunderstorms also prompt dedicated dropsonde or aircraft measurements \parencite{petersenImpactFutureBenefits2016}.
+WCBs are quite sensitive to perturbations, so it makes sense to define them 
+as coherent sets that are robust to perturbations.
 
 Recently, the coherent sets have been used as a tool to identify atmospheric
 blocking by focussing on its quasi-stationarity
-\parencite{badzaIdentifyingOnsetDecay2024}.
+\parencite{badzaIdentifyingOnsetDecay2024}. Goes to show that mathematical
+concepts aimes at identifying stability can be leveraged in divverse settings
 
-\section{Synthesis}\label{sec:synth}
-This is the core and what distinguishes a thesis conclusion from a paper
-conclusion. Don't summarise each paper in turn — that reads like an abstract
-collection. Instead, organise around themes or findings that cut across the
-papers. Where do they agree, reinforce, or tension each other? What emerges
-from the combination that wasn't visible in any single paper?
+stochastic inertia visible in the deterministic system -> coarse model behaviour
+may be enough to predict effect of parametrizations. only choice we have, since
+there are no alternate realization of reality available
+
+% Broader implications (~2 pages)
+% Step back from your specific methods and datasets. What does this mean for
+% the field? Are there methodological lessons, not just scientific ones? This is
+% where you can be a little bolder than you would in a paper.
+
+
+\section{Future directions}\label{sec:Imp_Fut}
 
 % Limitations
-Be honest but concise. Focus on limitations of the body of work as a whole, not
-individual paper limitations which are already discussed in each chapter.
+% Be honest but concise. Focus on limitations of the body of work as a whole, not
+% individual paper limitations which are already discussed in each chapter.
+no model studies
+no assimilation studies
+all data driven
+no climate data
 
-\section{Implications and future directions}\label{sec:Imp_Fut}
-Broader implications (~2 pages)
-Step back from your specific methods and datasets. What does this mean for
-the field? Are there methodological lessons, not just scientific ones? This is
-where you can be a little bolder than you would in a paper.
-Limitations (~1 page)
-Be honest but concise. Focus on limitations of the body of work as a whole,
-not individual paper limitations which are already discussed in each chapter.
-Future directions (~2 pages)
-The most valuable part for other researchers. Distinguish between:
+% Future directions (~2 pages)
+% The most valuable part for other researchers. Distinguish between:
 
-Near-term — obvious extensions of what you did
-Long-term — bigger open questions your work points toward but couldn't address
+% Near-term — obvious extensions of what you did
+go up the model hierarchy with stochastic inertia
+or go to observations
+
+% Long-term — bigger open questions your work points toward but couldn't address
 
 maybe ocean influence wrt uncertainty
 
-Closing paragraph
-One strong paragraph that lands the thesis. What is the single most important
-thing you want the reader to take away? Write it plainly and confidently.
+% Closing paragraph
+% One strong paragraph that lands the thesis. What is the single most important
+% thing you want the reader to take away? Write it plainly and confidently.
