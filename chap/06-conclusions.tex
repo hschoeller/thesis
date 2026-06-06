@@ -6,35 +6,38 @@
 \chapter{Conclusions} % LaTeX chapter title
 \label{ch:conclusions}
 
-The insights
-obtained in the previous chapters are connected by a common thread. The interaction
-of \glspl{wcb} and blockings is inherently multiscale and non-linear, with a lot
-of important questions still unanswered. Progress in mathematical research provides
-an invaluable resource to tackle these questions and translating such methods
-to real-world phenomena is guaranteed to yield important insights into both the
-nature of the phenomena and the methods themselves. For the present case of
-blockings and \glspl{wcb}, an thorough understanding of the interaction and predictability
-of the phenomena certainly cannot be achieved
-without consistently considering the range of factors involved, including the role
-of stochasticity and sub-grid scale processes, the sources of uncertainty on each
-of the relevant scales and dual role of the phenomena as both Eulerian features
-acting on the flow and Lagrangian objects shaped by the flow.
+\chapteroverview{This chapter synthesizes the results from the last
+      chapters and discusses their implications in light of the broader scientific
+      field. It consequently offers some paths for future research.}
 
-The work presented in this thesis was motivated by the need to better
-understand the complex multiscale dynamics of atmospheric blocking and
-\glsentrylongpl{wcb} in particular with regard to their associated uncertainty
-and predictability. As outlined in the introduction, both phenomena are far
-from being fully understood and still pose major challenges for weather and
-climate models. While it the vast range of interactions and processes involved
-makes it seem unlikely that a grand unified theory that combines both of these
-phenomena will be developed in the near future, scientific progress in the
-recent years has clearly elucidated key aspects, with improved understanding
-going along with advances in the representation and prediction.
+% The insights
+% obtained in the previous chapters are connected by a common thread. The interaction
+% of \glspl{wcb} and blockings is inherently multiscale and non-linear, with a lot
+% of important questions still unanswered. Progress in mathematical research provides
+% an invaluable resource to tackle these questions and translating such methods
+% to real-world phenomena is guaranteed to yield important insights into both the
+% nature of the phenomena and the methods themselves. For the present case of
+% blockings and \glspl{wcb}, an thorough understanding of the interaction and predictability
+% of the phenomena certainly cannot be achieved
+% without consistently considering the range of factors involved, including the role
+% of stochasticity and sub-grid scale processes, the sources of uncertainty on each
+% of the relevant scales and dual role of the phenomena as both Eulerian features
+% acting on the flow and Lagrangian objects shaped by the flow.
 
-This thesis has contributed to this progress not by proposing improved methods
-or models aimed at practical forecasting, but by developing and applying novel
-conceptual and theoretical tools to better grasp the full range of scales
-relevant.
+% The work presented in this thesis was motivated by the need to better
+% understand the complex multiscale dynamics of atmospheric blocking and
+% \glsentrylongpl{wcb} in particular with regard to their associated uncertainty
+% and predictability. As outlined in the introduction, both phenomena are far
+% from being fully understood and still pose major challenges for weather and
+% climate models. While the vast range of interactions and processes involved
+% makes it seem unlikely that a grand unifying theory combining both of these
+% phenomena will be developed in the near future, scientific progress in the
+% recent years has clearly elucidated key aspects, with improved understanding
+% going along with advances in the representation and prediction.
+
+% This thesis has contributed to this progress by developing and applying novel
+% conceptual and theoretical tools to better grasp the full range of scales
+% relevant.
 
 \section{Synthesis}\label{sec:synth}
 % This is the core and what distinguishes a thesis conclusion from a paper
@@ -43,61 +46,307 @@ relevant.
 % papers. Where do they agree, reinforce, or tension each other? What emerges
 % from the combination that wasn't visible in any single paper?
 
-Stochastic Inertia so far only proven for unstable fixed points with a single
-unstable dimension. Therefore questionable whether theory is applicable
-to sppt in wcbs. Local dimensionality of the weather system is an active
-area of research (cite Faranda stuff here). Connect to turbulence theory
-ventilated in the intro.
+The three studies in this thesis approach blocking and \glspl{wcb}
+from very different angles---an abstract dynamical-systems analysis of
+noise-induced regime persistence, a climatological characterization of
+assimilation uncertainty, and a process-oriented study of \glspl{wcb} and other
+coherent air streams through blockings---yet they converge on a
+small number of recurring themes. The following draws out where they
+reinforce, qualify, and extend one another.
 
-Also, number of unstable dimensions (state-dependent) determines how well
-ensemble data assimilation works.
+\subsection{Unstable dimensions}
 
-CdV: barotropic, but blockings rarely are so maybe noise is baroclinic and
-diabatic forcing. but also coarse-graining effect? coarse-graining present in
-any model, but effect of course depends on the grid scale and processes (not)
-resolved
+A quantity that surfaces in each chapter, under different guises, is the
+local dimensionality of the unstable subspace. In the dynamical-systems
+study, \emph{stochastic inertia} was established for a regime associated with
+an
+unstable fixed point possessing a \emph{single} unstable dimension, the
+geometry of which---a flow accelerating away from the fixed point along
+that one direction---is what produces the effect. An analogous toy model
+with three unstable dimensions lacked this property and it will be shown in
+a forthcoming publication that this holds in generality. The implications
+of \emph{stochastic intertia} as a mechanism possibly relevant in full-complexity
+models and the real world are immediately bound by this: the existence of a
+single unstable dimension is a strong assumption and the dimensionality of
+atmospheric blocking in the dynamical sense is an open question
+\parencite{farandaDynamicalProxiesNorth2017,
+      quinnSystematicCalculationFinitetime2022}.
+Evidence suggests that
+instability peaks during blocking onset and decay but not the blocked phase
+\parencite{schubertDynamicalAnalysisBlocking2016,
+      lucariniNewMathematicalFramework2020} underlining again that this
+dimensionality is strongly flow-dependent. Even if a state exhibits multiple
+unstable dimensions, however, \emph{stochastic intertia} may still be observed
+once the stochasticity projects only onto one of those dimensions in a similar
+way that a three-dimensional fluid system may behave according to two-dimensional
+turbulence as discussed in \cref{sec:intro_predictability_chaos}. If
+stochastic perturbations should represent small-scale forcing onto the large
+scales it is therefore critical whether it activates the same dimensions as the
+small scales would and it is unclear if this is currently the case.
 
-resolution dependence of blocking representation not clear. subgrid scale processes
-noise non-linear response and so on
+Flow-dependent unstable dimensions reappear in the assimilation context, since
+they govern how well an ensemble---and therefore an ensemble data
+assimilation---represents the analysis error
+\parencite{craigDistributionsConvergenceForecast2022,
+      tempestConvergenceForecastDistributions2023}. The flow-dependence of
+assimilation uncertainty documented in \cref{ch:weatherRegimes} can thus be
+read as the observational counterpart to the state-dependent instability
+studied in the abstract setting: where the flow is dynamically active and
+its unstable subspace richer, both the intrinsic error growth and the
+difficulty of constraining the state through observations increase
+together. The dynamical-systems and reanalysis perspectives therefore
+describe two faces of the same underlying flow-dependence---one intrinsic
+to the attractor, one imprinted through the observing system.
 
-WCBs are quite sensitive to perturbations, so it makes sense to define them
-as coherent sets that are robust to perturbations.
+Finally, stability against perturbations may also be used in physical space
+to infer the geometry of the flow and its associated dimension as was shown in
+\cref{sec:CS_eps}. The apparent dimension of the air
+parcels that consitute the blocking characterize the blocking's lifecycle.
+The two notions of dimension---the dynamical one and the physical one---may
+very well be related, since the three-dimensional equivalent-barotropic shape
+of a blocking is tightly coupled to its quasi-stationarity. In the case
+studies considere, a breakdown of the blocking's coherence and thus a reduction
+of the traced air masses' geometrical dimension went along with its
+destabilization and decay. Perhaps counterintuitively, a large set of air
+masses persisting in a three-dimensional configuration implies the flow
+they are embedded in behaves rather two-dimensionally which ties back to the
+considerations about the role of turbulence and its (active) dimensionality
+in the context of blocking and \glspl{wcb} raised in \cref{sec:intro_block_baroclinic}.
 
-Recently, the coherent sets have been used as a tool to identify atmospheric
-blocking by focussing on its quasi-stationarity
-\parencite{badzaIdentifyingOnsetDecay2024}. Goes to show that mathematical
-concepts aimes at identifying stability can be leveraged in divverse settings
+\subsection{Noise and unresolved scales}
 
-stochastic inertia visible in the deterministic system -> coarse model behaviour
-may be enough to predict effect of parametrizations. only choice we have, since
-there are no alternate realization of reality available
+Treating the additive noise of the low-order model as a stand-in for
+stochastic parametrization of model error is what makes the dynamical-systems
+\cref{ch:stochasticInertia} relevant
+to following ones. This identification, however, deserves scrutiny.
+The \gls{cdv} system is barotropic, whereas blocking dynamics are considerably
+shaped by baroclinic and diabatic processes; the noise that would mimic
+governed by baroclinic and diabatic processes; the noise that would mimic
+the relevant model error is therefore not generic but specifically
+baroclinic and diabatic in origin---of which \gls{wcb} latent
+heating is the prime example. A complementary
+reading is that the noise represents the coarse-graining inherent to any
+discretised model: unresolved scales act back on the resolved flow as an
+effectively stochastic forcing. Both readings are partial, and which
+dominates depends on the grid scale and on which processes are resolved
+rather than parametrized---precisely the ambiguity that makes the
+convective grey zone so problematic.
 
-% Broader implications (~2 pages)
-% Step back from your specific methods and datasets. What does this mean for
-% the field? Are there methodological lessons, not just scientific ones? This is
-% where you can be a little bolder than you would in a paper.
+This connects to a tension that runs through the blocking literature and
+was left unresolved in \cref{sec:intro_predictability_blockings}: the
+representation of blocking does
+not improve monotonically with resolution, and the inclusion of stochastic
+physics can improve or degrade it depending on the configuration. If the
+effect of unresolved physics on regime behaviour is genuinely non-linear in
+the way stochastic inertia suggests---a non-monotonic response to
+perturbation amplitude---then neither finer resolution nor stronger
+stochastic forcing should be expected to help uniformly. The
+dynamical-systems result thus offers a conceptual rationale for why the
+empirical picture is so mixed.
+
+Observing every relevant proces and scale is as impossible as representing all
+scales in a model, and this predicament is dealt with in a similar way by
+introducing noise in obersvation space for assimilation. Given the tremendous
+influence this has, it is crucial to design these observational perturbations
+in a way consistent with the physics of the system or, in other words, along
+the relevant dimensions. It is unclear to date, in how far this is the case,
+but is probably a pivotal aspect determining whether assimilation ensembles
+truly add predictive value or are \enquote{just} and efficient way of
+denoising \parencite{fengEnsembleForecastingForay2024}.
+
+% \subsection{Uncertainty as a tool}
+
+A theme common to all three studies is that uncertainty, properly
+considered, is a source of understanding rather than merely a limitation.
+The flow-dependence of assimilation spread reveals \emph{where} and
+\emph{through which processes} the observing system constrains the
+atmosphere most weakly; the response of a regime to noise reveals the
+geometry of its underlying instability; and the sensitivity of \glspl{wcb} to
+perturbations is itself diagnostic of the processes that
+govern their evolution. This last point motivates a methodological
+convergence worth highlighting: because \glspl{wcb} are so
+sensitive to perturbation, defining them as coherent sets that are robust
+to perturbation is a natural way to identify them objectively as dynamically
+meaningful systems. The same family of mathematical tools aimed at
+characterising
+stability has recently been turned to identifying blocking through its
+quasi-stationarity \parencite{badzaIdentifyingOnsetDecay2024}, underlining
+how concepts developed to quantify stability and uncertainty can be
+repurposed as identification and diagnostic tools across very different
+settings.
+
+\subsection{Implications for prediction}
+
+The analyses in this thesis were diagnostic and largely post-hoc, but their
+implications bear directly on practical prediction. Two levers emerge with
+particular clarity. The first is initial-condition uncertainty:
+\cref{ch:weatherRegimes}
+showed that a substantial part of the flow-dependent uncertainty in active
+regions enters through the observations and the assimilation rather than
+through model error alone, so that improving the observing network and the
+assimilation of difficult, cloud-affected scenes remains a major route to
+better forecasts. Dedicated measurements are carried out for
+impactful weather systems like tropical cyclones
+or severe thunderstorms, but resource constraints limit the extent to which
+such pathways to targeted observational campaigns can be implemented
+routinely.
+
+Model uncertainty is the second predictability lever: the scaling cascades
+discussed in \cref{sec:intro_predictability_chaos} and the conflicting effects
+of resolution increases on blocking representation together indicate that the
+proper
+representation of unresolved physics will remain pivotal, and that it cannot
+be addressed by resolution alone. The dynamical-systems perspective adds a
+distinctive and practically valuable corollary here. Because \emph{stochastic
+      inertia} is detectable from the \emph{deterministic} trajectory alone, the
+behaviour of a model under stochastic perturbation may be at least partly
+anticipated from its deterministic dynamics---which is the only handle
+available, given that no alternative realisation of the real atmosphere
+exists against which to calibrate. Coarse, deterministic model behaviour may
+therefore carry more information about the likely effect of a
+parametrization than is commonly assumed.
+
+% Stochastic Inertia so far only proven for unstable fixed points with a single
+% unstable dimension. Therefore questionable whether theory is applicable
+% to sppt in wcbs. Local dimensionality of the weather system is an active
+% area of research (cite Faranda stuff here). Connect to turbulence theory
+% ventilated in the intro.
+
+% Also, number of unstable dimensions (state-dependent) determines how well
+% ensemble data assimilation works.
+
+% CdV: barotropic, but blockings rarely are so maybe noise is baroclinic and
+% diabatic forcing. but also coarse-graining effect? coarse-graining present in
+% any model, but effect of course depends on the grid scale and processes (not)
+% resolved
+
+% resolution dependence of blocking representation not clear. subgrid scale processes
+% noise non-linear response and so on
+
+% WCBs are quite sensitive to perturbations, so it makes sense to define them
+% as coherent sets that are robust to perturbations.
+
+% uncertainty is not only a nuisance but also a tool for understanding. Appropriate
+% consideration opens the door to a deeper understanding. THe way in which both
+% phenomena are affected and affect uncertainty shapes their interaction and
+% broader implications. The analyses presented looked only post-hoc, but
+% insights are certainly relevant for the practical prediction setting to as
+% exemplified by the important role of initial condition uncertainty on the one
+% hand and dynamical behaviour of the system to noise as a proxy for model uncertainty
+% on the other hand. It is clear from the scaling cascades involved as well as the
+% conflicting impacts of resolution increases for blocking representation that
+% model uncertainty and its proper consideration will be a pivotal aspect
+% in the future
+
+% Recently, the coherent sets have been used as a tool to identify atmospheric
+% blocking by focussing on its quasi-stationarity
+% \parencite{badzaIdentifyingOnsetDecay2024}. Goes to show that mathematical
+% concepts aimes at identifying stability can be leveraged in divverse settings
+
+% stochastic inertia visible in the deterministic system -> coarse model behaviour
+% may be enough to predict effect of parametrizations. only choice we have, since
+% there are no alternate realization of reality available
 
 
 \section{Future directions}\label{sec:Imp_Fut}
 
-% Limitations
-% Be honest but concise. Focus on limitations of the body of work as a whole, not
-% individual paper limitations which are already discussed in each chapter.
-no model studies
-no assimilation studies
-all data driven
-no climate data
+The conclusions drawn in this thesis are subject to several limitations,
+each of which points towards a natural avenue for future work.
 
-% Future directions (~2 pages)
-% The most valuable part for other researchers. Distinguish between:
+The most fundamental limitation concerns the methodological scope. All
+three studies are data-driven and diagnostic: they characterise uncertainty
+and dynamical behaviour from existing trajectories---whether observed,
+reanalysed, or generated by a low-order model---rather than from controlled
+numerical experiments. This is a deliberate strength where the goal is to
+let the data speak with minimal modelling assumptions, but it also limits
+the ability to establish causality directly. The flow-dependence of
+assimilation uncertainty documented in \cref{ch:weatherRegimes}, for
+instance, is inferred from statistical association rather than from
+experiments in which individual observation types or assimilation settings
+are withheld. Dedicated observing-system experiments (OSEs) or
+observing-system simulation experiments (OSSEs) would allow the
+contributions of specific observation sources to the regime-dependent
+uncertainty patterns to be isolated, complementing the purely statistical
+attribution pursued here---though such experiments are of course heavily
+limited by their computational cost. Short of this, the descriptive
+climatology could be linked more explicitly to the underlying observation
+network---its coverage, instrument mix, and the assimilation treatment of
+difficult scenes---turning it into a diagnostic of where observational
+investment would most improve the analysis. The dataset produced is well
+suited to such follow-up, and its decades-long extent makes it possible to
+study how the flow-dependence of uncertainty has itself evolved as the
+observing system matured.
 
-% Near-term — obvious extensions of what you did
-go up the model hierarchy with stochastic inertia
-or go to observations
+The same diagnostic character constrains the dynamical-systems study, where
+the stochastic-inertia mechanism of \cref{ch:stochasticInertia} was
+identified in a single low-order model; confirming its relevance to the
+real atmosphere requires its detection across a hierarchy of models of
+increasing complexity. This ascent of the model hierarchy is the most
+direct extension of that chapter. Stochastic inertia has so far been
+demonstrated only in systems with a single unstable dimension; applying the
+data-driven detection method to intermediate-complexity models, and
+ultimately to convection-permitting or operational output, would test
+whether the mechanism survives the higher-dimensional, non-stationary
+instability of realistic flow. This is in principle possible, since the
+diffusion-maps framework employed in
+\cref{ch:stochasticInertia,ch:coherence} has favourable scaling properties;
+careful consideration must, however, be given to the metric in which the
+distances between atmospheric states are measured. Because the method
+requires only a single deterministic trajectory, it is moreover directly
+applicable to reanalysis or long control integrations, offering a path from
+the abstract result towards an observational test. A particularly
+informative intermediate step would be a baroclinic, moisture-capable
+model, since the barotropic Charney--DeVore setting cannot represent the
+diabatic forcing that the synthesis identified as the most plausible
+physical counterpart of the abstract noise.
 
-% Long-term — bigger open questions your work points toward but couldn't address
+This points to a related idealisation in the same study: the noise applied
+in the \gls{cdv} system is constant in space and time and acts equally in
+all directions---convenient, but certainly not a realistic representation of
+model error. In the spirit of conceiving noise as a tool for understanding
+rather than only a nuisance, future work could explore perturbations with
+more realistic characteristics---spatially structured, flow-dependent, or
+preferentially aligned with the unstable subspace---and ask how the
+stochastic-inertia effect responds. Such experiments would also sharpen the
+interpretation of the noise as a proxy for unresolved diabatic and
+baroclinic physics rather than as generic forcing.
 
-maybe ocean influence wrt uncertainty
+A further limitation is the restriction to the existing analysis state. The
+\gls{eda} characterizes the random component of analysis uncertainty but
+does not capture systematic model biases or correlated errors, which may
+themselves be flow-dependent. Nor does the work engage with the forecast
+evolution directly: the analyses are confined to the assimilated state and
+its uncertainty, leaving the question of how this initial uncertainty
+subsequently grows in a forecast for separate investigation. Closing this
+gap---propagating the flow-dependent initial uncertainty characterised here
+through a forecast model and tracking which regimes and processes amplify
+it---would connect the present diagnostic results to the practical
+predictability questions that motivated them.
+
+Finally, the focus throughout has been on the present-day atmosphere as
+represented in reanalysis and idealised models, with no use of
+climate-model output or climate-scale data. Given the demonstrated
+relevance of moist processes and unresolved physics---both of which behave
+differently under a changing climate and at the coarser resolutions typical
+of climate models---extending the analysis to that setting is a natural and
+important next step. This connects to a third broad direction: coupling to
+other Earth-system components. The role of the ocean in particular merits
+attention, as sea-surface temperatures and ocean fronts modulate both the
+diabatic forcing of warm conveyor belts and the baroclinicity available to
+developing cyclones, and may therefore shape the flow-dependent uncertainty
+in ways not resolved by an atmosphere-only perspective. Relatedly, the
+interaction of blocking with sea ice, ocean heat content, and
+longer-timescale variability---already implicated in the climate-model
+biases discussed earlier---offers a route to connect the synoptic-scale
+uncertainty studied here to the subseasonal and seasonal predictability of
+the regimes themselves.
+
+Taken together, these directions share a common orientation: moving from
+the post-hoc, diagnostic characterisation of uncertainty and dynamical
+behaviour pursued in this thesis towards their controlled manipulation and
+their use in the practical prediction setting, where the proper
+representation of both initial-condition and model uncertainty remains a
+central challenge.
 
 % Closing paragraph
 % One strong paragraph that lands the thesis. What is the single most important

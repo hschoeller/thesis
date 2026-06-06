@@ -3,7 +3,7 @@
 % Chapter 3: Stochastic Inertia
 % =================================================
 
-\chapter{Noise-induced enhancement of regime lifetimes---A data-driven approach
+\chapter[Stochastic Inertia]{Noise-induced enhancement of regime lifetimes---A data-driven approach
   using deterministic trajectories} % LaTeX chapter title
 \label{ch:stochasticInertia}
 
@@ -11,11 +11,11 @@
     regime dynamics is investigated by introducing a novel data-driven method
     based on transfer operators. The aim is to identify and quantify
     \emph{stochastic inertia} in a dynamical system using only observations of a
-    (deterministic) trajectories of the system. The theory and derivation of the
+    (deterministic) trajectory of the system. The theory and derivation of the
     method
     are introduced in \cref{sec:sI_meth}. \Cref{sec:sI_app} demonstrated
     applications of the method on two simple toy models as well as the
-    model introduced by \textcite{charneyMultipleFlowEquilibria1979}.
+    \gls{cdv} model.
     Finally, the results are summarized and discussed in \cref{sec:sI_fin}.
 }
 
@@ -46,7 +46,7 @@ More precisely, for any observable $f:\R^d \to \R$ and Lebesgue-almost all initi
 \begin{equation}\label{eq:Birkhoff}
     \lim_{t\to \infty} \frac{1}{t} \int_0^t f(\Phi^s x_0) ds = \int_{\R^d} f(x) \mu_{\Phi}(dx).
 \end{equation}
-Invariant measures with this property are called \emph{physical measures}. A refined concept of physical measures supported on attractors are so-called \emph{SRB measures}. We refer to \textcite{youngWhatAreSRB2002} for further details. For attractors such as the Lorenz attractor, or the attractor of the Charney--deVore system (see \cref{sec:sI_CdV}), the set $A$ is a compact set with a fractal dimension that is smaller than the dimension of the state space. Thus, the attractor captures the asymptotic, low-dimensional dynamics of a potentially higher-dimensional system.
+Invariant measures with this property are called \emph{physical measures}. A refined concept of physical measures supported on attractors are so-called \emph{SRB measures}. We refer to \textcite{youngWhatAreSRB2002} for further details. For attractors such as the Lorenz attractor, or the attractor of the \gls{cdv} system (see \cref{sec:sI_CdV}), the set $A$ is a compact set with a fractal dimension that is smaller than the dimension of the state space. Thus, the attractor captures the asymptotic, low-dimensional dynamics of a potentially higher-dimensional system.
 
 Let $M\subset \R^d$ be an open, bounded set (called ``regime'' from now on) of the state space that intersect the attractor, in the sense that~$\mu_\Phi(M) >0$. By \cref{eq:Birkhoff} applied to the indicator function $\1_M$, the trajectory of almost every initial condition visits the regime $M$ infinitely often. The time between an entrance to $M$ and the subsequent escape from $M$ is called \emph{lifetime} of $M$. Let $x_t$ be a trajectory of the ODE~\eqref{eq:ODE}. Without loss of generality, we assume $x_0 \notin M$, and recursively define the entrance and escape times of the regime~$M$. Set $\tau_0^\text{out} = 0$ and define for all $k\geq 1$
 \begin{nalign}\label{eq:tau_in_out}
@@ -261,7 +261,7 @@ This discrepancy arises only if the attractor has a lower dimension than the ful
 
 \subsection{Stochastic Inertia in a one-dimensional toy system}\label{sec:sI_1d}
 
-We first demonstrate the methodology developed in \cref{sec:sI_meth} by applying it to a one-dimensional toy model. Naturally, it is not possible to have an attractor in one dimension that is not simply a fixed point. Instead, imagine an attractor in higher dimensions that contains a fixed point with one unstable direction while all other directions are stable. Trajectories approach the fixed point through one of the stable directions, spend some time near the fixed point, and ultimately leave through the unstable direction. After spending some time in the chaotic region of the attractor, the trajectory returns in a seemingly random manner to the fixed point. Thus, in the vicinity of this fixed point, the dynamics is approximated by the one-dimensional dynamics in the unstable direction with random reinsertions. For example, such a setting arises in the blocking regime in the Charney--deVore model; see \cref{sec:sI_CdV}. Heuristically, this blocking regime has previously been treated as a one-dimensional system in \textcite{dorringtonInteractionStochasticForcing2023} to explain the occurrence of stochastic inertia.
+We first demonstrate the methodology developed in \cref{sec:sI_meth} by applying it to a one-dimensional toy model. Naturally, it is not possible to have an attractor in one dimension that is not simply a fixed point. Instead, imagine an attractor in higher dimensions that contains a fixed point with one unstable direction while all other directions are stable. Trajectories approach the fixed point through one of the stable directions, spend some time near the fixed point, and ultimately leave through the unstable direction. After spending some time in the chaotic region of the attractor, the trajectory returns in a seemingly random manner to the fixed point. Thus, in the vicinity of this fixed point, the dynamics is approximated by the one-dimensional dynamics in the unstable direction with random reinsertions. For example, such a setting arises in the blocking regime in the \gls{cdv} model; see \cref{sec:sI_CdV}. Heuristically, this blocking regime has previously been treated as a one-dimensional system in \textcite{dorringtonInteractionStochasticForcing2023} to explain the occurrence of stochastic inertia.
 
 We consider a toy model of an unstable fixed point in one dimension. Once trajectories are sufficiently far away from the fixed point, we randomly reinsert them close to the fixed point. The system is given by
 \begin{equation}\label{eq:1d_toy}
@@ -388,7 +388,7 @@ Having checked that the sampled trajectory is dense and homogeneous enough for o
 
 \paragraph{The CdV system and its attractor.}
 
-As a final proof-of-concept, we turn to the Charney--deVore system, inspired by the work~\textcite{dorringtonInteractionStochasticForcing2023}. The system consists of six ordinary differential equations. They are derived by projecting a stream function field that behaves according to simplified atmospheric physics onto six Fourier modes in a Galerkin approximation. For a thorough derivation, parameter values, and analysis we refer to~\textcite{deswartLoworderSpectralModels1988, crommelinMechanismAtmosphericRegime2004, dorringtonInteractionStochasticForcing2023}. The system is given by
+As a final proof-of-concept, we turn to the \gls{cdv} system, inspired by the work~\textcite{dorringtonInteractionStochasticForcing2023}. The system consists of six ordinary differential equations. They are derived by projecting a stream function field that behaves according to simplified atmospheric physics onto six Fourier modes in a Galerkin approximation. For a thorough derivation, parameter values, and analysis we refer to~\textcite{deswartLoworderSpectralModels1988, crommelinMechanismAtmosphericRegime2004, dorringtonInteractionStochasticForcing2023}. The system is given by
 % \rc{what are $x_1^*$ and $x_4^*$?}
 \begin{align} \label{eq:CdV}
     \dot{x}_{1} & = -C(x_{1} - x_{1}^{*}) + \tilde{\gamma}_{1}x_{3}                                           \\
@@ -522,9 +522,9 @@ Finally, the density of the blocking regime $\mathcal{M}$ is highest in its cent
 
 We proposed a method to numerically investigate noise-induced enhancement of regime lifetimes (which we called \emph{stochastic inertia}) without simulating the underlying system for different noise levels. Given a ``base'' trajectory with its own noise level (usually, but not necessarily, zero), we emulate additional noise by defining a suitable Markov chain on the points given by this base trajectory. This way, we were able to investigate the system's response to multiple noise levels without additional information about or simulation of the system. By testing our method against a detailed Monte Carlo simulation we delivered numerical evidence that a one-dimensional unstable fixed point exhibits stochastic inertia, while a three-dimensional one does not. Theoretical justification of these observations will appear elsewhere.
 
-Additionally, we investigated a paradigmatic model for atmospheric dynamics; the Charney--deVore system. Our analysis deviated from the previous study~\parencite{dorringtonInteractionStochasticForcing2023} considering the phenomenon of regime-lifetime extension under increasing noise, since we defined the blocking regime by its strong dynamical persistence (almost-invariance). Yet, the effect of stochastic inertia was still observable.
+Additionally, we investigated a paradigmatic model for atmospheric dynamics; the \gls{cdv} system. Our analysis deviated from the previous study~\parencite{dorringtonInteractionStochasticForcing2023} considering the phenomenon of regime-lifetime extension under increasing noise, since we defined the blocking regime by its strong dynamical persistence (almost-invariance). Yet, the effect of stochastic inertia was still observable.
 
-For the one- and three-dimensional toy examples, our Markov chain method was able to accurately predict the average escape times and expected regime lifetimes. For the Charney--deVore system, our method was able to detect stochastic inertia and accurately compute the escape times of points in the center of the blocking regime, however, the method struggled to accurately compute the expected regime lifetimes.
+For the one- and three-dimensional toy examples, our Markov chain method was able to accurately predict the average escape times and expected regime lifetimes. For the \gls{cdv} system, our method was able to detect stochastic inertia and accurately compute the escape times of points in the center of the blocking regime, however, the method struggled to accurately compute the expected regime lifetimes.
 % Additionally, our analysis seems to be sensitive to changes in the step size $\Delta t$. 
 Comparing the results of \cref{sec:sI_CdV} to the corresponding figures in \cref{app:Figs} indicates that the Monte Carlo simulation is sensitive to changes in $\Delta t$ while our Markov chain model seems less sensitive to such changes. Future efforts could target current limitations, such as potential changes in the attractor and the stationary distribution of the system due to changing noise levels, which are not accounted for in our method. An additional direction is to better understand how parameter and design choices impact results and, in particular, differences between the two methods presented.
 

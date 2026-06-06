@@ -3,25 +3,20 @@
 % Chapter 5: Lagrangian Coherence in Atmospheric Blocking
 % =================================================
 
-\chapter{Assessing Lagrangian coherence in atmospheric blocking} % LaTeX chapter title
+\chapter[Lagrangian coherence]{Assessing Lagrangian coherence in atmospheric blocking} % LaTeX chapter title
 \label{ch:coherence}
 
-\chapteroverview{A novel method is developed that clusters trajectories in the Earth system based on their
-    spatio-temporal coherence. Though agnostic with respect to scale and application,
-    its application is demonstrated for \glspl{wcb} interacting with blockings.
-    This framework understands \glspl{wcb} as three-dimensional and temporally evolving
-    objects interacting with the large-scale flow on a range of scales. In this
-    Lagrangian perspective, \glspl{wcb} shape the atmospheric blocking and vice versa
-    and the coherence of the trajectories is found to be closely linked to the
-    lifecycle phase of the blocking.}
-
-The chapter is organized as follows.
-\Cref{sec:CS_the} introduces the mathematical foundation relevant to the methods employed.
-\Cref{sec:CS_imp} covers details about the implementation of our algorithm as well as the data used.
-We show results from the application of the algorithm to test cases in \Cref{sec:CS_exc}
-to both elucidate the concepts and methods introduced before
-and investigate the problems and questions posed above.
-Finally, \Cref{sec:CS_con} summarizes the findings.
+\chapteroverview{Having investigated the impacts of uncertainty in a
+    Eulerian framework in the last chapter, a Lagrangian perspective is now adopted.
+    Using small random
+    noise as a tool in a way similar to \cref{ch:stochasticInertia},
+    the spatial coherence of trajectories passing through atmospheric blockings
+    is assessed. This additionally supplies an objective way to define \glspl{wcb}
+    as tight bundles of trajectories. \Cref{sec:CS_the} introduces the
+    mathematical foundation whereas \cref{sec:CS_imp} covers details about the
+    implementation and data used. Results from the application of the algorithm
+    to case studies are presented in \cref{sec:CS_exc} before \cref{sec:CS_con}
+    summarizes the findings.}
 
 \section{Theory} \label{sec:CS_the}
 

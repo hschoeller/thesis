@@ -278,7 +278,8 @@ observations \parencite{hoskinsSteadyLinearResponse1981}.
 
 This was also pointed out by \textcite{charneyMultipleFlowEquilibria1979}, who
 proposed a model in which non-linearities were essential for blocking
-occurrence. Similar to the notion of stationary waves, their model admitted
+occurrence. Similar to the notion of stationary waves, their
+model---termed \gls{cdv} model in the following---admitted
 multiple \emph{unstable fixed points}, each associated with a different
 \emph{flow regime}
 and opened the understanding of blocking as a (quasi-) stationary regime
@@ -504,8 +505,8 @@ models over the years to investigate these processes mechanically
 model introduced above have been extended into multi-layer generalizations.
 Some models are simple enough to study the phenomenon from a dynamical systems
 perspective. For example, \textcite{charneyFormdragInstabilityMultiple1980}
-extend the aforementioned barotropic model introduced by
-\textcite{charneyMultipleFlowEquilibria1979}, highlighting that the baroclinic
+extend the aforementioned barotropic \gls{cdv} model introduced,
+highlighting that the baroclinic
 instability attains a first-order importance in bringing about the equilibrium
 states associated with blocking, whereas orography becomes less important
 compared to the barotropic case. The notion that baroclinic instability
@@ -1269,8 +1270,7 @@ and \glspl{wcb}.
 % be too closely aligned with leading instabilities and miss other relevant
 % directions \parencite{magnussonComparisonSingularVectors2008}. 
 
-\subsection{Parametrizations and model error}
-\label{sec:intro_predictability_parametrization}
+\subsection{Parametrizations and model error}\label{sec:intro_predictability_parametrization}
 While the previous section focused on initial-condition uncertainty,
 forecast error in operational systems is comparably shaped by model
 uncertainty. Even given a perfect initial state, a numerical model would
@@ -1662,7 +1662,7 @@ introducing autocorrelated noise, while white noise had no comparable effect.
 A similar persistence-increasing effect of random perturbations has been
 identified in the \textcite{lorenzDeterministicNonperiodicFlow1963} system by
 \textcite{kwasniokEnhancedRegimePredictability2014} and in the
-\textcite{charneyMultipleFlowEquilibria1979} model by
+\gls{cdv} model by
 \textcite{dorringtonInteractionStochasticForcing2023}. The latter model
 has been introduced in \cref{sec:intro_blocking_theories} and is now driven by
 noise in addition to its deterministic flow---and the noise itself may be
@@ -1809,18 +1809,19 @@ abstracted to most applied:
         the predictability characteristics of blockings and \glspl{wcb} described
         in \cref{sec:intro_predictability_blockings,sec:intro_wcb_uncertainty} on
         the one hand and the relative importance of initial-condition vs. model
-        uncertainty on the other hand (\cref{sec:intro_predictability_chaos,
-            sec:intro_predictability_parametrization})?
+        uncertainty on the other hand (\cref{sec:intro_predictability_chaos,sec:intro_predictability_parametrization})?
     \item[\textbf{\Cref{ch:coherence}}] How spatially coherent are the air masses that pass through a
         blocking? What additional insights can be gained from Lagrangian
-        tracing of air parcels, if instead of individual trajectories, coherent
-        bundles of trajectories are considered? Does this provide an avenue to
+        tracing of air parcels, if instead of individual trajectories,
+        sets of air parcels that are robust to small perturbations are
+        considered? Does this provide an avenue to
         objectively identify \glspl{wcb} explicitly conceiving them as spatially
         coherent (cf.~\cref{sec:intro_wcb_def})? How do the answers to these question change across the
         lifecycle of a blocking and a \gls{wcb}?
     \item[\textbf{\Cref{ch:conclusions}}] What do the answers to the above questions imply for the
         representation and predictability of blockings and \glspl{wcb} in models
-        and the real world? How do they connect to the established theories and
+        and the real world? What is the role of model and initial condition
+        uncertainty? How does this connect to the established theories and
         what questions do they raise for future research?
 \end{description}
 
