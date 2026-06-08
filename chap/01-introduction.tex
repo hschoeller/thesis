@@ -65,7 +65,7 @@ clustering of instantaneous atmospheric states.
 whether they identify a blocking based on absolute or anomaly fields. The
 choice of index will importantly also determine the precise shape of the
 detected field and will identify different parts of the blocking
-\parencite{pinheiroAtmosphericBlockingIntercomparison2019}.
+\parencite{pinheiroAtmosphericBlockingIntercomparison2019,barnesMethodologyComparisonBlocking2012}.
 For instance, one very common group of indices is based on the
 geopotential height field and its gradient or the associated synoptic winds.
 This rather kinematic perspective exploits the blocking's characteristic
@@ -288,6 +288,7 @@ idea, that the mid-latitude atmosphere transitions between such regimes
 chaotically due to stochastic forcing from synoptic variability was highly
 influential and has been extensively applied to all types of models
 \parencite{legrasPersistentAnomaliesBlocking1985,
+zidikheriMultipleEquilibriaAtmospheric2007,
     kondrashovEmpiricalModeReduction2006} as well as real world observations
 \parencite{moClusterAnalysisMultiple1988, vautardMultipleWeatherRegimes1990,
     farandaSwitchingZonalBlocked2016}. It offers a mechanism for
@@ -1405,45 +1406,123 @@ parametrization on the representation of blockings as one kind of weather
 regime as well as \glspl{wcb} will be discussed in more detail in the next
 sections.
 
-\subsubsection{Flow-dependence of forecast uncertainty}
+\subsection{Flow-dependence and state-space structure}
+\label{sec:intro_predictability_flowAndState}
 
 As epitomized by both the location-specific effect of the above presented
-stochastic schemes as well as the state dependent initial condition
+stochastic schemes as well as the state-dependent initial condition
 uncertainties, predictability is severely flow-dependent. Error-growth
 rates, the dominant error source, and the resulting forecast uncertainty all
-vary substantially with the synoptic regime, geographical region, and variable
-under consideration \parencite{magnussonFactorsInfluencingSkill2013,
-    ardilouzeFlowDependenceWintertime2021,rodwellCharacteristicsOccasionalPoor2013,
-    ferrantiFlowdependentVerificationECMWF2015}. This flow-dependence has multiple
-origins, several of which have already been mentioned in the preceding
-sections. Initial-condition errors scale with
-the observational coverage and quality and, in turn, project
-preferentially onto dynamically unstable structures, so the same nominal
-analysis uncertainty produces different forecast spread depending on the
-underlying flow \parencite{buizzaTargetingObservationsUsing1999}.
-Parametrized processes are themselves activated unevenly: convection,
-gravity-wave drag, and boundary-layer mixing contribute to model
-uncertainty in ways that depend on whether the local atmosphere is
-convectively active, stably stratified, or in a quiescent regime, so that
-stochastic parametrizations also produce flow-dependent spread
-\parencite{christensenParametrizationWeatherClimate2022}. The weather
-systems themselves may differ in their intrinsic propensity to amplify
-disturbances: rapidly intensifying cyclones, warm conveyor belts, and
+vary substantially with the synoptic regime, geographical region, and
+variable under consideration \parencite{magnussonFactorsInfluencingSkill2013,
+    ardilouzeFlowDependenceWintertime2021,
+    rodwellCharacteristicsOccasionalPoor2013,
+    ferrantiFlowdependentVerificationECMWF2015}. This flow-dependence has
+multiple origins, several of which have already been mentioned in the
+preceding sections. Initial-condition errors scale with the observational
+coverage and quality and, in turn, project preferentially onto dynamically
+unstable structures, so the same nominal analysis uncertainty produces
+different forecast spread depending on the underlying flow
+\parencite{buizzaTargetingObservationsUsing1999}. Parametrized processes are
+themselves activated unevenly: convection, gravity-wave drag, and
+boundary-layer mixing contribute to model uncertainty in ways that depend on
+whether the local atmosphere is convectively active, stably stratified, or in
+a quiescent regime, so that stochastic parametrizations also produce
+flow-dependent spread \parencite{christensenParametrizationWeatherClimate2022}.
+The weather systems themselves may differ in their intrinsic propensity to
+amplify disturbances: rapidly intensifying cyclones, \glspl{wcb}, and
 organized convective systems are typically associated with larger relative
 forecast errors than slowly evolving large-scale features
 \parencite{ferrantiFlowdependentVerificationECMWF2015,
     gramsAtmosphericDynamicsPerspective2018,
-    clarkeDownstreamInfluenceMesoscale2019}. The large scale flow constrains the
-convective scales to differing degrees implying differing levels of
-predictability and parametrizations have been shown to aid in representing
-this flow-dependence in models \parencite{keilRelativeContributionSoil2019,
-    matsunobuFlowScaledependentSpatial2024}.
+    clarkeDownstreamInfluenceMesoscale2019}.
 
-The two features of synoptic variability central for the work presented in this
-thesis---atmospheric blockings and \glsentrylongpl{wcb}--- are both associated
-with very particular properties and behaviour in terms of forecasting and
-predictability and have accordingly attracted a great deal of attention by the
-scientific community. The results of which will be presented in the following.
+This flow-dependence is given a precise and unifying formulation in the
+language of dynamical systems. The tendency of a system to escalate
+minuscule perturbations is measured by Lyapunov exponents, Lyapunov vectors,
+and their finite-time counterparts \parencite{youngMathematicalTheoryLyapunov2013,
+    ginelliCovariantLyapunovVectors2013}, which have been applied to a wide
+range of low-order models \parencite{decruzExploringLyapunovInstability2018,
+    vannitsemStatisticalDynamicalProperties2016,
+    vannitsemPredictabilityLargescaleAtmospheric2017,
+    schubertCovariantLyapunovVectors2015,
+    viennetGuidelinesDatadrivenApproaches2022,
+    yodenFiniteTimeLyapunovStability1993,
+    okaneTransversalityCharacterizationFinite2026} and to real-world data
+\parencite{blachutTaleTwoVortices2020a, rypinaApplyingDynamicalSystems2022,
+    quinnSystematicCalculationFinitetime2022}. Observation-based evaluation
+    must first reduce the dimensionality of the
+system, since the computation of Lyapunov quantities scales non-linearly
+with the degrees of freedom and a number of design choices must be made
+including the time scale considered
+\parencite{okaneTransversalityCharacterizationFinite2026} and the choice of
+metric and variable. 
+    
+A growing body of work building on
+\textcite{lucariniExtremesRecurrenceDynamical2016} characterises the
+\emph{local} instantaneous instability of the atmospheric flow through two
+complementary quantities: a local dimension, measuring the number of
+directions along which the state can locally evolve, and a persistence,
+measuring how quickly the flow leaves the vicinity of a given state---both are
+markedly state-dependent \parencite{messoriDynamicalSystemsApproach2017,
+leeDynamicalFootprintYearround2024,hochmanAtlanticeuropeanWeatherRegimes2021,
+holmbergLinkEuropeanWarmtemperature2023}.
+These data-driven quantities are established through the local geometry and
+density of observations instead of relying on a models' tangent linear and 
+adjoint. The methodology is, however, sensitive to sampling density and 
+anomalously low dimensionality asserted during peak weather regime occurrence 
+may be attributed to the high density of observations in in that region of the
+state space \parencite{platzerDisentanglingDensityGeometry2025}, so it is 
+unclear whether this metric truly reflects unstable dimensions in the 
+Lyapunov sense.   
+
+The number of locally unstable dimensions is tightly coupled to
+predictability through its bearing on multidimensional error growth: the
+stronger and higher-dimensional the local instability, the more independent
+directions must be sampled to capture the resulting uncertainty---in terms of
+initial conditions as well as model uncertainty. A particularly consequential
+case arises when this subspace structure breaks
+down. A dynamical system is hyperbolic where its tangent space splits
+continuously into invariant stable and unstable subspaces, the former
+contracting and the latter expanding; this splitting breaks down when the
+covariant Lyapunov vectors align, since the dimensionality of the subspace
+decomposition then changes \parencite{beimsAlignmentLyapunovVectors2016,
+    sharafiCriticalTransitionsPerturbation2017,
+    lucariniNewMathematicalFramework2020, axelsenHyperbolicitySouthernHemisphere2025}.
+Alignment of the leading local Lyapunov vectors causes ensemble predictions
+to converge onto a small subset of outcomes, effectively collapsing the
+ensemble and removing uncertainty. This process thus limits predictability
+to the life cycle of coherent structures associated with local hyperbolicity.
+
+The flow-dependent predictability in this geometric sense impacts assimilation
+and initial condition uncertainty, too, because all unstable dimensions
+need to be sampled to properly capture the resulting uncertainty
+\parencite{quinnApplicationLocalAttractor2020,fengEnsembleForecastingForay2024}. 
+This requirement is hard to meet at high
+resolution and in full-scale models \parencite{craigDistributionsConvergenceForecast2022,
+    tempestConvergenceForecastDistributions2023}.
+Singular and bred vectors generate initial spread
+by targeting the most unstable directions, but---in contrast to an
+\gls{eda}---do so independently of the observation uncertainties, so that the
+flow-dependence they capture is purely dynamical rather than observational.
+The variability in the number of local unstable dimensions also implies that
+the directions sampled by singular and bred vectors will change depending on
+the time scale considered, with longer time scales
+potentially sampling directions indicating regime transitions compared to
+within-regime variability at shorter time scales
+\parencite{derembleFixedPointsStable2009}. 
+
+The two origins of flow-dependence---the intrinsic instability of the
+attractor and the uncertainty imprinted through the observing system,
+pursued in \cref{ch:weatherRegimes}---are therefore best understood as
+complementary. Where the flow is dynamically active and its unstable subspace
+richer, both the intrinsic error growth and the difficulty of constraining
+the state through observations tend to increase together.
+This combined flow-dependency is prominently visible in the two features of
+synoptic
+variability central to this thesis---atmospheric blockings and
+\glsentrylongpl{wcb}---which have accordingly attracted considerable
+attention, and to which we now turn.
 
 \subsection{Predictability of blockings}
 \label{sec:intro_predictability_blockings}
@@ -1465,62 +1544,43 @@ processes on a
 wide range of scales, especially with respect to upstream development like
 cyclogenesis and \glspl{wcb}, which projects onto its
 predictability \parencite{maddisonUpstreamCycloneInfluence2019}, though its
-characteristic blocking is evident in the essential dynamics already.
+characteristic quasi-stationarity is evident in the essential dynamics already.
 
-\subsubsection{Dynamical-systems perspectives}
+Given the long history of research into the dynamical nature of blockings,
+their predictability has also been studied using the abstracted low-order
+models introduced in \cref{sec:intro_blocking_theories} and using the 
+dynamical-systems techniques introduced above. Along the notion of
+a blocking as a meta-stable regime, the transitions into and out of it are
+characterised by enhanced instability and, hence, reduced predictability,
+whereas the blocked phase itself may be comparatively stable. To the extent
+that such abstracted insights into the structural stability of the attractor
+can be related to a real-world phenomenon, some studies have indeed found
+larger instability during blocking onset and decay than during the blocked
+phase \parencite{schubertDynamicalAnalysisBlocking2016,
+    lucariniNewMathematicalFramework2020, hamiltonUsingUnstablePeriodic2025},
+though this appears to depend on the type and location of the blocking.
 
-Given the long history of research into the dynamical nature of blockings, it
-comes as no surprise that its predictability has also been studied using some
-of the abstracted low-order models introduced in
-\cref{sec:intro_blocking_theories}. Along the notion of a blocking as a
-meta-stable regime, the transitions into and out of them are characterized by
-instability and, hence, uncertainty. From a mathematical perspective, the
-propensity of a dynamical system to escalate minuscule perturbations is
-measured by Lyapunov exponents, Lyapunov vectors and their finite-time
-counterparts \parencite{youngMathematicalTheoryLyapunov2013,
-    ginelliCovariantLyapunovVectors2013}.
-The accompanying theory has been applied to a wide variety of low-order models
-\parencite{decruzExploringLyapunovInstability2018,
-    vannitsemStatisticalDynamicalProperties2016,
-    vannitsemPredictabilityLargescaleAtmospheric2017,
-    schubertCovariantLyapunovVectors2015,
-    viennetGuidelinesDatadrivenApproaches2022,
-    yodenFiniteTimeLyapunovStability1993}
-or real-world data \parencite{blachutTaleTwoVortices2020a,
-    rypinaApplyingDynamicalSystems2022} and has entered operational forecasting
-in the form of singular vector perturbations that inflate initial
-perturbations in the most unstable directions of the flow
-\parencite{buizzaTargetingObservationsUsing1999,
-    palmerSingularVectorsPredictability2013}.
-
-The theory has also seen application to blocking in increasingly complex
-models. To the extent that such abstracted insights into the structural
-stability of the attractor of a dynamical system can be related to the
-predictability of a real world phenomenon, several studies have found evidence
-of larger instability during blocking onset and decay, but not during the
-blocked phase itself \parencite{schubertDynamicalAnalysisBlocking2016,
-    lucariniNewMathematicalFramework2020, hamiltonUsingUnstablePeriodic2025}.
-Observation-based evaluation of this
-behaviour needs to solve the problem of reducing the dimensionality of the
-system, since the computation of Lyapunov exponents and related quantities
-scales non-linearly with the number of degrees of freedom. Under this
-provision, there is evidence that the stability properties of blockings
-assessed in models appear in the real world, too
-\parencite{quinnDynamicalAnalysisReduced2021}.
-More generally, transitions between meta-stable states have been associated
-with enhanced instability also in studies based on observations
+The stability properties
+of blockings diagnosed in models have been shown to appear in the real
+atmosphere as well \parencite{quinnDynamicalAnalysisReduced2021,
+    axelsenHyperbolicitySouthernHemisphere2025}, consistent with the more
+general association of meta-stable transitions with enhanced instability
 \parencite{farandaSwitchingZonalBlocked2016, farandaDynamicalProxiesNorth2017,
-    quinnSystematicCalculationFinitetime2022}.
-The stability of a system's state as measured, for example, by the number of
-locally unstable dimensions, is tightly coupled to its predictability in terms
-of initial condition dependence in
-so far as it relates to multidimensional error growth: the stronger the
-instability, the argument goes, the more unstable directions
-need to be sampled in the initial ensemble to properly capture forecast
-uncertainty---a
-requirement that is hard to meet especially at high resolutions
-\parencite{craigDistributionsConvergenceForecast2022,
-    tempestConvergenceForecastDistributions2023} and in full-scale models.
+    quinnSystematicCalculationFinitetime2022}. These assessments are, however,
+not consistent across all types and locations of blockings. For example,
+\textcite{hochmanAtlanticeuropeanWeatherRegimes2021,
+leeDynamicalFootprintYearround2024} calculate the local dimension and persistence
+mentioned above for sets of weather regimes in the Euro--Atlantic
+\parencite{gramsBalancingEuropesWindpower2017} and 
+North American sector respectively. The former find that 
+blocking-associated regimes do not systematically exhibit lower dimensionality
+or higher persistence than other regimes with only the Greenland blocking
+standing out,
+while the latter report particularly low dimension for ridge regimes.
+Clearly, determining whether blockings in the real world are characterized 
+by the same state-space geometry as in idealized models is a non-trivial task
+and the predictability and representation in full-scale models judging from 
+more conventional metrics is a similarly complex picture.
 
 \subsubsection{Weather and climate models}
 
@@ -1689,7 +1749,11 @@ applications, since systems may either be too complex to simulate or because
 the underlying dynamics are unknown. \Cref{ch:stochasticInertia} presents
 a method to achieve this, while offering valuable insights into the precise
 mechanics behind the interaction of stochasticity and (blocking) regime
-behaviour. As elaborated in \cref{sec:intro_predictability_parametrization},
+behaviour. Given the complex picture painted by the inquiries into the 
+blockings from a dynamical-systems perspective given above, studying the
+behaviour of the \gls{cdv} system's response to noise also helps to elucidate
+the role of unstable dimensions. 
+As elaborated in \cref{sec:intro_predictability_parametrization},
 stochasticity is used in operational models to represent the uncertainty
 associated with sub-grid processes. The strong baroclinic and moist convective
 instabilities in \glspl{wcb} make them efficient propagators and amplifiers

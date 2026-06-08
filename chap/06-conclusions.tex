@@ -56,62 +56,87 @@ reinforce, qualify, and extend one another.
 
 \subsection{Unstable dimensions}
 
-A quantity that surfaces in each chapter, under different guises, is the
-local dimensionality of the unstable subspace. In the dynamical-systems
-study, \emph{stochastic inertia} was established for a regime associated with
-an
-unstable fixed point possessing a \emph{single} unstable dimension, the
-geometry of which---a flow accelerating away from the fixed point along
-that one direction---is what produces the effect. An analogous toy model
-with three unstable dimensions lacked this property and it will be shown in
-a forthcoming publication that this holds in generality. The implications
-of \emph{stochastic intertia} as a mechanism possibly relevant in full-complexity
-models and the real world are immediately bound by this: the existence of a
-single unstable dimension is a strong assumption and the dimensionality of
-atmospheric blocking in the dynamical sense is an open question
-\parencite{farandaDynamicalProxiesNorth2017,
-      quinnSystematicCalculationFinitetime2022}.
-Evidence suggests that
-instability peaks during blocking onset and decay but not the blocked phase
-\parencite{schubertDynamicalAnalysisBlocking2016,
-      lucariniNewMathematicalFramework2020} underlining again that this
-dimensionality is strongly flow-dependent. Even if a state exhibits multiple
-unstable dimensions, however, \emph{stochastic intertia} may still be observed
-once the stochasticity projects only onto one of those dimensions in a similar
-way that a three-dimensional fluid system may behave according to two-dimensional
-turbulence as discussed in \cref{sec:intro_predictability_chaos}. If
-stochastic perturbations should represent small-scale forcing onto the large
-scales it is therefore critical whether it activates the same dimensions as the
-small scales would and it is unclear if this is currently the case.
+A quantity that surfaces in each chapter, under different guises, is the local
+dimension of the system either in state space or in physical space.
+In the dynamical-systems
+study of \cref{ch:stochasticInertia}, \emph{stochastic inertia} was established
+for a regime associated with
+an unstable fixed point possessing a \emph{single} unstable dimension, the
+geometry of which---a flow accelerating away from the fixed point along that
+one direction---is what produces the effect. An analogous toy model with
+three unstable dimensions lacked this property, and a forthcoming publication
+shows that this holds in generality. This is a particularly interesting result,
+because local persistence and local dimension are usually discussed as separate
+measures in recent literature. 
 
-Flow-dependent unstable dimensions reappear in the assimilation context, since
-they govern how well an ensemble---and therefore an ensemble data
-assimilation---represents the analysis error
-\parencite{craigDistributionsConvergenceForecast2022,
-      tempestConvergenceForecastDistributions2023}. The flow-dependence of
-assimilation uncertainty documented in \cref{ch:weatherRegimes} can thus be
-read as the observational counterpart to the state-dependent instability
-studied in the abstract setting: where the flow is dynamically active and
-its unstable subspace richer, both the intrinsic error growth and the
-difficulty of constraining the state through observations increase
-together. The dynamical-systems and reanalysis perspectives therefore
-describe two faces of the same underlying flow-dependence---one intrinsic
-to the attractor, one imprinted through the observing system.
+The relevance of \emph{stochastic inertia} as a mechanism in full-complexity
+models and the real atmosphere is
+immediately bound by its dependence on a single unstable dimension, since that
+is a strong assumption, and the dynamical dimensionality of atmospheric blocking
+is itself an open question. As outlined in the introduction, the
+instability of blockings in this sense depends on the location of the
+blocking, the time of year, and its life-cycle stage, as well as on whether it
+is assessed in a model or in reanalysis.
 
-Finally, stability against perturbations may also be used in physical space
-to infer the geometry of the flow and its associated dimension as was shown in
-\cref{sec:CS_eps}. The apparent dimension of the air
-parcels that consitute the blocking characterize the blocking's lifecycle.
-The two notions of dimension---the dynamical one and the physical one---may
-very well be related, since the three-dimensional equivalent-barotropic shape
-of a blocking is tightly coupled to its quasi-stationarity. In the case
-studies considere, a breakdown of the blocking's coherence and thus a reduction
-of the traced air masses' geometrical dimension went along with its
-destabilization and decay. Perhaps counterintuitively, a large set of air
-masses persisting in a three-dimensional configuration implies the flow
-they are embedded in behaves rather two-dimensionally which ties back to the
-considerations about the role of turbulence and its (active) dimensionality
-in the context of blocking and \glspl{wcb} raised in \cref{sec:intro_block_baroclinic}.
+Even a state with several unstable dimensions, however, may still exhibit
+\emph{stochastic inertia} if the stochastic forcing projects onto only one of
+them---in the same way that a three-dimensional fluid system can behave
+according to two-dimensional turbulence.
+This makes the directional structure of the perturbations decisive rather than
+incidental. If stochastic schemes are to represent the upscale forcing of
+small-scale processes, what matters is whether they excite the same unstable
+directions that the small scales would, and it is unclear whether current
+schemes do so. This concern is sharpened by the nature of the schemes
+themselves: \gls{sppt} perturbs the total physics tendency, yet a large
+tendency need not coincide with a large uncertainty or a strongly unstable
+direction---a well-forecast surface cyclone may carry tendencies large in magnitude
+but low uncertainty compared to the initiation of an isolated convective cell 
+whose prediction is highly uncertain and the associated tendencies possibly 
+near zero. \gls{spp} perturbs the uncertain parameters more selectively
+and may align better with the relevant directions, e.g.~by varying initiation
+thresholds, but whether either
+scheme activates the dynamically unstable subspace remains largely untested.
+
+The dynamical dimension also connects the abstract setting to the
+assimilation perspective of \cref{ch:weatherRegimes}. The inability of an 
+ensemble assimilation system to sample all relevant directions is an example
+of the infamous \emph{course of dimensionality}. Explicitly considering the
+unstable directions is, therefore, a promising avenue for designing data
+assimilation schemes with optimally efficient resource usage. 
+singular and bred vectors target these unstable subspaces 
+when constructing initial spread---though, independently
+of the observation uncertainties. The currently operational \gls{ifs} routine
+inflates initial \gls{eda} perturbations with singular vectors to achieve
+sufficient spread in the unstable directions in particular, but an integrated
+scheme that considers the flow-dependent uncertainty of the observations and
+the model simultaneously would arguably be a more elegant solution.
+
+That the two are distinct is a result of \cref{ch:weatherRegimes}:
+the regime-dependent assimilation uncertainty found does not point to some
+regimes standing out as particularly uncertain, which would be expected if 
+the differences in local attractor geometry found in other studies were to be
+either caused by or to cause this uncertainty. 
+
+A third notion of dimension enters in physical space. As shown in
+\cref{sec:CS_eps}, the stability of a set of air parcels against perturbation
+can be used to infer the geometry of the flow, and the apparent dimension of
+the air masses constituting a blocking characterises its life cycle. The
+dynamical and the physical dimension are plausibly related, since the
+three-dimensional equivalent-barotropic structure of a blocking is tightly
+coupled to its quasi-stationarity: in the case studies considered, a breakdown
+of coherence and the associated reduction in the traced air masses'
+geometrical dimension accompanied the block's destabilisation and decay.
+Perhaps counterintuitively, a large set of air masses persisting in a
+three-dimensional configuration implies that the flow they are embedded in
+behaves rather two-dimensionally---tying back to the role of turbulence and
+its active dimensionality in blocking and \glspl{wcb}
+(\cref{sec:intro_block_baroclinic}). 
+
+A natural direction for future work follows: to probe the effect of
+perturbations systematically across states of markedly different
+dimensionality, and to compare the competing metrics of dynamical dimension
+directly, so as to establish which notion is the relevant one for
+predictability and for the representation of unresolved physics.
 
 \subsection{Noise and unresolved scales}
 
