@@ -529,22 +529,7 @@ For the one- and three-dimensional toy examples, our Markov chain method was abl
 Comparing the results of \cref{sec:sI_CdV} to the corresponding figures in \cref{app:Figs} indicates that the Monte Carlo simulation is sensitive to changes in $\Delta t$ while our Markov chain model seems less sensitive to such changes. Future efforts could target current limitations, such as potential changes in the attractor and the stationary distribution of the system due to changing noise levels, which are not accounted for in our method. An additional direction is to better understand how parameter and design choices impact results and, in particular, differences between the two methods presented.
 
 \begin{subappendices}
-    \section{Additional Figures}\label{app:Figs}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=.75]{fig/CAMCOS/Sets.pdf}
-        \caption{Same as \cref{fig:Sets} but using a trajectory with $\Delta t=1$.}
-        \label{fig:SetsDT1}
-    \end{figure}
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=.75]{fig/CAMCOS/CdV_MeanRegimeLifetimeComparison.pdf}
-        \caption{Same as \cref{fig:CdVLifetInc}, but for trajectories with $\Delta t = 1$.
-        }
-        \label{fig:CdVLifetIncDT1}
-    \end{figure}
 
     \section{Remarks on the evaluation of \cref{eq:analytic_1d}}
     \label{app:NumRem}
@@ -578,4 +563,106 @@ Comparing the results of \cref{sec:sI_CdV} to the corresponding figures in \cref
 
     For numerical evaluation, this integral is computed using adaptive quadrature. To ensure stability, the domain is split into a central region \(|u|\le U\), where \(g(u)\) is evaluated directly, and tail regions \(|u|>U\), where the asymptotic form \(g(u)\sim -1/u\) is used. The contributions are then summed.
 
+
+\section{Additional Figures}\label{app:Figs}
+
+    \begin{figure}[!htbp]
+        \centering
+%         \raisebox{-.5\height}{\includegraphics[scale=.75]{fig/CAMCOS/Sets.pdf}}%
+% \hspace{1em}
+% \raisebox{-.5\height}{\includegraphics[scale=.75]{fig/CAMCOS/CdVloglog.pdf}}
+        % \includegraphics[scale=.75]{fig/CAMCOS/Sets.pdf}%
+        % \includegraphics[scale=.75]{fig/CAMCOS/CdVloglog.pdf}
+        \includegraphics[scale=1]{fig/CAMCOS/CombFig1.pdf}%
+        \caption{(a) Assignment of $2\times 10^{4}$ points in a principal
+        component projection from a deterministic trajectory with $\Delta t=1$
+        that has been partitioned according to the \texttt{k-means} clustering
+        in the embedding explained in the text based on $\sigma = 10^{-2}$.
+        Also indicated are the ``blocking'' fixed point (black) and the
+        ``zonal'' fixed point (red). (b) Normalized sum of affinities according
+        to \cref{eq:simiMat} plotted over the noise strength $\sigma$ for all
+        points shown in (a) (``All'') as well as for points either in the
+        blocking regime or within a distance of
+        $3\sqrt{2\sigma_{\max}^2 \Delta t}$ of any point in the blocking
+        regime, where $\sigma_{\max}=0.03$ (``Blocking''). The dashed lines
+        show the tangent at $\sigma = \sigma^{\ast}$
+        (indicated by open circles), the noise level maximizing the slope of
+        the curve with the maximum slope~$d_\mathcal{X}$ (``All'')
+        and $d_\mathcal{M}$ (``Blocking''). Both values are indicated for
+        both sets in the table in the bottom right.}
+        \label{fig:SetsDT1}
+    \end{figure}
+% \begingroup
+% \setlength{\textfloatsep}{2pt}
+% \setlength{\floatsep}{2pt}
+% \setlength{\intextsep}{2pt}
+% \enlargethispage{2\baselineskip}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale=.75]{fig/CAMCOS/TOLifetimes_increase_fine.pdf}
+    \caption{For each point in the blocking regime $\mathcal{M}$ shown in
+    \cref{fig:SetsDT1}, its maximum
+    relative increase in escape time (left y-axis) is shown against its
+    deterministic escape time. The points are coloured according to
+    the noise strength $\sigma_{\mathrm{max}}$ at which the maximal escape time
+    is achieved. Data for points within less than five deterministic steps
+    until escape are not shown. A grey histogram in the background shows the
+    number of points
+    that have a specific deterministic escape time (right y-axis). Indicated as
+    red crosses are the points sampled for analysis shown in
+    \cref{fig:CdV_pointwiseDT1} due to their location on the attractor.}
+    \label{fig:TOLifetimes_increaseDT1}
+\end{figure}
+% \vspace{-0.5\baselineskip}
+% \enlargethispage{2\baselineskip}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale=.75]{fig/CAMCOS/CdV_point_vs_MeanEscape.pdf}
+    \caption{Pointwise escape times from the center of the blocking regime of
+    the CdV system. The hollow markers belong to the expected escape times
+    $\theta^{\sigma}_i$ calculated according to \cref{eq:def_theta}. They are
+    means over ten very close points and also indicated with red crosses in
+    \cref{fig:TOLifetimes_increaseDT1}. The solid markers belong to escape
+    times calculated in a Monte Carlo fashion for the same sets of points
+    with $100$ realizations for each point and noise strength. The location of
+    the points are also shown in the inset along with all the other points in
+    $\mathcal{M}$ in the same principal component projection used in
+    \cref{fig:SetsDT1} and the ``blocking'' fixed point as a black cross.}
+    \label{fig:CdV_pointwiseDT1}
+\end{figure}
+% \vspace{-0.5\baselineskip}
+% \enlargethispage{2\baselineskip}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale=.75]{fig/CAMCOS/CdV_lifetimes_fine.pdf}
+    \caption{Expected escape times $\theta^{\sigma}$ across noise strength
+    $\sigma$ calculated according to \cref{eq:def_theta} for points of the
+    deterministic trajectory that have just entered the blocking regime
+    $\mathcal{M}$. The curves are coloured according to their deterministic
+    escape time ($\sigma=0$). The location of these entry points are also shown
+    in the inset along with all the other points in $\mathcal{M}$ in the same
+    principal component projection used in \cref{fig:SetsDT1} and the
+    ``blocking'' fixed point as a black cross. The black dashed line shows the
+    mean over all curves, which is an approximation of the expected regime life
+    time $E^{\sigma}$.}
+    \label{fig:CdV_LifetimesEntriesDT1}
+\end{figure}
+% \vspace{-0.5\baselineskip}
+% \enlargethispage{2\baselineskip}
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[scale=.75]{fig/CAMCOS/CdV_MeanRegimeLifetimeComparison.pdf}
+        \caption{Mean regime life times for each noise strength $\sigma$
+        obtained from either the Monte Carlo method and the Markov chain
+        approach. The Monte Carlo trajectory is computed with a step size of
+        $10^{-5}$. We subsample the trajectories such that both methods have a
+        time step of $\Delta t = 1$, but the Markov chain method uses
+        $2 \times 10^4$ steps compared to $2 \times 10^6$ steps for the Monte
+        Carlo method. The Monte Carlo trajectories feature roughly $10^2$
+        entries with $73$ entries  for the Markov Chain method (depicted in
+        \cref{fig:CdV_LifetimesEntriesDT1}). The inset details
+        the low-noise behavior of the two.}
+        \label{fig:CdVLifetIncDT1}
+    \end{figure}
+% \endgroup
 \end{subappendices}

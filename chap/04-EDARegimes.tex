@@ -378,18 +378,18 @@ With the breakpoints identified, we now estimate separate time series models for
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f03.pdf}%
-    \caption{Grid-point-wise model evaluation. Left: Adjusted coefficient of determination in response variable space $R^2_{\text{adj}}$. Center: Response-level variance not accounted for by each model per degree of freedom $V_{\mathrm{res}}$. Right: Total response-level variance per degree of freedom $V_{\mathrm{total}}$. Indicated with an upward (downward) triangle is the location of the maximum (minimum) $R^2_{\text{adj}}$ in the domain.}
+    \includegraphics[scale=1]{fig/WCD/figComb/combFig1.pdf}%
+    \caption{Grid-point-wise model evaluation. (a) Adjusted coefficient of determination in response variable space $R^2_{\text{adj}}$. (b) Response-level variance not accounted for by each model per degree of freedom $V_{\mathrm{res}}$. (c) Total response-level variance per degree of freedom $V_{\mathrm{total}}$. Indicated with an upward (downward) triangle is the location of the maximum (minimum) $R^2_{\text{adj}}$ in the domain.}
     \label{fig:R2}
 \end{figure}
 
-The models generally cover a substantial amount of response-level variation across the domain with values of $R^2_{\mathrm{adj}}$ ranging from roughly .56 to .88 -- a level of spatial diversity expected for our rather simple modelling assumptions. The highest values are achieved in the polar region (upward triangle), where the total variance is also largest as can be seen from the right panel in \cref{fig:R2}. The high total variance is of due to the historically sparse observational coverage of the region and the entailing wide range of values across the time span considered. This argument is backed up by the fact that the total reduction in uncertainty has a similar spatial pattern (cf.~\cref{fig:diff} in \cref{sec:EDA_AddFig}). Along our assumptions on the structure of the dataset, we argue that the high values of $R^2_{\mathrm{adj}}$ in the high latitudes imply that most of the variation here is due to the development of the observation and assimilation system, though in absolute terms, an appreciable amount of variation is still present in the residuals as can be seen in the center of \cref{fig:R2}.
+The models generally cover a substantial amount of response-level variation across the domain with values of $R^2_{\mathrm{adj}}$ ranging from roughly .56 to .88 -- a level of spatial diversity expected for our rather simple modelling assumptions. The highest values are achieved in the polar region (upward triangle), where the total variance is also largest as can be seen from the right panel in \cref{fig:R2}. The high total variance is of due to the historically sparse observational coverage of the region and the entailing wide range of values across the time span considered. This argument is backed up by the fact that the total reduction in uncertainty has a similar spatial pattern (cf.~\cref{fig:diff} (a) in \cref{sec:EDA_AddFig}). Along our assumptions on the structure of the dataset, we argue that the high values of $R^2_{\mathrm{adj}}$ in the high latitudes imply that most of the variation here is due to the development of the observation and assimilation system, though in absolute terms, an appreciable amount of variation is still present in the residuals as can be seen in the center of \cref{fig:R2}.
 
 On the other end of the spectrum, the lowest values of $R^2_{\mathrm{adj}}$ are evident over the Atlantic off the coast of New England (downward triangle). The decomposition makes it clear that this comes about both due to a below average total variance and an above average residual variance. The reasons for either are less obvious, but one part of the explanation is surely the pronounced land-sea contrast in the residual variance---a feature eminently visible around the Azores.
 
 The presence of moisture over the oceans and the location of the mid-latitude storm track as a major source of synoptic activity surely plays a role in the large amount of residual variation over the oceans. We consider it safe to say, however, that the presence or absence of land-based measurements play a considerable role in this effect, too (for a proof, again, consider the Azores region). Given that the residuals of the models will be used in ensuing analyses, the spatial pattern in the model's residual variance opens an interesting question. Should the time series of residuals as proxies for short time scale assimilation uncertainty be standardized by the grid-point wise total variance in time? After all, it has just been argued that the land-sea contrast is overwhelmingly caused by the observation system rather than the system's intrinsic dynamics. We decide not to, since spatial variability in the total level of model uncertainty is expected and, truly, a central feature of the atmosphere. What's more, the WR specific uncertainties at the heart of this study are shaped and governed by the spatial configuration of the Euro-Atlantic region, and assuming unit variance in time across the region would severely contradict that assumption. Finally, the scale of the spatial heterogeneity is considerably smaller than the level of heterogeneity in the scale of the total response-level variation as can be judged from the color scales in the center and right panel in \cref{fig:R2}.
 
-The patterns discussed above remain clearly visible when accounting for the difference in (temporal) error variances between the different segments. We provide the appropriate measure in \cref{sec:EDA_AddFig} in \cref{fig:R2GLS}.
+The patterns discussed above remain clearly visible when accounting for the difference in (temporal) error variances between the different segments. We provide the appropriate measure in \cref{sec:EDA_AddFig} in \cref{fig:diff} (b).
 Its spatial structure is qualitatively identical
 to that of $R^2_{\mathrm{adj}}$, but the values are systematically lower.
 This has a simple explanation: in response space the early high-variance
@@ -595,8 +595,8 @@ Additionally, the WR specific zg500 patterns themselves exhibit a fairly large v
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f10.pdf}
-    \caption{Weather regime pattern variability as measured by the standard deviation of the EMMs across the 8 weather regime categories. Left: standard deviation for the models with the weather regimes as the sole covariate. Right: Difference in standard deviation to a model with additional covariates introduced in the text relative to the standard deviation across the regimes for the simple model (shown on the left). Positive values indicate pattern attenuation. Values shown for grid points with FDR-adjusted p-values below 5\%.}
+    \includegraphics[scale=1]{fig/WCD/figComb/combFig2.pdf}
+    \caption{Weather regime pattern variability as measured by the standard deviation of the EMMs across the 8 weather regime categories. (a) Standard deviation for the models with the weather regimes as the sole covariate. (b) Difference in standard deviation to a model with additional covariates introduced in the text relative to the standard deviation across the regimes for the simple model (a). Positive values indicate pattern attenuation. Values shown for grid points with FDR-adjusted p-values below 5\%.}
     \label{fig:2ndRMS}
 \end{figure}
 
@@ -615,7 +615,7 @@ Results from ``add-one" models mentioned above would look virtually identical to
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.75]{fig/WCD/f11.pdf}
+    \includegraphics[scale=0.75]{fig/WCD/figComb/SmallModel_LOO_RMS.pdf}
     \caption{Relative weather regime pattern variability attenuation as measured by $\Delta \sigma_{\mathrm{WR}}$, but with one covariate removed from the full model~\eqref{eq:fullMod}. The removed covariate is indicated atop the facets. Values shown for grid points with FDR-adjusted p-values below 5\%}
     \label{fig:loo}
 \end{figure}
@@ -644,7 +644,7 @@ The three covariates used are binary indicators of WCB occurrence in the respect
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f12.pdf}
+    \includegraphics[scale=.75]{fig/WCD/figComb/wcb_effects.pdf}
     \caption{EMMs for each warm conveyor belt lifecycle stage. Values shown for grid points with FDR-adjusted p-values below 5\%. For some polar grid points, warm conveyor belt occurrence frequency is not sufficient for model estimation.}
     \label{fig:WCBloc}
 \end{figure}
@@ -851,8 +851,19 @@ The code necessary to produce the results are provided in a ZENODO archive based
 
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/f16.pdf}
-        \caption{Correlation and attenuation analysis for normalised, low-pass filtered zg500 anomalies as mentioned in the text. Left: Pearson correlation coefficient $r$ between the variance-balanced residuals $\hat{\varepsilon}^*$ and the zg500 anomalies ased on annual time slices. Line indicates median whereas shading indicates interquartile range of values across grid points. Statistical moments are latitude-weighted. Center: Pearson correlation coefficient at each grid point calculated for the time period 1950-2024. Right: Relative attenuation of WR patterns by the inclusion of the zg500 anomalies. Same quantity as on the right of \cref{fig:2ndRMS}. Values below or equal to $-1.5$ are shown in the same colour (colourbar has been clipped). Values
+        \includegraphics[scale=1]{fig/WCD/figComb/combFig3.pdf}
+        \caption{Correlation and attenuation analysis for normalised,
+        low-pass filtered zg500 anomalies as mentioned in the text. (a):
+        Pearson correlation coefficient $r$ between the variance-balanced
+        residuals $\hat{\varepsilon}^*$ and the zg500 anomalies ased on annual
+        time slices. Line indicates median whereas shading indicates
+        interquartile range of values across grid points. Statistical
+        moments are latitude-weighted. (b) Pearson correlation
+        coefficient at each grid point calculated for the time period
+        1950-2024. (c) Relative attenuation of WR patterns by the inclusion
+        of the zg500 anomalies. Same quantity as on the right of
+        \cref{fig:2ndRMS}. Values below or equal to $-1.5$ are shown in the
+        same colour (colourbar has been clipped). Values
             shown for grid points with FDR-adjusted p-values below 5\%}
         \label{fig:CorrGrams}
     \end{figure}
@@ -863,26 +874,55 @@ The code necessary to produce the results are provided in a ZENODO archive based
 
     \section{Additional Figures} \label{sec:EDA_AddFig}
 
-    \begin{figure}[!h]
+    \begin{figure}[H]
         \centering
-        \includegraphics[scale=.75]{fig/WCD/f17.pdf}
-        \caption{BIC and RSS for various segmentations. A minimum of the BIC corresponds to the preferred segmentation. Data and model assumption as described in \cref{sec:EDA_resbrk}. The resulting model and break points are shown in \cref{fig:Segs}.}
+        \includegraphics[scale=1]{fig/WCD/figComb/combFig4.pdf}%
+        % \includegraphics[scale=.75]{fig/WCD/f18.pdf}
+        \caption{BIC and RSS for various segmentations. A minimum of the BIC
+        corresponds to the preferred segmentation. (a) Data and model assumption as
+        described in \cref{sec:EDA_resbrk}. The resulting model and break points
+        are shown in \cref{fig:Segs}. (b) Same, but without seasonal 
+        covariates. The resulting model and break points
+        are shown in \cref{fig:SegsNoSeas}.}
         \label{fig:BICSeg}
     \end{figure}
 
-    \begin{figure}
-        \centering
-        \includegraphics[scale=.75]{fig/WCD/f20.pdf}
-        \caption{Difference in the model-estimated annual mean between the years 2024 and 1940 respectively as a proxy for the total reduction in observation uncertainty across the time span considered.}
-        \label{fig:diff}
-    \end{figure}
+
+%  \begin{figure}[!h]
+%     \centering
+%     \includegraphics[scale=.75]{fig/WCD/f18.pdf}
+%     \caption{BIC and RSS for various segmentations. A minimum of the BIC
+%     corresponds to the preferred segmentation. Data and model assumption
+%     as described in Sect.~5.1, but without seasonal covariates.
+%     The resulting model and break points are shown in fig.~\ref{fig:SegsNoSeas}.}
+%     \label{fig:BICSegNoSeas}
+% \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=.75]{fig/WCD/f19.pdf}
+    \caption{Monthly and spatially averaged logarithmic EDA ensemble spread of geopotential
+at 500 hPa assimilated (black line) and fitted with 95\% confidence intervals (red line and shading). Identified change points annotated with the respective months (vertical dashed lines). Shading around change points indicate 95\% confidence intervals. In contrast to fig.~1 in the paper, no seasonal cycle is assumed in the breakpoint identification or fit. The overlapping confidence intervals are consistent, since break point location uncertainty is estimated holding other break points constant.}
+    \label{fig:SegsNoSeas}
+\end{figure}
 
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/f21.pdf}
-        \caption{Same as \cref{fig:R2} but for the precision weighted diagnostic introduced in \cref{eq:R2GLS}.}
-        \label{fig:R2GLS}
+        \includegraphics[scale=1]{fig/WCD/figComb/combFig5.pdf}
+        \caption{(a) Difference in the model-estimated annual mean between the
+        years 2024 and 1940 respectively as a proxy for the total reduction in
+        observation uncertainty across the time span considered. (b)
+        Adjusted coefficient of determination in precision-space
+        introduced in \cref{eq:R2GLS}.}
+        \label{fig:diff}
     \end{figure}
+
+    % \begin{figure}
+    %     \centering
+    %     \includegraphics[scale=.75]{fig/WCD/f21.pdf}
+    %     \caption{Same as \cref{fig:R2} but for the precision weighted diagnostic introduced in \cref{eq:R2GLS}.}
+    %     \label{fig:R2GLS}
+    % \end{figure}
 
     \begin{figure}
         \centering
@@ -890,7 +930,12 @@ The code necessary to produce the results are provided in a ZENODO archive based
         \caption{Statistical model estimates of the seasonal cycle $\hat{s}_{n,t}$ for every segment individually based on the models on daily scale shown in \cref{fig:HighLowFit}. Blue (orange) line and shading and upward (downward) triangle indicate the Arctic (Gulf Stream)  grid point shown in \cref{fig:R2}. 95\% confidence intervals are for the whole seasonal cycle combined rather than for individual months (cf.~\cref{sec:EDA_sig}).}
         \label{fig:SegSeasHighLow}
     \end{figure}
-
+\begin{figure}
+    \centering
+    \includegraphics[scale=.75]{fig/WCD/f23.pdf}
+    \caption{Logarithmic EDA ensemble spread of daily geopotential on 500 hPa assimilated (triangles) and 95\% confidence intervals for the mean estimates (shadings) for the year 2024. The blue (orange) triangles and shading corresponds to the grid point indicated by an upward (downward) triangle in figure~\ref{fig:R2}.}
+    \label{fig:HighLowFitDaily}
+\end{figure}
     \begin{figure}
         \centering
         \includegraphics[scale=.75]{fig/WCD/f24.pdf}
@@ -902,7 +947,14 @@ The code necessary to produce the results are provided in a ZENODO archive based
     \begin{figure}
         \centering
         \includegraphics[scale=.75]{fig/WCD/f25.pdf}
-        \caption{Same as \cref{fig:WREffect}, but marginal means estimated from the full models from \cref{sec:EDA_resmod} extended by the weather regime time series as a covariate.}
+        \caption{Effect of the occurrence of each WR on the synoptic time scale
+        assimilation uncertainty. Estimated marginal means
+        $\hat{\mu}^{\mathrm{WR}}$ for each grid point are obtained from
+        first-stage models from \cref{sec:EDA_resmod} extended by
+        the weather regime time series as a covariate (shading). Shown for
+        grid points with FDR-adjusted p-values below 5\%. Green contours
+        display the composite mean z500 maps for each of the WRs based on the
+        ERA5 HRES product. Contour lines are drawn every 80 gpm.}
         \label{fig:WREffect1st}
     \end{figure}
 

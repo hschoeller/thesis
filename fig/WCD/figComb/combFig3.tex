@@ -1,0 +1,34 @@
+\documentclass[10pt]{standalone}
+\usepackage{amsmath,amsfonts,amssymb,cmbright}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usetikzlibrary{positioning, overlay-beamer-styles, matrix, arrows.meta, calc}
+\usepackage{xcolor} % For color
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty, font=scriptsize}
+\graphicspath{ {../} }
+
+\pdfinclusioncopyfonts=1
+\begin{document}
+    \begin{tikzpicture}
+%\node (clustering)
+%    {\includegraphics[scale=.75]{yearly_corr_zg500_anom.pdf}};
+%% Second figure, vertically centered relative to the first
+%\node[anchor=west, right=0cm of clustering.east] (u)
+%    {\includegraphics[scale=.75]{Grams_CorrMap.pdf}};
+%\node[anchor=west, right=0cm of u.east] (v)
+%    {\includegraphics[scale=.75]{Grams_Attenuation.pdf}};
+%% Panel labels
+%\node[anchor=north west] at (clustering.north west) {(a)};
+%\node[anchor=north west] at (u.north west) {(b)};
+%\node[anchor=north west] at (v.north west) {(c)};
+\node[anchor=north west] (a) at (0,0) {(a)};
+\node[anchor=north west, below right=0cm and -.25cm of a.north east] (clustering) {\includegraphics[scale=.75]{yearly_corr_zg500_anom.pdf}};
+\node[anchor=north west, below right=0cm and -0.25cm of clustering.north east] (b) {(b)};
+\node[anchor=north west, below right=0cm and -.25cm of b.north east] (u) {\includegraphics[scale=.75]{Grams_CorrMap.pdf}};
+\node[anchor=north west, below right=0cm and -0.5cm of u.north east] (c) {(c)};
+\node[anchor=north west, below right=0cm and -.25cm of c.north east] (v) {\includegraphics[scale=.75]{Grams_Attenuation.pdf}};
+    \end{tikzpicture}
+\end{document}

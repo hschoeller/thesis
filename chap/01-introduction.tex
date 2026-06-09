@@ -94,7 +94,8 @@ Temporal evolution guides the system as a trajectory on the attractor with
 its location in phase space determining its dynamic behaviour as well as its
 expression in physical space. It may then be insightful to partition this
 attractor into a finite set of metastable or recurrent regimes as a
-dimensionality reduction \parencite{michelangeliWeatherRegimesRecurrence1995}.
+dimensionality reduction \parencite{michelangeliWeatherRegimesRecurrence1995,
+badzaIdentifyingOnsetDecay2024}.
 Blocking emerges as one of multiple such \emph{weather regimes}, defined by
 persistence and transition probabilities rather than local anomalies or
 gradient reversals in the Eulerian field.
@@ -454,7 +455,8 @@ energy cascade depends on which subset of phase space is dynamically active:
 when the statistics are restricted to the slow manifold, an inverse energy
 transfer becomes admissible (a statistical mechanics analogue of
 condensation), whereas a direct cascade develops in the unrestricted case.
-The restricted case most naturally applies to balanced, large-scale dynamics;
+The restricted case most naturally applies to (geostrophically) balanced,
+large-scale dynamics \parencite{vautardInvariantManifoldsQuasigeostrophy1986};
 precisely the regime in which mature blocks reside, supporting the
 view that the upscale transfer arguments above are appropriate for
 synoptic-to-planetary scale phenomena, even though the underlying baroclinic
@@ -1191,9 +1193,11 @@ content of ingested observations
 \parencite{janjicRepresentationErrorData2018}.
 
 The assimilation process itself introduces further uncertainty through
-approximate background-error covariance modelling, limited ensemble sizes,
+approximate background-error covariance modelling, limited ensemble sizes
+in ensemble-based systems, sub-optimal balancing of observations and the first
+guess
 and linearized or approximate observation operators
-\parencite{houtekamerReviewEnsembleKalman2016,
+\parencite{houtekamerReviewEnsembleKalman2016,fengLimitsKnowingEquilibrium2026,
     bannisterReviewOperationalMethods2017, kalnayEarthSystemModeling2024}.
 In variational frameworks the background-error covariances set the
 relative weighting of the first guess and the observations
@@ -1245,7 +1249,12 @@ assimilation uncertainties serve a dual role---both as initial
 perturbations for ensemble prediction
 \parencite[ch.~6]{kalnayEarthSystemModeling2024} and as uncertainty estimates
 accompanying reanalyses---they can be studied
-on a far larger data base than any single ensemble dataset affords. In the
+on a far larger data base than any single ensemble dataset affords.
+Similarly expensive are dedicated \gls{ose} or \gls{osse} that target
+specifically the impact of observational coverage and uncertainty but
+a systematic analysis of flow-dependency has not been carries out thus far.
+
+In the
 reanalysis setting the associated uncertainty is primarily informative
 about the quality and density of the observing system at a given time,
 while retaining the flow-state dependence that dominates the forecast

@@ -1,0 +1,28 @@
+\documentclass[10pt]{standalone}
+\usepackage{amsmath,amsfonts,amssymb,cmbright}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usetikzlibrary{positioning, overlay-beamer-styles, matrix, arrows.meta, calc}
+\usepackage{xcolor} % For color
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty, font=scriptsize}
+\graphicspath{ {../} }
+
+\pdfinclusioncopyfonts=1
+\begin{document}
+    \begin{tikzpicture}
+\node (clustering)
+    {\includegraphics[scale=.75]{R2adj.pdf}};
+% Second figure, vertically centered relative to the first
+\node[anchor=west, right=-0.5cm of clustering.east] (u)
+    {\includegraphics[scale=.75]{Vunexplainedresp.pdf}};
+\node[anchor=west, right=-0.5cm of u.east] (v)
+    {\includegraphics[scale=.75]{Vtotalresp.pdf}};
+% Panel labels
+\node[anchor=north west] at (clustering.north west) {(a)};
+\node[anchor=north west] at (u.north west) {(b)};
+\node[anchor=north west] at (v.north west) {(c)};
+    \end{tikzpicture}
+\end{document}

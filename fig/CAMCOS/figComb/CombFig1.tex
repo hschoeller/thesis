@@ -1,0 +1,27 @@
+\documentclass[10pt]{standalone}
+\usepackage{amsmath,amsfonts,amssymb,cmbright}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usetikzlibrary{positioning, overlay-beamer-styles, matrix, arrows.meta, calc}
+\usepackage{xcolor} % For color
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty, font=scriptsize}
+\graphicspath{ {../} }
+
+\pdfinclusioncopyfonts=1
+\begin{document}
+    \begin{tikzpicture}
+\node (clustering)
+    {\includegraphics[scale=.75]{Sets.pdf}};
+
+% Second figure, vertically centered relative to the first
+\node[anchor=west, right=0cm of clustering.east] (u)
+    {\includegraphics[scale=.75]{CdVloglog.pdf}};
+
+% Panel labels
+\node[anchor=north west] at (clustering.north west) {(a)};
+\node[anchor=north west] at (u.north west) {(b)};
+    \end{tikzpicture}
+\end{document}
