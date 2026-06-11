@@ -65,13 +65,16 @@ clustering of instantaneous atmospheric states.
 whether they identify a blocking based on absolute or anomaly fields. The
 choice of index will importantly also determine the precise shape of the
 detected field and will identify different parts of the blocking
-\parencite{pinheiroAtmosphericBlockingIntercomparison2019,barnesMethodologyComparisonBlocking2012}.
+\parencite{pinheiroAtmosphericBlockingIntercomparison2019,
+barnesMethodologyComparisonBlocking2012}.
 For instance, one very common group of indices is based on the
 geopotential height field and its gradient or the associated synoptic winds.
 This rather kinematic perspective exploits the blocking's characteristic
 meridional flow field as a hallmark and is based on work by
-\textcite{lejenasCharacteristicsNorthernHemisphere1983} and
-\textcite{tibaldiOperationalPredictabilityBlocking1990}. More dynamically and
+\textcite{lejenasCharacteristicsNorthernHemisphere1983,
+tibaldiOperationalPredictabilityBlocking1990} and is illustrated by the 
+green shading in \cref{fig:block_def}.
+More dynamically and
 object-oriented indices identify anomalies in the fields of \gls{pv} or
 potential temperature
 \parencite{schwierzPerspicaciousIndicatorsAtmospheric2004}, a lens that was
@@ -80,10 +83,11 @@ gradient reversals instead of anomalies. Since potential temperature and
 \gls{pv} are materially conserved under adiabatic and (in the case of \gls{pv})
 inviscid conditions, air-masses that are designated as belonging to a blocking
 may be traced back and forth to understand the formation and decay of the
-blocking event materially.
+blocking event materially. Anomaly based indices are illustrated by the 
+orange shading in \cref{fig:block_def}. 
 
 A complementary perspective conceptualises blocking as a preferred large-scale
-\emph{circulation regime} within a reduced phase space of atmospheric
+\emph{circulation regime} within a reduced state space of atmospheric
 variability.
 This understanding originates from the interpretation of the atmosphere as a
 forced-dissipative dynamical system whose long-term behaviour is governed by
@@ -91,7 +95,7 @@ its lower-dimensional attractor \parencite[e.g.,~][]{
     dijkstraNonlinearClimateDynamics2013,weilandIntransitiveAtmosphereDynamics2021,
     strommenTopologicalPerspectiveWeather2023, ghilReviewArticleDynamical2023}.
 Temporal evolution guides the system as a trajectory on the attractor with
-its location in phase space determining its dynamic behaviour as well as its
+its location in state space determining its dynamic behaviour as well as its
 expression in physical space. It may then be insightful to partition this
 attractor into a finite set of metastable or recurrent regimes as a
 dimensionality reduction \parencite{michelangeliWeatherRegimesRecurrence1995,
@@ -113,7 +117,9 @@ exhibiting blocking-like regimes \parencite{
     crommelinMechanismAtmosphericRegime2004,
     kallenBifurcationPropertiesQuasigeostrophic1982,
     lucariniNewMathematicalFramework2020} facilitating translation between
-paradigm models and the real world.
+paradigm models and the real world. This is depicted in the top right inset of
+\cref{fig:block_def}, where a subset of the state space is identified with 
+a blocking regime indicated by brown shading.
 
 Finally, from a \emph{wave-dynamical} perspective, blocking can be interpreted as a
 non-linear manifestation of amplified, breaking, or quasi-stationary
@@ -122,13 +128,32 @@ Rossby waves \parencite{tungTheoryStationaryLong1979,
 associated with \glspl{rwp} \parencite{wirthRossbyWavePackets2018}
 or maxima of \gls{lwa} fluxes \parencite{huangLocalFiniteamplitudeWave2016}
 and will thus be identified based on characteristic
-patterns in the wavenumber rather than the physical domain.
+patterns in the wavenumber rather than the physical domain. Wave activity is 
+illustrated by the blue shading in \cref{fig:block_def}.
 
 The differing definitions---\emph{index}-based, \emph{regime}-based, and
 \emph{wave-dynamical}---highlight that blocking may be understood alternately as
 a local kinematic signature, a metastable circulation state, or a
 planetary-wave configuration, depending on the theoretical
 and diagnostic perspective adopted.
+
+\begin{figure}[htpb]
+  \centering
+  \input{fig/Intro/tikz/block_def}
+  \caption{Schematic illustrating different blocking definitions for the example
+  of an omega block. The H and L indicate surface high and low pressure centers
+  and the thick contour indicates the undulation of the upper-level flow
+  (e.g.~\gls{pv} or geopotential height). The green area illustrates regions
+  identified by gradient-reversal indices, the orange area illustrates regions
+  identified by anomaly-based indices and the blue area illustrates wave
+  activity. The inset in the bottom left depicts the flow in a state space
+  spanned
+  by two Fourier modes with the brown area designating a blocking regime and 
+  the omega block indicated by a large cross while the small crosses
+  represent other states of the system. Adapted from
+  \textcite{bluesteinSynopticDynamicMeteorology1993}.}
+  \label{fig:block_def}
+\end{figure}
 
 \subsection{Phenomenology} \label{sec:intro_block_Phenomenology}
 Climatologically, blocking events are more prominent in the \gls{nh}
@@ -141,7 +166,8 @@ the North Pacific and, to a lesser extent, the Eurasian sector are also
 preferred regions for blocking occurrence in the \gls{nh}. Their implied
 temporal and spatial scales lets them exert a major influence on the
 mid-latitude circulation and weather on a continental to planetary scale for
-whole seasons even \parencite{jensenDynamicAnalysisRecord2015}.
+whole seasons even \parencite{jensenDynamicAnalysisRecord2015}. A climatology
+for the \gls{nh} based on an anomaly-index is shown in \cref{fig:clim_blocking}.
 
 Where they occur, blockings can exert a considerable impact on societies and
 ecosystems alike, a feature that numerous publications have drawn attention to
@@ -175,6 +201,20 @@ sector, especially with the transition to renewable sources
 \parencite{oteroCharacterizingRenewableEnergy2022,
     vanderwielInfluenceWeatherRegimes2019}, potentially aggravating poor air
 quality through increased fossil fuel use.
+
+\begin{figure}[htpb]
+    \centering
+    \raisebox{-.5\height}{\includegraphics[scale=.75]{fig/Intro/clim_seasonal.pdf}}%
+    % \hspace{1em}%
+    \raisebox{-.5\height}{\includegraphics[scale=.75]{fig/Intro/clim.pdf}}%
+    \caption{Climatological blocking occurrence frequency for (a) winter,
+    (b) spring, (c) summer, (d) autumn and (e) the whole year. Climatology
+    based on \gls{pv} anomalies according to the index by
+    \textcite{schwierzPerspicaciousIndicatorsAtmospheric2004} for the years
+    1979--2019 from the \gls{era5} reanalysis. More details are given in
+    \cref{sec:CS_block}.}
+    \label{fig:clim_blocking}
+\end{figure}
 
 \subsection{Interactions} \label{sec:intro_block_interactions}
 Consistent with the impacts described above, blockings interact with
@@ -280,11 +320,13 @@ observations \parencite{hoskinsSteadyLinearResponse1981}.
 This was also pointed out by \textcite{charneyMultipleFlowEquilibria1979}, who
 proposed a model in which non-linearities were essential for blocking
 occurrence. Similar to the notion of stationary waves, their
-model---termed \gls{cdv} model in the following---admitted
+model---termed \gls{cdv} model in the following---admits
 multiple \emph{unstable fixed points}, each associated with a different
 \emph{flow regime}
 and opened the understanding of blocking as a (quasi-) stationary regime
-governing the atmospheric system's dynamics in its vicinity in state space. The
+governing the atmospheric system's dynamics in its vicinity in state space.
+\Cref{fig:CdV_Schematic} illustrates the duality between physical and state
+space and the associated perspectives on blocking for the \gls{cdv} model. The
 idea, that the mid-latitude atmosphere transitions between such regimes
 chaotically due to stochastic forcing from synoptic variability was highly
 influential and has been extensively applied to all types of models
@@ -298,6 +340,28 @@ by its sensitivity to parameter choices
 \parencite{crommelinMechanismAtmosphericRegime2004} and whether the real
 atmosphere possesses regimes in the dynamical sense is debated
 \parencite{stephensonExistenceMultipleClimate2004}.
+
+\begin{figure}[thpb]
+  \centering
+  \input{fig/Intro/tikz/CdV}
+  \caption{Illustration of the \gls{cdv} model as an example for barotropic
+  theories of blocking and the duality between physical and state space.
+  (a) Two-dimensional \gls{pc} projection of the system's attractor based on 
+  a trajectory with $10^7$ time steps. Histogram with
+  $500 \times 500$ bins uniformly partitioning the rectangular bounding box of
+  the data.  A few outliers have been clipped. The blocking and zonal 
+  fixed points are indicated by a black and a red cross. (b) and (c) show 
+  the flow patterns associated with the two fixed points.
+  Adapted from \cite{dorringtonInteractionStochasticForcing2023}.}
+  \label{fig:CdV_Schematic}
+\end{figure}
+
+% \begin{figure}[htpb]
+%     \centering
+%     \raisebox{-.5\height}{\includegraphics[scale=.75]{fig/Intro/HistPlotsPC.pdf}}%
+%     \raisebox{-.5\height}{\includegraphics[scale=.75]{fig/Intro/fixed_points.pdf}}%
+%     \caption{Fixed pddddintsd}
+% \end{figure}
 
 The quasi-stationary wave perspective was advanced by
 \textcite{tungTheoryStationaryLong1979} who conceived blockings as waves
@@ -318,7 +382,7 @@ called \enquote{modons} as solutions similar in structure and behaviour to
 blockings. Similar results can be obtained when considering point vortices as
 abstractions of blockings, which provides a particularly simple
 understanding of blockings and their dynamics
-\parencite{mullerApplicationsPointVortex2015}. In a related view,
+\parencite{mullerApplicationsPointVortex2015, hirtStatisticsDynamicsBlockings2018}. In a related view,
 \textcite{hainesEddyForcedCoherentStructures1987} interpret synoptic eddies as
 providing a dipole \gls{pv} forcing that supports the coherent modon structure
 against dissipation. Modon and point vortex theory can be seen as
@@ -384,14 +448,12 @@ generates synoptic-scale eddies shaping the general circulation. Classical
 linear instability theory \parencite[e.g.,~][]{charneyDynamicsLongWaves1947,
     eadyLongWavesCyclone1949} and energy cycle considerations
 \parencite{lorenzAvailablePotentialEnergy1955} demonstrate that in such a
-setting, generic instabilites convert available potential energy into eddy
-kinetic energy on synoptic scales. Baroclinic theories tackle the central
-question how these synoptic eddies feed back onto the planetary-scale flow to
-produce persistent large-scale anomalies \parencite{shuttsCaseStudyEddy1986}.
-In this sense, the baroclinic perspective complements more traditional
-barotropic frameworks introduced above by seeking a physically consistent
-explanation for transient eddies capable of initiating, sustaining or
-destabilizing large-scale flow regimes, and they provide models with more
+setting, generic instabilites convert \gls{ape} into \gls{eke}
+on synoptic scales. Baroclinic theories tackle the central
+question how these synoptic eddies initiate, sustain and destabilize
+the planetary-scale flow to
+produce persistent large-scale anomalies \parencite{shuttsCaseStudyEddy1986}
+ and they provide models with more
 realistic assumptions than idealized approaches based on modons or
 point--vortex dynamics.
 
@@ -399,8 +461,11 @@ The feedbacks between eddies of any scale and the large scale flow are closely
 tied to the nature of turbulent cascades in geophysical flows. In fully
 \emph{three-dimensional turbulence}, energy cascades downscale toward
 dissipation
-\parencite{popeTurbulentFlows2000}. This behaviour occurs at small scales in
-the atmosphere, where the rotation and stratification are insignificant.
+\parencite{popeTurbulentFlows2000}. This behaviour occurs at small scales in the
+atmosphere, where the combined effects of rotation and stratification are
+insignificant and in
+mesoscale flows characterized by strong convection
+\parencite{selzEstimationVariabilityMesoscale2019,hirtScaleInteractionsMeso2023}.
 By contrast, in \emph{two-dimensional turbulence} the existence of a second
 conserved
 quantity (the enstrophy in addition to the kinetic energy) induces (dual)
@@ -409,7 +474,8 @@ the excitation scale, there is an inverse energy cascade with energy transfer
 from small to large scales, while in scales smaller than the excitation scale,
 there is a direct enstrophy cascade with enstrophy transfer from large to
 small scales \parencite{kraichnanInertialRangesTwodimensional1967,
-    boffettaTwoDimensionalTurbulence2012}.
+    boffettaTwoDimensionalTurbulence2012}. Both of the above types are depicted
+schematically in \cref{fig:energy_spectrum}~(a) and (b).
 
 \emph{\Gls{qg} turbulence} appropriate for a strongly stratified rapidly
 rotating atmosphere at synoptic scales, shares essential features with
@@ -419,31 +485,47 @@ structure \parencite{charneyGeostrophicTurbulence1971}: above the energy
 injection scale energy is transferred upscale, while potential enstrophy
 cascades downscale below it. Unlike pure two-dimensional flow, however,
 \gls{qg} turbulence is not forced externally at a single wavenumber but is
-instead driven internally by baroclinic instability, which extracts available
-potential energy from the mean meridional temperature gradient and converts it
-into eddy kinetic energy near the Rossby deformation radius ($\sim$ 1000 km)
+instead driven internally by baroclinic instability, which extracts \gls{ape}
+from the mean meridional temperature gradient and converts it
+into \gls{eke} near the Rossby deformation radius ($\sim$ 1000 km)
 \parencite{frederiksenUnifiedThreedimensionalInstability1982}. This injection
 scale therefore acts as the effective excitation wavenumber for the
 atmospheric cascade. The upscale energy transfer above the injection
 scale does not, however, extend indefinitely: it is arrested roughly at the
 Rhines scale ($\sim$ 2000--3000 km), where, either through turbulence--Rossby
 wave interaction \parencite{rhinesWavesTurbulenceBetaplane1975}
-or frictional processes \parencite{sukorianskyArrestInverseEnergy2007},
+or geometric effects \parencite[\enquote{$\beta$-arrest};~][]{sukorianskyArrestInverseEnergy2007},
 energy preferentially accumulates in zonal and quasi-stationary planetary
 structures rather than continuing to cascade. Blocking is a
 synoptic--to--planetary-scale phenomenon residing in the upscale-transfer range,
-near the scale at which this transfer is naturally arrested. Observations
-robustly support upscale energy transfer in this range
-\parencite{nastromKineticEnergySpectrum1984,
-    boerLargescaleTwodimensionalTurbulence1983}.
+near the scale at which this transfer is naturally arrested. While there is 
+still debate about the cascades in the synoptic and mesoscales, the 
+upward energy cascade in this region is firmly established and robustly supported
+by observations \parencite{boerLargescaleTwodimensionalTurbulence1983}. The
+process is illustrated in \cref{fig:energy_spectrum}~(c). The kinetic energy
+spectra will be discussed in more detail in \cref{sec:intro_predictability_chaos}.
 
-For instance, in a two-layer \gls{qg} model proposed by
-\textcite{salmonTwolayerQuasigeostrophicTurbulence1978}, available potential
-energy resulting from differential heating cascades downscale towards the
+\begin{figure}[thpb]
+  \centering
+  \input{fig/Intro/tikz/ke_spectrum}
+  \caption{Idealized kinetic energy spectra for (a) three-dimensional
+  turbulence, (b) two-dimensional} and (c) the mid-latitude atmosphere.
+  Red vertical lines indicate the dominant energy injection scales while the red 
+  arrows indicate the directions of the energy cascades. In the  mesoscale
+  range, the direction of the cascade is debated and probably variable, so 
+  no arrow is shown.   
+  \label{fig:energy_spectrum}
+\end{figure}
+
+The process of upscale energy transfer can be studied in dedicated models.
+For instance, in a two-layer
+\gls{qg} model proposed by
+\textcite{salmonTwolayerQuasigeostrophicTurbulence1978}, \gls{ape} resulting
+from differential heating cascades downscale towards the
 Rossby deformation scale, where it is converted by baroclinic instability to
-kinetic energy in barotropic modes. That kinetic energy is then cascaded
+kinetic energy in barotropic modes, which then cascades
 upward again. The barotropization is important: it implies that energy
-injected by an inherently three-dimensional, baroclinic process is projected
+injected by an inherently baroclinic process is projected
 onto vertically coherent, quasi-two-dimensional structures at larger scales,
 where the dual-cascade arguments outlined above become applicable.
 
@@ -451,52 +533,37 @@ A complementary perspective is offered by
 \textcite{herbertRestrictedEquilibriumEnergy2014}, who decompose
 rotating-stratified Boussinesq dynamics into inertia-gravity wave modes and
 slow (vortical/\gls{pv}-carrying) modes. They show that the direction of the
-energy cascade depends on which subset of phase space is dynamically active:
+energy cascade depends on which subset of state space is dynamically active:
 when the statistics are restricted to the slow manifold, an inverse energy
 transfer becomes admissible (a statistical mechanics analogue of
 condensation), whereas a direct cascade develops in the unrestricted case.
 The restricted case most naturally applies to (geostrophically) balanced,
-large-scale dynamics \parencite{vautardInvariantManifoldsQuasigeostrophy1986};
-precisely the regime in which mature blocks reside, supporting the
-view that the upscale transfer arguments above are appropriate for
-synoptic-to-planetary scale phenomena, even though the underlying baroclinic
-energy source is three-dimensional. The
-condensation framing is particularly suggestive in light of the Rhines
-arrest: blocks may be understood as a quasi-equilibrium accumulation of
-upscale-transferred eddy energy at the scale where further upscale transfer
-is dynamically suppressed, lending the structure both its large scale and
-its persistence.
+large-scale dynamics \parencite{vautardInvariantManifoldsQuasigeostrophy1986},
+precisely the regime in which mature blocks reside. The condensation framing
+is particularly suggestive in light of the Rhines arrest: blocks may be
+understood as a quasi-equilibrium accumulation of upscale-transferred \gls{eke}
+ at the scale where further upscale transfer is dynamically suppressed,
+lending the structure both its large scale and its persistence.
 
-Thus, although blocking develops in a vertically sheared environment, its
-mature phase often exhibits a pronounced equivalent-barotropic character,
-rendering the dynamics locally more two-dimensional. This depends on the
-specific flow condition, scale, and stratification, but it does not seem
-far-fetched to understand part of a blocking's persistence as an effect of
-energy transfer to larger scales sustained by baroclinic instability and the
-associated eddy fluxes. This argument relies in part on the observation of
-strong vertical coherence in blockings and the atmosphere appearing more
-stratified (two-dimensional).
+% Thus, although blocking develops in a vertically sheared environment, its
+% mature phase often exhibits a pronounced equivalent-barotropic character,
+% rendering the dynamics locally more two-dimensional. This argument relies in
+% part on the observation of strong vertical coherence in blockings.
 
-The upscale energy transfer encapsulates the existence of feedback mechanisms
-described above in an abstract way (in spectral space rather than physical
-space). What is discussed as eddy-eddy interactions or selective absorption
-mechanism in the context of blockings is closely linked to the process of
-eddy straining mechanisms considered as mediators of scale interactions in
+The upscale energy transfer described above in an abstract way
+(in spectral rather then physical space) encapsulates the existence of feedback
+mechanisms that are discussed, e.g. as eddy-eddy interactions or selective
+absorption mechanism in the context of blockings and  
+eddy straining mechanisms in
 turbulence theories \parencite{ditlevsenTurbulenceShellModels2010}. In this
 view, baroclinic theories of blocking thus interpret
 persistence not as a steady equilibrium, but as the large-scale manifestation
 of sustained, yet principally intermittent, eddy fluxes and inverse energy
-transfer within a stratified turbulent flow---some apply the theory directly
+transfer within a stratified turbulent flow
 \parencite{hansenComparisonSpectralEnergy1984,
     jensenUsingEnstrophyAdvection2014,
     tanakaNumericalSimulationAmplification1991,
     fournierAtmosphericEnergeticsWavelet2003, mullerUsingConceptDynamic2019}.
-Blocking may, hence, be interpreted as a barotropized manifestation of
-baroclinically generated turbulence operating in a quasi-two-dimensional
-dynamical regime, though there is even evidence that such baroclinic energy
-conversions take place within some blockings themselves, pointing out that the
-assumption of equivalent-barotropic
-structure is not always justified \parencite{martineauBaroclinicBlocking2022}.
 
 Baroclinic theories emphasizing the role of the vertical structure of the
 flow supporting blocking formation have proposed a variety of abstracted
@@ -508,7 +575,7 @@ models over the years to investigate these processes mechanically
 model introduced above have been extended into multi-layer generalizations.
 Some models are simple enough to study the phenomenon from a dynamical systems
 perspective. For example, \textcite{charneyFormdragInstabilityMultiple1980}
-extend the aforementioned barotropic \gls{cdv} model introduced,
+extend the aforementioned barotropic \gls{cdv} model,
 highlighting that the baroclinic
 instability attains a first-order importance in bringing about the equilibrium
 states associated with blocking, whereas orography becomes less important
@@ -519,7 +586,7 @@ stability analyses of the same model
 \parencite{schubertCovariantLyapunovVectors2015,
     schubertDynamicalAnalysisBlocking2016}.
 
-Consistent with the above, many studies have frequently highlighted the
+Consistent with the above, studies have frequently highlighted the
 importance of upstream disturbances (including cyclones) and wave-interactions
 for blocking onset and decay. In a simple two-layer model,
 \textcite{luoPlanetaryscaleBaroclinicEnvelope2000} observed that an upstream
@@ -530,7 +597,10 @@ dissipate it again. Such conceptualisation is backed by observational evidence
 of the equivalent barotropic blocking region being \enquote{enveloped} by
 baroclinically active zones up- and downstream
 \parencite{frederiksenOnsetBlockingCyclogenesis1984,
-    nakamuraObservedChangesBaroclinic1990}. Similar insights have been obtained by
+    nakamuraObservedChangesBaroclinic1990},
+    though baroclinic energy conversions may even take place within the 
+    blocking itself \parencite{martineauBaroclinicBlocking2022}.
+    Similar insights have been obtained by
 budget and flux analyses of observations and (early) operational forecast
 models by \textcite{mullenLocalBalancesVorticity1986,
     mullenTransientEddyForcing1987}. The precise location of upstream cyclonic
@@ -574,7 +644,7 @@ centre and east \parencite{nabizadeh3DStructureNorthern2021}. Lagrangian
 trajectory analyses show that a substantial fraction of air arriving in
 blocking anticyclones experienced strong latent heating beforehand,
 consistent with cross-isentropic transport of low-\gls{pv} air in moist
-slant-wise ascending airstreams \parencite{pfahlImportanceLatentHeat2015,
+slant-wise ascending airstreams as \glspl{wcb} \parencite{pfahlImportanceLatentHeat2015,
     steinfeldRoleLatentHeating2019}---though some of this air may ascend
 convectively rather than within such airstreams
 \parencite{zschenderleinLagrangianAnalysisUppertropospheric2020}. Beyond this
@@ -584,11 +654,24 @@ theoretically and observationally
 \parencite{saffinCirculationConservationOutflow2021,
     methvenPotentialVorticityWarm2015}. The reinforcement of the negative
 \gls{pv} anomaly on the western flank of the block also contributes to its
-stationarity against eastward propagation. All these effects appear more
+stationarity against eastward propagation. The prototypical enforcement of
+a blocking by a \gls{wcb} is illustrated in \cref{fig:WCBBlock}. 
+All these effects appear more
 important
 during onset and for larger, more intense blocks, suggesting that their
 neglect in dry theories underlies the poorly represented rapid onset and
 persistence noted earlier.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[scale=.5,  trim={4.5cm 8cm 6cm 0cm}, clip]{fig/Intro/f01.pdf}
+    \caption{Schematic showing a \gls{wcb} stabilizing a blocking, which is
+    depicted as an upper-level negative \gls{pv} anomaly. 2 
+    \gls{pvu} line indicates tropopause.
+    Reproduced from \textcite{steinfeldRoleLatentHeating2019a} with permission.}
+    \label{fig:WCBBlock}
+\end{figure}
+
 
 These influences can be diagnosed elegantly in quantitative \gls{pv}
 frameworks, whose conservation properties allow them to be tracked along air
@@ -629,8 +712,8 @@ Moist processes also reshape the mean flow and baroclinicity
 \parencite{auestadLatentHeatingFeedback2025, schemmEliminatingDecadesOld2023},
 so their climatological influence extends beyond these direct mechanisms.
 
-Across these pathways, the moist ascent that feeds blocks is predominantly
-organized in so-called \glsentrylongpl{wcb} originating in upstream surface
+As mentioned above, the moist ascent that feeds blocks is predominantly
+organized in \glspl{wcb} originating in upstream surface
 cyclones---tying the diabatic
 picture back to the upstream baroclinic disturbances already emphasized
 by theories described in the last section.
@@ -873,7 +956,7 @@ proven instrumental in guiding decision-making as well as model improvement.
 
 Mathematically, one can think of ensemble forecasting as a Monte Carlo
 approximation of the temporal evolution of the probability distribution in the
-system's phase space. A subtle distinction has to be made between the growth of
+system's state space. A subtle distinction has to be made between the growth of
 the ensemble spread (the width of the probability distribution) and the growth
 of the forecast error (the distance between the ensemble mean and the truth),
 since the two only coincide in \emph{reliable} ensembles
@@ -937,8 +1020,8 @@ variables quickly.
 
 The predictability implications of this cross-scale error growth depend
 critically on the shape of the kinetic energy spectrum (i.e.~the curve of
-$E_{\mathrm{kin}}(k)$ vs. $k$), which is directly linked
-to the direction and nature of energy and enstrophy cascades already mentioned
+$E_{\mathrm{kin}}(k)$ vs. $k$), which, in classical theory, is directly linked
+to the direction and nature of energy cascades already mentioned
 in \cref{sec:intro_block_baroclinic}. In a $E_{\mathrm{kin}} \sim k^{-3}$
 range, the characteristic error-doubling time is scale-independent, and the
 predictability horizon is in principle indefinitely extendable by reducing
@@ -954,28 +1037,27 @@ scales and a -5/3 slope at meso- and
 submesoscales again. A schematic of this is depicted in
 \cref{fig:energy_spectrum}, with the transitions between the ranges indicated.
 In contrast to idealized two-dimensional turbulence, where the transition
-between the ranges is determined by the excitation scale
+between the ranges is determined by the excitation scale alone
 \parencite{kraichnanInertialRangesTwodimensional1967}, in \gls{qg} turbulence,
-the transition is determined by the validity of the \gls{qg}
+the \enquote{kinks} in the spectrum are determined by the validity of
+the \gls{qg}
 approximation\footnote{The (in-)validity of assumptions is also what limits
     intrinsic predictability in the two-dimensional Navier--Stokes equations.
     The inability to resolve the viscous subrange breaks Lipschitz continuity,
     thereby limiting predictability for kinetic energy spectra with slopes
     shallower than -3
-    \parencite{leungAtmosphericPredictabilityRevisiting2019}.},
-which is at scales smaller than the baroclinic excitation scales
-\parencite{charneyGeostrophicTurbulence1971,lindborgCanAtmosphericKinetic1999}.
+    \parencite{leungAtmosphericPredictabilityRevisiting2019}.}.
 
-\begin{figure}
-    \centering
-    \includegraphics[scale=1]{fig/Intro/Spectrum.pdf}
-    \caption{Schematic of the kinetic energy spectrum of the mid-latitude
-        atmosphere, showing the -5/3 slope at the planetary scale, the -3
-        slope at synoptic scales and the -5/3
-        slope at meso- and submesoscales.
-        From \textcite{skamarockAtmosphericKineticEnergy2014}.}
-    \label{fig:energy_spectrum}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[scale=1]{fig/Intro/Spectrum.pdf}
+%     \caption{Schematic of the kinetic energy spectrum of the mid-latitude
+%         atmosphere, showing the -5/3 slope at the planetary scale, the -3
+%         slope at synoptic scales and the -5/3
+%         slope at meso- and submesoscales.
+%         From \textcite{skamarockAtmosphericKineticEnergy2014}.}
+%     \label{fig:energy_spectrum}
+% \end{figure}
 
 This dual structure is well-established by both aircraft measurements
 \parencite{nastromKineticEnergySpectrum1984, lindborgCanAtmosphericKinetic1999}

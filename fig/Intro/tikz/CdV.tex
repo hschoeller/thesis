@@ -1,0 +1,44 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+
+\begin{document}
+
+\begin{tikzpicture}
+  % your two figures as named nodes
+  \node[anchor=center,inner sep=0] (left)
+      {\includegraphics[scale=.75]{~/Nextcloud/TeX/Thesis/fig/Intro/HistPlotsPC.pdf}};
+  \node[anchor=west,inner sep=0,right=6pt of left] (right)
+      {\includegraphics[scale=.75]{~/Nextcloud/TeX/Thesis/fig/Intro/fixed_points.pdf}};
+
+  % Pin points in the attractor, as (fx,fy) fractions of the LEFT node.
+  % fx: 0 = left edge, 1 = right edge.  fy: 0 = bottom, 1 = top.
+  % Calibrate these four numbers to land on the red and black crosses.
+  \coordinate (blockpt) at
+      ($(left.south west)!0.826!(left.south east)
+        !0.58!($(left.north west)!0.826!(left.north east)$)$);
+  \coordinate (zonalpt) at
+      ($(left.south west)!0.352!(left.south east)
+        !0.547!($(left.north west)!0.352!(left.north east)$)$);
+% \fill[red]   (blockpt) circle (1.2pt);
+% \fill[black] (zonalpt) circle (1.2pt);
+% ---- Right panels: the only things you tune ----
+% Top-left corner of each subplot box (as an offset from the image's top-left).
+\coordinate (aTL) at ($(right.north west)+(0.35cm,-0.6cm)$); % (a) blocking
+\coordinate (bTL) at ($(right.north west)+(0.35cm,-2.375cm)$); % (b) zonal
+\def\subh{1.3cm}   % shared height of a subplot box
+
+% Leader attaches at the right-edge midpoint = corner shifted down half a height.
+\coordinate (blocksrc) at ($(aTL)+(0,-\subh)$);
+\coordinate (zonalsrc) at ($(bTL)+(0,-\subh)$);
+
+\draw[dashed,gray] (aTL) -- (blockpt);
+\draw[dashed,gray] (bTL) -- (zonalpt);
+\draw[dashed,gray] (blocksrc) -- (blockpt);
+\draw[dashed,gray] (zonalsrc) -- (zonalpt);
+
+% --- calibration dots: mark each box's top-right and bottom-right corner ---
+% \fill[orange] (aTL) circle (1pt);  \fill[orange] ($(aTL)+(0,-\subh)$) circle (1pt);
+% \fill[purple] (bTL) circle (1pt);  \fill[purple] ($(bTL)+(0,-\subh)$) circle (1pt);
+\end{tikzpicture}
+\end{document}
