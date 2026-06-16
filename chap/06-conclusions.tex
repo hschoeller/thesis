@@ -7,8 +7,8 @@
 \label{ch:conclusion}
 
 \chapteroverview{This chapter synthesizes the results from the last
-chapters and discusses their implications in light of the broader scientific
-field. It consequently offers some paths for future research.}
+      chapters and discusses their implications in light of the broader scientific
+      field. It consequently offers some paths for future research.}
 
 % The insights
 % obtained in the previous chapters are connected by a common thread. The interaction
@@ -69,7 +69,7 @@ one direction---is what produces the effect. An analogous toy model with
 three unstable dimensions lacked this property, and a forthcoming publication
 shows that this holds in generality. This is a particularly interesting result,
 because local persistence and local dimension are usually discussed as separate
-measures in recent literature and studying in how far they are related 
+measures in recent literature and studying in how far they are related
 in other settings offers a promising direction for future work.
 
 The relevance of \emph{stochastic inertia} as a mechanism in full-complexity
@@ -81,7 +81,7 @@ is itself an open question. As outlined in the introduction, the
 instability of blockings in this sense depends on the location of the
 blocking, the time of year, and its life-cycle stage, as well as on whether it
 is assessed in a model or in reanalysis. On top of this, how exactly to measure
-the attractor structure of the atmosphere and what exactly this tells us is 
+the attractor structure of the atmosphere and what exactly this tells us is
 still a matter of debate, even though the topic has been subject of active
 research for decades.
 
@@ -100,7 +100,8 @@ reflects this division of labour: it inflates the initial \gls{eda}
 perturbations with singular vectors to ensure sufficient spread along the
 most unstable directions in particular.
 
-That the two are genuinely distinct is itself a result of
+That the observation and assimilation uncertainties are genuinely distinct
+from the most unstable directionsis itself a result of
 \cref{ch:weatherRegimes}. The regime-dependent assimilation uncertainty found
 there does not single out any regimes as particularly uncertain, as would be
 expected if the differences in local attractor geometry reported in other
@@ -119,12 +120,12 @@ of both the observations and the model simultaneously, without requiring such
 inflation, would be a more elegant---though considerably more
 challenging---solution. The \gls{eda} system does combine the two aspects to
 some extent by employing stochastic physics and through the background-error
-covariance, but the investigations of \cref{ch:weatherRegimes} support 
-the insufficiency of adressing unstable directions given expression 
-in the necessity of adding singular vector perturbations.
+covariance, but the investigations of \cref{ch:weatherRegimes} support
+the notion that the unstable directions are insufficiently addressed, which
+necessitates singular vectors in the operational setting.
 A natural systematic extension of the work of \cref{ch:weatherRegimes}
-would be to study how the results change once singular vectors are included 
-and how the flow-dependency of assimilation uncertainty looks if \emph{only}
+would be to study the ensemble spread once singular vectors are included
+and how the flow-dependency of this spread looks if \emph{only}
 singular vectores were used.
 
 \medskip
@@ -142,24 +143,24 @@ Perhaps counterintuitively, a large set of air masses persisting in a
 three-dimensional configuration implies that the flow they are embedded in
 behaves rather two-dimensionally---tying back to the role of turbulence and
 its active dimensionality in blocking and \glspl{wcb}
-(\cref{sec:intro_block_baroclinic}). 
+(\cref{sec:intro_block_baroclinic}).
 
 The derived measure of local dimension employed in the aforementioned analysis
 as well as in \cref{ch:stochasticInertia}
 is a powerful tool that can be applied
 in any space---state space or physical space and Euclidean or not---and
-offers the additional advantage of being independent of differences in 
-sampling density, which is an issue in other measures of local dimension. 
+offers the additional advantage of being independent of differences in
+sampling density, which is an issue in other measures of local dimension.
 Though its interpretation and generalisation are bound by the implied design
 choices, an application of the method to the state space of more complex
-models could add to the clarification of the notion of local dimension 
+models could add to the clarification of the notion of local dimension
 and what that tells us about the system's behaviour in terms of predictability,
-hyperbolicity or sampling requirements for the assimilation setting.  
+hyperbolicity or sampling requirements for the assimilation setting.
 
 All of the above go to show that properly reflecting on the local dimensions
 of a system may be a \emph{blessing rather than a curse} and an equally
-optimistic 
-perspective applies to noise: this thesis has shown that---if carefully 
+optimistic
+perspective applies to noise: this thesis has shown that---if carefully
 considered---noise can be a \emph{tool rather than a nuisance}.
 
 \section{Noise and scales}
@@ -186,23 +187,24 @@ themselves: \gls{sppt} perturbs the total physics tendency, yet a large
 tendency need not coincide with a large uncertainty or a strongly unstable
 direction---a well-forecast surface cyclone may carry tendencies large in
 magnitude
-but low uncertainty compared to the initiation of an isolated convective cell 
-whose prediction is highly uncertain and the associated tendencies possibly 
+but low uncertainty compared to the initiation of an isolated convective cell
+whose prediction is highly uncertain and the associated tendencies possibly
 near zero. \gls{spp} perturbs the uncertain parameters more selectively
 and may align better with the relevant directions, e.g.~by varying initiation
 thresholds, but whether either
 scheme activates the dynamically unstable subspace remains largely untested.
-Future work could explore this questions along a hierarchy of models with 
+Future work could explore this questions along a hierarchy of models with
 the simplest ones offering the most direct assessment of attractor structure.
 This coincides with the natural extension of the inquiry into stochastic
-inertia, which would consider other kinds of noise---multiplicative like 
-\gls{sppt} for example---and more complex models. 
+inertia, which would consider other kinds of noise---multiplicative like
+\gls{sppt} for example---and more complex models.
 
 \medskip
 
-The convergence of the dynamical-systems perspective with the impacts
+Whether the insighty gained from the low-order dynamical-systems perspective
+translate to the impacts
 of stochasticitiy in full-scale models also hinges on treating the additive
-noise of the low-order model as a stand-in for
+noise in the simple system as a stand-in for
 stochastic parametrization of model error. This identification, however,
 deserves scrutiny.
 The \gls{cdv} system is barotropic, whereas blocking dynamics are considerably
@@ -232,44 +234,49 @@ empirical picture is so mixed.
 
 \medskip
 
-Observing every relevant proces and scale is as impossible as representing all
+Observing every relevant process and scale is as impossible as representing all
 scales in a model, and this predicament is dealt with in a similar way by
-introducing noise in observation space for assimilation. The generation of 
-an initial ensemble through \gls{eda} can be seen as an exploration of the 
-local neighborhood of the analysis through noise, which already points to 
+introducing noise in observation space for assimilation. The generation of
+an initial ensemble through \gls{eda} can be seen as an exploration of the
+local neighborhood of the analysis through noise, which already points to
 its pivotal role determining whether assimilation ensembles
 truly add predictive value or are \enquote{just} an efficient way of
 denoising. Since \gls{eda} is just one way of carrying out this exploration,
-the consistency of the results of \cref{ch:weatherRegimes} across other 
+the consistency of the results of \cref{ch:weatherRegimes} across other
 assimilation systems is a worthwile task. A related question pertains to the
 precise way in which observation perturbations are added durig assimilation;
-drawing from a zero-mean Gaussian distribution as performed for the 
+drawing from a zero-mean Gaussian distribution as performed for the
 \gls{eda} is a design choice that may not be optimal in all cases and dedicated
 experiments could explore what impacts other choices entail.
 
 \medskip
 
-In the Lagrangian study of air streams in \cref{ch:coherence}, noise 
+In the Lagrangian study of air streams in \cref{ch:coherence}, noise
 enabled separation of robust and coherent structures, which inherits its
 importance
-from the ubiquitous uncertainty in models and observations. 
+from the ubiquitous uncertainty in models and observations.
 The sensitivity of \glspl{wcb} to
-perturbations, for instance, is itself diagnostic of the processes that
-govern their evolution and because \glspl{wcb} are so
-sensitive to perturbation, defining them as coherent sets that are robust
-to perturbation is a natural way to identify them objectively as dynamically
-meaningful systems. The noise in this setting was applied in physical space
-to the locations of the air parcels, but since the method is scale-invariant 
+perturbations in parameters or initial and boundary conditions is itself
+diagnostic of the processes that
+govern their evolution, so defining them as coherent sets that are robust
+to perturbations in the air parcels locations is a natural way to identify
+them objectively as dynamically
+meaningful systems. Future case studies could investigate the changes
+of individual such objects across perturbed ensembles in contrast to
+diagnosing differences across all individual trajectories. The noise in this
+setting was applied in physical space
+(to the locations of the air parcels), but since the method is scale-invariant
 and agnostic with respect to the metric space considered, the same principle
 can be applied
 in a state space like in \cref{ch:stochasticInertia} or to other variables to
 identify other kinds of coherent
-structures or to assess the the coherence of strucutres identified by other 
-means. 
+structures or to assess the coherence of strucutres identified by other
+means like the geophysical trajectory clustering methods discussed in
+\cref{sec:intro_wcb_def}.
 
 In a similar vein, the sensitivity of \glspl{wcb} to variations in model
-physics and initial and boundary conditions has so far been studied on the 
-basis of individual trajectories. \Cref{ch:coherence} has shown that much 
+physics and initial and boundary conditions has so far been studied on the
+basis of individual trajectories. \Cref{ch:coherence} has shown that much
 can be learned by considering coherent sets of trajectories and adopting that
 view in sensitivity studies for \glspl{wcb} or blockings more generally may
 yield further important insights into the propagation of uncertainty. The
@@ -292,9 +299,9 @@ better forecasts. Dedicated measurements are carried out for
 impactful weather systems like tropical cyclones
 or severe thunderstorms, but resource constraints limit the extent to which
 such pathways to targeted observational campaigns can be implemented
-routinely. Still, the insights into the flow-dependence of observation 
-uncertainty and its impact on assimilation and forecast may prove valuable 
-for guiding future developments. Those impacts could be 
+routinely. Still, the insights into the flow-dependence of observation
+uncertainty and its impact on assimilation and forecast may prove valuable
+for guiding future developments. Those impacts could be
 reinforced by dedicated \gls{ose} or \gls{osse} and extended to other regions
 apart from the North Atlantic-European sector considered herein.
 
@@ -308,7 +315,7 @@ representation of unresolved physics will remain pivotal, and that it cannot
 be addressed by resolution alone. The dynamical-systems perspective adds a
 distinctive and practically valuable corollary here. Because \emph{stochastic
       inertia} is detectable from the \emph{deterministic} trajectory alone,
-      the
+the
 behaviour of a model under stochastic perturbation may be at least partly
 anticipated from its deterministic dynamics---which is the only handle
 available, given that no alternative realisation of the real atmosphere
@@ -323,11 +330,11 @@ outlined above may therefore be especially fruitful in the context of these
 phenomena. For instance, \cref{ch:weatherRegimes} has shown that elevated
 assimilation uncertainty is present not for blocking regions themselves, but
 rather the upstream regions and those associated with \glspl{wcb}
-in particular. Assimilation experiments are frequently designed for 
+in particular. Assimilation experiments are frequently designed for
 convective phenomena, but similar experiments for the interaction of
 \glspl{wcb} with blockings appear to be
-lacking, even though the impact of initial condition uncertainty in that 
-context has been assessed. 
+lacking, even though the impact of initial condition uncertainty in that
+context has been assessed.
 
 \medskip
 
@@ -340,14 +347,16 @@ differently under a changing climate and at the coarser resolutions typical
 of climate models---extending the analysis to that setting is a natural and
 important next step. This perspective is partially inherent to the
 dynamical systems approach of \cref{ch:stochasticInertia}, since the effects
-of noise on blockings have often been assessed in climate models, but 
+of noise on blockings have often been assessed in climate models, but
 a changing climate also affects the role of moisture in particular and the
 circulation more generally. It is, therefore, unclear whether the insights
-obtained in \cref{ch:weatherRegimes,ch:coherence} hold in a warmer world 
+obtained in \cref{ch:weatherRegimes,ch:coherence} hold in a warmer world
 and on coarser scales. Analyzing future assimilation uncertainty is, of
-course, not possible, but the evident problems climate models have with 
+course, not possible and climate model biases typically do not result from
+erroneous initialization, but the evident problems climate models have with
 correctly representing blocking and \glspl{wcb} may be better understood
-when adopting a coherence-based perspective. 
+when adopting an object-oriented perspective like the coherent-sets
+framework.
 
 The climate model question connects to another broad direction: coupling to
 other Earth-system components. The role of the ocean in particular merits
@@ -384,7 +393,7 @@ which directions matter and which structures endure. Properly considered,
 neither uncertainty nor dimensionality is merely a limitation to be
 suppressed---both are diagnostics of how the atmosphere and its model analogues
 behave.
-How the specific mechanisms and insights identified here translate to other 
+How the specific mechanisms and insights identified here translate to other
 spatial scales and levels of complexity remains to be established, but the
 broader lesson is more robust:
 that confronting uncertainty directly, rather than treating it as something

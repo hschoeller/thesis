@@ -3,24 +3,24 @@
 % Toggle: set to true for final bound version,
 % false for submission version (reviewers on separate sheet)
 \newif\ifreviewersinbinding
-\reviewersinbindingtrue  % change to \reviewersinbindingfalse for submission
+\reviewersinbindingfalse  % change to \reviewersinbindingtrue for final bound version
 
 %------------------------------------------------
 % Title page (no reviewers)
 %------------------------------------------------
 \begin{titlepage}
-\centering
+    \centering
     {\Large \textbf{Freie Universität Berlin}}\\[1.5cm]
     {\large Institute of Meteorology}\\[0.5cm]
     {\large Department of Earth Sciences}\\[2.0cm]
     {\huge \textbf{Atmospheric Blocking and Warm Conveyor Belts:
-    Mathematical Perspectives}}\\[1.5cm]
+        Mathematical Perspectives}}\\[1.5cm]
     {\large A cumulative dissertation submitted in partial fulfillment of the
     requirements for the degree of}\\[0.5cm]
     {\Large Doctor rerum naturalium (Dr.~rer.~nat.)}\\[1.5cm]
     {\large by}\\[0.5cm]
     {\Large \textbf{Henry Leon Schoeller}}\\[2.0cm]
-\vfill
+    \vfill
     {\large Berlin, June 2026}\\
 \end{titlepage}
 \cleardoublepage
@@ -30,39 +30,39 @@
 % bound into thesis in final version)
 %------------------------------------------------
 \ifreviewersinbinding
-    % Final version: included in pagination as normal
-    \chapter*{Examination Committee}
-    \addcontentsline{toc}{chapter}{Examination Committee}
-    \begin{center}
-    \vspace*{3cm}
+% Final version: included in pagination as normal
+\chapter*{Examination Committee}
+\addcontentsline{toc}{chapter}{Examination Committee}
+\begin{center}
+\vspace*{3cm}
 
 \else
-    % Submission version: excluded from pagination
-    \clearpage
-    \thispagestyle{empty}
-    \pagenumbering{gobble}
-    \begin{center}
+% Submission version: excluded from pagination
+\clearpage
+\thispagestyle{empty}
+\pagenumbering{gobble}
+\begin{center}
     \vspace*{3cm}
 
     {\Large \textbf{Examination Committee}}\\[2cm]
-\fi
+    \fi
 
 
-\begin{tabular}{rl}
-    Chair:              & Prof.\ Dr.\ Fabian Hoffmann \\
-    Deputy Chair:       & Prof.\ Dr.\ Henning Rust \\
-    Committee Member:   & Dr.\ Mona Bukenberger \\[1em]
-    Supervisor:         & Prof.\ Dr.\ Stephan Pfahl \\
-    Reviewer:           & Prof.\ Dr.\ Gabriele Messori \\[1em]
-    Disputation date:   & 14\textsuperscript{th} September 2026 \\
-\end{tabular}
+    \begin{tabular}{rl}
+        Chair:            & Prof.\ Dr.\ Fabian Hoffmann           \\
+        Deputy Chair:     & Prof.\ Dr.\ Henning Rust              \\
+        Committee Member: & Dr.\ Mona Bukenberger                 \\[1em]
+        Supervisor:       & Prof.\ Dr.\ Stephan Pfahl             \\
+        Reviewer:         & Prof.\ Dr.\ Gabriele Messori          \\[1em]
+        Disputation date: & 14\textsuperscript{th} September 2026 \\
+    \end{tabular}
 \end{center}
+\cleardoublepage
 \ifreviewersinbinding\else
     % Restore pagination after the separate sheet
     \clearpage
     \pagenumbering{roman}
 \fi
-\cleardoublepage
 
 %------------------------------------------------
 % Declaration / Statement of originality
@@ -73,40 +73,51 @@ I hereby declare that this dissertation has been composed by myself and that
 the work contained herein is my own, except where explicitly stated otherwise.
 This dissertation has not been submitted, in whole or in part, for any other
 degree or professional qualification.
-
-\medskip
+\smallskip
+\noindent
+Large language models (LLMs) were used as writing aids during the preparation
+of this dissertation, primarily for proofreading, reformulation of drafted
+text, and code assistance. All scientific content, results, and conclusions
+are entirely my own; no LLM was used to generate substantive intellectual
+content.
+\smallskip
 \noindent
 This cumulative dissertation is based on the following peer-reviewed
 publications, that either have been published or are in the process of being
 published. To each of these publications, I have contributed as detailed in the
 following:
-
 \begin{enumerate}
-    \item \fullcite{schoellerNoiseinducedEnhancementRegime2026},
-    Accepted by
-    \textit{Communication in Applied Mathematics and Computational Science};\\[0.5em] 
-    I contributed to the conceptual framework of the paper, carried
-    out the computations, created the figures and was the responsible author of
-    \cref{sec:sI_app} while I contributed to all other sections.
-    \item %\fullcite{schoellerIsolatingEffectsModel2025},
-    Henry Schoeller and Stephan Pfahl (2026). \enquote{
-        Isolating flow-dependent uncertainty in ensemble reanalysis data and
-        its relation to Euro-Atlantic weather regimes and warm conveyor belts}.
-        Submitted to: \textit{Weather and Climate Dynamics};\\[0.5em] 
-    I conceptualized the study, developed the methodology, carried out the
-    computations, prepared the figures and wrote the manuscript.
-    \item \fullcite{schoellerAssessingLagrangianCoherence2025};\\[0.5em] 
-    I contributed to the conceptual framework of the paper, carried
-    out the computations, created the figures and was the responsible author 
-    for all but \cref{sec:CS_cs,sec:CS_diffMaps,sec:CS_clust}, to which I
-    contributed.
+    \item %\fullcite{schoellerNoiseinducedEnhancementRegime2026},
+          Henry Schoeller er al. (2026). \enquote{Noise-Induced Enhancement
+              of Regime Lifetimes -- a Data-Driven Approach Using Deterministic
+              Trajectories}. Accepted by
+          \textit{Communications in Applied Mathematics and Computational Science}.
+          Preprint \texttt{DOI: 10.48550/ARXIV.2604.27991}.;\\[0.5em]
+          I contributed to the conceptual framework of the paper, carried
+          out the computations, created the figures and was the responsible author of
+          \cref{sec:sI_app} while I contributed to all other sections.
+    \item \fullcite{schoellerIsolatingFlowdependentUncertainty2026};\\[0.5em]
+    % \item \cite{schoellerIsolatingFlowdependentUncertainty2026}
+    %       Henry Schoeller and Stephan Pfahl (2026). \enquote{Isolating
+    %           flow-dependent uncertainty in ensemble reanalysis data and
+    %           its relation to Euro-Atlantic weather regimes and warm conveyor belts}.
+    %       Submitted to: \textit{Weather and Climate Dynamics};\\[0.5em]
+          I conceptualized the study, developed the methodology, carried out the
+          computations, prepared the figures and wrote the manuscript.
+    \item \fullcite{schoellerAssessingLagrangianCoherence2025};\\[0.5em]
+          I contributed to the conceptual framework of the paper, carried
+          out the computations, created the figures and was the responsible author
+          for all but \cref{sec:CS_cs,sec:CS_diffMaps,sec:CS_clust}, to which I
+          contributed.
 \end{enumerate}
-
-\vspace{1.5cm}
+\vfill
 \noindent
-Berlin, June 2026\\[1.5cm]
-\noindent
-\textbf{Henry Leon Schoeller}
+Henry Leon Schoeller, Berlin, June 2026
+% \smallskip
+% \noindent
+% Berlin, June 2026\\[1.5cm]
+% \noindent
+% \textbf{Henry Leon Schoeller}
 \cleardoublepage
 
 %------------------------------------------------
@@ -137,33 +148,33 @@ properties. Employing a paradigm model of mid-latitude
 atmospheric dynamics, it is shown that noise can increase the lifetime of
 blockings and a method is developed that can quantify this effect requiring
 only observations of the deterministic system. Since the representation of
-small-scale processes in models by stochastic parametrizations is known to 
+small-scale processes in models by stochastic parametrizations is known to
 affect blockings as well as warm conveyor belts, it is argued that
-this mechanism's conceptualization may contribute to improving the
+studying this mechanism may improve the
 understanding of their interaction.
 
 Apart from errors in the representation of small-scale processes, uncertainty
-in the estimated state of the atmosphere is the second major source of
+in the estimated initial state of the atmosphere is the second major source of
 forecasting errors. By isolating short- from
 long-time-scale uncertainty components, the state-dependence of this
 assimilation uncertainty is studied climatologically leveraging the ERA5
 reanalysis. This provides coherent patterns of anomalous uncertainty for a set
 of Euro-Atlantic weather regimes---including blockings---as well as warm
 conveyor belts that can be explained by physical and mathematical arguments.
-Moisture presence is a key contributor for elevated assimilation uncertainty
+The presence of moisture is a key contributor for elevated assimilation uncertainty
 and this influence is mediated largely through state-dependent observation
 uncertainties in addition to model uncertainties usually considered to govern
 short-time-scale error growth.
 
 While the preceding considerations concern how perturbations and uncertainty
 affect the representation of blockings and warm conveyor belts, their
-behaviour ultimately rests on the air masses that constitute them. A 
+behaviour ultimately rests on the air masses that constitute them. A
 methodological framework is developed that enables the systematic
 investigation of Lagrangian trajectories by clustering them according to
 their robustness against small random perturbations. Application to
-atmospheric blocking provides important insights into its kinematics
-and the surrounding flow and warm conveyor belts are identified
-among the identified coherent trajectory bundles. Reflecting on warm conveyor
+atmospheric blocking provides important insights into its kinematics and
+the surrounding flow. Warm conveyor belts are identified
+among the clustered coherent trajectory bundles. Reflecting on warm conveyor
 belts as spatio--temporally extended features is vital for understanding
 their interaction with blockings and consistently assessing the impact of
 small random perturbations presents a valuable tool for probing the stability
