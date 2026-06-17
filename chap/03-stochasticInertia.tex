@@ -168,8 +168,8 @@ The diffusion matrix $D^\sigma$ is obtained by row-normalization such that it be
 \end{equation*}
 The matrix $D^\sigma$ is a transition probability matrix that models the addition of $\sigma \sqrt{\Delta t} \, \xi_n$ to a point in $\mathcal{X}$. It is constructed such that \cref{eq:Koopman_equiv_final} is a faithful approximation under the assumption that the point cloud $\mathcal{X}$ samples the space $\R^d$ sufficiently densely. Note that \cref{eq:Koopman_equiv_final}, and thereby \cref{eq:Koopman_equiv_first}, cannot possibly be good approximations for all observables $f:\R^d \to \R$. In particular, if $f$ is non-zero but $f(X_i) = 0$ for all $X_i\in \mathcal{X}$, then $P^\sigma \mathbf{f} = 0$ while $U f$ is not close to 0. For a more detailed discussion of the necessary assumptions and limitations of this method, we refer to \cref{sec:sI_lim}.
 
-Computing all pairwise distances in \cref{eq:simiMat} is computationally expensive for large $N$ and leads to a dense matrix of size $(N+1)\times N$. Note that for pairs $X_i, X_j \in \mathcal{X}$ for which $\norm{X_i - X_j}^2$ is of an order larger than $2\sigma^2 \Delta t$, the value $K_{ij}^\sigma$ is extremely small and can be neglected. Therefore, we calculate the distances needed for \cref{eq:simiMat} with a nearest-neighbour search using a \texttt{kd-tree} as implemented in \texttt{scipy} \parencite{virtanenSciPyFundamentalAlgorithms2020} with a cut-off radius of $3\sqrt{2\sigma^2 \Delta t}$. This leads to sparse matrices $K^\sigma$ and $D^\sigma$ which significantly improves the computational efficiency and decreases storage requirements for large~$N$. %An exception is of course the one-dimensional case, where distances are trivially available. \rc{I asked Henry about the 1D case.}
-Note that if $X_N$ is the only point of $\mathcal{X}$ within the cut-off radius of the point $X_{N+1}$, the resulting Markov chain will feature a closed single-node loop. To avoid this, we extend the cut-off radius just enough to include a second point in those cases.
+Computing all pairwise distances in \cref{eq:simiMat} is computationally expensive for large $N$ and leads to a dense matrix of size $(N+1)\times N$. Note that for pairs $X_i, X_j \in \mathcal{X}$ for which $\norm{X_i - X_j}^2$ is of an order larger than $2\sigma^2 \Delta t$, the value $K_{ij}^\sigma$ is extremely small and can be neglected. Therefore, we calculate the distances needed for \cref{eq:simiMat} with a nearest-neighbour search using a \texttt{kd-tree} as implemented in \texttt{scipy} \parencite{virtanenSciPyFundamentalAlgorithms2020} with a cutoff radius of $3\sqrt{2\sigma^2 \Delta t}$. This leads to sparse matrices $K^\sigma$ and $D^\sigma$ which significantly improves the computational efficiency and decreases storage requirements for large~$N$. %An exception is of course the one-dimensional case, where distances are trivially available. \rc{I asked Henry about the 1D case.}
+Note that if $X_N$ is the only point of $\mathcal{X}$ within the cutoff radius of the point $X_{N+1}$, the resulting Markov chain will feature a closed single-node loop. To avoid this, we extend the cutoff radius just enough to include a second point in those cases.
 
 \begin{remark}
     \label{rem:noisy_basetraj}
@@ -282,7 +282,7 @@ where $R_k$ is drawn according to
 where $\epsilon > 0$ is small. Here, $x_{\tau_k^-}$ denotes the boundary point from which the reinsertion takes place, i.e.,~$\lim_{t \nearrow \tau_k} x_t$. Hence, $R_k$ is the Euclidean norm of a small three-dimensional vector with each component drawn from a normal distribution. For the results shown in \cref{fig:Toy,fig:TOLifetInc}, we used $\epsilon = 5\times10^{-2}$. The reinsertion law described by \cref{eq:reinsertion} models randomly approaching a fixed point in a higher-dimensional space through stable directions. In \cref{fig:Toy}, the trajectories of \cref{eq:1d_toy} for three values of $\sigma$ are shown. Though not statistically meaningful, the figure shows how the regime lifetime can be enhanced by adding intermediate noise. While the trajectory with large noise ($\sigma = 0.3$) quickly leaves the vicinity of the fixed point, the trajectory with intermediate noise ($\sigma = 0.075$) spends a long time close to the fixed point, thus producing long regime lifetimes.
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/Toy.pdf}
+    \includegraphics[scale=.8]{fig/CAMCOS/Toy.pdf}
     \caption{Example trajectories initialized in $x_0 = 5\times 10^{-2}$ for the one-dimensional toy model \cref{eq:1d_toy} for three different noise strengths $\sigma$, $10^{3}$ steps of $\Delta t=10^{-2}$ and a reinsertion rule with $\epsilon = 5\times 10^{-2}$. Also shown are the boundaries defining the regime $M$ and the system's boundaries at whose crossing reinsertion takes place.}
     \label{fig:Toy}
 \end{figure}
@@ -322,7 +322,7 @@ The average regime lifetimes, computed using the Markov chain method, the Monte 
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/Toy_MeanRegimeLifetimeComparison.pdf}
+    \includegraphics[scale=.8]{fig/CAMCOS/Toy_MeanRegimeLifetimeComparison.pdf}
     \caption{Mean regime lifetimes for each noise strength $\sigma$
         obtained from the Monte Carlo method, the Markov chain approach or the analytic solution. The former two methods both use time steps of $\Delta t = 5\times 10^{-2}$ starting from $X_1 = z_0 = 10^{-4}$ for comparability, but the Monte Carlo method uses $5 \times 10^6$ steps containing $\sim 10^4$ reinsertions in contrast to $2 \times 10^4$ steps with $250$ reinsertions for the Markov Chain method. Reinsertion is done according to \cref{eq:reinsertion} with $\epsilon=5\times 10^{-2}$. The analytic curve is calculated by averaging solutions of \cref{eq:analytic_1d} over $250$ values of $R_k$.
         % The distribution of reinsertions is provided as \cref{fig:Toy1dReinsert} in the appendix.
@@ -332,7 +332,7 @@ The average regime lifetimes, computed using the Markov chain method, the Monte 
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/Toy_AnaVSTraj.pdf}
+    \includegraphics[scale=.8]{fig/CAMCOS/Toy_AnaVSTraj.pdf}
     \caption{Mean escape times for the toy system \cref{eq:1d_toy} initialized in various points over a range of noise strengths $\sigma$. The lines indicate analytic solutions according to \cref{eq:analytic_1d}. The full markers indicate empirical mean escape times of Monte Carlo simulations of $N \approx 10^4$ realisations with time steps of $\Delta t = 10^{-2}$. The hollow markers indicate the expected mean escape times $\theta^\sigma$ obtained using the Markov chain method and a deterministic trajectory initialized in $X_1 = 10^{-4}$ and ending upon exiting the domain. This amounts to $19,807$ steps with $\Delta t = 5\times10^{-4}$. Both trajectories were produced according to \cref{eq:Toy1dNum}. The inset details the tail of the curves.}
     \label{fig:Toy_AnaVSTraj}
 \end{figure}
@@ -368,7 +368,7 @@ Like in the one-dimensional example, we use the Markov chain method to compute t
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/Toy3d_loglog.pdf}
+    \includegraphics[scale=.8]{fig/CAMCOS/Toy3d_loglog.pdf}
     \caption{Normalized sum of affinities according to \cref{eq:simiMat} plotted over the noise strength $\sigma$ for all points used in the analysis (\enquote{All}) as well as for points in $M$ (\enquote{Regime}). The dashed lines show the tangent at $\sigma = \sigma^{\ast}$ (indicated by open circles), the noise level maximizing the slope of the curve with the maximum slope~$d$. Both values are indicated for both sets in the table in the bottom right.}
     \label{fig:sigmaloglogtoy3d}
 \end{figure}
@@ -377,7 +377,7 @@ Having checked that the sampled trajectory is dense and homogeneous enough for o
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/Toy3d_MeanRegimeLifetimeComparisoneps005.pdf}
+    \includegraphics[scale=.8]{fig/CAMCOS/Toy3d_MeanRegimeLifetimeComparisoneps005.pdf}
     \caption{Mean regime life times for each noise strength $\sigma$ obtained from either the Monte Carlo method or using the Markov chain approach. Both use $2\times 10^4$ time steps of $\Delta t = 10^{-1}$ starting from $x_0 = 5\times 10^{-2} \, \1$ for comparability. The Monte Carlo trajectories feature roughly $10^2$ reinsertions with $344$ reinsertions for the Markov Chain method. Reinsertion is done according to \cref{eq:reinsertion3d} with $\epsilon =5 \times  10^{-3}$. %The distribution of reinsertions for the trajectory used for the Markov Chain method is provided as \cref{fig:Toy3dSampling} in the appendix.
     }
     \label{fig:Toy3dLifetInc}
@@ -441,7 +441,7 @@ The resulting clustering with $\sigma=10^{-2}$ is presented in \cref{fig:Sets}. 
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/Sets_subsample_10_sigma_0.01.pdf}
+    \includegraphics[scale=.8]{fig/CAMCOS/Sets_subsample_10_sigma_0.01.pdf}
     \caption{Assignment of $2\times 10^{4}$ points in a principal component projection from a deterministic trajectory with $\Delta t=10$ that has been partitioned according to the \texttt{k-means} clustering in the embedding explained in the text based on $\sigma = 10^{-2}$. Also indicated are the \enquote{blocking} fixed point (black) and the \enquote{zonal} fixed point (red).}
     \label{fig:Sets}
 \end{figure}
@@ -450,7 +450,7 @@ To make sure that the sampled trajectory $\mathcal{X}$ is dense enough for our m
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/CdVloglog_10_0.01.pdf}
+    \includegraphics[scale=.8]{fig/CAMCOS/CdVloglog_10_0.01.pdf}
     \caption{Normalized sum of affinities according to \cref{eq:simiMat} plotted over the noise strength $\sigma$ for all points shown in \cref{fig:Sets} (\enquote{All}) as well as for points either in the blocking regime or within a distance of $3\sqrt{2\sigma_{\max}^2 \Delta t}$ of any point in the blocking regime, where $\sigma_{\max}=0.03$ (\enquote{Blocking}). The dashed lines show the tangent at $\sigma = \sigma^{\ast}$ (indicated by open circles), the noise level maximizing the slope of the curve with the maximum slope~$d_\mathcal{X}$ (\enquote{All}) and $d_\mathcal{M}$ (\enquote{Blocking}). Both values are indicated for both sets in the table in the bottom right.}
     \label{fig:sigmaloglogcdv}
 \end{figure}
@@ -467,7 +467,7 @@ Larger values of $R(X_i)$ correspond to stronger stochastic inertia. \Cref{fig:T
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/TOLifetimes_increase_fine_10_0.01.pdf}
+    \includegraphics[scale=.8]{fig/CAMCOS/TOLifetimes_increase_fine_10_0.01.pdf}
     \caption{For each point in the blocking regime $\mathcal{M}$, its maximum relative increase in escape time (left y-axis) is shown against its deterministic escape time. A small random value is added to the x-location of each point to improve visibility. The points are coloured according to the noise strength $\sigma_{\mathrm{max}}$ at which the maximal escape time is achieved. Data for points within one deterministic step until escape are not shown. A grey histogram in the background shows the number of points that have a specific deterministic escape time (right y-axis). Indicated as red crosses are the points sampled for analysis shown in \cref{fig:CdV_pointwise} due to their location on the attractor.}
     \label{fig:TOLifetimes_increase}
 \end{figure}
@@ -478,7 +478,7 @@ For all of these points that lie well within the blocking regime, the average es
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/CdV_point_vs_MeanEscape_10_0.01.pdf}
+    \includegraphics[scale=.8]{fig/CAMCOS/CdV_point_vs_MeanEscape_10_0.01.pdf}
     \caption{Pointwise escape times from the center of the blocking regime of the \gls{cdv} system. The hollow markers belong to the expected escape times $\theta^{\sigma}_i$ calculated according to \cref{eq:def_theta}. They are means over ten very close points and also indicated with red crosses in \cref{fig:TOLifetimes_increase}. The solid markers belong to escape times calculated in a Monte Carlo fashion for the same sets of points with $100$ realizations for each point and noise strength. The location of the points are also shown in the inset along with all the other points in $\mathcal{M}$ in the same principal component projection used in \cref{fig:Sets} and the \enquote{blocking} fixed point as a black cross.}
     \label{fig:CdV_pointwise}
 \end{figure}
@@ -490,7 +490,7 @@ To have a value of $E^\sigma$ that can be used for comparison, we choose $\nu^\s
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/CdV_lifetimes_fine_10_0.01.pdf}
+    \includegraphics[scale=.8]{fig/CAMCOS/CdV_lifetimes_fine_10_0.01.pdf}
     \caption{Expected escape times $\theta^{\sigma}$ across noise strength $\sigma$ calculated according to \cref{eq:def_theta} for points of the deterministic trajectory that have just entered the blocking regime $\mathcal{M}$. Only every tenth entry point is shown for better visibility. The curves are coloured according to their deterministic escape time ($\sigma=0$). The location of these entry points are also shown in the inset along with all the other points in $\mathcal{M}$ in the same principal component projection used in \cref{fig:Sets} and the \enquote{blocking} fixed point as a black cross. The black dashed line shows the mean over all curves, which is an approximation of the expected regime life time $E^{\sigma}$.}
     \label{fig:CdV_LifetimesEntries}
 \end{figure}
@@ -503,7 +503,7 @@ The average lifetimes of these Monte Carlo simulations for a range of values of 
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{fig/CAMCOS/CdV_MeanRegimeLifetimeComparison_10_0.01.pdf}
+    \includegraphics[scale=.8]{fig/CAMCOS/CdV_MeanRegimeLifetimeComparison_10_0.01.pdf}
     \caption{Mean regime life times for each noise strength $\sigma$ obtained from either the Monte Carlo method and the Markov chain approach. The Monte Carlo trajectory is computed with a step size of $\Delta t^* = 10^{-5}$. We subsample the trajectories such that both methods have a time step of $\Delta t = 10$, but the Markov chain method uses $2 \times 10^4$ steps compared to $2 \times 10^6$ steps for the Monte Carlo method. The Monte Carlo trajectories feature roughly $10^4$ entries with $669$ entries  for the Markov Chain method (every tenth of which depicted in \cref{fig:CdV_LifetimesEntries}). The inset details the low-noise behavior of the two.}
     \label{fig:CdVLifetInc}
 \end{figure}
@@ -571,7 +571,7 @@ Comparing the results of \cref{sec:sI_CdV} to the corresponding figures in \cref
         % \raisebox{-.5\height}{\includegraphics[scale=.75]{fig/CAMCOS/CdVloglog.pdf}}
         % \includegraphics[scale=.75]{fig/CAMCOS/Sets.pdf}%
         % \includegraphics[scale=.75]{fig/CAMCOS/CdVloglog.pdf}
-        \includegraphics[scale=1]{fig/CAMCOS/CombFig1.pdf}%
+        \includegraphics[scale=1]{fig/CAMCOS/figComb/CombFig1.pdf}%
         \caption{(a) Assignment of $2\times 10^{4}$ points in a principal
             component projection from a deterministic trajectory with $\Delta t=1$
             that has been partitioned according to the \texttt{k-means} clustering

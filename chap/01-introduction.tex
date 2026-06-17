@@ -211,9 +211,9 @@ fossil fuel use.
 
 \begin{figure}[htpb]
     \centering
-    \raisebox{-.5\height}{\includegraphics[scale=.75]{fig/Intro/clim_seasonal.pdf}}%
+    \raisebox{-.5\height}{\includegraphics[scale=.8]{fig/Intro/clim_seasonal.pdf}}%
     % \hspace{1em}%
-    \raisebox{-.5\height}{\includegraphics[scale=.75]{fig/Intro/clim.pdf}}%
+    \raisebox{-.5\height}{\includegraphics[scale=.8]{fig/Intro/clim.pdf}}%
     \caption{Climatological blocking occurrence frequency for (a) winter,
         (b) spring, (c) summer, (d) autumn and (e) the whole year. Climatology
         based on \gls{pv} anomalies according to the index by
@@ -513,18 +513,6 @@ by observations \parencite{boerLargescaleTwodimensionalTurbulence1983,
 process is illustrated in \cref{fig:energy_spectrum}~(c). The kinetic energy
 spectra will be discussed in more detail in \cref{sec:intro_predictability_chaos}.
 
-\begin{figure}[thpb]
-    \centering
-    \input{fig/Intro/tikz/ke_spectrum}
-    \caption{Idealized kinetic energy spectra for turbulence in (a)
-        three dimensions, (b) two dimensions and (c) the mid-latitude atmosphere.
-        Red arrows indicate the dominant energy injection scales and the
-        directions of the energy cascades. In the
-        mesoscale range of the mid-latitude atmosphere, the direction of the
-        cascade is variable and almost zero, so no arrow is shown.}
-    \label{fig:energy_spectrum}
-\end{figure}
-
 The process of upscale energy transfer can be studied in dedicated models.
 For instance, in a two-layer
 \gls{qg} model proposed by
@@ -536,6 +524,18 @@ upward again. The barotropization is important: it implies that energy
 injected by an inherently baroclinic process is projected
 onto vertically coherent, quasi-two-dimensional structures at larger scales,
 where the dual-cascade arguments outlined above become applicable.
+
+\begin{figure}[thpb]
+    \centering
+    \input{fig/Intro/tikz/ke_spectrum}
+    \caption{Idealized kinetic energy spectra for turbulence in (a)
+        three dimensions, (b) two dimensions and (c) the mid-latitude atmosphere.
+        Red arrows indicate the dominant energy injection scales and the
+        directions of the energy cascades. In the
+        mesoscale range of the mid-latitude atmosphere, the direction of the
+        cascade is variable and almost zero, so no arrow is shown.}
+    \label{fig:energy_spectrum}
+\end{figure}
 
 A complementary perspective is offered by
 \textcite{herbertRestrictedEquilibriumEnergy2014}, who decompose
@@ -872,7 +872,7 @@ of the spatio-temporal extent of distinct airstreams---a task we pursue in
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[scale=.75]{~/wp22a/ELIAS_data/clim_annual.pdf}
+    \includegraphics[scale=.8]{~/wp22a/ELIAS_data/clim_annual.pdf}
     \caption{Climatological \gls{wcb} occurrence frequency for (a) inflow,
         (b) ascent and (c) outflow phases. Identification according to
         \textcite{sprengerGlobalClimatologiesEulerian2017} for the years
@@ -1060,7 +1060,7 @@ The mid-latitude atmosphere exhibits
 both regimes: a -5/3 slope at the planetary scales, a -3 slope at synoptic
 scales and a -5/3 slope at meso- and
 submesoscales again. A schematic of this is depicted in
-\cref{fig:energy_spectrum}, with the transitions between the ranges indicated.
+\cref{fig:energy_spectrum}~(c), with the transitions between the ranges indicated.
 In contrast to idealized two-dimensional turbulence, where the transition
 between the ranges is determined by the excitation scale alone
 \parencite{kraichnanInertialRangesTwodimensional1967}, in \gls{qg} turbulence,
@@ -1582,7 +1582,37 @@ including the time scale considered
 \parencite{okaneTransversalityCharacterizationFinite2026} and the choice of
 metric and variable.
 
-A growing body of work building on
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[scale=.8]{fig/Intro/CdVErrorGrowth.pdf}
+    \caption{Illustration of the different aspects of predictability using 
+    the \gls{cdv} model as an example. The background shows a two-dimensional
+    \gls{pc} projection of the model's attractor with the colour according
+    to the largest \gls{ftle} computed using a sliding
+    window of width $\Delta t = 10$ according to the
+    methodology from \textcite{shaddenDefinitionPropertiesLagrangian2005}.
+    Also displayed are two pairs of $T = 10$ long trajectories in each panel
+    representative
+    of states exhibiting strong (upward triangle) and weak (downward triangle)
+    error growth. The starting points are indicated by larger triangles and the
+    end points by red triangles. Initial perturbations are roughly
+    twice as large in (b) compared to (a).}
+    \label{fig:CdVErrorGrowth}
+\end{figure}
+
+\Cref{fig:CdVErrorGrowth} connects the different aspects of predictability
+discussed in the preceding sections using the \gls{cdv} model as an example.
+The flow-dependence of predictability is illustrated by the varying magnitude
+of the largest \gls{ftle} across the attractor. Consequently,
+initial perturbations are amplified at a higher rate for the states associated
+with higher \gls{ftle} values (upward triangle). For states with lower
+\gls{ftle} values (downward triangle), the magnitude of the initial perturbations
+has a much more persistent and relatively greater impact. In both cases, 
+the initial perturbations shape the subsequent evolution and eventual 
+spread of the trajectory pairs. 
+
+Similar insights can be obtained through combining extreme value
+theory with dynamical systems methods. With this, a growing body of work building on
 \textcite{lucariniExtremesRecurrenceDynamical2016} characterises the
 \emph{local} instantaneous instability of the atmospheric flow through two
 complementary quantities: a local dimension, measuring the number of

@@ -4,7 +4,7 @@
 
 \begin{document}
 
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=16/15]
   % your two figures as named nodes
   \node[anchor=center,inner sep=0] (left)
       {\includegraphics[scale=.75]{~/Nextcloud/TeX/Thesis/fig/Intro/HistPlotsPC.pdf}};
@@ -24,9 +24,9 @@
 % \fill[black] (zonalpt) circle (1.2pt);
 % ---- Right panels: the only things you tune ----
 % Top-left corner of each subplot box (as an offset from the image's top-left).
-\coordinate (aTL) at ($(right.north west)+(0.35cm,-0.6cm)$); % (a) blocking
-\coordinate (bTL) at ($(right.north west)+(0.35cm,-2.375cm)$); % (b) zonal
-\def\subh{1.3cm}   % shared height of a subplot box
+\coordinate (aTL) at ($(right.north west)+(0.31cm,-0.55cm)$); % (a) blocking
+\coordinate (bTL) at ($(right.north west)+(0.31cm,-2.21cm)$); % (b) zonal
+\def\subh{1.25cm}   % shared height of a subplot box
 
 % Leader attaches at the right-edge midpoint = corner shifted down half a height.
 \coordinate (blocksrc) at ($(aTL)+(0,-\subh)$);

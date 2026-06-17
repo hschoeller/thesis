@@ -29,21 +29,21 @@ For comparability, we use the same $0.5^\circ$ spatial resolution in the analysi
 Weather classification is an ubiquitous tool in atmospheric sciences and a wide range of different approaches exist \parencite{hannachiLowFrequencyNonlinearity2017}. To group spatially varying levels of uncertainty by weather situations we make use of the well-established year-round Euro--Atlantic \glspl{wr} introduced by \textcite{gramsBalancingEuropesWindpower2017} and updated by \textcite{hauserLifeCycleDynamics2024, gramsLifeCycleDefinition2026}. The regimes are defined as patterns of the geopotential height at 500~hPa derived from a \texttt{k-means} clustering in \gls{pc} space obtained after spatio-temporal filtering. While more detailed information about the similarity of any instantaneous geopotential height field with each of the \gls{wr} prototypes is available (through projection on each of the patterns), we simply use the multinomial classification of each day into one of the eight categories (seven regimes and one transitional category), such that instead of seven continuous numerical time series, we simply use one categorical time series of eight categories. The abbreviations for the eight categories are given in \cref{tab:weather_regimes}. The data is available back to 1950.
 
 \begin{table}[ht]
-\centering
-\begin{tabular}{llll}
-\toprule
-AT & ZO & ScTr & AR \\
-% \midrule
-Atlantic trough & Zonal & Scandinavian trough & Atlantic ridge \\
-\midrule
-EuBL & ScBL & GL & no \\
-% \midrule
-European blocking & Scandinavian blocking & Greenland blocking & No regime \\
-\bottomrule
-\end{tabular}
-\caption{Euro--Atlantic \glspl{wr} introduced by \textcite{gramsBalancingEuropesWindpower2017},
-with their abbreviations used throughout this thesis.}
-\label{tab:weather_regimes}
+    \centering
+    \begin{tabular}{llll}
+        \toprule
+        AT                & ZO                    & ScTr                & AR             \\
+        % \midrule
+        Atlantic trough   & Zonal                 & Scandinavian trough & Atlantic ridge \\
+        \midrule
+        EuBL              & ScBL                  & GL                  & no             \\
+        % \midrule
+        European blocking & Scandinavian blocking & Greenland blocking  & No regime      \\
+        \bottomrule
+    \end{tabular}
+    \caption{Euro--Atlantic \glspl{wr} introduced by \textcite{gramsBalancingEuropesWindpower2017},
+        with their abbreviations used throughout this thesis.}
+    \label{tab:weather_regimes}
 \end{table}
 
 To study the influence of \glspl{wcb} on assimilation uncertainty, we make use of a Eulerian \gls{wcb} identification dataset. It consists of two-dimensional fields indicating the occurrence of a \gls{wcb} in inflow, ascent or outflow stage at each grid point. The identification process involves Lagrangian trajectory calculation, \gls{wcb} classification according to an ascent criterion (at least 600~hPa in 48~h) and proximity to an extratropical cyclone and, finally, grouping into the three vertical categories: below 800~hPa (inflow), 800--400~hPa (ascent) and above 400~hPa (outflow). The occurrence is subsequently mapped to a regular $1^\circ \times 1^\circ$ latitude-longitude grid. We use data in 12-hourly intervals to account for lagged responses. The identification was originally introduced by \textcite{madonnaWarmConveyorBelts2014a} and later extended by \textcite{sprengerGlobalClimatologiesEulerian2017}. The dataset we use contains data from 1979 to 2022, which were kindly provided by \textcite{quintingEuLerianIdentificationAscending2022} (we use the original  training data rather than the \enquote{learned} fields their transformer predicts).
@@ -101,7 +101,7 @@ The short-range background forecast for each assimilation window is obtained by 
 
 There is a wealth of literature studying the processes responsible for error growth in atmospheric models at different lead times \parencite{krishnamurthyPredictabilityWeatherClimate2019}. Error growth is flow-dependent on short \parencite{puhFlowDependenceForecast2024, rodwellUncertaintyGrowthForecast2023}, medium \parencite{baumgartProcessesGoverningAmplification2019, sanchezLinkingRapidForecast2020} and long \parencite{spaethFlowDependenceEnsembleSpread2024, osmanMultimodelAssessmentSubseasonal2023} time scales, and it also depends on the characteristics of the initial perturbations themselves \parencite{raynaudComparisonInitialPerturbation2016, wangImpactsMultiscaleComponents2023}. In the present setting, the initial perturbations are the differences between the previous window's analyses across ensemble members, which themselves are the product of the preceding \gls{eda} cycle. The resulting spread in the background forecast therefore reflects a mixture of error growth during the 15-hour integration and uncertainty inherited from the previous analyses, two contributions that are difficult to separate.
 
-As outlined in the introduction, the dominant role of moist convection in upscale error propagation \parencite{selzUpscaleErrorGrowth2015, selzEstimatingIntrinsicLimit2019, judtInsightsAtmosphericPredictability2018, bechtoldRoleShallowConvection2014, zhangMesoscalePredictabilityMoist2007}---a foundational result for short-range predictability---has been established primarily for grid-point-level initial perturbations. At operational perturbation magnitudes such as those of the \gls{eda}, error growth is instead concentrated at larger scales and driven by adiabatic, baroclinic processes, in particular near tropopause \parencite{selzTransitionPracticalIntrinsic2022, rodwellUncertaintyGrowthForecast2023, baumgartQuantitativeViewProcesses2019}. Convective regions nonetheless tend to show large \gls{eda} spread \parencite{zagarGlobalPerspectiveLimits2017}, which is likely inherited from elevated initial uncertainty as well as produced de novo by convective error growth during the short background integration itself \parencite{cardinaliRepresentingModelError2014}. While disentangling these contributions within any single analysis cycle
+As outlined in the introduction \cref{sec:intro_predictability}, the dominant role of moist convection in upscale error propagation \parencite{selzUpscaleErrorGrowth2015, selzEstimatingIntrinsicLimit2019, judtInsightsAtmosphericPredictability2018, bechtoldRoleShallowConvection2014, zhangMesoscalePredictabilityMoist2007}---a foundational result for short-range predictability---has been established primarily for grid-point-level initial perturbations. At operational perturbation magnitudes such as those of the \gls{eda}, error growth is instead concentrated at larger scales and driven by adiabatic, baroclinic processes, in particular near tropopause \parencite{selzTransitionPracticalIntrinsic2022, rodwellUncertaintyGrowthForecast2023, baumgartQuantitativeViewProcesses2019}. Convective regions nonetheless tend to show large \gls{eda} spread \parencite{zagarGlobalPerspectiveLimits2017}, which is likely inherited from elevated initial uncertainty as well as produced de novo by convective error growth during the short background integration itself \parencite{cardinaliRepresentingModelError2014}. While disentangling these contributions within any single analysis cycle
 is not possible, the long time span of \gls{era5} with a fixed \gls{ifs} configuration
 does provide leverage: in its early decades, with few observations to
 constrain the analysis, the assimilation system runs quite freely, so
@@ -117,7 +117,7 @@ In the absence of any stochastic perturbations, members initialized identically 
 \section{Methods}\label{sec:EDA_meth}
 
 \subsection{Time Series}\label{sec:EDA_tim}
-To isolate the influence of variations in observational coverage and quality on long time scales and later study the dynamics of the short time scale variability in assimilation uncertainty, we employ statistical models for time series data. Such models are well-established (e.g.~\cite{deistlerTimeSeriesModels2022}) and appropriate for the problem at hand given the substantial autocorrelation. In the spirit of Occam's razor, we aim to use statistical models that are as simple as possible and as complex as necessary \parencite{boxRobustnessStrategyScientific1979}. As will be proven in \cref{sec:EDA_res}, the time series data exhibits heteroskedasticity and autocorrelation as well as breakpoints (cf.~\cref{sec:EDA_brk}) that divide the time series into distinct segments. We have therefore chosen to adopt a \gls{gls} framework in the following, most general, form.
+To isolate the influence of variations in observational coverage and quality on long time scales and later study the dynamics of the short-time-scale variability in assimilation uncertainty, we employ statistical models for time series data. Such models are well-established (e.g.~\cite{deistlerTimeSeriesModels2022}) and appropriate for the problem at hand given the substantial autocorrelation. In the spirit of Occam's razor, we aim to use statistical models that are as simple as possible and as complex as necessary \parencite{boxRobustnessStrategyScientific1979}. As will be proven in \cref{sec:EDA_res}, the time series data exhibits heteroskedasticity and autocorrelation as well as breakpoints (cf.~\cref{sec:EDA_brk}) that divide the time series into distinct segments. We have therefore chosen to adopt a \gls{gls} framework in the following, most general, form.
 
 For a time series divided into $N$ segments by $N-1$ breakpoints, let $y_{n,t}$ denote the response variable in segment $n \in \{1, \ldots, N\}$ at timestep $t \in \{1, \ldots , T\}$. We fit
 
@@ -132,7 +132,7 @@ subject to
      & = \sigma_n^2.
 \end{align}
 
-This amounts to a marginal \gls{gls} model with an arbitrary set of covariates $x_t^m$, segment specific regression coefficients $\beta_n^m$, \gls{ar1} structure in the residuals with an autocorrelation coefficient $\rho$ pooled across segments, but with segment specific error variances $\sigma^2_n$. We pool $\rho$ because the segments will be defined from area-averaged data rather than the individual grid-point time series; estimating a separate autocorrelation per segment per grid point would be noisy and potentially unstable and would, moreover, assume the weather system's intrinsic uncertainty evolution differs by segment.
+This amounts to a marginal \gls{gls} model with an arbitrary set of covariates $x_t^m$, segment specific regression coefficients $\beta_n^m$, \gls{ar1} structure in the residuals with an autocorrelation coefficient $\rho$ pooled across segments, but with segment specific error variances $\sigma^2_n$. We pool $\rho$ because the segments will be defined from area-averaged data rather than the time series of individual grid points; estimating a separate autocorrelation per segment per grid point would be noisy and potentially unstable and would, moreover, assume the weather system's intrinsic uncertainty evolution differs by segment.
 
 The model formulation~\eqref{eq:HAC} implies we assume the autocorrelation is present in the error structure. One can drop the \gls{ar1} structure in the errors by assuming the autocorrelation is caused by the response variable by introducing lagged variables as covariates (e.g.~$y_{n,t-1}$) or by assuming one of the covariates is the cause for the autocorrelation. Apart its differences in physical logic, this distinction has consequences for the fitting procedure. Under~\eqref{eq:HAC}, \gls{gls} estimation prewhitens both response and design. Any covariate whose own autocorrelation is comparable to $\rho$ has most of its variance removed by this transformation, and the estimate of $\rho$ then competes with such a covariate for the same low-frequency variance in $y$, producing weakly identified or singular fits. For one set of models in this study (\cref{sec:EDA_WRAtt}) this is the case; for these we drop~\eqref{eq:HAC} and fit~\eqref{eq:mod} by \gls{ols} with \gls{hac} standard errors (\cref{sec:EDA_sig}), at the cost of some efficiency relative to a correctly specified \gls{gls}.
 
@@ -301,7 +301,7 @@ A minimal \gls{bic} value is achieved for a five breakpoint segmentation shown i
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f01.pdf}
+    \includegraphics[scale=.8]{fig/WCD/f01.pdf}
     \caption{Monthly and spatially averaged logarithmic \gls{eda} ensemble spread of \gls{zg500} assimilated (black line) and fitted with 95\% \glspl{ci} (red line and shading). Identified change points annotated with the respective months (vertical dashed lines). Shading around change points indicate 95\% \glspl{ci}.}
     \label{fig:Segs}
 \end{figure}
@@ -384,7 +384,7 @@ The \glspl{ci} get smaller with time, which is expected from \cref{fig:Segs}. Th
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f02.pdf}
+    \includegraphics[scale=.8]{fig/WCD/f02.pdf}
     \caption{Statistical model estimates of the seasonal cycle $\hat{s}_{n,t}$ for every segment individually (blue curves with circles) and for the whole time series combined (gray curve in the background). The seasonal cycle for the whole time series is estimated based on a separate model using breakpoints obtained assuming no seasonal cycle. 95\% \glspl{ci} are for the whole seasonal cycle combined rather than for individual months (cf.~\cref{sec:EDA_sig}).}
     \label{fig:SegSeas}
 \end{figure}
@@ -402,11 +402,11 @@ With the breakpoints identified, we now estimate separate time series models for
     \label{fig:R2}
 \end{figure}
 
-The models generally cover a substantial amount of response-level variation across the domain with values of $R^2_{\mathrm{adj}}$ ranging from roughly .56 to .88---a level of spatial diversity expected for our rather simple modelling assumptions. The highest values are achieved in the polar region (upward triangle), where the total variance is also largest as can be seen from the right panel in \cref{fig:R2}. The high total variance is of due to the historically sparse observational coverage of the region and the entailing wide range of values across the time span considered. This argument is backed up by the fact that the total reduction in uncertainty has a similar spatial pattern (cf.~\cref{fig:diff} (a) in \cref{sec:EDA_AddFig}). Along our assumptions on the structure of the dataset, we argue that the high values of $R^2_{\mathrm{adj}}$ in the high latitudes imply that most of the variation here is due to the development of the observation and assimilation system, though in absolute terms, an appreciable amount of variation is still present in the residuals as can be seen in the center of \cref{fig:R2}.
+The models generally cover a substantial amount of response-level variation across the domain with values of $R^2_{\mathrm{adj}}$ ranging from roughly .56 to .88---a level of spatial diversity expected for our rather simple modelling assumptions. The highest values are achieved in the polar region (upward triangle), where the total variance is also largest as can be seen from \cref{fig:R2}~(c). The high total variance is of due to the historically sparse observational coverage of the region and the entailing wide range of values across the time span considered. This argument is backed up by the fact that the total reduction in uncertainty has a similar spatial pattern (cf.~\cref{fig:diff} (a) in \cref{sec:EDA_AddFig}). Along our assumptions on the structure of the dataset, we argue that the high values of $R^2_{\mathrm{adj}}$ in the high latitudes imply that most of the variation here is due to the development of the observation and assimilation system, though in absolute terms, an appreciable amount of variation is still present in the residuals as can be seen in \cref{fig:R2}~(b).
 
 On the other end of the spectrum, the lowest values of $R^2_{\mathrm{adj}}$ are evident over the Atlantic off the coast of New England (downward triangle). The decomposition makes it clear that this comes about both due to a below average total variance and an above average residual variance. The reasons for either are less obvious, but one part of the explanation is surely the pronounced land-sea contrast in the residual variance---a feature eminently visible around the Azores.
 
-The presence of moisture over the oceans and the location of the mid-latitude storm track as a major source of synoptic activity surely plays a role in the large amount of residual variation over the oceans. We consider it safe to say, however, that the presence or absence of land-based measurements play a considerable role in this effect, too (for a proof, again, consider the Azores region). Given that the residuals of the models will be used in ensuing analyses, the spatial pattern in the model's residual variance opens an interesting question. Should the time series of residuals as proxies for short time scale assimilation uncertainty be standardized by the grid-point wise total variance in time? After all, it has just been argued that the land-sea contrast is overwhelmingly caused by the observation system rather than the system's intrinsic dynamics. We decide not to, since spatial variability in the total level of model uncertainty is expected and, truly, a central feature of the atmosphere. What's more, the \gls{wr} specific uncertainties at the heart of this study are shaped and governed by the spatial configuration of the Euro--Atlantic region, and assuming unit variance in time across the region would severely contradict that assumption. Finally, the scale of the spatial heterogeneity is considerably smaller than the level of heterogeneity in the scale of the total response-level variation as can be judged from the color scales in the center and right panel in \cref{fig:R2}.
+The presence of moisture over the oceans and the location of the mid-latitude storm track as a major source of synoptic activity surely plays a role in the large amount of residual variation over the oceans. We consider it safe to say, however, that the presence or absence of land-based measurements play a considerable role in this effect, too (for a proof, again, consider the Azores region). Given that the residuals of the models will be used in ensuing analyses, the spatial pattern in the model's residual variance opens an interesting question. Should the time series of residuals as proxies for short-time-scale assimilation uncertainty be standardized by the grid-point-wise total variance in time? After all, it has just been argued that the land-sea contrast is overwhelmingly caused by the observation system rather than the system's intrinsic dynamics. We decide not to, since spatial variability in the total level of model uncertainty is expected and, truly, a central feature of the atmosphere. What's more, the \gls{wr} specific uncertainties at the heart of this study are shaped and governed by the spatial configuration of the Euro--Atlantic region, and assuming unit variance in time across the region would severely contradict that assumption. Finally, the scale of the spatial heterogeneity is considerably smaller than the level of heterogeneity in the scale of the total response-level variation as can be judged from the color scales in \cref{fig:R2}~(b) \&~(c).
 
 The patterns discussed above remain clearly visible when accounting for the difference in (temporal) error variances between the different segments. We provide the appropriate measure in \cref{sec:EDA_AddFig} in \cref{fig:diff} (b).
 Its spatial structure is qualitatively identical
@@ -437,7 +437,7 @@ The decline in the uncertainty at the Arctic grid point does make it seem like m
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f04.pdf}
+    \includegraphics[scale=.8]{fig/WCD/f04.pdf}
     \caption{Monthly averaged logarithmic \gls{eda} ensemble spread of \gls{zg500} assimilated (thin lines) and 95\% \glspl{ci} for the mean estimates (shadings). The blue (orange) line and shading corresponds to the grid point indicated by an upward (downward) triangle in \cref{fig:R2}. The inset details the data for the time slice from 2005 to 2024.}
     \label{fig:HighLowFit}
 \end{figure}
@@ -450,7 +450,7 @@ The example grid points were discussed on monthly aggregated scale for simplicit
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f05.pdf}
+    \includegraphics[scale=.8]{fig/WCD/f05.pdf}
     \caption{\gls{psd} for the daily times series of raw values (dashed lines) as well as residuals (solid lines) at the two grid points indicated in \cref{fig:R2}. Colour and marker style identify the respective grid points. Shown on doubly logarithmic axes as a function of period (days); vertical reference lines indicate characteristic calendar scales. Spectra were estimated using a periodogram after linear detrending and demeaning, with a cosine taper of 5\% applied to the time series and two subsequent Daniell smoothings with span 7 in the frequency domain \parencite[ch.~10]{brockwellTimeSeriesTheory1991}. Spectra are truncated to periods $\geq 2$ days.}
     \label{fig:HighLowSpec}
 \end{figure}
@@ -461,8 +461,8 @@ We extend the analysis above to all other grid points and provide the appropriat
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f06.pdf}
-    \caption{Mean (lines) and interquartile range (shading) of \glspl{psd} across grid points for the daily times series of raw values (black dashed lines) as well as residuals (red solid lines). Mean and quartiles are latitude-weighted. Shown on doubly logarithmic axes as a function of period (days); vertical reference lines indicate characteristic calendar scales. Spectra were estimated using a periodogram after linear detrending and demeaning, with a cosine taper of 5\% applied to the time series \parencite[ch.~10]{brockwellTimeSeriesTheory1991}. Spectra are truncated to periods $\geq 2$ days.}
+    \includegraphics[scale=.8]{fig/WCD/f06.pdf}
+    \caption{Mean (lines) and interquartile range (shading) of distribution of \glspl{psd} across grid points for the daily times series of raw values (black dashed line) as well as residuals (red solid line). Mean and quartiles are latitude-weighted. Shown on doubly logarithmic axes as a function of period (days); vertical reference lines indicate characteristic calendar scales. Spectra were estimated using a periodogram after linear detrending and demeaning, with a cosine taper of 5\% applied to the time series \parencite[ch.~10]{brockwellTimeSeriesTheory1991}. Spectra are truncated to periods $\geq 2$ days.}
     \label{fig:AllSpec}
 \end{figure}
 
@@ -488,7 +488,7 @@ For comparison, two closely related diagnostics based on alternative assumptions
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f07.pdf}
+    \includegraphics[scale=.8]{fig/WCD/f07.pdf}
     \caption{Effect of the occurrence of each \gls{wr} on the synoptic time scale assimilation uncertainty. \glspl{emm} $\hat{\mu}^{\mathrm{WR}}$ for each grid point are obtained from second-stage models of the kind~\eqref{eq:WRonly} (shading). Shown for grid points with \gls{fdr}-adjusted p-values below 5\%. Green contours display the composite mean Z500 maps for each of the \glspl{wr} based on the \gls{era5} HRES product. Contour lines are drawn every 80 gpm.}
     \label{fig:WREffect}
 \end{figure}
@@ -516,7 +516,7 @@ All variables chosen are either directly obtained or calculated from the \gls{er
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f08.pdf}
+    \includegraphics[scale=.8]{fig/WCD/f08.pdf}
     \caption{Pearson correlation coefficient $r$ between the variance-balanced residuals $\hat{\varepsilon}^*$ and the variable indicated atop the facets based on annual time slices. See text for full definition of the variables. Line indicates median whereas shading indicates interquartile range across grid points. Statistical moments are latitude-weighted. The dotted line in the last panel indicates the median annual correlation for the absolute Laplacian.}
     \label{fig:CorrYearly}
 \end{figure}
@@ -576,13 +576,13 @@ Both the gradient magnitude and the (absolute) Laplacian exhibit positive correl
 
 We also provide maps of correlation coefficients calculated at each grid point to give some insight into the spatial diversity of the statistical relations. They are presented in \cref{fig:CorrMaps}. The patterns are quite diverse indeed, with variations fairly pronounced even within the group of moist variables. Shared across all variables except for the Laplacian seems to be a negative anomaly over Greenland, the reasons for which remain elusive to the authors. On a broader scale, polar regions exhibit lower correlation values than subtropical regions---a property perhaps also related to differences in observational coverage. Why exactly a denser cloud cover in upper tropospheric layers is associated with lower assimilation uncertainty is outside the scope of this study---our focus is also more on the mid-latitudes than on the polar regions.
 
-Strong correlation is visible for the moist variables particularly in the Gulf Stream region and over Western Europe. Both of these regions are marked by fairly high variance overall (cf.~\cref{fig:R2}), which contributes to painting a picture of assimilation uncertainty dominated by moist processes on short time scales here (note that $r$ is insensitive to the variance scaling~\eqref{eq:VarBalance}). Compared to the other moist variables, the field of correlation coefficients for the relative humidity is smoother and generally less variable, which we consider a further argument in favor of choosing that variable for the ensuing analysis. Analogous maps for the relative humidity averaged between different levels are attached in \cref{sec:EDA_AddFig} as \cref{fig:corrMapAlt}.
+Strong correlation is visible for the moist variables particularly in the Gulf Stream region and over western Europe. Both of these regions are marked by fairly high variance overall (cf.~\cref{fig:R2}~(c)), which contributes to painting a picture of assimilation uncertainty dominated by moist processes on short time scales here (note that $r$ is insensitive to the variance scaling~\eqref{eq:VarBalance}). Compared to the other moist variables, the field of correlation coefficients for the relative humidity is smoother and generally less variable, which we consider a further argument in favor of choosing that variable for the ensuing analysis. Analogous maps for the relative humidity averaged between different levels are attached in \cref{sec:EDA_AddFig} as \cref{fig:corrMapAlt}.
 
 To test an influence due to the introduction of satellite instruments, we prepared maps analogous to the ones in \cref{fig:CorrMaps}, but separately for the period before and after 1979 (not shown). The signals stay broadly consistent with changes attributable to changes in the mean apparent in \cref{fig:CorrYearly}. Consistently, the quartiles visible as shading in \cref{fig:CorrYearly} move roughly in accord with the medians.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f09.pdf}
+    \includegraphics[scale=.8]{fig/WCD/f09.pdf}
     \caption{Pearson correlation coefficient $r$ between the variance-balanced residuals $\hat{\varepsilon}^*$ and the variable indicated atop the facets. See text for full definition of the variables. Correlation calculated for the time period 1950-2024.}
     \label{fig:CorrMaps}
 \end{figure}
@@ -606,16 +606,16 @@ Compared with the other models estimated thus far, we drop the \gls{ar1} specifi
 Consistent with our aim to understand the spatial uncertainty patterns shown in \cref{fig:WREffect}, we want to see how the strength of the effect exerted by the \gls{wr} time series changes upon addition of the above covariates. We argue that the \gls{wr} covariate is a flow-state indicator rather than directly linked to physical processes, so its effect has to be mediated by some other physical effects. If those effects are accounted for by further covariates, the signal strength will change. The covariates we add are local, have a finer structure and are more directly linked to physical processes, which is why they do not \enquote{compete} with the \gls{wr} time series for signal strength, but absorb it to the extent they share variance with it. \glspl{emm} are the correct tool for this kind of analysis, since they evaluate the category means based on a marginal sample rather than a conditional sample---the conditional means (composites) do not change between the model variants.
 
 We first assess the attenuation in the overall variability covered by the \glspl{wr}. To that end, the standard deviation of the \glspl{emm} $\hat{\mu}^{\mathrm{WR}}(l)$ across the $|\mathcal{L}|=8$ different levels of the \gls{wr} variable at each
-grid point for the simple model~\eqref{eq:WRonly}, which we call $\sigma_{\mathrm{WR}}^{(\mathrm{simple})}$ in accord with \cref{eq:stdEMM}, is provided in \cref{fig:2ndRMS}. Calculating the standard deviation between the patterns for each \gls{wr} means we disregard their differing occurrence frequencies. Critically, the variability measured in \cref{fig:2ndRMS}~(a) is not equivalent to the total variability in the residuals at each grid point---that measure is presented in \cref{fig:R2}~(b).
+grid point for the simple model~\eqref{eq:WRonly}, which we call $\sigma_{\mathrm{WR}}^{(\mathrm{simple})}$ in accord with \cref{eq:stdEMM}, is provided in \cref{fig:2ndRMS}~(a). Calculating the standard deviation between the patterns for each \gls{wr} means we disregard their differing occurrence frequencies. Critically, the variability measured in \cref{fig:2ndRMS}~(a) is not equivalent to the total variability in the residuals at each grid point---that measure is presented in \cref{fig:R2}~(b).
 
-As suggested from the patterns in \cref{fig:WREffect}, the largest variability in the \glspl{wr}' effect on the residual uncertainty is found in the eastern northern Atlantic. This is in contrast to the overall residual variance (cf.~\cref{fig:R2}), where the largest variability was found in the south western Atlantic, indicating the reason(s) for that maximum are not well represented by the \gls{wr} clustering. That is not surprising, since the \glspl{wr} are inherently designed for differentiating large scale structures, whereas it is sensible to assume, as we have seen, that the assimilation uncertainty is governed by small scale processes and observation specifics.
+As suggested from the patterns in \cref{fig:WREffect}, the largest variability in the \glspl{wr}' effect on the residual uncertainty is found in the  northeastern Atlantic. This is in contrast to the overall residual variance (cf.~\cref{fig:R2}~(b)), where the largest variability was found in the southwestern Atlantic, indicating the reason(s) for that maximum are not well represented by the \gls{wr} clustering. That is not surprising, since the \glspl{wr} are inherently designed for differentiating large-scale structures, whereas it is sensible to assume, as we have seen, that the assimilation uncertainty is governed by small-scale processes and observation specifics.
 
-Additionally, the \gls{wr} specific \gls{zg500} patterns themselves exhibit a fairly large variability in the North Atlantic compared to the Gulf Stream region, as shown in \cref{fig:WRStd} in \cref{sec:EDA_AddFig}. This is because the \glspl{wr} partition the state space not along the axis of the largest variability in assimilation uncertainty of \gls{zg500}, but along the axis of largest variability in \gls{zg500} itself. Compared to the variability in \gls{wr} patterns, high values of $\sigma_{\mathrm{WR}}$ do not extend so much into the polar regions. Given the above considerations, we argue the spatial pattern of $\sigma_{\mathrm{WR}}^{\mathrm{(simple)}}$ can be understood as a combination of the variability in the response itself ($V_{\mathrm{res}}$) driven mainly by strom track dynamics and variability in the \gls{wr} fields themselves.
+Additionally, the \gls{wr} specific \gls{zg500} patterns themselves exhibit a fairly large variability in the northern Atlantic compared to the Gulf Stream region, as shown in \cref{fig:WRStd} in \cref{sec:EDA_AddFig}. This is because the \glspl{wr} partition the state space not along the axis of the largest variability in assimilation uncertainty of \gls{zg500}, but along the axis of largest variability in \gls{zg500} itself. Compared to the variability in \gls{wr} patterns, high values of $\sigma_{\mathrm{WR}}$ do not extend so much into the polar regions. Given the above considerations, we argue the spatial pattern of $\sigma_{\mathrm{WR}}^{\mathrm{(simple)}}$ can be understood as a combination of the variability in the response itself ($V_{\mathrm{res}}$) driven mainly by strom track dynamics and variability in the \gls{wr} fields themselves.
 
 \begin{figure}
     \centering
     \includegraphics[scale=1]{fig/WCD/figComb/combFig2.pdf}
-    \caption{Weather regime pattern variability as measured by the standard deviation of the \glspl{emm} across the 8 weather regime categories. (a) Standard deviation for the models with the weather regimes as the sole covariate. (b) Difference in standard deviation to a model with additional covariates introduced in the text relative to the standard deviation across the regimes for the simple model (a). Positive values indicate pattern attenuation. Values shown for grid points with \gls{fdr}-adjusted p-values below 5\%.}
+    \caption{\gls{wr} pattern variability as measured by the standard deviation of the \glspl{emm} across the 8 \gls{wr} categories. (a) Standard deviation for the models with the \glspl{wr} as the sole covariate. (b) Difference in standard deviation to a model with additional covariates introduced in the text relative to the standard deviation across the regimes for the simple model (a). Positive values indicate pattern attenuation. Values shown for grid points with \gls{fdr}-adjusted p-values below 5\%.}
     \label{fig:2ndRMS}
 \end{figure}
 
@@ -625,9 +625,9 @@ Also presented is the relative difference in \gls{wr} related \gls{emm} variabil
     \frac{\sigma^{(\mathrm{simple})}_{\mathrm{WR}} - \sigma^{(\mathrm{full})}_{\mathrm{WR}}}{\sigma^{(\mathrm{simple})}_{\mathrm{WR}}}.
 \end{equation}
 
-The construction as a relative measure means values can be large but still insignificant (when they are inflated by a small denominator), because in both absolute and relative terms, the same test ($\sigma^{(\mathrm{simple})}_{\mathrm{WR}} = \sigma^{(\mathrm{full})}_{\mathrm{WR}}$) is applied. The right panel in \cref{fig:2ndRMS} proves that the second-stage model reduces the variability in the \gls{wr} associated uncertainty patterns for most of the region considered. For grid points with high pattern variability $\sigma_{\mathrm{WR}}^{\mathrm{(simple)}}$, around half of the signal are attenuated due to the inclusion of the covariates. Even larger shares of variance are drawn from the \gls{wr} covariate over much of the European mainland and in the subtropical eastern North Atlantic. The reasons will be explored later with the help of the attenuation's decomposition across the three covariates, but we deduct from the above that a meaningful part of the assimilation uncertainty on synoptic time scales can be explained by the physical and mathematical processes associated with the three covariates utilized. We formulate this as a causal connection on purpose because the \glspl{wr} themselves are not indicative of some process in particular but rather spatially constant flow state descriptors. The differences in the \glspl{emm} for each \gls{wr} individually are also given in \cref{fig:EMMWR_diff} in \cref{sec:EDA_AddFig}. In agreement with the aforementioned, the \gls{wr} specific differences are largest in regions where the raw uncertainty patterns are also pronounced.
+The construction as a relative measure means values can be large but still insignificant (when they are inflated by a small denominator), because in both absolute and relative terms, the same test ($\sigma^{(\mathrm{simple})}_{\mathrm{WR}} = \sigma^{(\mathrm{full})}_{\mathrm{WR}}$) is applied. \Cref{fig:2ndRMS}~(b) proves that the second-stage model reduces the variability in the \gls{wr} associated uncertainty patterns for most of the region considered. For grid points with high pattern variability $\sigma_{\mathrm{WR}}^{\mathrm{(simple)}}$, around half of the signal are attenuated due to the inclusion of the covariates. Even larger shares of variance are drawn from the \gls{wr} covariate over much of the European mainland and in the subtropical northeastern Atlantic. The reasons will be explored later with the help of the attenuation's decomposition across the three covariates, but we deduct from the above that a meaningful part of the assimilation uncertainty on synoptic time scales can be explained by the physical and mathematical processes associated with the three covariates utilized. We formulate this as a causal connection on purpose because the \glspl{wr} themselves are not indicative of some process in particular but rather spatially constant flow state descriptors. The differences in the \glspl{emm} for each \gls{wr} individually are also given in \cref{fig:EMMWR_diff} in \cref{sec:EDA_AddFig}. In agreement with the aforementioned, the \gls{wr} specific differences are largest in regions where the raw uncertainty patterns are also pronounced.
 
-Interestingly, there are also regions where the additional covariates actually increase the standard deviation of the \glspl{wr} uncertainty patterns, most notably over northeastern North America (this is also consistent across second-stage models including other covariates from \cref{fig:CorrYearly}; not shown). In this region, the uncertainty patterns do not exhibit a strong variability in either the simple or the full model and neither do the \gls{wr} patterns in terms of \gls{zg500} show considerable variability (see.~\cref{fig:WRStd}). Though seemingly paradoxical, an increase in the between group differences through inclusion of further covariates implies these covariates mask true differences as long as they are not accounted for explicitly in the model. In other words, the \gls{wr} specific assimilation uncertainty on synoptic time scales has to be driven by processes not related to either of the variables included. We do not explore this aspect further, especially since this region is arguably of secondary relevance. Finally, we note that the polar region, again, stands out by noisy signals also for this measure, which we think is, again, related to this analysis framework being tailored more to the mid-latitudes.
+Interestingly, there are also regions where the additional covariates actually increase the standard deviation of the \glspl{wr} uncertainty patterns, most notably over northeastern North America (this is also consistent across second-stage models including other covariates from \cref{fig:CorrYearly}; not shown). In this region, the uncertainty patterns do not exhibit a strong variability in either the simple or the full model and neither do the \gls{wr} patterns in terms of \gls{zg500} show considerable variability (cf.~\cref{fig:WRStd}). Though seemingly paradoxical, an increase in the between group differences through inclusion of further covariates implies these covariates mask true differences as long as they are not accounted for explicitly in the model. In other words, the \gls{wr}-specific assimilation uncertainty on synoptic time scales has to be driven by processes not related to either of the variables included. We do not explore this aspect further, especially since this region is arguably of secondary relevance. Finally, we note that the polar region, again, stands out by noisy signals also for this measure, which we think is, again, related to this analysis framework being tailored more to the mid-latitudes.
 
 The \gls{wr} pattern attenuation achieved by the second-stage models may also be approximately decomposed into the contributions by each of the added covariates with a \enquote{leave-one-out} strategy: Instead of comparing $\sigma_{\mathrm{WR}}^{\mathrm{(simple)}}$ with $\sigma_{\mathrm{WR}}^{\mathrm{(full)}}$, we leave out one of the three additional covariates each and compute that models respective $\sigma_{\mathrm{WR}}^{\mathrm{(-pred)}}$, which is the standard deviation of the \glspl{emm} across \glspl{wr} in the model with all  covariates except $x^{\mathrm{pred}}$. This isolates the unique contribution of each covariate after accounting for the others, which an analogous \enquote{add-one} strategy would not.
 Results from \enquote{add-one} models mentioned above would look virtually identical to \cref{fig:CorrMaps}. The \enquote{leave-one-out} procedure provides an inexact decomposition in the sense that the three components do not exactly sum to the effect of the full model due to compensating effects between the covariates. That being said, the sum of the three components nonetheless approximates the full-model effect well, consistent with the covariates being largely mutually independent in their contribution to the regime signal. The results are presented in \cref{fig:loo}.
@@ -635,23 +635,23 @@ Results from \enquote{add-one} models mentioned above would look virtually ident
 \begin{figure}
     \centering
     \includegraphics[scale=0.75]{fig/WCD/figComb/SmallModel_LOO_RMS.pdf}
-    \caption{Relative weather regime pattern variability attenuation as measured by $\Delta \sigma_{\mathrm{WR}}$, but with one covariate removed from the full model~\eqref{eq:fullMod}. The removed covariate is indicated atop the facets. Values shown for grid points with \gls{fdr}-adjusted p-values below 5\%}
+    \caption{Relative \gls{wr} pattern variability attenuation as measured by $\Delta \sigma_{\mathrm{WR}}$, but with one covariate removed from the full model~\eqref{eq:fullMod}. The removed covariate is indicated atop the facets. Values shown for grid points with \gls{fdr}-adjusted p-values below 5\%}
     \label{fig:loo}
 \end{figure}
 
-A large part of the variability in the uncertainty that is projected onto the \glspl{wr} clustering is due to the uncertainties' correlation with the geopotential gradient itself. Though we cannot determine how much of this reflects the gradient's role in QG quantities such as the geostrophic wind and the Eady growth rate, we consider it likely that this fact is predominantly caused by the mathematical and assimilation considerations laid out before. This is supported by the fact that attenuation by the gradient is strongest in regions where the \gls{wr} patterns themselves show large variability (cf.~\cref{fig:WRStd}). The large and significant patch of negative values across northeastern North America and along its coast imply a similar conclusion. This is because the \gls{wr} patterns exhibit minuscule variability in the \gls{zg500} gradient in that region whereas the region is generally quite variable in that respect. In other words, the variability in \gls{zg500} gradient within \gls{wr} categories compared to the between category contrast, in effect masks contrasts between categories in the assimilation uncertainty. We stress that the gradient neither dominates the overall uncertainty variability nor is negatively correlated with it anywhere (cf.~\cref{fig:CorrMaps}).
+A large part of the variability in the uncertainty that is projected onto the \glspl{wr} clustering is due to the uncertainties' correlation with the geopotential gradient itself. Though we cannot determine how much of this reflects the gradient's role in \gls{qg} quantities such as the geostrophic wind and the Eady growth rate, we consider it likely that this fact is predominantly caused by the mathematical and assimilation considerations laid out before. This is supported by the fact that attenuation by the gradient is strongest in regions where the \gls{wr} patterns themselves show large variability (cf.~\cref{fig:WRStd}). The large and significant patch of negative values across northeastern North America and along its coast imply a similar conclusion. This is because the \gls{wr} patterns exhibit minuscule variability in the \gls{zg500} gradient in that region whereas the region is generally quite variable in that respect. In other words, the variability in \gls{zg500} gradient within \gls{wr} categories compared to the between category contrast, in effect masks contrasts between categories in the assimilation uncertainty. We stress that the gradient neither dominates the overall uncertainty variability nor is negatively correlated with it anywhere (cf.~\cref{fig:CorrMaps}).
 
-The Laplacian's effect---though generally a little smaller in magnitude---is significantly positive for most of the domain. An exception to this are large parts of Europe and northern Africa, which we consider caused by topographic influences (cf.~\cref{fig:CorrMaps}) and the other two covariates attaining larger effects here. The Laplacian's secondary role is in agreement with it being a second-order derivative. We do maintain, however, that it accounts for a considerable part of the signal and in a regionally constant manner that speaks in favor of a general effect. We consider it also a further argument against the Laplacian's effect being mediated through its role in QG dynamics, since QG factors certainly have varying effect magnitudes across the domain.
+The Laplacian's effect---though generally a little smaller in magnitude---is significantly positive for most of the domain. An exception to this are large parts of Europe and northern Africa, which we consider caused by topographic influences (cf.~\cref{fig:CorrMaps}) and the other two covariates attaining larger effects here. The Laplacian's secondary role is in agreement with it being a second-order derivative. We do maintain, however, that it accounts for a considerable part of the signal and in a regionally constant manner that speaks in favor of a general effect. We consider it also a further argument against the Laplacian's effect being mediated through its role in \gls{qg} dynamics, since \gls{qg} factors certainly have varying effect magnitudes across the domain.
 
 The inclusion of lower tropospheric humidity content, finally, also accounts for a non-negigible amount of signal in the \glspl{wr}' association with assimilation uncertainty. Its signal is also rather constant across space, indicating an effect independent of local climates. An exception is visible, again, for the northeastern North American region, which we attribute, again, to the \gls{wr} classification's focus on regions downstream.
 
-Given the particularly high correlation of this variable with the short-time-scale assimilation uncertainty (cf.~\cref{fig:CorrMaps}) in the Gulf Stream region, but a rather sparse and fragmented signal in this \gls{wr} attenuation framework, it seems like there might be an important linkage missed. Indeed, for the region, the relative humidity attenuates the \gls{wr} signal quite strongly---an effect that is masked by large internal variability as measured by our hypothesis tests. To further explore this intriguing aspect, we therefore turn to a more object oriented perspective by considering the role of \glspl{wcb}.
+Given the particularly high correlation of this variable with the short-time-scale assimilation uncertainty (cf.~\cref{fig:CorrMaps}) in the Gulf Stream region, but a rather sparse and fragmented signal in this \gls{wr} attenuation framework, it seems like there might be an important linkage missed. Indeed, for the region, the relative humidity attenuates the \gls{wr} signal quite strongly---an effect that is masked by large internal variability as measured by our hypothesis tests. To further explore this intriguing aspect, we therefore turn to a more object-oriented perspective by considering the role of \glspl{wcb}.
 
 \subsubsection{Warm conveyor belts}
 
-As outlined in the introduction, \glspl{wcb} are well established as amplifiers of forecast uncertainty, with much of that uncertainty commonly attributed to model formulation rather than to the initial state. Our setting differs in this respect: as seen in the previous section, the target variable---the variance-balanced residuals of the first-stage models $\hat{\varepsilon}^*$---is severely influenced by specifics of the observation system.
+As outlined in the introduction \cref{sec:intro_wcb_uncertainty}, \glspl{wcb} are well established as amplifiers of forecast uncertainty, with much of that uncertainty commonly attributed to model formulation rather than to the initial state. Our setting differs in this respect: as seen in the previous section, the target variable---the variance-balanced residuals of the first-stage models $\hat{\varepsilon}^*$---is severely influenced by specifics of the observation system.
 We therefore do not consider model uncertainty in isolation, as is often done in studies of the impact of \glspl{wcb} on predictability. Since observation-related uncertainties are very much present and relevant in the assimilation process for both reanalysis production and operational forecasts, we regard the relation between \glspl{wcb} and our target variable as
-equally relevant, and we aim to contribute to the body of literature reviewed above by studying how \glspl{wcb} relate to assimilation uncertainty specifically.
+equally relevant, and we aim to contribute to the body of literature reviewed in the introduction by studying how \glspl{wcb} relate to assimilation uncertainty specifically.
 
 \glspl{wcb} are often studied in a Lagrangian manner, but such an approach is cumbersome for our framework given our Eulerian setting. As outlined in \cref{sec:EDA_dat}, we utilize a \gls{wcb} identification dataset that has been cast into a gridded format of four dimensions: latitude, longitude, time and lifecycle stage (inflow, ascent and outflow). Similar datasets have been used in the study of \gls{wcb}-associated uncertainty, with particular focus on atmospheric blockings \parencite{wandelWhyMoistDynamic2024,wandelSystematicEvaluationWarm2021, picklWarmConveyorBelts2023}. As a first measure, we investigate the local in time and space association between \glspl{wcb} and the residual uncertainty without stratifying according to \glspl{wr} by simply fitting
 
@@ -663,46 +663,46 @@ The three covariates used are binary indicators of \gls{wcb} occurrence in the r
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/figComb/wcb_effects.pdf}
-    \caption{\glspl{emm} for each warm conveyor belt lifecycle stage. Values shown for grid points with \gls{fdr}-adjusted p-values below 5\%. For some polar grid points, warm conveyor belt occurrence frequency is not sufficient for model estimation.}
+    \includegraphics[scale=.8]{fig/WCD/figComb/wcb_effects.pdf}
+    \caption{\glspl{emm} for each \gls{wcb} lifecycle stage. Values shown for grid points with \gls{fdr}-adjusted p-values below 5\%. For some polar grid points, \gls{wcb} occurrence frequency is not sufficient for model estimation.}
     \label{fig:WCBloc}
 \end{figure}
 
-As expected from the positive influence of moisture variables generally, the presence of \glspl{wcb} relates to anomalously high uncertainty at most grid points. The signal exhibits a meridional gradient attaining its highest values in the subtropics---even turning (significantly) negative for the outflow at higher latitudes. The signal is generally strongest for the ascent stage, which is expected given that we study the uncertainty in geopotential at 500 hPa, which coincides with the vertical layers considered for the ascent stage. The patch of negatively anomalous uncertainty associated with \gls{wcb} outflow in high latitudes might be caused by the ridge building effect such outflow tends to have \parencite{steinfeldRoleLatentHeating2019, saffinCirculationConservationOutflow2021}. The divergent outflow aloft decreases the geopotential gradient such that \glspl{wcb} effect might be mediated by the geopotential field's structure rather than the humidity. Using \gls{wcb} centered forecast error composites, \textcite{picklWarmConveyorBelts2023} uncovered positive anomalies in \gls{zg500} also during outflow stage, but those composites are averaged over forecast lead time and the whole region impeding a proper comparison.
+As expected from the positive influence of moisture variables generally, the presence of \glspl{wcb} relates to anomalously high uncertainty at most grid points. The signal exhibits a meridional gradient attaining its highest values in the subtropics---even turning (significantly) negative for the outflow at higher latitudes. The signal is generally strongest for the ascent stage, which is expected given that we study the uncertainty in \gls{zg500}, which coincides with the vertical layers considered for the ascent stage. The patch of negatively anomalous uncertainty associated with \gls{wcb} outflow in high latitudes might be caused by the ridge building effect such outflow tends to have \parencite{steinfeldRoleLatentHeating2019, saffinCirculationConservationOutflow2021}. The divergent outflow aloft decreases the geopotential gradient such that \glspl{wcb} effect might be mediated by the geopotential field's structure rather than the humidity. Using \gls{wcb} centered forecast error composites, \textcite{picklWarmConveyorBelts2023} uncovered positive anomalies in \gls{zg500} also during outflow stage, but those composites are averaged over forecast lead time and the whole region impeding a proper comparison.
 
-We assume the stronger effect in the subtropics comes about due to more severe convection on the one hand and a larger fraction of variance not dominated by structures in the geopotential field itself on the other hand. Indeed, moist variables (cloud cover in particular) reach higher Pearson correlation coefficients in the subtropics compared to the Polar regions, too. Drawing attention to the differences in the range of values covered by the colour bar of \cref{fig:WCBloc} compared to the colour bar in \cref{fig:WREffect}, we maintain that the \glspl{wcb} effect on uncertainty can at times be quite marked. Some of the differences in magnitude may also stem from the lower frequencies and spatial locality of the \glspl{wcb} compared to the \glspl{wr}, which makes them being more strongly related to dynamically active weather situations locally.
+We assume the stronger effect in the subtropics comes about due to more severe convection on the one hand and a larger fraction of variance not dominated by structures in the geopotential field itself on the other hand. Indeed, moist variables (cloud cover in particular) reach higher Pearson correlation coefficients in the subtropics compared to the Polar regions, too. Drawing attention to the differences in the range of values covered by the colourbar of \cref{fig:WCBloc} compared to the colourbar in \cref{fig:WREffect}, we maintain that the \glspl{wcb} effect on uncertainty can at times be quite marked. Some of the differences in magnitude may also stem from the lower frequencies and spatial locality of the \glspl{wcb} compared to the \glspl{wr}, which makes them being more strongly related to dynamically active weather situations locally.
 
-In contrast to the covariates analyzed in the last section, spatial and temporal lag presumably play a role in the way in which \glspl{wcb} exert an influence on uncertainty on synoptic scales. This goes especially for the inflow and outflow stages as these processes occur at different vertical levels compared to our target variable \gls{zg500}. For instance, \textcite{wandelWhyMoistDynamic2024} found that correct \gls{wcb} representation days and weeks ahead influences the correct prediction of EuBL occurrences. More systematically, \textcite{picklWarmConveyorBelts2023} showed that \gls{wcb} occurrence at any stage is linked to (mostly elevated) anomalies in forecast-error growth, though, again, their analysis is probably not dominated by initial condition influences. Still, as mentioned before, assimilation uncertainty is also partially influenced by model error growth through the background forecast ensemble forecasts, suggesting factors determining uncertainty may carry over.
+In contrast to the covariates analyzed in the last section, spatial and temporal lag presumably play a role in the way in which \glspl{wcb} exert an influence on uncertainty on synoptic scales. This goes especially for the inflow and outflow stages as these processes occur at different vertical levels compared to our target variable \gls{zg500}. For instance, \textcite{wandelWhyMoistDynamic2024} found that correct \gls{wcb} representation days and weeks ahead influences the correct prediction of \enquote{EuBL} occurrences. More systematically, \textcite{picklWarmConveyorBelts2023} showed that \gls{wcb} occurrence at any stage is linked to (mostly elevated) anomalies in forecast-error growth, though, again, their analysis is probably not dominated by initial-condition influences. Still, as mentioned before, assimilation uncertainty is also partially influenced by model-error growth through the background ensemble forecasts, suggesting factors determining uncertainty may carry over.
 
 
 Crucially, such lagged influences need not be local in space: a \gls{wcb} ascending in one region may shape the uncertainty downstream days later, an effect that a grid-point-wise analysis like that of the previous section cannot capture. A second obstacle is one of sample size. We are interested in the effects \glspl{wcb} have across different \glspl{wr}, but an analysis akin to the one performed in the last section would require dividing the already limited \gls{wcb} dataset among at least eight \gls{wr} classes. Our calculations accordingly indicate unstable optimizations and estimates blurred by large parameter uncertainty. For both reasons---the inherently non-local character of \gls{wcb} influence and the prohibitive fragmentation of the sample---we adopt a more non-local
 approach.
 
-As a first step, we compile climatologies of \gls{wcb} occurrence at every lifecycle stage and at lags 0h, 12h and 24h (\gls{wcb} occured 0, 12, 24 hours before) for each \gls{wr} separately. We then sort all grid point in the region considered according to their individual occurrence frequency and select for every combination of lag, lifecycle stage and \gls{wr} those grid points that taken together account for a third of the cosine latitude weighted occurrence frequency mass. The procedure yields nine binary masks per \gls{wr}, of which we select one per lifecycle stage by identifying the highest values of the Pearson correlation coefficient as in \cref{sec:EDA_CorrMaps}. We provide maps of the correlation coefficient at every lag and lifecycle stage in \cref{sec:EDA_AddFig} in \cref{fig:corrMapWCB}. Note that correlation peaks for lag 12h for the inflow and outflow stages, while it peaks for lag 0h for the ascent stage---a result very much in line with the fact that the ascent stage includes the pressure level of our target variable (500hPa) and suggesting disturbances from lower and higher levels take time to propagate to the mid-troposphere. The same lag for each lifecycle stage is selected across all \glspl{wr} for consistency. Climatological masks are depicted for every \gls{wr} in \cref{fig:WCBWRMasks}.
+As a first step, we compile climatologies of \gls{wcb} occurrence at every lifecycle stage and at lags 0~h, 12~h and 24~h (\gls{wcb} occured 0, 12, 24 hours before) for each \gls{wr} separately. We then sort all grid point in the region considered according to their individual occurrence frequency and select for every combination of lag, lifecycle stage and \gls{wr} those grid points that taken together account for a third of the latitude-weighted occurrence-frequency mass. The procedure yields nine binary masks per \gls{wr}, of which we select one per lifecycle stage by identifying the highest values of the Pearson correlation coefficient as in \cref{sec:EDA_CorrMaps}. We provide maps of the correlation coefficient at every lag and lifecycle stage in \cref{sec:EDA_AddFig} in \cref{fig:corrMapWCB}. Note that correlation peaks for lag 12~h for the inflow and outflow stages, while it peaks for lag 0~h for the ascent stage---a result very much in line with the fact that the ascent stage includes the pressure level of our target variable (500hPa) and suggesting disturbances from lower and higher levels take time to propagate to the mid-troposphere. The same lag for each lifecycle stage is selected across all \glspl{wr} for consistency. Climatological masks are depicted for every \gls{wr} in \cref{fig:WCBWRMasks}.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f13.pdf}
-    \caption{Climatological inflow, ascent and outflow warm conveyor belt masks for each weather regime for lag 12h (in- and outflow) and lag 0h for the ascent stage. The grid points in the indicated regions account for the top third of the climatological occurrence frequency mass. Green contours display the composite mean Z500 maps for each of the weather regimes based on the \gls{era5} HRES product. Contour lines are drawn every 80 gpm.}
+    \includegraphics[scale=.8]{fig/WCD/f13.pdf}
+    \caption{Climatological inflow, ascent and outflow \gls{wcb} masks for each \gls{wr} for lag 12~h (in- and outflow) and lag 0~h for the ascent stage. The grid points in the indicated regions account for the top third of the climatological occurrence-frequency mass. Green contours display the composite mean Z500 maps for each of the \glspl{wr} based on the \gls{era5} HRES product. Contour lines are drawn every 80 gpm.}
     \label{fig:WCBWRMasks}
 \end{figure}
 
 In line with our understanding of \glspl{wcb}, the climatologically most prominent regions for occurrence differ more between the \glspl{wr} the higher the air streams ascend. The gulf stream is clearly identified as a common source region only differing by how far and wide the region extends out into the open Atlantic. The ascent and outflow stages on the other hand exhibit more distinct patterns across the different \glspl{wr}. By and large, they reflect how extratropical cyclones are guided differently by the differing background flow. We remind the reader that the masks shown in \cref{fig:WCBWRMasks} account for \enquote{only} a third of the climatological frequency mass, so \glspl{wcb} of course also occur at other locations. Nevertheless, we argue that the masks do capture the cores of the climatological air stream pathways associated with each \gls{wr}.
 
-Recall that our goal with these masks is to be able to aggregate the \gls{wcb} occurrences to a level that is sufficient for meaningful estimation of the \gls{wr} specific influence of \glspl{wcb} on assimilation uncertainty. To that end, we use these masks to conflate individual occurrences to a single, spatially integrated variable we consider to represent \gls{wcb} activity. More specifically, for each time step in our data set, we count the \gls{wcb} occurrences within each of the three masks belonging to the currently active \gls{wr} for each of the respective lifecycle stages. This results in three one-dimensional variables $x^{\mathrm{inf,clim}}, x^{\mathrm{asc,clim}}, x^{\mathrm{out,clim}}$. For example, if at some time step at which the \gls{wr} \enquote{AT} was active, there was not a single ascending \gls{wcb} detected at any of the grid points in the climatological mask, then $x^{\mathrm{asc,clim}} = 0$ for that time step. If on the other hand \glspl{wcb} at inflow stage were detected 12 hours before at every second of the grid points that are part of the climatological mask (and these grid points were distributed equally across latitudes), then $x^{\mathrm{inf,clim}}=.5$ for that time step.
+Recall that our goal with these masks is to be able to aggregate the \gls{wcb} occurrences to a level that is sufficient for meaningful estimation of the \gls{wr}-specific influence of \glspl{wcb} on assimilation uncertainty. To that end, we use these masks to conflate individual occurrences to a single, spatially integrated variable we consider to represent \gls{wcb} activity. More specifically, for each time step in our data set, we count the \gls{wcb} occurrences within each of the three masks belonging to the currently active \gls{wr} for each of the respective lifecycle stages. This results in three one-dimensional variables $x^{\mathrm{inf,clim}}, x^{\mathrm{asc,clim}}, x^{\mathrm{out,clim}}$. For example, if at some time step at which the \gls{wr} \enquote{AT} was active, there was not a single ascending \gls{wcb} detected at any of the grid points in the climatological mask, then $x^{\mathrm{asc,clim}} = 0$ for that time step. If on the other hand \glspl{wcb} at inflow stage were detected 12 hours before at every second of the grid points that are part of the climatological mask (and these grid points were distributed equally across latitudes), then $x^{\mathrm{inf,clim}}=.5$ for that time step.
 
 The spatial aggregation makes the estimation problem more robust, since the three covariates are spatially constant and problems due to rare occurrences are avoided. We proceed by fitting
 \begin{equation}
     \label{eq:WRWCB}
     \hat{\varepsilon}^{\ast}\sim x^{\mathrm{WR}} * \left(x^{\mathrm{inf,clim}} + x^{\mathrm{asc,clim}}+ x^{\mathrm{out,clim}}\right),
 \end{equation}
-where the operator \enquote{$*$} indicates an interaction including a main effect for the \gls{wcb} covariates \parencite{pinheiroMixedeffectsModelsSPLUS2000}. In other words, we are estimating separate slopes for each of the \gls{wcb} variables within each \gls{wr} category and include a \gls{wr} independent offset. The set-up implies that the results truly reflect \gls{wcb} influence and are not confounded by \gls{wr} specific patterns in \cref{fig:WREffect}. Though this formulation allows for an attenuation analysis like performed above, that is not our goal, since it is unlikely that \glspl{wcb} influence accounts for a dominant part of the \gls{wr} specific influence and because such influence would likely be mediated through the variables analyzed in the last section. Experiments carried out confirm this conjecture (not shown).
+where the operator \enquote{$*$} indicates an interaction including a main effect for the \gls{wcb} covariates \parencite{pinheiroMixedeffectsModelsSPLUS2000}. In other words, we are estimating separate slopes for each of the \gls{wcb} variables within each \gls{wr} category and include a \gls{wr}-independent offset. The set-up implies that the results truly reflect \gls{wcb} influence and are not confounded by \gls{wr}-specific patterns in \cref{fig:WREffect}. Though this formulation allows for an attenuation analysis like performed above, that is not our goal, since it is unlikely that \gls{wcb} influence accounts for a dominant part of the \gls{wr}-specific influence and because such influence would likely be mediated through the variables analyzed in the last section. Experiments carried out confirm this conjecture (not shown).
 
 The effect of the three \gls{wcb} covariates individually is, as expected,
 small, so we instead show their combined effect when all three are
 simultaneously one standard deviation above their regime-specific
 average. This is admittedly a crude premise, but it conveys what
-elevated \gls{wcb} activity entails for each weather regime. Concretely, for
+elevated \gls{wcb} activity entails for each \gls{wr}. Concretely, for
 each regime $l$ we define this $+1\,\mathrm{SD}$ effect as
 \begin{equation}
     \label{eq:WCBcomb}
@@ -721,8 +721,8 @@ relative to the uncertainty in the slope estimates.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.75]{fig/WCD/f14.pdf}
-    \caption{Effects of warm conveyor belt activity being one standard deviation above the mean for $x^{\mathrm{inf,clim}}, x^{\mathrm{asc,clim}}$ and $x^{\mathrm{out,clim}}$ simultaneously on assimilation uncertainty. Values shown for grid points with \gls{fdr}-adjusted p-values below 5\%. Green contours display the composite mean Z500 maps for each of the weather regimes based on the \gls{era5} HRES product. Contour lines are drawn every 80 gpm.}
+    \includegraphics[scale=.8]{fig/WCD/f14.pdf}
+    \caption{Effects of \gls{wcb} activity being one standard deviation above the mean for $x^{\mathrm{inf,clim}}, x^{\mathrm{asc,clim}}$ and $x^{\mathrm{out,clim}}$ simultaneously on assimilation uncertainty. Values shown for grid points with \gls{fdr}-adjusted p-values below 5\%. Green contours display the composite mean Z500 maps for each of the \glspl{wr} based on the \gls{era5} HRES product. Contour lines are drawn every 80 gpm.}
     \label{fig:WRWCBeffect}
 \end{figure}
 
@@ -733,17 +733,17 @@ Notwithstanding the minor magnitude and regionally confined signals, we maintain
 
 \section{Conclusion}\label{sec:EDA_conc}
 
-This study investigated synoptic-scale assimilation uncertainty in the \gls{era5} reanalysis dataset by isolating it from signals introduced by changes in the observation system and seasonality using a statistical modeling framework applied to \gls{eda} output. By explicitly accounting for structural breaks associated with abrupt changes in the observing system and filtering long-term variability, we constructed a temporally consistent estimate of flow-dependent uncertainty spanning multiple decades. While being agnostic to the choice of atmospheric variable, here this methodology's application to geopotential on 500hPa in the Atlantic--European sector provided exemplary insights into assimilation uncertainty for midlatitude synoptic dynamics.
+This study investigated synoptic-scale assimilation uncertainty in the \gls{era5} reanalysis dataset by isolating it from signals introduced by changes in the observation system and seasonality using a statistical modeling framework applied to \gls{eda} output. By explicitly accounting for breakpoints associated with abrupt changes in the observing system and filtering long-term variability, we constructed a temporally consistent estimate of flow-dependent uncertainty spanning multiple decades. While being agnostic to the choice of atmospheric variable, here this methodology's application to geopotential on 500hPa in the Atlantic--European sector provided exemplary insights into assimilation uncertainty for mid-latitude synoptic dynamics.
 
 The results show that a substantial fraction of ensemble spread variability is linked to changes in the observational network. The identified breakpoints and statistical fits for the long term variability can be explained rather exhaustively by known historical changes to the observational and assimilation suite. After removing these long-term effects, the remaining variability exhibits clear flow dependence and organizes coherently across Euro--Atlantic \glspl{wr}. We take this stratification along \glspl{wr} as a reference to further explore the processes and mechanisms governing the uncertainty on short time scales.
 
-We find no single cause, but rather multiple variables significantly and independently related to the above described uncertainty. A combination of mathematical mechanisms and moist dynamical processes, we argue, is able to explain the largest part of the \gls{wr} dependent uncertainty patterns. In particular, our results show that assimilation uncertainty of a field correlates strongly with the local structure of this field as quatified by its covariation with the gradient magnitude $|\nabla \phi |$ and its Laplacian $\nabla^2 \phi$. Both these variables are deeply rooted in quasigeostrophic theory and it is likely that part of the association is via physical rather than mathematical mechanisms. Consistently, we find smaller, but consistent influences by baroclinic instability (Eady growth rate) and jet stream forcing.
+We find no single cause, but rather multiple variables significantly and independently related to the above described uncertainty. A combination of mathematical mechanisms and moist dynamical processes, we argue, is able to explain the largest part of the \gls{wr}-dependent uncertainty patterns. In particular, our results show that assimilation uncertainty of a field correlates strongly with the local structure of this field as quantified by its covariation with the gradient magnitude $|\nabla \phi |$ and its Laplacian $\nabla^2 \phi$. Both these variables are deeply rooted in quasigeostrophic theory and it is likely that part of the association is via physical rather than mathematical mechanisms. Consistently, we find smaller, but consistent influences by baroclinic instability (Eady growth rate) and jet stream forcing.
 
-Moist processes account for a considerable and independent part of the uncertainty and we find the strongest association with the integrated relative humidity in the lower troposphere (850-500 hPa). That covariation varies in time indicating a mediation by observation rather than model uncertainties. Contrary to expectations, our analysis does not support the notion that stochastic parametrization schemes dominate the assimilation uncertainty. Rather, the presence of moisture exerts a state-dependent (positive) effect on the assimilation uncertainty through elevated observation uncertainties due to both increased observation perturbations and decreased observational coverage---in particular in regions with prevalent convective activity.
+Moist processes account for a considerable and independent part of the uncertainty and we find the strongest association with the integrated relative humidity in the lower troposphere (850--500 hPa). That covariation varies in time indicating a mediation by observation rather than model uncertainties. Contrary to expectations, our analysis does not support the notion that stochastic parametrization schemes dominate the assimilation uncertainty. Rather, the presence of moisture exerts a state-dependent (positive) effect on the assimilation uncertainty through elevated observation uncertainties due to both increased observation perturbations and decreased observational coverage---in particular in regions with prevalent convective activity.
 
-\glspl{wcb} have been identified as key drivers of uncertainty in the mid-latitudes. Our study extends the existing body of research by proving this not only holds for forecast uncertainty, but also assimilation uncertainty. The extent to which larger assimilation uncertainties already preposition larger ensemble forecast spreads in case studies of \glspl{wcb} is an interesting and relevant question warranting further investigation. In addition to spatio-temporally local effects, it appears the area-integrated level of \gls{wcb} activity also has a bearing on assimilation uncertainty with, again, \gls{wr} specific spatial patterns.
+\glspl{wcb} have been identified as key drivers of uncertainty in the mid-latitudes. Our study extends the existing body of research by proving this not only holds for forecast uncertainty, but also assimilation uncertainty. The extent to which larger assimilation uncertainties already preposition larger ensemble forecast spreads in case studies of \glspl{wcb} is an interesting and relevant question warranting further investigation. In addition to spatio-temporally local effects, it appears the area-integrated level of \gls{wcb} activity also has a bearing on assimilation uncertainty with, again, \gls{wr}-specific spatial patterns.
 
-On a more general level, the results presented herein point to short time scale assimilation uncertainties being driven by observation specific aspects more than physics of short-forecast error growth. While regions and times associated with elevated uncertainties may relate to both---namely in convectively active regions---it has been shown, that this is not always the case. We therefore argue considering flow-dependent assimilation uncertainty is vital, yet frequently overlooked in studies concerned with error growth or ensemble forecast uncertainty, especially from a \gls{wr} perspective.
+On a more general level, the results presented herein point to short-time-scale assimilation uncertainties being driven by observation-specific aspects more than physics of short-forecast error growth. While regions and times associated with elevated uncertainties may relate to both---namely in convectively active regions---it has been shown, that this is not always the case. We therefore argue considering flow-dependent assimilation uncertainty is vital, yet frequently overlooked in studies concerned with error growth or ensemble-forecast uncertainty, especially from a \gls{wr} perspective.
 
 A central contribution of this work is the novel combination of multiple datasets and perspectives: long-term \gls{eda}-based uncertainty estimates, statistical models accounting for non-stationarity, \gls{wr} classifications, and \gls{wcb} occurrence. This integrated approach enables a more comprehensive characterization of atmospheric uncertainty than any single component could provide in isolation.
 
@@ -759,7 +759,7 @@ The code necessary to produce the results are provided in a ZENODO archive based
 \begin{subappendices}
 
     \section{Composite means}\label{sec:EDA_Perm}
-    We provide classical composites for comparison to \glspl{emm}. Define $\{I_{l,t}\}_{l=1}^L$, the binary indicators for the $L$ different levels
+    We provide classical composites for comparison to \glspl{emm}. Define $\{I_{l,t}\}_{l=1}^L$, the binary indicators for the different levels $l \in \mathcal{L} = \{1, \ldots, L\}$
     \begin{equation}
         I_{l,t} =
         \begin{cases}
@@ -773,7 +773,7 @@ The code necessary to produce the results are provided in a ZENODO archive based
     \end{equation}
     which is the empirical average of $y_{n,t}$ over all times assigned to category $l$. Unlike \glspl{emm}, composite means do not adjust for other covariates and do not inherit model assumptions, making them useful as a simple baseline for comparison.
 
-    For the composite means $\overline{y}^{\,(l)}$ calculated according to \cref{eq:comp}, we infer statistical significance under the null hypothesis of no association between the levels $\{l\}_{l=1}^L$ and the observed variable $y_{n,t}$. This can be done under minimal assumptions by employing a non-parametric permutation (Monte Carlo) test on the time series of categories to account for its block structure \parencite{goodPermutationParametricBootstrap2005}, which is an advantage compared to \glspl{emm}. Partition the full label sequence $(x^{(c)}_1, x^{(c)}_2, \ldots, x^{(c)}_T)$ into
+    For the composite means $\overline{y}^{\,(l)}$ calculated according to \cref{eq:comp}, we infer statistical significance under the null hypothesis of no association between the levels $l \in \mathcal{L}$ and the observed variable $y_{n,t}$. This can be done under minimal assumptions by employing a non-parametric permutation (Monte Carlo) test on the time series of categories to account for its block structure \parencite{goodPermutationParametricBootstrap2005}, which is an advantage compared to \glspl{emm}. Partition the full label sequence $(x^{(c)}_1, x^{(c)}_2, \ldots, x^{(c)}_T)$ into
     contiguous blocks $(\mathcal{B}_1, \mathcal{B}_2, \ldots, \mathcal{B}_B)$ in
     which the category $x_t^{(c)}$ remains constant:
     \begin{align}
@@ -857,120 +857,120 @@ The code necessary to produce the results are provided in a ZENODO archive based
 
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/f15.pdf}
+        \includegraphics[scale=.8]{fig/WCD/f15.pdf}
         \caption{Impact of varying the observation uncertainty on the ensemble spread and its decomposition according to \cref{eq:scalarspread}.}
         \label{fig:SpreadTradeOff}
     \end{figure}
 
     \section{Relation between anomalies and uncertainty} \label{sec:EDA_anom}
 
-    As mentioned in \cref{sec:EDA_WRetc}, the patterns of anomalous assimilation uncertainty in \gls{zg500} for each \gls{wr} (cf.~\cref{fig:WREffect}) look similar to the normalised, low-pass filtered  anomalies in the geopotential field itself for each of the \glspl{wr} (cf.~Supplementary fig.~1 in \textcite{gramsBalancingEuropesWindpower2017} or fig.~5 in~\textcite{gramsLifeCycleDefinition2026}), but with a negative sign. One might be tempted to try to interpret the apparent relation between the deviation from a mean state and the uncertainty from a dynamical systems perspective, but that lense would arguably speak rather in favor of a correlation with positive sign.
+    As mentioned in \cref{sec:EDA_WRetc}, the patterns of anomalous assimilation uncertainty in \gls{zg500} for each \gls{wr} (cf.~\cref{fig:WREffect}) look similar to the normalised, low-pass filtered  anomalies in the geopotential field itself for each of the \glspl{wr} (cf.~supplementary fig.~1 in \textcite{gramsBalancingEuropesWindpower2017} or fig.~5 in~\textcite{gramsLifeCycleDefinition2026}), but with a negative sign. One might be tempted to try to interpret the apparent relation between the deviation from a mean state and the uncertainty from a dynamical-systems perspective, but that lens would arguably speak rather in favor of a correlation with positive sign.
 
-    To better understand the relation between the two variables, we perform the same analysis steps as for the other variables investigated in our study (cf.~\textcite{gramsLifeCycleDefinition2026} for a thorough definition of the seasonally adjusted anomalies). We present in \cref{fig:CorrGrams} the time series and maps of the Pearson correlation coefficient $r$ akin to \cref{fig:CorrYearly,fig:CorrMaps}. Also shown is the relative attenuation of the \gls{wr} patterns in uncertainty due to inclusion of the variable as a covariate $\Delta \sigma_{\mathrm{WR}}$---the same quantity as in \cref{fig:2ndRMS}.
+    To better understand the relation between the two variables, we perform the same analysis steps as for the other variables investigated in our study (cf.~\textcite{gramsLifeCycleDefinition2026} for a thorough definition of the seasonally adjusted anomalies). We present in \cref{fig:CorrGrams} the time series and maps of the Pearson correlation coefficient $r$ akin to \cref{fig:CorrYearly,fig:CorrMaps}. Also shown is the relative attenuation of the \gls{wr} patterns in uncertainty due to inclusion of the variable as a covariate $\Delta \sigma_{\mathrm{WR}}$---the same quantity as in \cref{fig:2ndRMS}~(b).
 
     \begin{figure}
         \centering
         \includegraphics[scale=1]{fig/WCD/figComb/combFig3.pdf}
         \caption{Correlation and attenuation analysis for normalised,
-        low-pass filtered \gls{zg500} anomalies as mentioned in the text. (a):
-        Pearson correlation coefficient $r$ between the variance-balanced
-        residuals $\hat{\varepsilon}^*$ and the \gls{zg500} anomalies ased on annual
-        time slices. Line indicates median whereas shading indicates
-        interquartile range of values across grid points. Statistical
-        moments are latitude-weighted. (b) Pearson correlation
-        coefficient at each grid point calculated for the time period
-        1950-2024. (c) Relative attenuation of \gls{wr} patterns by the inclusion
-        of the \gls{zg500} anomalies. Same quantity as on the right of
-        \cref{fig:2ndRMS}. Values below or equal to $-1.5$ are shown in the
-        same colour (colourbar has been clipped). Values
+            low-pass filtered \gls{zg500} anomalies as mentioned in the text. (a)
+            Pearson correlation coefficient $r$ between the variance-balanced
+            residuals $\hat{\varepsilon}^*$ and the \gls{zg500} anomalies based on annual
+            time slices. Line indicates median whereas shading indicates
+            interquartile range of values across grid points. Statistical
+            moments are latitude-weighted. (b) Pearson correlation
+            coefficient at each grid point calculated for the time period
+            1950-2024. (c) Relative attenuation of \gls{wr} patterns by the inclusion
+            of the \gls{zg500} anomalies. Same quantity as in
+            \cref{fig:2ndRMS}~(b). Values below or equal to $-1.5$ are shown in the
+            same colour (colourbar has been clipped). Values
             shown for grid points with \gls{fdr}-adjusted p-values below 5\%}
         \label{fig:CorrGrams}
     \end{figure}
 
-    The figures reveals a correlation between the values of roughly -.2 throughout the period except for the first decade where correlation is weaker. The map proves that, similar to the other dry variables the strongest signal is spatially over the Atlantic and Western Europe, which comes as no surprise given they are essentially derived from (mostly) the same variable. The negative correlation is in agreement with our understanding of the assimilation uncertainty, because positive anomalies impose anticyclonic flow patterns when added to the background field (which is essentially equivalent to the flow field of the \enquote{no} category). We would, thus, argue that the negative correlation between the uncertainty and the anomalies is mediated through the horizontal structure of the field (and its resulting association with moist variables) rather than the deviation from some mean state. The weaker correlation magnitude gives us additional confidence in performing our analysis using the covariates selected in \cref{sec:EDA_WRAtt}.
+    The figures reveal a correlation between the values of roughly -.2 throughout the period except for the first decade where correlation is weaker. The map proves that, similar to the other dry variables the strongest signal is spatially over the Atlantic and western Europe, which comes as no surprise given they are essentially derived from (mostly) the same variable. The negative correlation is in agreement with our understanding of the assimilation uncertainty, because positive anomalies impose anticyclonic flow patterns when added to the background field (which is essentially equivalent to the flow field of the \enquote{no} category). We would, thus, argue that the negative correlation between the uncertainty and the anomalies is mediated through the horizontal structure of the field (and its resulting association with moist variables) rather than the deviation from some mean state. The weaker correlation magnitude gives us additional confidence in performing our analysis using the covariates selected in \cref{sec:EDA_WRAtt}.
 
-    The attenuation achieved upon inclusion of the variable as a covariate is quite remarkable (note the colourbar scaling). The effect is significantly positive roughly in the same regions where the correlation is also largest, whereas we find stronger \gls{wr} specific uncertainty emerge for the northeastern North American region again. This implies the center of maximal variability has shifted to the North West compared to the raw model. As explained above, we consider this effect indirect---at least it is unclear why mathematically positive anomalies in a field should entail negative anomalies in the assimilation uncertainty of that field in a direct sense.
+    The attenuation achieved upon inclusion of the variable as a covariate is quite remarkable (note the colourbar scaling). The effect is significantly positive roughly in the same regions where the correlation is also largest, whereas we find stronger \gls{wr}-specific uncertainty emerge for the northeastern North American region again. This implies the center of maximal variability has shifted to the northwest compared to the raw model. As explained above, we consider this effect indirect---at least it is unclear why mathematically positive anomalies in a field should entail negative anomalies in the assimilation uncertainty of that field in a direct sense.
 
     \section{Additional Figures} \label{sec:EDA_AddFig}
 
     \begin{figure}[H]
         \centering
         \includegraphics[scale=1]{fig/WCD/figComb/combFig4.pdf}%
-        % \includegraphics[scale=.75]{fig/WCD/f18.pdf}
+        % \includegraphics[scale=.8]{fig/WCD/f18.pdf}
         \caption{\gls{bic} and RSS for various segmentations. A minimum of the \gls{bic}
-        corresponds to the preferred segmentation. (a) Data and model assumption as
-        described in \cref{sec:EDA_resbrk}. The resulting model and breakpoints
-        are shown in \cref{fig:Segs}. (b) Same, but without seasonal 
-        covariates. The resulting model and breakpoints
-        are shown in \cref{fig:SegsNoSeas}.}
+            corresponds to the preferred segmentation. (a) Data and model assumption as
+            described in \cref{sec:EDA_resbrk}. The resulting model and breakpoints
+            are shown in \cref{fig:Segs}. (b) Same, but without seasonal
+            covariates. The resulting model and breakpoints
+            are shown in \cref{fig:SegsNoSeas}.}
         \label{fig:BICSeg}
     \end{figure}
 
 
-%  \begin{figure}[!h]
-%     \centering
-%     \includegraphics[scale=.75]{fig/WCD/f18.pdf}
-%     \caption{\gls{bic} and RSS for various segmentations. A minimum of the \gls{bic}
-%     corresponds to the preferred segmentation. Data and model assumption
-%     as described in Sect.~5.1, but without seasonal covariates.
-%     The resulting model and breakpoints are shown in fig.~\ref{fig:SegsNoSeas}.}
-%     \label{fig:BICSegNoSeas}
-% \end{figure}
+    %  \begin{figure}[!h]
+    %     \centering
+    %     \includegraphics[scale=.8]{fig/WCD/f18.pdf}
+    %     \caption{\gls{bic} and RSS for various segmentations. A minimum of the \gls{bic}
+    %     corresponds to the preferred segmentation. Data and model assumption
+    %     as described in Sect.~5.1, but without seasonal covariates.
+    %     The resulting model and breakpoints are shown in fig.~\ref{fig:SegsNoSeas}.}
+    %     \label{fig:BICSegNoSeas}
+    % \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=.75]{fig/WCD/f19.pdf}
-    \caption{Monthly and spatially averaged logarithmic \gls{eda} ensemble spread of geopotential
-at 500 hPa assimilated (black line) and fitted with 95\% \glspl{ci} (red line and shading). Identified change points annotated with the respective months (vertical dashed lines). Shading around change points indicate 95\% \glspl{ci}. In contrast to fig.~1 in the paper, no seasonal cycle is assumed in the breakpoint identification or fit. The overlapping \glspl{ci} are consistent, since breakpoint location uncertainty is estimated holding other breakpoints constant.}
-    \label{fig:SegsNoSeas}
-\end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=.8]{fig/WCD/f19.pdf}
+        \caption{Monthly and spatially averaged logarithmic \gls{eda} ensemble spread of \gls{zg500}
+            assimilated (black line) and fitted with 95\% \glspl{ci} (red line and shading). Identified change points annotated with the respective months (vertical dashed lines). Shading around change points indicate 95\% \glspl{ci}. In contrast to \cref{fig:Segs}, no seasonal cycle is assumed in the breakpoint identification or fit. The overlapping \glspl{ci} are consistent, since breakpoint location uncertainty is estimated holding other breakpoints constant.}
+        \label{fig:SegsNoSeas}
+    \end{figure}
 
     \begin{figure}
         \centering
         \includegraphics[scale=1]{fig/WCD/figComb/combFig5.pdf}
         \caption{(a) Difference in the model-estimated annual mean between the
-        years 2024 and 1940 respectively as a proxy for the total reduction in
-        observation uncertainty across the time span considered. (b)
-        Adjusted coefficient of determination in precision-space
-        introduced in \cref{eq:R2GLS}.}
+            years 2024 and 1940 respectively as a proxy for the total reduction in
+            observation uncertainty across the time span considered. (b)
+            Adjusted coefficient of determination in precision-space
+            introduced in \cref{eq:R2GLS}.}
         \label{fig:diff}
     \end{figure}
 
     % \begin{figure}
     %     \centering
-    %     \includegraphics[scale=.75]{fig/WCD/f21.pdf}
+    %     \includegraphics[scale=.8]{fig/WCD/f21.pdf}
     %     \caption{Same as \cref{fig:R2} but for the precision weighted diagnostic introduced in \cref{eq:R2GLS}.}
     %     \label{fig:R2GLS}
     % \end{figure}
 
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/f22.pdf}
-        \caption{Statistical model estimates of the seasonal cycle $\hat{s}_{n,t}$ for every segment individually based on the models on daily scale shown in \cref{fig:HighLowFit}. Blue (orange) line and shading and upward (downward) triangle indicate the Arctic (Gulf Stream)  grid point shown in \cref{fig:R2}. 95\% \glspl{ci} are for the whole seasonal cycle combined rather than for individual months (cf.~\cref{sec:EDA_sig}).}
+        \includegraphics[scale=.8]{fig/WCD/f22.pdf}
+        \caption{Statistical model estimates of the seasonal cycle $\hat{s}_{n,t}$ for every segment individually based on the models on daily scale shown in \cref{fig:HighLowFit}. Blue (orange) line and shading and upward (downward) triangle indicate the Arctic (Gulf Stream) grid point shown in \cref{fig:R2}. 95\% \glspl{ci} are for the whole seasonal cycle combined rather than for individual months (cf.~\cref{sec:EDA_sig}).}
         \label{fig:SegSeasHighLow}
     \end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[scale=.75]{fig/WCD/f23.pdf}
-    \caption{Logarithmic \gls{eda} ensemble spread of daily geopotential at 500 hPa assimilated (triangles) and 95\% \glspl{ci} for the mean estimates (shadings) for the year 2024. The blue (orange) triangles and shading corresponds to the grid point indicated by an upward (downward) triangle in figure~\ref{fig:R2}.}
-    \label{fig:HighLowFitDaily}
-\end{figure}
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/f24.pdf}
+        \includegraphics[scale=.8]{fig/WCD/f23.pdf}
+        \caption{Logarithmic \gls{eda} ensemble spread of daily \gls{zg500} assimilated (triangles) and 95\% \glspl{ci} for the mean estimates (shadings) for the year 2024. The blue (orange) triangles and shading corresponds to the grid point indicated by an upward (downward) triangle in figure~\ref{fig:R2}.}
+        \label{fig:HighLowFitDaily}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=.8]{fig/WCD/f24.pdf}
         \caption{Composite mean maps of the variance-balanced residuals $\hat{\varepsilon}^*$. Values
-            shown for grid points with \gls{fdr}-adjusted p-values below 5\% derived from the block-permutation test described in \cref{sec:EDA_sig} with 10,000 draws. Green contours display the composite mean Z500 maps for each of the weather regimes based on the \gls{era5} HRES product.}
+            shown for grid points with \gls{fdr}-adjusted p-values below 5\% derived from the block-permutation test described in \cref{sec:EDA_sig} with 10,000 draws. Green contours display the composite mean Z500 maps for each of the \glspl{wr} based on the \gls{era5} HRES product.}
         \label{fig:WREffectComp}
     \end{figure}
 
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/f25.pdf}
+        \includegraphics[scale=.8]{fig/WCD/f25.pdf}
         \caption{Effect of the occurrence of each \gls{wr} on the synoptic time scale
         assimilation uncertainty. \glspl{emm}
         $\hat{\mu}^{\mathrm{WR}}$ for each grid point are obtained from
         first-stage models from \cref{sec:EDA_resmod} extended by
-        the weather regime time series as a covariate (shading). Shown for
+        the \gls{wr} time series as a covariate (shading). Shown for
         grid points with \gls{fdr}-adjusted p-values below 5\%. Green contours
         display the composite mean Z500 maps for each of the \glspl{wr} based on the
         \gls{era5} HRES product. Contour lines are drawn every 80 gpm.}
@@ -979,43 +979,43 @@ at 500 hPa assimilated (black line) and fitted with 95\% \glspl{ci} (red line an
 
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/f26.pdf}
-        \caption{\gls{emm} effects of each of the weather regimes on the (latitude-weighted) spatially averaged variance-balanced residuals $\hat{\varepsilon}^*$. Points indicate estimate and lines the 95\% \glspl{ci}. Confidence intervals excluding 0 imply statistical significance.}
+        \includegraphics[scale=.8]{fig/WCD/f26.pdf}
+        \caption{\gls{emm} effects of each of the \glspl{wr} on the (latitude-weighted) spatially averaged variance-balanced residuals $\hat{\varepsilon}^*$. Points indicate estimate and lines the 95\% \glspl{ci}. Confidence intervals excluding 0 imply statistical significance.}
         \label{fig:WREffectWhole}
     \end{figure}
 
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/f27.pdf}
+        \includegraphics[scale=.8]{fig/WCD/f27.pdf}
         \caption{Pearson correlation coefficient $r$ between the variance-balanced residuals $\hat{\varepsilon}^*$ and the vertically averaged relative humidity within the layers indicated in the legend based on annual time slices. Line indicates median whereas shading indicates interquartile range of values across grid points. All statistical moments are latitude-weighted.}
         \label{fig:RHAlt}
     \end{figure}
 
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/figComb/Composite_corr_mapsSupp.pdf}
+        \includegraphics[scale=.8]{fig/WCD/figComb/Composite_corr_mapsSupp.pdf}
         \caption{Pearson correlation coefficient $r$ between the variance-balanced residuals $\hat{\varepsilon}^*$ and the variable indicated atop the facets. See text for full definition of the variables. Correlation is calculated for the time period 1950-2024.}
         \label{fig:corrMapAlt}
     \end{figure}
 
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/f29.pdf}
-        \caption{Standard deviation of \gls{zg500} across each of the eight weather regimes. The patterns are shown as dark green contours e.g. in \cref{fig:WREffect}.}
+        \includegraphics[scale=.8]{fig/WCD/f29.pdf}
+        \caption{Standard deviation of \gls{zg500} across each of the eight \glspl{wr}. The patterns are shown as dark green contours e.g. in \cref{fig:WREffect}.}
         \label{fig:WRStd}
     \end{figure}
 
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/f30.pdf}
-        \caption{Difference in weather regime specific estimated marginal means between the simple model~\eqref{eq:WRonly} and the full model~\eqref{eq:fullMod}. Positive (negative) values indicate higher (lower) values in the simple model. Values shown for \gls{fdr}-adjusted p-values below 5\%. Green contours display the composite mean Z500 maps for each of the weather regimes based on the \gls{era5} HRES product. Contour lines are drawn every 80 gpm.}
+        \includegraphics[scale=.8]{fig/WCD/f30.pdf}
+        \caption{Difference in \gls{wr}-specific estimated marginal means between the simple model~\eqref{eq:WRonly} and the full model~\eqref{eq:fullMod}. Positive (negative) values indicate higher (lower) values in the simple model. Values shown for \gls{fdr}-adjusted p-values below 5\%. Green contours display the composite mean Z500 maps for each of the \glspl{wr} based on the \gls{era5} HRES product. Contour lines are drawn every 80 gpm.}
         \label{fig:EMMWR_diff}
     \end{figure}
 
     \begin{figure}
         \centering
-        \includegraphics[scale=.75]{fig/WCD/figComb/composite_corr_maps_wcb.pdf}
-        \caption{Pearson correlation coefficient $r$ between the variance-balanced residuals $\hat{\varepsilon}^*$ and instantaneous occurrence of a warm conveyor belt in the lifecycle stage indicated atop the columns and at the temporal lag indicated aside each row. Correlation is calculated for the time period 1979-2024.}
+        \includegraphics[scale=.8]{fig/WCD/figComb/composite_corr_maps_wcb.pdf}
+        \caption{Pearson correlation coefficient $r$ between the variance-balanced residuals $\hat{\varepsilon}^*$ and instantaneous occurrence of a \gls{wcb} in the lifecycle stage indicated atop the columns and at the temporal lag indicated aside each row. Correlation is calculated for the time period 1979-2024.}
         \label{fig:corrMapWCB}
     \end{figure}
 
