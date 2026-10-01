@@ -101,7 +101,7 @@ perturbations with singular vectors to ensure sufficient spread along the
 most unstable directions in particular.
 
 That the observation and assimilation uncertainties are genuinely distinct
-from the most unstable directionsis itself a result of
+from the most unstable directions is itself a result of
 \cref{ch:weatherRegimes}. The regime-dependent assimilation uncertainty found
 there does not single out any regimes as particularly uncertain, as would be
 expected if the differences in local attractor geometry reported in other
@@ -126,7 +126,7 @@ necessitates singular vectors in the operational setting.
 A natural systematic extension of the work of \cref{ch:weatherRegimes}
 would be to study the ensemble spread once singular vectors are included
 and how the flow-dependency of this spread looks if \emph{only}
-singular vectores were used.
+singular vectors were used.
 
 \medskip
 
@@ -193,7 +193,7 @@ near zero. \gls{spp} perturbs the uncertain parameters more selectively
 and may align better with the relevant directions, e.g.~by varying initiation
 thresholds, but whether either
 scheme activates the dynamically unstable subspace remains largely untested.
-Future work could explore this questions along a hierarchy of models with
+Future work could explore this question along a hierarchy of models with
 the simplest ones offering the most direct assessment of attractor structure.
 This coincides with the natural extension of the inquiry into stochastic
 inertia, which would consider other kinds of noise---multiplicative like
@@ -201,9 +201,9 @@ inertia, which would consider other kinds of noise---multiplicative like
 
 \medskip
 
-Whether the insighty gained from the low-order dynamical-systems perspective
+Whether the insights gained from the low-order dynamical-systems perspective
 translate to the impacts
-of stochasticitiy in full-scale models also hinges on treating the additive
+of stochasticity in full-scale models also hinges on treating the additive
 noise in the simple system as a stand-in for
 stochastic parametrization of model error. This identification, however,
 deserves scrutiny.
@@ -243,8 +243,8 @@ its pivotal role determining whether assimilation ensembles
 truly add predictive value or are \enquote{just} an efficient way of
 denoising. Since \gls{eda} is just one way of carrying out this exploration,
 the consistency of the results of \cref{ch:weatherRegimes} across other
-assimilation systems is a worthwile task. A related question pertains to the
-precise way in which observation perturbations are added durig assimilation;
+assimilation systems is a worthwhile task. A related question pertains to the
+precise way in which observation perturbations are added during assimilation;
 drawing from a zero-mean Gaussian distribution as performed for the
 \gls{eda} is a design choice that may not be optimal in all cases and dedicated
 experiments could explore what impacts other choices entail.
@@ -270,7 +270,7 @@ and agnostic with respect to the metric space considered, the same principle
 can be applied
 in a state space like in \cref{ch:stochasticInertia} or to other variables to
 identify other kinds of coherent
-structures or to assess the coherence of strucutres identified by other
+structures or to assess the coherence of structures identified by other
 means like the geophysical trajectory clustering methods discussed in
 \cref{sec:intro_wcb_def}.
 
@@ -280,7 +280,7 @@ basis of individual trajectories. \Cref{ch:coherence} has shown that much
 can be learned by considering coherent sets of trajectories and adopting that
 view in sensitivity studies for \glspl{wcb} or blockings more generally may
 yield further important insights into the propagation of uncertainty. The
-construction of such coherent sets suggest that they are kinematically robust
+construction of such coherent sets suggests that they are kinematically robust
 to perturbations, so studying how their dynamical properties change across
 their life cycle between different experiment realizations may allow comparing
 them in a more appropriate object-centered way.
@@ -323,6 +323,38 @@ exists against which to calibrate. Coarse, deterministic model behaviour may
 therefore carry more information about the likely effect of a
 parametrization than is commonly assumed.
 
+\medskip
+
+Both levers act on \emph{practical} predictability: they can narrow the gap
+to the \emph{intrinsic} limit discussed in
+\cref{sec:intro_predictability_chaos}, but not overcome it. How large this gap
+is---and hence how much can be gained by reducing initial-condition or model
+error---is itself flow-dependent. The state-space perspective of this thesis
+suggests that it is large where neighbouring states are separated strongly on
+the scale of the realistic initial uncertainty, as near the stable manifold
+of a saddle like the fixed point underlying \emph{stochastic inertia} in
+\cref{ch:stochasticInertia}. With a single unstable dimension, this manifold
+has codimension one and locally partitions the state space: an ensemble whose
+spread straddles it is split along the two branches of the unstable manifold
+and loses its coherence, whereas an ensemble of much smaller spread remains
+on one side and stays coherent. In a deterministic low-order model, the intrinsic limit is formally
+unbounded, as the time for an error to saturate diverges with vanishing
+initial amplitude; under the coarse-graining reading of the noise discussed
+above, the stochastic forcing supplies this limit, since an ensemble started
+from a single state disperses nonetheless. The decisive quantity is thus not the
+infinitesimal growth rate---under uniform exponential growth, reducing the
+initial error by a given factor gains \emph{less} time the faster the
+growth---but how strongly the divergence depends on the perturbation
+amplitude. Since the realistic initial uncertainty is, by the results of
+\cref{ch:weatherRegimes}, largely independent of the unstable directions, the
+size of the gap is set jointly by the flow and the observing system. The
+coherent-set framework of \cref{ch:coherence} offers a way to diagnose it:
+applied in state space to ensembles of decreasing initial spread, it would
+distinguish situations in which coherence is recovered as the spread
+shrinks---where improved observations and assimilation pay off most---from
+those in which it is lost regardless, where predictability is already close
+to its intrinsic limit.
+
 These implications become particularly salient---as has been shown in this
 thesis---for blockings and \glspl{wcb}, which are both highly sensitive to
 perturbations and major sources of forecast uncertainty. The research directions
@@ -341,10 +373,8 @@ context has been assessed.
 Finally, the focus throughout has been on the present-day atmosphere as
 represented in reanalysis and idealised models, with no use of
 climate-model output or climate-scale data. Given the demonstrated
-relevance of moist processes and unresolved physics for blocking---both of
-which behave
-differently under a changing climate and at the coarser resolutions typical
-of climate models---extending the analysis to that setting is a natural and
+relevance of moist processes and unresolved physics for blocking---whose
+representation is tuned to our current climate---extending the analysis to that setting is a natural and
 important next step. This perspective is partially inherent to the
 dynamical systems approach of \cref{ch:stochasticInertia}, since the effects
 of noise on blockings have often been assessed in climate models, but
